@@ -6,7 +6,7 @@
 
 *Edit: Hao ZHAN*
 
-*Update: 06/08/2020*
+*Update: 06/12/2020*
 
 ---
 
@@ -58,15 +58,15 @@
 
 ## 4.项目成员
 
-王茂霖：第2章、第3章内容的编辑			
+[王茂霖](https://github.com/mlw67)：第2章、第3章内容的编辑			
 
-李一飞：第2章、第3章内容的编辑
+[李一飞](https://github.com/leafy-lee)：第2章、第3章内容的编辑
 
-杨昱文：部分内容的编辑
+[杨昱文](https://github.com/youngfish42)：部分内容的编辑
 
-谢文睿：技术支持
+[谢文睿](https://github.com/Sm1les)：技术支持
 
-詹	好：项目规划与统筹；第2章、第3章内容的编辑
+[詹	好](https://github.com/zhanhao93)：项目规划与统筹负责；第2章、第3章内容的编辑
 
 
 

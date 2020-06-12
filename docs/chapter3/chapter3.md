@@ -16,13 +16,9 @@
 
 这里用 $R^2$ 空间的示例进一步介绍打散的概念，以二维空间 $R^2$ 来说，一条任意的直线 $w_1x_1+w_2x_2+b=0$ 对于任意的三个点实现的对分（二分类）的所有情形如下：
 
-<<<<<<< HEAD
+<center><img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/chapter3/img/shattering.png" width= "600"/></center>
 
 
-<center><img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/chapter3/images/shattering.png" width= "600"/></center>
-=======
-![Alt text](/Users/zhanhao/Documents/BookNotes/机器学习理论导引/前三章/宝箱书补充_Part2&3_ML67/1591338505484.png)
->>>>>>> 321475f89305b0e3e2c4a4f9bdbbab899952cda1
 
 可以发现，使用二维平面 $R^2$ 中的一条直线 $sign(wx+b)$ 可以实现三点的所有对分。
 
@@ -30,11 +26,10 @@
 
 例如，异或（XOR）问题：
 
-<<<<<<< HEAD
-<center><img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/chapter3/images/xor.png" width= "300"/></center>
-=======
-![Alt text](/Users/zhanhao/Documents/BookNotes/机器学习理论导引/前三章/宝箱书补充_Part2&3_ML67/1591343633291.png)
->>>>>>> 321475f89305b0e3e2c4a4f9bdbbab899952cda1
+
+<center><img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/chapter3/img/xor.png" width= "300"/></center>
+
+
 
 因此，根据VC维的定义， $sign(wx+b)$ 这样一个 $R^2$ 中的非齐次超平面的VC维为3。而对于齐次超平面 $sign(wx)$ ，由于其必须过原点，所以只能满足对任意两点的对分，因此其VC维为2。
 
@@ -76,17 +71,8 @@
 
 ## 部分参考文献
 
-<<<<<<< HEAD
 [1] Understanding Machine Learning：3
 
 [2] Foundations of Machine Learning：3，4
 
 [3] Statistical Learning Theory：9.2
-=======
-Understanding Machine Learning：3
-
-Foundations of Machine Learning：3，4
-
-Statistical Learning Theory：9.2
-
->>>>>>> 321475f89305b0e3e2c4a4f9bdbbab899952cda1
