@@ -39,7 +39,7 @@
 
 ### 选用的《机器学习理论导引》版本
 
-<img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/res/mlt.jpg" width="150" height= "175">
+<center><img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/res/mlt.jpg" width="300" height= "300"></center>
 
 > 版次：2020年6月第1版<br>
 
