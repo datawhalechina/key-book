@@ -39,7 +39,7 @@
 
 ### 选用的《机器学习理论导引》版本
 
-<center><img src="https://gitee.com/haozhan93/image-host/blob/master/mlt/res/mlt.jpg" width="300" height= "300"></center>
+<center><img src="http://haozhan93.gitee.io/image-host/mlt/res/mlt.jpg" width="300" height= "300"></center>
 
 > 版次：2020年6月第1版<br>
 
@@ -48,7 +48,7 @@
 | 职责 | 名单 |
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
-| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@YiwenYANG](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) |
+| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) |
 
 
 
@@ -56,8 +56,7 @@
 
 <div align=center>
 <p>扫描下方二维码，或关注公众号「Datawhale」，然后回复关键词“钥匙书”，即可加入“钥匙书读者交流群”</p>
-
-<center><img src="https://gitee.com/haozhan93/image-host/blob/master/mlt/res/qr.jpeg" width="300" height= "300"></center>
+<center><img src="http://haozhan93.gitee.io/image-host/mlt/res/qr.jpeg" width="300" height= "300"></center>
 
 ​			或者加入QQ群：704768061
 
