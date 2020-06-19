@@ -39,7 +39,7 @@
 
 ### 选用的《机器学习理论导引》版本
 
-<center><img src="https://github.com/datawhalechina/key-book/res/mlt.jpg" width="300" height= "300"></center>
+<center><img src="https://github.com/datawhalechina/key-book/raw/master/res/mlt.jpg" width="300" height= "300"></center>
 
 > 版次：2020年6月第1版<br>
 
@@ -56,7 +56,7 @@
 
 <div align=center>
 <p>扫描下方二维码，或关注公众号「Datawhale」，然后回复关键词“钥匙书”，即可加入“钥匙书读者交流群”</p>
-<center><img src="https://github.com/datawhalechina/key-book/res/qr.jpeg" width="300" height= "300"></center>
+<center><img src="https://github.com/datawhalechina/key-book/raw/master/res/qr.jpeg" width="300" height= "300"></center>
 
 ​			或者加入QQ群：704768061
 
