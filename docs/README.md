@@ -1,6 +1,6 @@
 # 钥匙书 Key-book
 
-周志华、王魏、高尉、张利军等老师所著的**《机器学习理论导引》**一书（下称《导引》），填补了国内缺少机器学习理论入门著作的遗憾。该书试图以通俗易懂的语言，为有志于学习机器学习理论和研究机器学习理论的读者提供一个入门的导引。《导引》主要涵盖七个部分，分别对应机器学习理论中的七个重要概念或理论工具，即：**可学性、（假设空间）复杂度、泛化界、稳定性、一致性、收敛率、遗憾界**。
+周志华、王魏、高尉、张利军等老师所著的《机器学习理论导引》一书（下称《导引》），填补了国内缺少机器学习理论入门著作的遗憾。该书试图以通俗易懂的语言，为有志于学习机器学习理论和研究机器学习理论的读者提供一个入门的导引。《导引》主要涵盖七个部分，分别对应机器学习理论中的七个重要概念或理论工具，即：**可学性、（假设空间）复杂度、泛化界、稳定性、一致性、收敛率、遗憾界**。
 
 《导引》是一本理论性较强的书籍，涉及大量的数学定理和各种证明。尽管撰写团队已尽可能降低了难度，但由于机器学习理论学习本身的特性，该书仍然对读者的数学背景提出了较高的要求。这难免会导致不求甚解的情形，影响学习效果；另一方面，由于篇幅所限，该书写作较为精炼，并非在各个章节都给出示例。读者每每遇到晦涩抽象之处，难免冥思苦索。
 
@@ -39,7 +39,7 @@
 
 ### 选用的《机器学习理论导引》版本
 
-<center><img src="http://haozhan93.gitee.io/image-host/mlt/res/mlt.jpg" width="300" height= "300"></center>
+<center><img src="https://github.com/datawhalechina/key-book/raw/master/res/mlt.jpg" width="300" height= "300"></center>
 
 > 版次：2020年6月第1版<br>
 
@@ -53,13 +53,11 @@
 
 
 ## 关注我们
-
 <div align=center>
 <p>扫描下方二维码，或关注公众号「Datawhale」，然后回复关键词“钥匙书”，即可加入“钥匙书读者交流群”</p>
-<center><img src="http://haozhan93.gitee.io/image-host/mlt/res/qr.jpeg" width="300" height= "300"></center>
-
-​			或者加入QQ群：704768061
+<img src="https://github.com/datawhalechina/key-book/raw/master/res/qr.jpeg" width="300" height= "300">
+<p>或者加入QQ群：704768061</p>
+</div>
 
 ## LICENSE
-
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
