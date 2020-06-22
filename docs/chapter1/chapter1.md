@@ -62,6 +62,8 @@
 
 [谢文睿](https://github.com/Sm1les)：技术支持
 
+张	雨：第2章内容的编辑
+
 [詹	好](https://github.com/zhanhao93)：项目规划与统筹负责；第2章、第3章内容的编辑
 
 
