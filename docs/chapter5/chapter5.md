@@ -57,7 +57,7 @@ $$
 
 证明是关于 $R(\mathcal{L_D})-\hat R(\mathcal{L_D})$ 的平方平均，这是因为假设稳定性是比较弱的条件，只能保证误差的期望被上界控制，因此这里只能得到关于期望的不等式。同样的，因为不涉及到概率与置信度，因此我们并不需要复杂的不等式，只需要使用简单的放缩便能够得到答案。
 
-单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简：
+单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简:
 $$
 \begin{align*}
 \frac{1}{m^2}&\Sigma_{i\neq j}\mathbb{E}_D
@@ -77,7 +77,11 @@ $$
 &\qquad+\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)-\ell(\mathcal{L_D},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}_1)]
 \end{align*}
 $$
-之后的部分在 (5.32) 式第二步实际是添加了一项 $(-\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}')+\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}'))$ 之后简单的三角不等式放缩即得到结果。
+之后的部分在 (5.32) 式第二步实际是添加了一项
+$$
+(-\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}')+\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}'))
+$$
+之后简单的三角不等式放缩即得到结果。
 
 其他地方的证明都非常朴素的放缩和化简，至此，证明的难点部分就讲述完成了。
 
