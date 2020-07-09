@@ -49,7 +49,7 @@ $$
 
 
 
-## 3.【证明补充】假设稳定性与泛化上界 $size(c)$
+## 3.【证明补充】假设稳定性与泛化上界
 
 **P94**中，定义5.2讨论了**假设稳定性**与泛化性的关系。这里重新梳理一下假设稳定性和泛化性究竟在哪一步证明过程中得以关联。
 
@@ -57,26 +57,28 @@ $$
 
 证明是关于 $R(\mathcal{L_D})-\hat R(\mathcal{L_D})$ 的平方平均，这是因为假设稳定性是比较弱的条件，只能保证误差的期望被上界控制，因此这里只能得到关于期望的不等式。同样的，因为不涉及到概率与置信度，因此我们并不需要复杂的不等式，只需要使用简单的放缩便能够得到答案。
 
-单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简:
+单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简：
 $$
-\begin{array}{l}
-\left.\frac{1}{m^{2}} \Sigma_{i \neq j} \mathbb{E}_{D}\left[R\left(\mathcal{L}_{D}\right)-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{i}\right)\right)\left(R\left(\mathcal{L}_{D}\right)-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{j}\right)\right)\right] \\
-\left.=2 \cdot C_{m}^{2} \cdot \frac{1}{m^{2}} \mathbb{E}_{D}\left[R\left(\mathcal{L}_{D}\right)-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{i}\right)\right)\left(R\left(\mathcal{L}_{\mathcal{D}}\right)-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{j}\right)\right)\right] \\
-\left.=\frac{m-1}{m} \mathbb{E}_{D}\left[R\left(\mathcal{L}_{\mathcal{D}}\right)-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right)\left(R\left(\mathcal{L}_{\mathcal{D}}\right)-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{2}\right)\right)\right] \\
-\left.\leq \mathbb{E}_{D}\left[R\left(\mathcal{L}_{\mathcal{D}}\right)-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right)\left(R\left(\mathcal{L}_{\mathcal{D}}\right)-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{2}\right)\right)\right] \\
-\left.=\mathbb{E}_{D}\left[\mathbb{E}_{z \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}\right)\right]-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right)\left(\mathbb{E}_{z^{\prime} \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}^{\prime}\right)\right]-\ell\left(\mathcal{L}_{D}, \mathbf{z}_{2}\right)\right)\right] \\
-=\left(\mathbb{E}_{z \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}\right)\right]-\mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right]\right)\left(\mathbb{E}_{z^{\prime} \sim D}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}^{\prime}\right)\right]-\mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{2}\right)\right]\right) \\
-=\mathbb{E}_{z \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}\right)\right] \cdot \mathbb{E}_{z^{\prime} \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}^{\prime}\right)\right]-\mathbb{E}_{z \sim \mathcal{D}}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}\right)\right] \cdot \mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{2}\right)\right] \\
-\left.\quad+\mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{\mathbf{1}}\right)\right] \cdot \mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{2}\right)\right]-\mathbb{E}_{z^{\prime} \sim D}\left[\ell\left(\mathcal{L}_{D}, \mathbf{z}^{\prime}\right)\right] \cdot \mathbb{E}_{D}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right]\right] \\
-=\mathbb{E}_{z^{\prime}, z, \mathcal{D}}\left[\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}^{\prime}\right)-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{2}\right)\right. \\
-\left.\quad+\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{2}\right)-\ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}^{\prime}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}_{1}\right)\right]
+\begin{array}{I}
+\frac{1}{m^2}\Sigma_{i\neq j}\mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\[1mm]
+=2\cdot C_m^2\cdot\frac{1}{m^2}\mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\[1mm]
+=\frac{m-1}{m}\mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
+\leq \mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
+=\mathbb{E}_D
+[\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\ell(\mathcal{L_D},\mathbf{z}_1))(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
+=(
+\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)])(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)])\\[1mm]
+=\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]\\[1mm]
+\qquad\quad+\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]-\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\\[1mm]
+=\mathbb{E}_{z',z, \mathcal{D}}[\ell(\mathcal{L_D},\mathbf{z})\ell(\mathcal{L_D},\mathbf{z}')-\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)\\[1mm]
+\qquad\quad+\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)-\ell(\mathcal{L_D},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}_1)]
 \end{array}
 $$
-之后的部分在 (5.32) 式第二步实际是添加了一项:
-$$
-\left(-\ell\left(\mathcal{L}_{\mathcal{D}^{1 *}, \mathbf{z}}, \mathbf{z}^{\prime}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}^{\prime}\right)+\ell\left(\mathcal{L}_{\mathcal{D}^{* *}}, \mathbf{z}^{\prime}\right) \ell\left(\mathcal{L}_{\mathcal{D}}, \mathbf{z}^{\prime}\right)\right)
-$$
-之后简单的三角不等式放缩即得到结果。
+之后的部分在 (5.32) 式第二步实际是添加了一项 $(-\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}')+\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}'))$ 之后简单的三角不等式放缩即得到结果。
 
 其他地方的证明都非常朴素的放缩和化简，至此，证明的难点部分就讲述完成了。
 
@@ -84,7 +86,7 @@ $$
 
 这里实际上并不是简单的泛化界的关系，实际上给出了经验误差与泛化误差的差距的平方平均的界，这是因为假设稳定性并不是非常强的结论，事实上假设稳定性就是为了放松均匀稳定性这个较强的条件得到的。
 
-两个性质联系的关键点在 (5.32) 式，通过插项的三角不等式将两个数据集下 $\mathcal{D}$, $\mathcal{D}^{1,z}$ 的损失函数复杂乘法关系转化成简单的加减法，再通过假设稳定性的上界得到最终需要的上界。
+两个性质联系的关键点在 (5.32) 式，通过插项的三角不等式将两个数据集下 $\mathcal{D},\mathcal{D}^{1,z}$ 的损失函数复杂乘法关系转化成简单的加减法，再通过假设稳定性的上界得到最终需要的上界。
 
 
 
@@ -96,17 +98,16 @@ $$
 
 这里要回顾一下不可知 PAC 可学的概念：
 
-对所有分布 D，若存在学习算法 £与多项式函数 $p o l y(\cdot,,, \cdot, \cdot),$ 使得对于任何 $m \geq \operatorname{poly}(1 / \epsilon, 1 / \delta, \operatorname{size}(\mathbf{x}), \operatorname{size}(c)) \mathcal{L}$ 输
-出的假设能满足:
+对所有分布 $\mathcal{D}$ ，若存在学习算法 $\mathcal{L}$ 与多项式函数 $poly(\cdot,\cdot,\cdot,\cdot)$ ，使得对于任何 $m\geq poly(1/\epsilon,1/\delta,size(\mathbf{x}),size(c))$ $\mathcal{L}$ 输出的假设能满足
 $$
-P\left(E(h)-\min _{h^{\prime} \in \mathcal{H}} E\left(h^{\prime}\right) \leq \epsilon\right) \geq 1-\delta
+   	P\big(E(h)-min_{h'\in\mathcal{H}}E(h')\leq\epsilon\big)\geq1-\delta
 $$
-这里的证明实际上就是利用经验误差与泛化误差之间的差距界将两个函数的泛化风险差距用三角不等式放缩控制住。即,
+
+这里的证明实际上就是利用经验误差与泛化误差之间的差距界将两个函数的泛化风险差距用三角不等式放缩控制住。即：
 $$
-\begin{array}{l}
-\left|R\left(\mathcal{L}_{D}\right)-R\left(h^{*}\right)\right| \leq \\
-\quad\left|R\left(\mathcal{L}_{D}\right)-\hat{R}\left(\mathcal{L}_{D}\right)\right|+\left|\hat{R}\left(\mathcal{L}_{D}\right)-\hat{R}\left(h^{*}\right)\right|+\left|\hat{R}\left(h^{*}\right)-R\left(h^{*}\right)\right|
-\end{array}
+\begin{align*}
+|R(&\mathcal{L}_D)-R(h^*)|\leq\\&|R(\mathcal{L}_D)-\hat R(\mathcal{L}_D)|+|\hat R(\mathcal{L}_D)-\hat R(h^*)|+|\hat R(h^*)-R(h^*)|
+\end{align*}
 $$
 三个部分分别使用三个上界（均匀稳定性带来的泛化上界，$h^*$ 定义带来的界，最小泛化风险函数的泛化上界）将其控制住。
 
