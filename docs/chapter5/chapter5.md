@@ -59,24 +59,24 @@ $$
 
 单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简：
 $$
-\begin{array}{I}
-\frac{1}{m^2}\Sigma_{i\neq j}\mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\[1mm]
-=2\cdot C_m^2\cdot\frac{1}{m^2}\mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\[1mm]
-=\frac{m-1}{m}\mathbb{E}_D
+\begin{aligned}
+&\frac{1}{m^2}\Sigma_{i\neq j}\mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\
+&=2\cdot C_m^2\cdot\frac{1}{m^2}\mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\
+&=\frac{m-1}{m}\mathbb{E}_D
 [R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
-\leq \mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
-=\mathbb{E}_D
-[\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\ell(\mathcal{L_D},\mathbf{z}_1))(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
-=(
-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)])(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)])\\[1mm]
-=\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]\\[1mm]
-\qquad\quad+\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]-\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\\[1mm]
-=\mathbb{E}_{z',z, \mathcal{D}}[\ell(\mathcal{L_D},\mathbf{z})\ell(\mathcal{L_D},\mathbf{z}')-\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)\\[1mm]
-\qquad\quad+\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)-\ell(\mathcal{L_D},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}_1)]
-\end{array}
+&\leq \mathbb{E}_D
+[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[2mm]
+&=\mathbb{E}_D
+[\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\ell(\mathcal{L_D},\mathbf{z}_1))(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[2mm]
+&=(
+\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)])(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)])\\[2mm]
+&=\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]\\[2mm]
+&\qquad\quad+\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]-\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\\[2mm]
+&=\mathbb{E}_{z',z, \mathcal{D}}[\ell(\mathcal{L_D},\mathbf{z})\ell(\mathcal{L_D},\mathbf{z}')-\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)\\[2mm]
+&\qquad\quad+\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)-\ell(\mathcal{L_D},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}_1)]
+\end{aligned}
 $$
 之后的部分在 (5.32) 式第二步实际是添加了一项 $(-\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}')+\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}'))$ 之后简单的三角不等式放缩即得到结果。
 
@@ -105,9 +105,9 @@ $$
 
 这里的证明实际上就是利用经验误差与泛化误差之间的差距界将两个函数的泛化风险差距用三角不等式放缩控制住。即：
 $$
-\begin{align*}
+\begin{aligned}
 |R(&\mathcal{L}_D)-R(h^*)|\leq\\&|R(\mathcal{L}_D)-\hat R(\mathcal{L}_D)|+|\hat R(\mathcal{L}_D)-\hat R(h^*)|+|\hat R(h^*)-R(h^*)|
-\end{align*}
+\end{aligned}
 $$
 三个部分分别使用三个上界（均匀稳定性带来的泛化上界，$h^*$ 定义带来的界，最小泛化风险函数的泛化上界）将其控制住。
 
