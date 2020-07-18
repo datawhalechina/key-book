@@ -14,7 +14,7 @@
 
    首先需要补充说明「经验误差」和「泛化误差」的概念：
 
-   - 泛化误差：泛化误差其实是一个理想化的误差概念。计算泛化误差需要知道样本的真实分布，而在大多数时候，数据样本的真实分布情况并不为人所知。由于人们所获得的信息大多由**采样（sampling）\**后的样本提供，因此在这种缺乏真实分布信息情况下，无法求得\**泛化误差**。而正是因为泛化误差的不可求，才迫使人们去寻找一种替代的方法来定义学习算法的误差。这一替代品就是**经验误差**。
+   - 泛化误差：泛化误差其实是一个理想化的误差概念。计算泛化误差需要知道样本的真实分布，而在大多数时候，数据样本的真实分布情况并不为人所知。由于人们所获得的信息大多由**采样（sampling）**后的样本提供，因此在这种缺乏真实分布信息情况下，无法求得**泛化误差**。而正是因为泛化误差的不可求，才迫使人们去寻找一种替代的方法来定义学习算法的误差。这一替代品就是**经验误差**。
 - 经验误差：经验误差是指学习算法在样本上的误差。当数据与映射关系确定时，便能够求得具体的经验误差。
    
    通过大数定理可以进一步讨论经验误差与泛化误差的关系。当样本量很大时，数据的采样分布接近于真实分布，经验误差的极限也就会趋于泛化误差。另一方面，若将每一个采样的样本都视为随机变量，那么经验误差的期望也就等于泛化误差：
@@ -29,7 +29,7 @@
 
    $$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] = \frac{1}{m} m \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] $$
 
-   $$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{D \sim  D^{m}}{\mathrm{E}}[1_{(h(x)} \in(x)}}]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
+   $$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{D \sim  D^{m}}{\mathrm{E}}[1_{(h(x)} \in(x)]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
 
    等式左右相等，证毕。
 
