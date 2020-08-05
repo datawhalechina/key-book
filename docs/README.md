@@ -27,7 +27,8 @@
 
 ### 目录
 
-- 第1章 [绪论](https://datawhalechina.github.io/key-book/#/chapter1/chapter1)
+- 第0章 [绪论](https://datawhalechina.github.io/key-book/#/chapter0/chapter0)
+- 第1章 [预备知识](https://datawhalechina.github.io/key-book/#/chapter1/chapter1)
 - 第2章 [可学性](https://datawhalechina.github.io/key-book/#/chapter2/chapter2)
 - 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3/chapter3)
 - 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4/chapter4)
@@ -48,7 +49,7 @@
 | 职责 | 名单 |
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
-| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) |
+| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) | 
 
 
 

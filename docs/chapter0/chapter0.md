@@ -54,9 +54,9 @@
 
 ## 4.项目成员
 
-[王茂霖](https://github.com/mlw67)：第2章、第3章内容的编辑			
+[王茂霖](https://github.com/mlw67)：第2、3、4、5、6、7章内容的编辑			
 
-[李一飞](https://github.com/leafy-lee)：第2章、第3章内容的编辑
+[李一飞](https://github.com/leafy-lee)：第2、3、4、5、6、7章内容的编辑
 
 [杨昱文](https://github.com/youngfish42)：部分内容的编辑
 
@@ -64,7 +64,10 @@
 
 张	雨：第2章内容的编辑
 
-[詹	好](https://github.com/zhanhao93)：项目规划与统筹负责；第2章、第3章内容的编辑
+[@J.Hu](https://github.com/inlmouse)：第一章内容的编辑
+
+[詹	好](https://github.com/zhanhao93)：项目规划与统筹负责；全书内容的编辑
+
 
 
 
