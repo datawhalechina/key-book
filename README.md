@@ -34,7 +34,7 @@
 - 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4/chapter4)
 - 第5章 [稳定性](https://datawhalechina.github.io/key-book/#/chapter5/chapter5)
 - 第6章 [一致性]((https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
-- 第7章 [收敛率]((https://datawhalechina.github.io/key-book/#/chapter7/chapter7))
+- 第7章 [收敛率](https://datawhalechina.github.io/key-book/#/chapter7/chapter7)
 - 第8章 遗憾界
 - 第9章 总结
 
