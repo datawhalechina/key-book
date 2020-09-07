@@ -33,10 +33,10 @@
 - 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3/chapter3)
 - 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4/chapter4)
 - 第5章 [稳定性](https://datawhalechina.github.io/key-book/#/chapter5/chapter5)
-- 第6章 一致性（2020/08/10）
-- 第7章 收敛率（2020/08/10）
-- 第8章 遗憾界（2020/09/10）
-- 第9章 总结（2020/09/10）
+- 第6章 [一致性]((https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
+- 第7章 [收敛率]((https://datawhalechina.github.io/key-book/#/chapter7/chapter7))
+- 第8章 遗憾界
+- 第9章 总结
 
 ### 选用的《机器学习理论导引》版本
 
