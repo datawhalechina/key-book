@@ -33,7 +33,7 @@
 - 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3/chapter3)
 - 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4/chapter4)
 - 第5章 [稳定性](https://datawhalechina.github.io/key-book/#/chapter5/chapter5)
-- 第6章 [一致性]((https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
+- 第6章 [一致性](https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
 - 第7章 [收敛率](https://datawhalechina.github.io/key-book/#/chapter7/chapter7)
 - 第8章 遗憾界
 - 第9章 总结
@@ -49,7 +49,7 @@
 | 职责 | 名单 |
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
-| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) | 
+| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) |
 
 
 
