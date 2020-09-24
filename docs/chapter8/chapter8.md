@@ -4,7 +4,7 @@
 
 ## 第8章：遗憾界
 
-*Edit: 詹好*
+*Edit: Hao ZHAN*
 
 *Update: 09/23/2020*
 
