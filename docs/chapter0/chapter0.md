@@ -1,4 +1,4 @@
-# 第一章：序言
+# 第0章：序言
 
 *Edit: Hao ZHAN*
 
@@ -60,11 +60,11 @@
 
 [杨昱文](https://github.com/youngfish42)：部分内容的编辑
 
-[谢文睿](https://github.com/Sm1les)：技术支持
+[Sm1les](https://github.com/Sm1les)：鼓励师
 
 张	雨：第2章内容的编辑
 
-[@J.Hu](https://github.com/inlmouse)：第一章内容的编辑
+[J.Hu](https://github.com/inlmouse)：第一章内容的编辑
 
 [詹	好](https://github.com/zhanhao93)：项目规划与统筹负责；全书内容的编辑
 
