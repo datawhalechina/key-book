@@ -8,6 +8,8 @@
 
 本章的内容围绕学习理论中的收敛率（convergence rate）展开。具体来说，将会考察确定优化下的收敛率问题，以及随机优化下的收敛率问题，并在最后分析支持向量机的实例。
 
+
+
 ## 1. 【概念补充】凸函数
 
 回顾第一章中的介绍，**凸函数**是函数曲线围成区域为凸集的函数，即
@@ -31,6 +33,8 @@ $$
 \forall y , f(x^*)\leq f((1-t)x^*+ty)\leq (1-t)f(x^*)+tf(y)\\\Rightarrow f(x^*)\leq f(y)
 $$
 
+
+
 ## 2.【公式说明】$l$-Lipschitz 
 
 由 $l$-Lipschitz 的定义式 (1.7) 可以推出题目给的梯度条件:
@@ -40,6 +44,8 @@ f(z)-f(x) \leq l\cdot|z-x|
 \\\Rightarrow lim_{z-x\rightarrow 0}\frac{|f(z)-f(x)|}{|z-x|}\leq l
 \\\Rightarrow||\nabla f(u)||\leq l
 $$
+
+
 
 ## 3. 【概念补充】强凸函数
 
@@ -54,7 +60,9 @@ $$
 
 强凸函数在定义式中可以看出有了一个关于 $\theta$ 和 $||x-z||^2$ 的项，通过简单的化简为 $f(z)\geq f(x)+\nabla f(x)^T(z-x)+\frac{\lambda}{2}||x-z||^2$ 就可以得知，这表明了函数不仅在切线的上方，还保持有二阶的距离，这一点可以从泰勒展开得到更深入地体现。
 
-   强凸函数与凸函数的区别为，凸函数只关心二阶 Hessian 矩阵半正定，而强凸函数提出了更高的要求，对 $f$ 的二阶 Hessian 矩阵有 ：$\exists m>0, \nabla^{2} f(x)-m I \succeq 0$    这里的 $A \succeq \theta$ 代表A是半正定矩阵
+强凸函数与凸函数的区别为，凸函数只关心二阶 Hessian 矩阵半正定，而强凸函数提出了更高的要求，对 $f$ 的二阶 Hessian 矩阵有 ：$\exists m>0, \nabla^{2} f(x)-m I \succeq 0$    这里的 $A \succeq \theta$ 代表A是半正定矩阵
+
+
 
 ## 4.【公式推导】公式(7.34)
 
