@@ -32,7 +32,7 @@ $$ \mathrm{E}[\widehat{E}(h ; D)]=E(h ; \mathcal{D}) $$
 
 $$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] = \frac{1}{m} m \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] $$
 
-$$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{D \sim  D^{m}}{\mathrm{E}}[1_{(h(x)} \in(x)]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
+$$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
 
 等式左右相等，证毕。
 

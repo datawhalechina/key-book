@@ -23,6 +23,8 @@
 ### 在线阅读（内容实时更新）
 地址：https://datawhalechina.github.io/key-book/
 
+### 最新版PDF获取地址
+https://github.com/datawhalechina/key-book/releases
 
 
 ### 目录
@@ -36,7 +38,6 @@
 - 第6章 [一致性](https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
 - 第7章 [收敛率](https://datawhalechina.github.io/key-book/#/chapter7/chapter7)
 - 第8章 [遗憾界](https://datawhalechina.github.io/key-book/#/chapter8/chapter8)
-- 第9章 总结
 
 ### 选用的《机器学习理论导引》版本
 
