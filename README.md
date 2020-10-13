@@ -21,7 +21,7 @@
   此外，由于《导引》一书的第一章节为基础知识补遗，简明易懂，因此《钥匙书》的内容从《导引》的第二章开始。
 
 ### 在线阅读（内容实时更新）
-地址：https://datawhalechina.github.io/key-book/
+https://datawhalechina.github.io/key-book/
 
 ### 最新版PDF获取地址
 https://github.com/datawhalechina/key-book/releases
