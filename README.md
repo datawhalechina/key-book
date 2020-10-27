@@ -61,5 +61,17 @@ https://github.com/datawhalechina/key-book/releases
 <p>或者加入QQ群：704768061</p>
 </div>
 
+
+## 相关工作
+
+周志华老师所著《机器学习》（西瓜书）是机器学习领域的经典入门教材之一。
+
+[Datawhale 开源组织](https://github.com/datawhalechina) 亦在其基础上进行了解读和补充。
+
+请参考[「南瓜书」](https://github.com/datawhalechina/pumpkin-book)项目，在线阅读地址：https://datawhalechina.github.io/pumpkin-book
+
+
+
 ## LICENSE
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
