@@ -23,6 +23,9 @@
 ### 在线阅读（内容实时更新）
 https://datawhalechina.github.io/key-book/
 
+### Github地址
+https://github.com/datawhalechina/key-book
+
 ### 最新版PDF获取地址
 https://github.com/datawhalechina/key-book/releases
 
@@ -51,6 +54,7 @@ https://github.com/datawhalechina/key-book/releases
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
 | **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) |
+| **致谢** | [@Drizzle-Zhang](https://github.com/Drizzle-Zhang) |
 
 
 

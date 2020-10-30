@@ -66,7 +66,7 @@
 
 [Sm1les](https://github.com/Sm1les)：鼓励师
 
-张	雨：第2章内容的编辑
+[张	雨](https://github.com/Drizzle-Zhang)：第2章部分内容的修改
 
 [J.Hu](https://github.com/inlmouse)：第一章内容的编辑
 

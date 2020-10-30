@@ -20,8 +20,8 @@
 
   此外，由于《导引》一书的第一章节为基础知识补遗，简明易懂，因此《钥匙书》的内容从《导引》的第二章开始。
 
-### 在线阅读（内容实时更新）
-地址：https://datawhalechina.github.io/key-book/
+### Github地址（内容实时更新）
+https://github.com/datawhalechina/key-book
 
 ### 最新版PDF获取地址
 https://github.com/datawhalechina/key-book/releases
@@ -51,7 +51,7 @@ https://github.com/datawhalechina/key-book/releases
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
 | **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) |
-
+| **致谢** | [@Drizzle-Zhang](https://github.com/Drizzle-Zhang) |
 
 
 ## 关注我们
