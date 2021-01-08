@@ -22,7 +22,7 @@
 
 例如，异或（XOR）问题：
 
-<center><img src="http://haozhan93.gitee.io/image-host/mlt/docs/chapter3/img/xor.png" width= "300"/></center>
+<center><img src="./chapter3/img/xor.png" width= "300"/></center>
 
 
 
