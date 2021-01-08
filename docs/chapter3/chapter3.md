@@ -12,7 +12,7 @@
 
 这里用 $R^2$ 空间的示例进一步介绍打散的概念，以二维空间 $R^2$ 来说，一条任意的直线 $w_1x_1+w_2x_2+b=0$ 对于任意的三个点实现的对分（二分类）的所有情形如下：
 
-<center><img src="http://haozhan93.gitee.io/image-host/mlt/docs/chapter3/img/shattering.png" width= "600"/></center>
+<center><img src="./chapter3/img/shattering.png" width= "600"/></center>
 
 
 
