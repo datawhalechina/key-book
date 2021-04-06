@@ -232,7 +232,7 @@ $$
 记函数$\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$，注意到实际上$a$也是变量，因而$\theta$ 与$h$无关。考察关于$h$的偏导数：
 $$
 \frac{\partial \varphi}{\partial h}  = 
-\frac{\theta e^h}{1 - \theta + \theta e^h}
+\frac{\theta e^h}{1 - \theta + \theta e^h} - \theta
 $$
 显然有：$\frac{\partial \varphi}{\partial h}|_{h=0^+} = 0$。同理使用链式法则可计算：
 $$
