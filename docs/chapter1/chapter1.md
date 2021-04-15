@@ -417,7 +417,7 @@ $$
 于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X] $及 Chernoff 一般性技巧 $\forall \lambda>0:$
 $$
 \begin{aligned}
-P\left(Z_{m}-\mu>\varepsilon\right) &<e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\
+P\left(Z_{m}-\mu\geq\varepsilon\right) &\leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\
 & = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\
 & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{n}} \mid \mathcal{F}_{m-1}\right]
 \end{aligned}
