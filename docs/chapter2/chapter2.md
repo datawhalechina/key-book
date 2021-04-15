@@ -22,19 +22,28 @@
 
 通过大数定理可以进一步讨论经验误差与泛化误差的关系。当样本量很大时，数据的采样分布接近于真实分布，经验误差的极限也就会趋于泛化误差。另一方面，若将每一个采样的样本都视为随机变量，那么经验误差的期望也就等于泛化误差：
 
-$$ \mathrm{E}[\widehat{E}(h ; D)]=E(h ; \mathcal{D}) $$
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
+$$
 
-证明过程分为两步，首先考察等式右边，泛化误差可表示为： $$ E(h ; \mathcal{D})=P_{(x, y) \sim \mathcal{D}}(h(x) \neq y)=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(h(x) \neq y)] \ $$
 
-然后考察等式左边，经验误差可表示为： $$ \widehat{E}(h ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(h\left(\boldsymbol{x}*{i}\right) \neq y*{i}\right)\ $$
-
-经验误差的期望为： $$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m}  \sum_{i=1}^{m} \underset{D \sim D^{m}}{\mathrm{E}}[1_{h(x_{i}) \neq  y_{i}}] $$ 由于样本是服从独立同分布的，所以所有样本的期望值相同，期望的平均就等于样本的期望，因此：
-
-$$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] = \frac{1}{m} m \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] $$
-
-$$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
-
-等式左右相等，证毕。
+证明过程分为两步，首先考察等式右边，泛化误差可表示为： 
+$$
+R(h ; \mathcal{D})=P_{(x, y) \sim \mathcal{D}}(h(x) \neq y)=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(h(x) \neq y)]
+$$
+然后考察等式左边，经验误差可表示为： 
+$$
+\widehat{R}(h ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)
+$$
+经验误差的期望为： 
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=\underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \underset{(x,y) \sim D}{\mathrm{E}}[\mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)]
+$$
+ 由于样本是服从独立同分布的，所以所有样本的期望值相同，期望的平均就等于样本的期望，因此：
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
+$$
+证毕。
 
 
 
