@@ -167,7 +167,7 @@ $$
 可以分两个步骤定义学习的复杂性。考虑固定学习问题的计算复杂性（由三元组 $(Z, H, \mathcal{l})$ ——学习数据集  (domain set) ，基准假设类 (benchmark hypothesis class)  和 损失函数 确定）。然后，在第二步中，我们考虑一系列此类任务的复杂度变化情况。
 
 1. 给定一个函数$f：(0,1)^2→\mathbb{N}$ ，一个任务 $(Z, H, \mathcal{l})$ 和一个学习 算法 $\mathcal{A}$ ，我们说 $\mathcal{A}$ 能在 $O(f)$ 时间内解决学习任务，如果存在某个常数 c ，对于每个 Z 上的概率分布 D ，算法 $\mathcal{A}$ 基于从分布 D 中独立同分布  (i.i.d) 采样得到的样本，给定的  $\epsilon,;\delta \in (0,1) $ ，能够满足以下条件：
-- A最多执行 $cf(\epsilon, \delta)$ 个运算后终止
-   - 表示为 $h_A$ 的 $\mathcal{A}$ 的输出在最多使用 $cf(\epsilon, \delta)$ 个示例之后即可用于预测新标签,。
-- A的输出是 PAC (probably approximately correct) 的，即不超过 $\delta$ 的错误率使结果误差不超过 $\epsilon$
+- A最多执行 $cf(\epsilon, \delta)$ 个运算后终止。
+- 表示为 $h_A$ 的 $\mathcal{A}$ 的输出在最多使用 $cf(\epsilon, \delta)$ 个示例之后即可用于预测新标签。
+- A的输出是 PAC (probably approximately correct) 的，即不超过 $\delta$ 的错误率使结果误差不超过 $\epsilon$。
 2. 考虑一系列学习问题， $(Z_n, H_n, \mathcal{l_n})_{n=1}^∞$ ，其中问题 n 由学习数据集 $Z_n$ ，假设类 $H_n$ 和损失函数 $\mathcal{l}*n$ 定义。设 $\mathcal{A}$ 为设计用于解决学习问题的学习算法这种形式。给定一个函数 $g: \mathbb{N} × (0,1)^2 \rightarrow  \mathbb{N}$, 则 $\mathcal{A}$ 的耗时是O(g)。如果对于所有 n ，A求解问题  $(Z_n, H_n, \mathcal{l_n})*{n=1}^∞$ 用时 $O(f_n)$ ，其中$f_n：(0,1)^2\rightarrow\mathbb{N}$ 定义为 $f_n(\sigma，δ)＝ g(n，\sigma，δ)$。
