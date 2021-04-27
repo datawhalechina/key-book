@@ -83,9 +83,8 @@ $$
 
 $\forall 0<r \leq s$，有：
 $$
-\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[n]{\mathbb{E}\left[|X|^{s}\right]}
+\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[r]{\mathbb{E}\left[|X|^{s}\right]}
 $$
-
 
 $Proof.$ 
 由Holder不等式：
@@ -208,7 +207,7 @@ $Proof. $
 ### 引理1 (Hoeffding 引理)
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：
 $$
-	\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right) 
+\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
 $$
 
 
@@ -232,7 +231,7 @@ $$
 记函数$\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$，注意到实际上$a$也是变量，因而$\theta$ 与$h$无关。考察关于$h$的偏导数：
 $$
 \frac{\partial \varphi}{\partial h}  = 
-\frac{\theta e^h}{1 - \theta + \theta e^h}
+\frac{\theta e^h}{1 - \theta + \theta e^h} - \theta
 $$
 显然有：$\frac{\partial \varphi}{\partial h}|_{h=0^+} = 0$。同理使用链式法则可计算：
 $$
