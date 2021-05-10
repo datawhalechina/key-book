@@ -22,19 +22,28 @@
 
 通过大数定理可以进一步讨论经验误差与泛化误差的关系。当样本量很大时，数据的采样分布接近于真实分布，经验误差的极限也就会趋于泛化误差。另一方面，若将每一个采样的样本都视为随机变量，那么经验误差的期望也就等于泛化误差：
 
-$$ \mathrm{E}[\widehat{E}(h ; D)]=E(h ; \mathcal{D}) $$
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
+$$
 
-证明过程分为两步，首先考察等式右边，泛化误差可表示为： $$ E(h ; \mathcal{D})=P_{(x, y) \sim \mathcal{D}}(h(x) \neq y)=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(h(x) \neq y)] \ $$
 
-然后考察等式左边，经验误差可表示为： $$ \widehat{E}(h ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(h\left(\boldsymbol{x}*{i}\right) \neq y*{i}\right)\ $$
-
-经验误差的期望为： $$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m}  \sum_{i=1}^{m} \underset{D \sim D^{m}}{\mathrm{E}}[1_{h(x_{i}) \neq  y_{i}}] $$ 由于样本是服从独立同分布的，所以所有样本的期望值相同，期望的平均就等于样本的期望，因此：
-
-$$ \underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] = \frac{1}{m} m \operatorname{E}*{D \sim D^{m}}[1*{h(x) \neq y}] $$
-
-$$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{(x,y) \sim  D}{\mathrm{E}}[1_{{h(x) \neq y}}]=\mathbb{E}_{(x, y) \sim  \mathcal{D}}[\mathbb{I}(h(x)\neq y)]=E(h;\mathcal{D}) $$
-
-等式左右相等，证毕。
+证明过程分为两步，首先考察等式右边，泛化误差可表示为： 
+$$
+R(h ; \mathcal{D})=P_{(x, y) \sim \mathcal{D}}(h(x) \neq y)=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(h(x) \neq y)]
+$$
+然后考察等式左边，经验误差可表示为： 
+$$
+\widehat{R}(h ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)
+$$
+经验误差的期望为： 
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=\underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \underset{(x,y) \sim D}{\mathrm{E}}[\mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)]
+$$
+ 由于样本是服从独立同分布的，所以所有样本的期望值相同，期望的平均就等于样本的期望，因此：
+$$
+\mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
+$$
+证毕。
 
 
 
@@ -158,7 +167,7 @@ $$ \Rightarrow \underset{D \sim  D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\underset{(x
 可以分两个步骤定义学习的复杂性。考虑固定学习问题的计算复杂性（由三元组 $(Z, H, \mathcal{l})$ ——学习数据集  (domain set) ，基准假设类 (benchmark hypothesis class)  和 损失函数 确定）。然后，在第二步中，我们考虑一系列此类任务的复杂度变化情况。
 
 1. 给定一个函数$f：(0,1)^2→\mathbb{N}$ ，一个任务 $(Z, H, \mathcal{l})$ 和一个学习 算法 $\mathcal{A}$ ，我们说 $\mathcal{A}$ 能在 $O(f)$ 时间内解决学习任务，如果存在某个常数 c ，对于每个 Z 上的概率分布 D ，算法 $\mathcal{A}$ 基于从分布 D 中独立同分布  (i.i.d) 采样得到的样本，给定的  $\epsilon,;\delta \in (0,1) $ ，能够满足以下条件：
-- A最多执行 $cf(\epsilon, \delta)$ 个运算后终止
-   - 表示为 $h_A$ 的 $\mathcal{A}$ 的输出在最多使用 $cf(\epsilon, \delta)$ 个示例之后即可用于预测新标签,。
-- A的输出是 PAC (probably approximately correct) 的，即不超过 $\delta$ 的错误率使结果误差不超过 $\epsilon$
+- A最多执行 $cf(\epsilon, \delta)$ 个运算后终止。
+- 表示为 $h_A$ 的 $\mathcal{A}$ 的输出在最多使用 $cf(\epsilon, \delta)$ 个示例之后即可用于预测新标签。
+- A的输出是 PAC (probably approximately correct) 的，即不超过 $\delta$ 的错误率使结果误差不超过 $\epsilon$。
 2. 考虑一系列学习问题， $(Z_n, H_n, \mathcal{l_n})_{n=1}^∞$ ，其中问题 n 由学习数据集 $Z_n$ ，假设类 $H_n$ 和损失函数 $\mathcal{l}*n$ 定义。设 $\mathcal{A}$ 为设计用于解决学习问题的学习算法这种形式。给定一个函数 $g: \mathbb{N} × (0,1)^2 \rightarrow  \mathbb{N}$, 则 $\mathcal{A}$ 的耗时是O(g)。如果对于所有 n ，A求解问题  $(Z_n, H_n, \mathcal{l_n})*{n=1}^∞$ 用时 $O(f_n)$ ，其中$f_n：(0,1)^2\rightarrow\mathbb{N}$ 定义为 $f_n(\sigma，δ)＝ g(n，\sigma，δ)$。

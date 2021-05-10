@@ -86,7 +86,6 @@ $$
 \sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[s]{\mathbb{E}\left[|X|^{s}\right]}
 $$
 
-
 $Proof.$ 
 由Holder不等式：
 $\forall p \geq 1:$
@@ -208,7 +207,7 @@ $Proof. $
 ### 引理1 (Hoeffding 引理)
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：
 $$
-	\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right) 
+\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
 $$
 
 
