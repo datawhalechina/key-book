@@ -42,7 +42,7 @@ $$
 
 
 
-## Theorem 2:  Holder 不等式
+## Theorem 2:  Hölder 不等式
 
 $\forall p, q \in \mathbb{R}^{+}, \frac{1}{p}+\frac{1}{q}=1$，则有：
 $$
@@ -123,6 +123,11 @@ $$
 \end{aligned}
 $$
 化简上式即得证。
+
+
+
+## Theorem 6: Bhatia-Davis 不等式
+
 
 
 
@@ -366,7 +371,34 @@ $$
 
 
 
-## Theorem 12: Bennett 不等式
+## Theorem 12: McDiarmid 不等式
+
+对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon>0$ 有：
+$$
+P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
+$$
+
+
+$Proof. $
+
+构造一个鞅差序列：
+$$
+D_j = \mathbb{E}[f(X)|X_1,\cdots,X_j] - \mathbb{E}[f(X)|X_1,\cdots,X_{j-1}]
+$$
+容易验证：
+$$
+f(X) - \mathbb{E}[f(X)]=\sum_{i=1}^mD_i
+$$
+且 $f$ 为差有界的，则满足 Azuma-Hoeffding 引理，代入则得到：
+$$
+	P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq 
+	\exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^mc_i^2} \right) 
+$$
+则原不等式得证。
+
+
+
+## Theorem 13: Bennett 不等式
 
 对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|<b$
 
@@ -439,33 +471,6 @@ $$
 P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
 $$
 原不等式得证。
-
-
-
-## Theorem 13: McDiarmid 不等式
-
-对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon>0$ 有：
-$$
-P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
-$$
-
-
-$Proof. $
-
-构造一个鞅差序列：
-$$
-D_j = \mathbb{E}[f(X)|X_1,\cdots,X_j] - \mathbb{E}[f(X)|X_1,\cdots,X_{j-1}]
-$$
-容易验证：
-$$
-f(X) - \mathbb{E}[f(X)]=\sum_{i=1}^mD_i
-$$
-且 $f$ 为差有界的，则满足 Azuma-Hoeffding 引理，代入则得到：
-$$
-	P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq 
-	\exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^mc_i^2} \right) 
-$$
-则原不等式得证。
 
 
 
