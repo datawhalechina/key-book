@@ -83,7 +83,7 @@ $$
 
 $\forall 0<r \leq s$，有：
 $$
-\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[r]{\mathbb{E}\left[|X|^{s}\right]}
+\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[s]{\mathbb{E}\left[|X|^{s}\right]}
 $$
 
 $Proof.$ 
