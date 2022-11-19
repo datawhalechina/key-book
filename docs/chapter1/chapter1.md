@@ -355,7 +355,8 @@ $$
 $$  
 \begin{aligned} 
 P(\bar{Y}-\mathbb{E}[\bar{Y}] \geq \varepsilon) &= P(\sum_{i=1}^m (Y_i-\mathbb{E}[Y_i]) \geq m\varepsilon)
-\\&\leq e^{-m\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\sum_{i=1}^m(Y-\mathbb{E}[Y])}\right] \\&= e^{-\lambda \varepsilon} \cdot e^{-\lambda\sum_{n=1}^\infty\mathbb{E}Y_i}\cdot\mathbb{E}\left[e^{\lambda\sum_{n=1}^\infty Y_i}\right]  
+\\&\leq e^{-m\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\sum_{i=1}^m(Y-\mathbb{E}[Y])}\right] 
+\\&= e^{-m\lambda \varepsilon} \cdot e^{-\lambda\sum_{n=1}^\infty\mathbb{E}Y_i}\cdot\mathbb{E}\left[e^{\lambda\sum_{n=1}^\infty Y_i}\right]  
 \\&=e^{-m\lambda \varepsilon} \cdot e^{-\lambda\sum_{n=1}^\infty\mathbb{E}Y_i}\cdot\prod_{l=1}^m\mathbb{E}e^{\lambda Y_i}
 \\&\leq e^{-m\lambda \varepsilon} \cdot e^{-\lambda\sum_{n=1}^\infty\mathbb{E}Y_i}\cdot\prod_{l=1}^m e^{\lambda\mathbb{E}Y_i+\frac{\mathbb{V}[Y_i](\lambda) ^2}{2(1-\lambda b)}}
 \\&= e^{-m\lambda \varepsilon} \cdot e^{\frac{(\lambda) ^2}{2(1-\lambda b)}\sum_{i=1}^m\mathbb{V}[Y_i]}
