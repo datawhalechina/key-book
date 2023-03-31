@@ -151,18 +151,22 @@ $$
 \end{aligned}
 $$
 
-将$a=b-\mathbb{E}[X]$和$b=\mathbb{E}[X]-a$带入：
-### 算术-几何平均值不等式：
+考虑算术-几何平均值不等式：
 $$
-ab \leq (\frac{a+b}{2})^2
+xy \leq (\frac{x+y}{2})^2
 $$
-化简即得证。
-  
+将$x=b-\mathbb{E}[X]$和$y=\mathbb{E}[X]-a$带入化简即得证。
 
 
-## 定理 7: Union Bound 不等式
+
+## 定理 7: Union Bound (Boole's) 不等式
+$$ P\left(X\cup Y\right) \leq P(X) + P(Y) $$
+
+$Proof.$
+$$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
+此处 $P(X \cap Y) \geq 0$.
   
-  
+
   
 ## 定理 8: Markov 不等式  
   
