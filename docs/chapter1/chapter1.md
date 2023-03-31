@@ -14,7 +14,7 @@
   
 ## 定理 1:  Jensen 不等式  
   
-对手任意凸函数 $f,$ 则有:  
+对于任意凸函数 $f,$ 则有:  
 $$  
 f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]  
 $$  
@@ -79,9 +79,9 @@ $$
   
   
   
-## 定理 4: Lyapunov 不等式  
+## 定理 4: Lyapunov 不等式
   
-$\forall 0<r \leq s$，有：  
+$\forall 0< r \leq s$，有：  
 $$  
 \sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[r]{\mathbb{E}\left[|X|^{s}\right]}  
 $$  
@@ -117,9 +117,9 @@ $Proof.$
 $$  
 \begin{aligned}  
 \mathbb{E}\left[|X+Y|^{p}\right] & {\leq}\mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\  
-&=\mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
+&= \mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
 & {\leq}\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q} \\  
-& = \left[\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^{p}\right]}{\left(\mathbb{E}\left[|X+Y|^{p}\right]\right)^{1 / p}}  
+&= \left[\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^{p}\right]}{\left(\mathbb{E}\left[|X+Y|^{p}\right]\right)^{1 / p}}  
 \end{aligned}  
 $$  
 化简上式即得证。  
@@ -127,9 +127,39 @@ $$
 
 
 ## 定理 6: Bhatia-Davis 不等式
+
+对 $X \in [a,b]$, 则有:  
+$$  
+\mathbb{V}[X] \leq (b - \mathbb{E}[X])(\mathbb{E}[X] - a) \leq \frac{(b-a)^2}{4}
+$$  
+成立。 
+
+$Proof.$ 
+因为 $a\leq X\leq b$，所以有:
+$$  
+\begin{aligned}  
+0&\leq \mathbb{E}[(b-X)(X-a)] \\
+&= -\mathbb{E}[X^2]-ab+(a+b)\mathbb{E}[X]
+\end{aligned}
+$$
+因此，
+$$  
+\begin{aligned}  
+\mathbb{V}[X] &= \mathbb{E}[X^2]-\mathbb{E}[X]^2 \\
+&\leq -ab+(a+b)\mathbb{E}[X]-\mathbb{E}[X^2] \\
+&=(b-\mathbb{E}[X])(\mathbb{E}[X]-a)
+\end{aligned}
+$$
+
+将$a=b-\mathbb{E}[X]$和$b=\mathbb{E}[X]-a$带入：
+### 算术-几何平均值不等式：
+$$
+ab \leq (\frac{a+b}{2})^2
+$$
+化简即得证。
   
-  
-  
+
+
 ## 定理 7: Union Bound 不等式
   
   
