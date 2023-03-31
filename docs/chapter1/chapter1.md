@@ -618,6 +618,20 @@ $$
 
 当取$A_t = -c_t$，$B_t = c_t$时，退化成Azuma不等式的特殊情况。
 
+定理中涉及到了超鞍（上鞍）序列的概念，该可积随机过程满足：
+$$
+\begin{aligned}
+E[X_{n+1}|X_1,\ldots,X_n] \le X_n,\quad n\in \mathbb N
+\end{aligned}
+$$
+相应地，亚鞍（下鞍）序列满足：
+$$
+\begin{aligned}
+E[X_{n+1}|X_1,\ldots,X_n] \ge X_n,\quad n\in \mathbb N
+\end{aligned}
+$$
+这里给出一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望降低。”
+
 
   
 ## 定理 16: Slud 不等式  
