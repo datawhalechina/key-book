@@ -12,7 +12,7 @@
   
   
   
-## Theorem 1:  Jensen 不等式  
+## 定理 1:  Jensen 不等式  
   
 对手任意凸函数 $f,$ 则有:  
 $$  
@@ -42,7 +42,7 @@ $$
   
   
   
-## Theorem 2:  Hölder 不等式  
+## 定理 2:  Hölder 不等式  
   
 $\forall p, q \in \mathbb{R}^{+}, \frac{1}{p}+\frac{1}{q}=1$，则有：  
 $$  
@@ -70,7 +70,7 @@ $$
   
   
   
-## Theorem 3: Cauchy-Schwarz 不等式  
+## 定理 3: Cauchy-Schwarz 不等式  
   
 特别的，$p = q = 2 $ 时，Hölder不等式退化为 Cauchy-Schwarz 不等式：  
 $$  
@@ -79,7 +79,7 @@ $$
   
   
   
-## Theorem 4: Lyapunov 不等式  
+## 定理 4: Lyapunov 不等式  
   
 $\forall 0<r \leq s$，有：  
 $$  
@@ -104,7 +104,7 @@ $$
   
   
   
-## Theorem 5: Minkowski 不等式  
+## 定理 5: Minkowski 不等式  
   
 $\forall p \geq 1,$ 有：  
 $$  
@@ -126,15 +126,15 @@ $$
 
 
 
-## Theorem 6: Bhatia-Davis 不等式
+## 定理 6: Bhatia-Davis 不等式
   
   
   
-## Theorem 7: Union Bound 不等式
+## 定理 7: Union Bound 不等式
   
   
   
-## Theorem 8: Markov 不等式  
+## 定理 8: Markov 不等式  
   
 若 $X \geq 0, \forall \varepsilon>0,$ 有：  
 $$  
@@ -150,7 +150,7 @@ $$
   
   
   
-## Theorem 9: Chebyshev 不等式  
+## 定理 9: Chebyshev 不等式  
   
 $\forall \varepsilon>0,$ 有：  
 $$  
@@ -164,7 +164,7 @@ $Proof.$
   
   
   
-## Theorem 10: Cantelli 不等式  
+## 定理 10: Cantelli 不等式  
   
 $\forall \varepsilon>0,$ 有 :  
 $$  
@@ -192,7 +192,7 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshe
   
   
   
-## Theorem 11: Chernoff 不等式  
+## 定理 11: Chernoff 不等式  
   
 $\forall \lambda>0, \varepsilon>0,$ 有 :  
 $$  
@@ -210,7 +210,7 @@ $Proof. $
   
   
   
-## Theorem 12: Hoeffding 不等式  
+## 定理 12: Hoeffding 不等式  
   
 ### 引理1 (Hoeffding 引理)  
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：  
@@ -321,7 +321,7 @@ $$
   
   
   
-## Theorem 13. McDiarmid 不等式  
+## 定理 13. McDiarmid 不等式  
   
 对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon>0$ 有：  
 $$  
@@ -348,7 +348,7 @@ $$
   
   
   
-## Theorem 13: Bennett 不等式  
+## 定理 13: Bennett 不等式  
   
 对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|<b$  
   
@@ -424,7 +424,7 @@ $$
   
   
   
-## Theorem 15: Bernstein 不等式  
+## 定理 15: Bernstein 不等式  
   
 对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b>0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
 $$  
@@ -489,11 +489,11 @@ $$
   
   
   
-## Theorem 15: Azuma 不等式  
+## 定理 15: Azuma 不等式  
   
   
   
-## Theorem 16: Slud 不等式  
+## 定理 16: Slud 不等式  
   
 若$X\sim B(m,p)$，则有：  
 $$  
@@ -505,7 +505,7 @@ $$
   
   
   
-## Theorem 17: Johnson-Lindenstrauss 引理  
+## 定理 17: Johnson-Lindenstrauss 引理  
   
 首先借用上述工具考察一个示例：  
 ### $\chi_m^2$随机变量的集中度  
@@ -547,6 +547,6 @@ $$
 $$  
 且该映射可以在多项式时间内被找到。  
   
-该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_Theorem)。  
+该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_定理)。  
   
 该定理的适用性极其广泛，例如在稀疏感知领域直接导致了约束等距性条件 (RIP条件)，即非凸的 $L_0$范数最小化问题与 $L_1$范数最小化问题等价性条件；在流形学习和优化理论中也有重要的应用。而其在学习理论中最重要的应用是对降维任务的估计。
