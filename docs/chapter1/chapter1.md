@@ -159,7 +159,7 @@ $$
 
 
 
-## 定理 7: Union Bound (Boole's) 不等式
+## 定理 7: Union Bound（Boole's）不等式
 $$ P\left(X\cup Y\right) \leq P(X) + P(Y) $$
 
 $Proof.$
@@ -167,7 +167,7 @@ $$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
 此处 $P(X \cap Y) \geq 0$.
   
 
-  
+
 ## 定理 8: Markov 不等式  
   
 若 $X \geq 0, \forall \varepsilon>0,$ 有：  
@@ -232,7 +232,7 @@ $\forall \lambda>0, \varepsilon>0,$ 有 :
 $$  
 P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
-$\forall \lambda<0, \varepsilon>0,$ 有 :  
+$\forall \lambda< 0, \varepsilon>0,$ 有 :  
 $$  
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -246,7 +246,7 @@ $Proof. $
   
 ## 定理 12: Hoeffding 不等式  
   
-### 引理1 (Hoeffding 引理)  
+### 引理1 (Hoeffding 定理)  
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：  
 $$  
 \mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)  
@@ -345,7 +345,7 @@ $$
   
 同样的，次高斯性还有一系列等价定义方式。一种不直观但是更常用的定义方式如下：$\exists (\sigma^2, b)$，s.t.$\forall |s| < 1/b$有:  
 $$  
-      \mathbb{E}[e^{s(X−\mathbb{E}[X]})]\leq \exp \left( \frac{s^2\sigma^2}{2} \right)  
+      \mathbb{E}[e^{s(X−\mathbb{E}[X])}]\leq \exp \left( \frac{s^2\sigma^2}{2} \right)  
 $$  
   
 常见的次指数分布包括:指数分布，Gamma 分布，以及**任何的有界随机变量**。  
@@ -382,9 +382,9 @@ $$
   
   
   
-## 定理 13: Bennett 不等式  
+## 定理 14: Bennett 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|<b$  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|< b$  
   
 则有，  
 $$  
@@ -417,7 +417,7 @@ $$
   
 则称序列 $Z_i$为离散鞅。  
   
-**Lemma 2** (Azuma-Hoeffding 引理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon>0$ 有：  
+**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon>0$ 有：  
 $$  
 P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$  
@@ -432,7 +432,7 @@ $$
 于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X] $及 Chernoff 一般性技巧 $\forall \lambda>0:$  
 $$  
 \begin{aligned}  
-P\left(Z_{m}-\mu>\varepsilon\right) &<e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
+P\left(Z_{m}-\mu>\varepsilon\right) &< e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
 & = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\  
 & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{m}} \mid \mathcal{F}_{m-1}\right]  
 \end{aligned}  
@@ -506,10 +506,10 @@ P(\bar{Y}-\mathbb{E}[\bar{Y}] \geq \varepsilon) &= P(\sum_{i=1}^m (Y_i-\mathbb{E
 \\&= e^{-m\lambda \varepsilon} \cdot e^{\frac{(\lambda) ^2}{2(1-\lambda b)}\sum_{i=1}^m\mathbb{V}[Y_i]}
 \end{aligned} 
 $$  
-取 $\lambda=\frac{m\varepsilon}{mb \varepsilon+\sum_{i=1}^{m} \mathbb{V}\left[Y_{i}\right]} \in[0,1 / b)$ ，原不等式得证。  
+取 $\lambda=\frac{m\varepsilon}{mb \varepsilon+\sum_{i=1}^{m} \mathbb{V}\left[Y_{i}\right]} \in[0,1/b)$ ，原不等式得证。  
   
 Note：首先，上式右端项小于 $e^{\lambda^{2} \mathrm{V}[X]},$ 这表明这一类随机变量是服从参数为 $(\sqrt{2 \mathbb{V}[X]}, 2 b)$ 的次指数分布。  
-其次，$|X-\mathbb{E}[X]|<b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
+其次，$|X-\mathbb{E}[X]|< b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
 $$  
 \begin{aligned}  
 \mathbb{E}\left[e^{\lambda(X-\mathbb{E}[X])}\right] &=1+\frac{\lambda^{2}}{2} \mathbb{V}[X]+\sum_{k=3}^{\infty} \frac{\lambda^{k} \mathbb{E}[X-\mathbb{E}[X]]^{k}}{k !} \\  
@@ -523,9 +523,102 @@ $$
   
   
   
-## 定理 15: Azuma 不等式  
+## 定理 15: Azuma（Azuma–Hoeffding） 不等式  
   
-  
+对于均值为$Z_0=\mu$的鞅差序列$\{Z_m,m\geq 1\}$，若$|Z_i-Z_{i-1}|\leq c_i$，则$\forall \varepsilon\gt 0$，有
+$$
+\begin{aligned}
+P\left(Z_{m}-\mu\geq\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
+P\left(Z_{m}-\mu\leq-\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
+\end{aligned}
+$$
+
+$Proof. $
+
+注意到Azuma不等式要求在鞍差序列上的对称界限，即$-c_i\leq Z_i-Z_{i-1}\leq c_i$。因此，如果已知的界限是非对称的，即$a_i\leq Z_i-Z_{i-1}\leq b_i$，那么为了使用Azuma不等式，我们需要选择$c_i=\max(|a_i|,|b_i|)$，这可能会浪费关于$X_t - X_{t-1}$的有界性的信息。然而，我们可以通过以下Azuma不等式的一般形式来解决这个问题。
+
+**引理 1** (Doob分解定理)：
+
+不妨让$(\Omega, \mathcal{F}, \mathbb{P})$表示一个概率空间，$I=\{0,1,2,...,N\},N\in\mathbb{N}$是一个索引集合，$(\mathcal{F}_n)_{n \in I}$是F的一个过滤器，$X=(X_n)_{n \in I}$是一个适应的随机过程，且对于任意$n \in I$，$E[|X_n|]<\infty$。则存在一个适应的随机过程$M=(M_n)_{n \in I}$和一个$A_0=0$的可积可预测的随机过程$A=(A_n)_{n \in I}$，满足：$X_n=M_n+A_n,n\in I$。
+
+详细证明参考[文章](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition/)
+
+根据Doob分解引理，我们可以将超鞍$X_t$分解成$X_t = Y_t + Z_t$，此时$\{Y_t,F_t\}$是鞍差序列，$\{Z_t,F_t\}$是一个非递增的可预测序列。在Azuma不等式的一般性形式中，有$A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，此时：
+$$
+\begin{aligned}
+-(Z_t - Z_{t-1}) + A_t \leq Y_t - Y_{t-1} \leq -(Z_t - Z_{t-1}) + B_t 
+\end{aligned}
+$$
+
+应用 Chernoff 不等式，对于$\forall\epsilon>0$，有：
+
+$$
+\begin{aligned}
+P(Y_n-Y_0 \geq \epsilon)
+& \leq \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
+& = \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
+& = \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
+\end{aligned}
+$$
+
+（1）$\left\{Y_t\right\}$是鞍差序列，因此$\mathbb{E}[Y_t - Y_{t-1} \mid \mathcal{F}_{t-1}]=0$。
+
+（2）$\left\{Z_t\right\}$是一个可预测序列，因此$-(Z_t - Z_{t-1}) + A_t$和$-(Z_t - Z_{t-1}) + B_t$都是$\mathcal{F}_{t-1}$可测量的。
+
+应用 Hoeffding 引理，有：
+$$
+\begin{aligned}
+\mathbb{E} \left[\exp \left(s(Y_t-Y_{t-1}) \mid \mathcal{F}_{t-1} \right) \right] \leq
+\exp \left(\frac{s^2 (B_t - A_t)^2}{8} \right)
+\leq
+\exp \left(\frac{s^2 c_t^2}{8} \right)
+\end{aligned}
+$$
+
+重复这一步骤，我们可以得到：
+
+$$
+\begin{aligned}
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\underset{s>0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
+\end{aligned}
+$$
+
+当$s = \frac{4 \epsilon}{\sum_{t=1}^{n}c_t^2}$时，上式右端取得极小值：
+$$
+\begin{aligned}
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+因为$X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且由$\{Z_n\}$的非增性得到$Z_n - Z_0 \leq 0$，因此由$\left\{X_n - X_0 \geq \epsilon\right\}$可推导出$\left\{Y_n - Y_0 \geq \epsilon\right\}$。
+
+因此，
+$$
+\begin{aligned}
+\text{P}(X_n-X_0 \geq \epsilon)
+\leq
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+同理可证得：
+$$
+\begin{aligned}
+\text{P}(X_n-X_0 \leq -\epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+当取$A_t = -c_t$，$B_t = c_t$时，退化成Azuma不等式的特殊情况。
+
+
   
 ## 定理 16: Slud 不等式  
   
