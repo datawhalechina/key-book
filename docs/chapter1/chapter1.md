@@ -173,9 +173,7 @@ $$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
 若 $X \geq 0, \forall \varepsilon>0,$ 有：  
 $$  
 P(X \geq \varepsilon) \leq \frac{\mathbb{E}[X]}{\varepsilon}  
-$$  
-  
-  
+$$   
   
 $Proof.$  
 $$  
@@ -190,8 +188,7 @@ $\forall \varepsilon>0,$ 有：
 $$  
 P(|X-\mathbb{E}[X]| \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\varepsilon^{2}}  
 $$  
-  
-  
+
 $Proof.$  
   
 取 $Y=(X-\mathbb{E}[X])^{2}$，则可以使用Markov 不等式证明。  
@@ -204,7 +201,6 @@ $\forall \varepsilon>0,$ 有 :
 $$  
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}  
 $$  
-  
   
 $Proof.$  
   
@@ -237,7 +233,6 @@ $$
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
   
-  
 $Proof. $  
   
 取 $Y=e^{\lambda X},$ 应用 Markov 不等式即得证。  
@@ -251,8 +246,6 @@ $Proof. $
 $$  
 \mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)  
 $$  
-  
-  
   
 $Proof. $  
 由于$e^x$为凸函数，则显然$\forall x\in[a,b]$：  
@@ -294,8 +287,7 @@ $$
 对 $m$ 个独立随机变量 $X_{i} \in\left[a_{i}, b_{i}\right],$ 令 $\bar{X}$ 为 $X_{i}$ 均值，则有：  
 $$  
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}\right)  
-$$  
-  
+$$   
   
 $Proof. $  
   
@@ -637,7 +629,7 @@ $$
 # 拓展
 
 
-  
+
 ## 定理 16: Slud 不等式  
   
 若$X\sim B(m,p)$，则有：  
@@ -659,7 +651,6 @@ $$
 P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{6})  
 $$  
   
-  
 $Proof. $  
 若$X\sim N(0,1)$，则显然$\forall \lambda > 0$：  
 $$  
@@ -676,9 +667,7 @@ $$
    P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{8})  
 $$  
 但和上面的结论没有本质区别。  
-这一结果实际上是高维情况下一个反直觉但常见的现象：这告诉我们标准的n维正态分布，随着n不断变大，这些点主要都分布在一个半径是$\sqrt{n}$的高维球面附近。 这一现象直接导致了一个更加深刻的结果。  
-  
-  
+这一结果实际上是高维情况下一个反直觉但常见的现象：这告诉我们标准的n维正态分布，随着n不断变大，这些点主要都分布在一个半径是$\sqrt{n}$的高维球面附近。 这一现象直接导致了一个更加深刻的结果。    
   
 ### Johnson-Lindenstrauss 引理  
   
