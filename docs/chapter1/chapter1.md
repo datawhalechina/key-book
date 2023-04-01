@@ -515,7 +515,7 @@ $$
   
   
   
-## 定理 15: Azuma（Azuma–Hoeffding） 不等式  
+## 定理 16: Azuma（Azuma–Hoeffding） 不等式  
   
 对于均值为$Z_0=\mu$的鞅差序列$\{Z_m,m\geq 1\}$，若$|Z_i-Z_{i-1}|\leq c_i$，则$\forall \varepsilon\gt 0$，有
 $$
