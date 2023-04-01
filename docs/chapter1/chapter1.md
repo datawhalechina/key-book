@@ -170,7 +170,7 @@ $$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
 
 ## 定理 8: Markov 不等式  
   
-若 $X \geq 0, \forall \varepsilon>0,$ 有：  
+若 $X \geq 0, \forall \varepsilon\gt0,$ 有：  
 $$  
 P(X \geq \varepsilon) \leq \frac{\mathbb{E}[X]}{\varepsilon}  
 $$   
@@ -184,7 +184,7 @@ $$
   
 ## 定理 9: Chebyshev 不等式  
   
-$\forall \varepsilon>0,$ 有：  
+$\forall \varepsilon\gt0,$ 有：  
 $$  
 P(|X-\mathbb{E}[X]| \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\varepsilon^{2}}  
 $$  
@@ -197,7 +197,7 @@ $Proof.$
   
 ## 定理 10: Cantelli 不等式  
   
-$\forall \varepsilon>0,$ 有 :  
+$\forall \varepsilon\gt0,$ 有 :  
 $$  
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}  
 $$  
@@ -224,11 +224,11 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshe
   
 ## 定理 11: Chernoff 不等式  
   
-$\forall \lambda>0, \varepsilon>0,$ 有 :  
+$\forall \lambda\gt0, \varepsilon\gt0,$ 有 :  
 $$  
 P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
-$\forall \lambda< 0, \varepsilon>0,$ 有 :  
+$\forall \lambda< 0, \varepsilon\gt0,$ 有 :  
 $$  
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -257,7 +257,7 @@ $$
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}  
 $$  
   
-记$\theta = -\frac{a}{b-a} > 0, h = \lambda(b-a)$，则：  
+记$\theta = -\frac{a}{b-a} \gt 0, h = \lambda(b-a)$，则：  
 $$  
 \frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = [1-\theta + \theta e^{h}]e^{-\theta h} =   
 e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}  
@@ -291,7 +291,7 @@ $$
   
 $Proof. $  
   
-由 Markov 不等式知， $\forall \lambda>0$ :  
+由 Markov 不等式知， $\forall \lambda\gt0$ :  
 $$  
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon)=P\left(e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -349,7 +349,7 @@ $$
   
 ## 定理 13. McDiarmid 不等式  
   
-对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon>0$ 有：  
+对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon\gt0$ 有：  
 $$  
 P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$  
@@ -376,7 +376,7 @@ $$
   
 ## 定理 14: Bennett 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|< b$  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b\gt0,$ s.t.$|X-\mathbb{E}[X]|< b$  
   
 则有，  
 $$  
@@ -409,7 +409,7 @@ $$
   
 则称序列 $Z_i$为离散鞅。  
   
-**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon>0$ 有：  
+**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon\gt0$ 有：  
 $$  
 P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$  
@@ -417,11 +417,11 @@ $$
   
 $Proof. $  
   
-首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda>0:$  
+首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda\gt0:$  
 $$  
 \mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]  
 $$  
-于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda>0$:
+于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda\gt0$:
 $$  
 \begin{aligned}  
 P\left(Z_{m}-\mu\geq\varepsilon\right) &\geq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
@@ -452,7 +452,7 @@ $$
   
 ## 定理 15: Bernstein 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b>0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b\gt0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
 $$  
 \mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}  
 $$  
@@ -542,14 +542,14 @@ $$
 \end{aligned}
 $$
 
-应用 Chernoff 不等式，对于$\forall\epsilon>0$，有：
+应用 Chernoff 不等式，对于$\forall\epsilon\gt0$，有：
 
 $$
 \begin{aligned}
 P(Y_n-Y_0 \geq \epsilon)
-& \leq \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
-& = \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
-& = \underset{s>0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
+& \leq \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
+& = \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
+& = \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
 \end{aligned}
 $$
 
@@ -573,7 +573,7 @@ $$
 \begin{aligned}
 \text{P}(Y_n-Y_0 \geq \epsilon)
 \leq
-\underset{s>0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
+\underset{s\gt0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
 \end{aligned}
 $$
 
@@ -652,7 +652,7 @@ P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(
 $$  
   
 $Proof. $  
-若$X\sim N(0,1)$，则显然$\forall \lambda > 0$：  
+若$X\sim N(0,1)$，则显然$\forall \lambda \gt 0$：  
 $$  
    \mathbb{E}[e^{-\lambda X^2}] \leq 1 - \lambda\mathbb{E}[X^2] + \frac{\lambda^2}{2}\mathbb{E}[X^4] = 1 - \lambda + \frac{3}{2}\lambda^2  \leq e^{-\lambda + \frac{3}{2}\lambda^2}  
 $$  
