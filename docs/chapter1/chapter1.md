@@ -81,7 +81,7 @@ $$
   
 ## 定理 4: Lyapunov 不等式
   
-$\forall 0< r \leq s$，有：  
+$\forall 0\lt  r \leq s$，有：  
 $$  
 \sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[s]{\mathbb{E}\left[|X|^{s}\right]}  
 $$  
@@ -170,7 +170,7 @@ $$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
 
 ## 定理 8: Markov 不等式  
   
-若 $X \geq 0, \forall \varepsilon\gt0,$ 有：  
+若 $X \geq 0, \forall \varepsilon\gt 0,$ 有：  
 $$  
 P(X \geq \varepsilon) \leq \frac{\mathbb{E}[X]}{\varepsilon}  
 $$   
@@ -184,7 +184,7 @@ $$
   
 ## 定理 9: Chebyshev 不等式  
   
-$\forall \varepsilon\gt0,$ 有：  
+$\forall \varepsilon\gt 0,$ 有：  
 $$  
 P(|X-\mathbb{E}[X]| \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\varepsilon^{2}}  
 $$  
@@ -197,7 +197,7 @@ $Proof.$
   
 ## 定理 10: Cantelli 不等式  
   
-$\forall \varepsilon\gt0,$ 有 :  
+$\forall \varepsilon\gt 0,$ 有 :  
 $$  
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}  
 $$  
@@ -224,11 +224,11 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshe
   
 ## 定理 11: Chernoff 不等式  
   
-$\forall \lambda\gt0, \varepsilon\gt0,$ 有 :  
+$\forall \lambda\gt 0, \varepsilon\gt 0,$ 有 :  
 $$  
 P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
-$\forall \lambda< 0, \varepsilon\gt0,$ 有 :  
+$\forall \lambda\lt  0, \varepsilon\gt 0,$ 有 :  
 $$  
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -257,7 +257,7 @@ $$
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}  
 $$  
   
-记$\theta = -\frac{a}{b-a} \gt 0, h = \lambda(b-a)$，则：  
+记$\theta = -\frac{a}{b-a} \gt  0, h = \lambda(b-a)$，则：  
 $$  
 \frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = [1-\theta + \theta e^{h}]e^{-\theta h} =   
 e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}  
@@ -291,7 +291,7 @@ $$
   
 $Proof. $  
   
-由 Markov 不等式知， $\forall \lambda\gt0$ :  
+由 Markov 不等式知， $\forall \lambda\gt 0$ :  
 $$  
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon)=P\left(e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -335,7 +335,7 @@ $$
 $$  
 则称$X$服从参数为$(\mathbb{V}[X], 1/a)$的次指数分布。  
   
-同样的，次高斯性还有一系列等价定义方式。一种不直观但是更常用的定义方式如下：$\exists (\sigma^2, b)$，s.t.$\forall |s| < 1/b$有:  
+同样的，次高斯性还有一系列等价定义方式。一种不直观但是更常用的定义方式如下：$\exists (\sigma^2, b)$，s.t.$\forall |s| \lt  1/b$有:  
 $$  
       \mathbb{E}[e^{s(X−\mathbb{E}[X])}]\leq \exp \left( \frac{s^2\sigma^2}{2} \right)  
 $$  
@@ -349,7 +349,7 @@ $$
   
 ## 定理 13. McDiarmid 不等式  
   
-对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon\gt0$ 有：  
+对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon\gt 0$ 有：  
 $$  
 P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$  
@@ -376,7 +376,7 @@ $$
   
 ## 定理 14: Bennett 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b\gt0,$ s.t.$|X-\mathbb{E}[X]|< b$  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b\gt 0,$ s.t.$|X-\mathbb{E}[X]|\lt b$  
   
 则有，  
 $$  
@@ -394,7 +394,7 @@ P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, 
 $$  
 为考察在某个泛函上也具有类似 Bernstein 类集中不等式的形式，很显然 f 需要满足一些很好的性质。这类性质有很多，但是我们尝试在一个最常见的约束下进行尝试:  
   
-**Definition 3** (差有界). 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}, \forall i, \exists c_{i}<\infty,$ s.t.  
+**Definition 3** (差有界). 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}, \forall i, \exists c_{i}\lt \infty,$ s.t.  
 $$  
 \left|f\left(x_{1}, \cdots, x_{i}, \cdots, x_{m}\right)-f\left(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m}\right)\right| \leq c_{i}  
 $$  
@@ -404,12 +404,12 @@ $$
   
 **Definition 4** (离散鞅). 若离散随机变量序列(随机过程)$Z_m$满足:  
   
-1. $\mathbb{E}\left[\left|Z_{i}\right|\right]<\infty$  
+1. $\mathbb{E}\left[\left|Z_{i}\right|\right]\lt \infty$  
 2. $\mathbb{E}\left[Z_{m+1} \mid Z_{1}, \cdots, Z_{m}\right]=\mathbb{E}\left[Z_{m+1} \mid \mathcal{F}_{m}\right]=Z_{m}$  
   
 则称序列 $Z_i$为离散鞅。  
   
-**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon\gt0$ 有：  
+**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon\gt 0$ 有：  
 $$  
 P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$  
@@ -417,11 +417,11 @@ $$
   
 $Proof. $  
   
-首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda\gt0:$  
+首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda\gt 0:$  
 $$  
 \mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]  
 $$  
-于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda\gt0$:
+于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda\gt 0$:
 $$  
 \begin{aligned}  
 P\left(Z_{m}-\mu\geq\varepsilon\right) &\geq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
@@ -452,7 +452,7 @@ $$
   
 ## 定理 15: Bernstein 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b\gt0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b\gt 0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
 $$  
 \mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}  
 $$  
@@ -501,7 +501,7 @@ $$
 取 $\lambda=\frac{m\varepsilon}{mb \varepsilon+\sum_{i=1}^{m} \mathbb{V}\left[Y_{i}\right]} \in[0,1/b)$ ，原不等式得证。  
   
 Note：首先，上式右端项小于 $e^{\lambda^{2} \mathrm{V}[X]},$ 这表明这一类随机变量是服从参数为 $(\sqrt{2 \mathbb{V}[X]}, 2 b)$ 的次指数分布。  
-其次，$|X-\mathbb{E}[X]|< b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
+其次，$|X-\mathbb{E}[X]|\lt  b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
 $$  
 \begin{aligned}  
 \mathbb{E}\left[e^{\lambda(X-\mathbb{E}[X])}\right] &=1+\frac{\lambda^{2}}{2} \mathbb{V}[X]+\sum_{k=3}^{\infty} \frac{\lambda^{k} \mathbb{E}[X-\mathbb{E}[X]]^{k}}{k !} \\  
@@ -531,7 +531,7 @@ $Proof. $
 
 **引理 1** (Doob分解定理)：
 
-不妨让$(\Omega, \mathcal{F}, \mathbb{P})$表示一个概率空间，$I=\{0,1,2,...,N\},N\in\mathbb{N}$是一个索引集合，$(\mathcal{F}_n)_{n \in I}$是F的一个过滤器，$X=(X_n)_{n \in I}$是一个适应的随机过程，且对于任意$n \in I$，$E[|X_n|]<\infty$。则存在一个适应的随机过程$M=(M_n)_{n \in I}$和一个$A_0=0$的可积可预测的随机过程$A=(A_n)_{n \in I}$，满足：$X_n=M_n+A_n,n\in I$。
+不妨让$(\Omega, \mathcal{F}, \mathbb{P})$表示一个概率空间，$I=\{0,1,2,...,N\},N\in\mathbb{N}$是一个索引集合，$(\mathcal{F}_n)_{n \in I}$是F的一个过滤器，$X=(X_n)_{n \in I}$是一个适应的随机过程，且对于任意$n \in I$，$E[|X_n|]\lt \infty$。则存在一个适应的随机过程$M=(M_n)_{n \in I}$和一个$A_0=0$的可积可预测的随机过程$A=(A_n)_{n \in I}$，满足：$X_n=M_n+A_n,n\in I$。
 
 详细证明参考[文章](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition/)
 
@@ -542,14 +542,14 @@ $$
 \end{aligned}
 $$
 
-应用 Chernoff 不等式，对于$\forall\epsilon\gt0$，有：
+应用 Chernoff 不等式，对于$\forall\epsilon\gt 0$，有：
 
 $$
 \begin{aligned}
 P(Y_n-Y_0 \geq \epsilon)
-& \leq \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
-& = \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
-& = \underset{s\gt0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
+& \leq \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
 \end{aligned}
 $$
 
@@ -573,7 +573,7 @@ $$
 \begin{aligned}
 \text{P}(Y_n-Y_0 \geq \epsilon)
 \leq
-\underset{s\gt0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
+\underset{s\gt 0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
 \end{aligned}
 $$
 
@@ -652,12 +652,12 @@ P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(
 $$  
   
 $Proof. $  
-若$X\sim N(0,1)$，则显然$\forall \lambda \gt 0$：  
+若$X\sim N(0,1)$，则显然$\forall \lambda \gt  0$：  
 $$  
    \mathbb{E}[e^{-\lambda X^2}] \leq 1 - \lambda\mathbb{E}[X^2] + \frac{\lambda^2}{2}\mathbb{E}[X^4] = 1 - \lambda + \frac{3}{2}\lambda^2  \leq e^{-\lambda + \frac{3}{2}\lambda^2}  
 $$  
 类似地使用 Chernoff 一般性技巧，在$\lambda = \varepsilon/3$时可以证得左端不等式。  
-对于右端不等式，考察矩母函数$\forall \lambda < 1/2$：  
+对于右端不等式，考察矩母函数$\forall \lambda \lt  1/2$：  
 $$  
    \mathbb{E}[e^{\lambda X^2}] = (1-2\lambda)^{-m/2}  
 $$  
