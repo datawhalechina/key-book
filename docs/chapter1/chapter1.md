@@ -1,9 +1,8 @@
-
 # 第1章：预备知识  
   
-*Edit: J. Hu, 李一飞*  
+*Edit: J. Hu, 李一飞, 赵志民*  
   
-*Update: 15/11/2022*  
+*Update: 31/03/2023*  
   
 ---  
   
@@ -13,9 +12,9 @@
   
   
   
-## Theorem 1:  Jensen 不等式  
+## 定理 1:  Jensen 不等式  
   
-对手任意凸函数 $f,$ 则有:  
+对于任意凸函数 $f,$ 则有:  
 $$  
 f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]  
 $$  
@@ -43,7 +42,7 @@ $$
   
   
   
-## Theorem 2:  Holder 不等式  
+## 定理 2:  Hölder 不等式  
   
 $\forall p, q \in \mathbb{R}^{+}, \frac{1}{p}+\frac{1}{q}=1$，则有：  
 $$  
@@ -71,24 +70,24 @@ $$
   
   
   
-## Theorem 3: Cauchy-Schwarz 不等式  
+## 定理 3: Cauchy-Schwarz 不等式  
   
-特别的，$p = q = 2 $ 时，Holder不等式退化为 Cauchy-Schwarz 不等式：  
+特别的，$p = q = 2 $ 时，Hölder不等式退化为 Cauchy-Schwarz 不等式：  
 $$  
 \mathbb{E}[|X Y|] \leq \sqrt{\mathbb{E}\left[X^{2}\right] \mathbb{E}\left[Y^{2}\right]}  
 $$  
   
   
   
-## Theorem 4: Lyapunov 不等式  
+## 定理 4: Lyapunov 不等式
   
-$\forall 0<r \leq s$，有：  
+$\forall 0\lt  r \leq s$，有：  
 $$  
-\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[r]{\mathbb{E}\left[|X|^{s}\right]}  
+\sqrt[r]{\mathbb{E}\left[|X|^{r}\right]} \leq \sqrt[s]{\mathbb{E}\left[|X|^{s}\right]}  
 $$  
   
 $Proof.$   
-由Holder不等式：  
+由Hölder不等式：  
 $\forall p \geq 1:$  
 $$  
 \begin{aligned}  
@@ -105,7 +104,7 @@ $$
   
   
   
-## Theorem 5: Minkowski 不等式  
+## 定理 5: Minkowski 不等式  
   
 $\forall p \geq 1,$ 有：  
 $$  
@@ -114,27 +113,67 @@ $$
   
   
 $Proof.$  
-由三角不等式及Holder不等式：  
+由三角不等式及Hölder不等式：  
 $$  
 \begin{aligned}  
 \mathbb{E}\left[|X+Y|^{p}\right] & {\leq}\mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\  
-&=\mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
+&= \mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
 & {\leq}\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q} \\  
-& = \left[\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^{p}\right]}{\left(\mathbb{E}\left[|X+Y|^{p}\right]\right)^{1 / p}}  
+&= \left[\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^{p}\right]}{\left(\mathbb{E}\left[|X+Y|^{p}\right]\right)^{1 / p}}  
 \end{aligned}  
 $$  
 化简上式即得证。  
+
+
+
+## 定理 6: Bhatia-Davis 不等式
+
+对 $X \in [a,b]$, 则有:  
+$$  
+\mathbb{V}[X] \leq (b - \mathbb{E}[X])(\mathbb{E}[X] - a) \leq \frac{(b-a)^2}{4}
+$$  
+成立。 
+
+$Proof.$ 
+因为 $a\leq X\leq b$，所以有:
+$$  
+\begin{aligned}  
+0&\leq \mathbb{E}[(b-X)(X-a)] \\
+&= -\mathbb{E}[X^2]-ab+(a+b)\mathbb{E}[X]
+\end{aligned}
+$$
+因此，
+$$  
+\begin{aligned}  
+\mathbb{V}[X] &= \mathbb{E}[X^2]-\mathbb{E}[X]^2 \\
+&\leq -ab+(a+b)\mathbb{E}[X]-\mathbb{E}[X^2] \\
+&=(b-\mathbb{E}[X])(\mathbb{E}[X]-a)
+\end{aligned}
+$$
+
+考虑算术-几何平均值不等式：
+$$
+xy \leq (\frac{x+y}{2})^2
+$$
+将$x=b-\mathbb{E}[X]$和$y=\mathbb{E}[X]-a$带入化简即得证。
+
+
+
+## 定理 7: Union Bound（Boole's）不等式
+$$ P\left(X\cup Y\right) \leq P(X) + P(Y) $$
+
+$Proof.$
+$$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
+此处 $P(X \cap Y) \geq 0$.
   
+
+
+## 定理 8: Markov 不等式  
   
-  
-## Theorem 6: Markov 不等式  
-  
-若 $X \geq 0, \forall \varepsilon>0,$ 有：  
+若 $X \geq 0, \forall \varepsilon\gt 0,$ 有：  
 $$  
 P(X \geq \varepsilon) \leq \frac{\mathbb{E}[X]}{\varepsilon}  
-$$  
-  
-  
+$$   
   
 $Proof.$  
 $$  
@@ -143,27 +182,25 @@ $$
   
   
   
-## Theorem 7: Chebyshev 不等式  
+## 定理 9: Chebyshev 不等式  
   
-$\forall \varepsilon>0,$ 有：  
+$\forall \varepsilon\gt 0,$ 有：  
 $$  
 P(|X-\mathbb{E}[X]| \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\varepsilon^{2}}  
 $$  
-  
-  
+
 $Proof.$  
   
 取 $Y=(X-\mathbb{E}[X])^{2}$，则可以使用Markov 不等式证明。  
   
   
   
-## Theorem 8: Cantelli 不等式  
+## 定理 10: Cantelli 不等式  
   
-$\forall \varepsilon>0,$ 有 :  
+$\forall \varepsilon\gt 0,$ 有 :  
 $$  
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}  
 $$  
-  
   
 $Proof.$  
   
@@ -185,17 +222,16 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshe
   
   
   
-## Theorem 9: Chernoff 不等式  
+## 定理 11: Chernoff 不等式  
   
-$\forall \lambda>0, \varepsilon>0,$ 有 :  
+$\forall \lambda\gt 0, \varepsilon\gt 0,$ 有 :  
 $$  
 P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
-$\forall \lambda<0, \varepsilon>0,$ 有 :  
+$\forall \lambda\lt  0, \varepsilon\gt 0,$ 有 :  
 $$  
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
-  
   
 $Proof. $  
   
@@ -203,15 +239,13 @@ $Proof. $
   
   
   
-## Theorem 10: Hoeffding 不等式  
+## 定理 12: Hoeffding 不等式  
   
-### 引理1 (Hoeffding 引理)  
+### 引理1 (Hoeffding 定理)  
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：  
 $$  
 \mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)  
 $$  
-  
-  
   
 $Proof. $  
 由于$e^x$为凸函数，则显然$\forall x\in[a,b]$：  
@@ -223,7 +257,7 @@ $$
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}  
 $$  
   
-记$\theta = -\frac{a}{b-a} > 0, h = \lambda(b-a)$，则：  
+记$\theta = -\frac{a}{b-a} \gt  0, h = \lambda(b-a)$，则：  
 $$  
 \frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = [1-\theta + \theta e^{h}]e^{-\theta h} =   
 e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}  
@@ -253,12 +287,11 @@ $$
 对 $m$ 个独立随机变量 $X_{i} \in\left[a_{i}, b_{i}\right],$ 令 $\bar{X}$ 为 $X_{i}$ 均值，则有：  
 $$  
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}\right)  
-$$  
-  
+$$   
   
 $Proof. $  
   
-由 Markov 不等式知， $\forall \lambda>0$ :  
+由 Markov 不等式知， $\forall \lambda\gt 0$ :  
 $$  
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon)=P\left(e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X}-\mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}  
 $$  
@@ -281,7 +314,7 @@ Note：注意这里没有限定随机变量同分布，下同。可以使用 Hoe
   
 上述使用 Markov 不等式的技术称为 Chernoff 界的一般技巧，得到的界称之为 Chernoff Bound。其核心即是对其矩母函数进行控制。于是有定义：  
   
-**Definition 1** (随机变量的次高斯性). 若一个期望为零的随机变量$X$其矩母函数满足，$\forall \lambda \in \mathbb{R}^+$:  
+**定义1** (随机变量的次高斯性). 若一个期望为零的随机变量$X$其矩母函数满足，$\forall \lambda \in \mathbb{R}^+$:  
 $$  
       \mathbb{E}[e^{\lambda X}] \leq \frac{\sigma^2\lambda^2}{2}  
 $$  
@@ -296,27 +329,130 @@ $$
 ### 随机变量的次指数性  
   
 显然，不是所有常见的随机变量都是次高斯的，例如指数分布。为此可以扩大定义：  
-**Definition 2** (随机变量的次指数性). 若非负的随机变量$X$其矩母函数满足，$\forall \lambda \in (0,a)$:  
+**定义2** (随机变量的次指数性). 若非负的随机变量$X$其矩母函数满足，$\forall \lambda \in (0,a)$:  
 $$  
       \mathbb{E}[e^{\lambda X}] \leq \frac{a}{a - \lambda}  
 $$  
 则称$X$服从参数为$(\mathbb{V}[X], 1/a)$的次指数分布。  
   
-同样的，次高斯性还有一系列等价定义方式。一种不直观但是更常用的定义方式如下：$\exists (\sigma^2, b)$，s.t.$\forall |s| < 1/b$有:  
+同样的，次高斯性还有一系列等价定义方式。一种不直观但是更常用的定义方式如下：$\exists (\sigma^2, b)$，s.t.$\forall |s| \lt  1/b$有:  
 $$  
-      \mathbb{E}[e^{s(X−\mathbb{E}[X]})]\leq \exp \left( \frac{s^2\sigma^2}{2} \right)  
+      \mathbb{E}[e^{s(X−\mathbb{E}[X])}]\leq \exp \left( \frac{s^2\sigma^2}{2} \right)  
 $$  
   
 常见的次指数分布包括:指数分布，Gamma 分布，以及**任何的有界随机变量**。  
 类似地，次指数分布也对加法是保持的：如果$X_1,X_2$分别是服从$(\sigma_1^2,b_1)$, $(\sigma_2^2,b_2)$的次指数分布，那么$X_1+X_2$是服从$(\sigma_1^2+\sigma_2^2, \max(b_1,b_2))$的次指数分布。  
   
-在高维统计的问题中需要利用次高斯分布，次指数分布的尾端控制得到一些重要的结论。  
+在高维统计的问题中需要利用次高斯分布，次指数分布的尾端控制得到一些重要的结论。
   
   
   
-## Theorem 11: Bernstein 不等式  
+## 定理 13. McDiarmid 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b>0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
+对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon\gt 0$ 有：  
+$$  
+P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
+$$  
+  
+  
+$Proof. $  
+  
+构造一个鞅差序列：  
+$$  
+D_j = \mathbb{E}[f(X)|X_1,\cdots,X_j] - \mathbb{E}[f(X)|X_1,\cdots,X_{j-1}]  
+$$  
+容易验证：  
+$$  
+f(X) - \mathbb{E}[f(X)]=\sum_{i=1}^mD_i  
+$$  
+且 $f$ 为差有界的，则满足 Azuma-Hoeffding 引理，代入则得到：  
+$$  
+   P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq   
+   \exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^mc_i^2} \right)   
+$$  
+则原不等式得证。 
+  
+  
+  
+## 定理 14: Bennett 不等式  
+  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b\gt 0,$ s.t.$|X-\mathbb{E}[X]|\lt b$  
+  
+则有，  
+$$  
+P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{m \varepsilon^{2}}{2\left(\sum_{i=1}^{m} \mathbb{V}\left[X_{i}\right] / m+b \varepsilon / 3\right)}\right)  
+$$  
+成立。  
+  
+Remark: Bernstein 不等式实际是 Hoeffding 不等式的加强。对于个各随机变量独立的条件可以放宽为弱独立结论仍成立。  
+  
+上述几个 Bernstein 类集中不等式，更多的是在非渐近观点下看到的大数定律的表现。也即是，这些不等式更多刻画了样本均值如何集中在总体均值的附近。  
+  
+如果把样本均值看成是样本（数据点的函数），即令 $f\left(X_{1}, \cdots, X_{m}\right)=$ $\sum_{i=1}^{m} X_{i} / m,$ 那么 Bernstein 类不等式刻画了如下的概率：  
+$$  
+P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right)  
+$$  
+为考察在某个泛函上也具有类似 Bernstein 类集中不等式的形式，很显然 f 需要满足一些很好的性质。这类性质有很多，但是我们尝试在一个最常见的约束下进行尝试:  
+  
+**Definition 3** (差有界). 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}, \forall i, \exists c_{i}\lt \infty,$ s.t.  
+$$  
+\left|f\left(x_{1}, \cdots, x_{i}, \cdots, x_{m}\right)-f\left(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m}\right)\right| \leq c_{i}  
+$$  
+则称 f 是差有界的。  
+  
+为此，需要引入一些新的数学工具。  
+  
+**Definition 4** (离散鞅). 若离散随机变量序列(随机过程)$Z_m$满足:  
+  
+1. $\mathbb{E}\left[\left|Z_{i}\right|\right]\lt \infty$  
+2. $\mathbb{E}\left[Z_{m+1} \mid Z_{1}, \cdots, Z_{m}\right]=\mathbb{E}\left[Z_{m+1} \mid \mathcal{F}_{m}\right]=Z_{m}$  
+  
+则称序列 $Z_i$为离散鞅。  
+  
+**引理 2** (Azuma-Hoeffding 定理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon\gt 0$ 有：  
+$$  
+P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
+$$  
+  
+  
+$Proof. $  
+  
+首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda\gt 0:$  
+$$  
+\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]  
+$$  
+于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda\gt 0$:
+$$  
+\begin{aligned}  
+P\left(Z_{m}-\mu\geq\varepsilon\right) &\geq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
+& = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\  
+& = e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\mathbb{E}\left[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}\right]\right]
+\end{aligned}  
+$$  
+  
+  
+又因为 $\{X_{i}\}$ 为鞅差序列，则 $\mathbb{E}\left[X_{m} \mid \mathcal{F}_{m-1}\right]=0, \mathbb{E}\left[X_{i}\right]=0$ ，再结合不等式$\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]$及 Hoeffding 引理，有：  
+$$  
+\begin{aligned}  
+P\left(Z_{m}-\mu \geq \varepsilon\right) & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{n}}\right] \\  
+& {\leq} e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \exp \left(\frac{\lambda^{2} c_{m}^{2}}{2}\right)  
+\end{aligned}  
+$$  
+迭代上不等式可得:  
+$$  
+P\left(Z_{m}-\mu \geq \varepsilon\right) \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2} c_{i}^{2}}{2}\right)  
+$$  
+则显然当 $\lambda=\frac{\varepsilon}{\sum_{i=1}^{m} c_{i}^{2}}$ 时，上式右端取得极小值：  
+$$  
+P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
+$$  
+原不等式得证。     
+  
+  
+  
+## 定理 15: Bernstein 不等式  
+  
+对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b\gt 0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
 $$  
 \mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}  
 $$  
@@ -362,10 +498,10 @@ P(\bar{Y}-\mathbb{E}[\bar{Y}] \geq \varepsilon) &= P(\sum_{i=1}^m (Y_i-\mathbb{E
 \\&= e^{-m\lambda \varepsilon} \cdot e^{\frac{(\lambda) ^2}{2(1-\lambda b)}\sum_{i=1}^m\mathbb{V}[Y_i]}
 \end{aligned} 
 $$  
-取 $\lambda=\frac{m\varepsilon}{mb \varepsilon+\sum_{i=1}^{m} \mathbb{V}\left[Y_{i}\right]} \in[0,1 / b)$ ，原不等式得证。  
+取 $\lambda=\frac{m\varepsilon}{mb \varepsilon+\sum_{i=1}^{m} \mathbb{V}\left[Y_{i}\right]} \in[0,1/b)$ ，原不等式得证。  
   
 Note：首先，上式右端项小于 $e^{\lambda^{2} \mathrm{V}[X]},$ 这表明这一类随机变量是服从参数为 $(\sqrt{2 \mathbb{V}[X]}, 2 b)$ 的次指数分布。  
-其次，$|X-\mathbb{E}[X]|<b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
+其次，$|X-\mathbb{E}[X]|\lt  b$ 显然满足 $\mathbb{E}\left[\left|X_{i}-\mathbb{E}\left[X_{i}\right]\right|^{k}\right] \leq k ! b^{k-2} \frac{\mathbb{V}\left[X_{i}\right]}{2}$  那么：  
 $$  
 \begin{aligned}  
 \mathbb{E}\left[e^{\lambda(X-\mathbb{E}[X])}\right] &=1+\frac{\lambda^{2}}{2} \mathbb{V}[X]+\sum_{k=3}^{\infty} \frac{\lambda^{k} \mathbb{E}[X-\mathbb{E}[X]]^{k}}{k !} \\  
@@ -379,110 +515,122 @@ $$
   
   
   
-## Theorem 12: Bennett 不等式  
+## 定理 16: Azuma（Azuma–Hoeffding） 不等式  
   
-对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b>0,$ s.t.$|X-\mathbb{E}[X]|<b$  
-  
-则有，  
-$$  
-P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{m \varepsilon^{2}}{2\left(\sum_{i=1}^{m} \mathbb{V}\left[X_{i}\right] / m+b \varepsilon / 3\right)}\right)  
-$$  
-成立。  
-  
-Remark: Bernstein 不等式实际是 Hoeffding 不等式的加强。对于个各随机变量独立的条件可以放宽为弱独立结论仍成立。  
-  
-上述几个 Bernstein 类集中不等式，更多的是在非渐近观点下看到的大数定律的表现。也即是，这些不等式更多刻画了样本均值如何集中在总体均值的附近。  
-  
-如果把样本均值看成是样本（数据点的函数），即令 $f\left(X_{1}, \cdots, X_{m}\right)=$ $\sum_{i=1}^{m} X_{i} / m,$ 那么 Bernstein 类不等式刻画了如下的概率：  
-$$  
-P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right)  
-$$  
-为考察在某个泛函上也具有类似 Bernstein 类集中不等式的形式，很显然 f 需要满足一些很好的性质。这类性质有很多，但是我们尝试在一个最常见的约束下进行尝试:  
-  
-**Definition 3** (差有界). 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}, \forall i, \exists c_{i}<\infty,$ s.t.  
-$$  
-\left|f\left(x_{1}, \cdots, x_{i}, \cdots, x_{m}\right)-f\left(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m}\right)\right| \leq c_{i}  
-$$  
-则称 f 是差有界的。  
-  
-为此，需要引入一些新的数学工具。  
-  
-**Definition 4** (离散鞅). 若离散随机变量序列(随机过程)$Z_m$满足:  
-  
-1. $\mathbb{E}\left[\left|Z_{i}\right|\right]<\infty$  
-2. $\mathbb{E}\left[Z_{m+1} \mid Z_{1}, \cdots, Z_{m}\right]=\mathbb{E}\left[Z_{m+1} \mid \mathcal{F}_{m}\right]=Z_{m}$  
-  
-则称序列 $Z_i$为离散鞅。  
-  
-**Lemma 2** (Azuma-Hoeffding 引理). 对于鞅 $Z_{i}, \mathbb{E}\left[Z_{i}\right]=\mu, Z_{1}=\mu_{\circ}$ 作鞅差序列 $X_{i}=Z_{i}-Z_{i-1}, \quad$ 且 $\left|X_{i}\right| \leq c_{i}$ 。 则 $\forall \varepsilon>0$ 有：  
-$$  
-P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
-$$  
-  
-  
-$Proof. $  
-  
-首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda>0:$  
-$$  
-\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]  
-$$  
-于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X] $及 Chernoff 一般性技巧 $\forall \lambda>0:$  
-$$  
-\begin{aligned}  
-P\left(Z_{m}-\mu>\varepsilon\right) &<e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
-& = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\  
-& \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{m}} \mid \mathcal{F}_{m-1}\right]  
-\end{aligned}  
-$$  
-  
-  
-又因为 $ X_{i}$ 为鞅差序列，则 $ \mathbb{E}\left[X_{m} \mid \mathcal{F}_{m-1}\right]=0, \mathbb{E}\left[X_{i}\right]=0$ ，再结合不等式$\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]$及 Hoeffding 引理，有：  
-$$  
-\begin{aligned}  
-P\left(Z_{m}-\mu \geq \varepsilon\right) & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{n}}\right] \\  
-& {\leq} e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \exp \left(\frac{\lambda^{2} c_{m}^{2}}{2}\right)  
-\end{aligned}  
-$$  
-迭代上不等式可得:  
-$$  
-P\left(Z_{m}-\mu \geq \varepsilon\right) \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2} c_{i}^{2}}{2}\right)  
-$$  
-则显然当 $\lambda=\frac{\varepsilon}{\sum_{i=1}^{m} c_{i}^{2}}$ 时，上式右端取得极小值：  
-$$  
-P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
-$$  
-原不等式得证。  
-  
-  
-  
-## Theorem 13: McDiarmid 不等式  
-  
-对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon>0$ 有：  
-$$  
-P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
-$$  
-  
-  
-$Proof. $  
-  
-构造一个鞅差序列：  
-$$  
-D_j = \mathbb{E}[f(X)|X_1,\cdots,X_j] - \mathbb{E}[f(X)|X_1,\cdots,X_{j-1}]  
-$$  
-容易验证：  
-$$  
-f(X) - \mathbb{E}[f(X)]=\sum_{i=1}^mD_i  
-$$  
-且 $f$ 为差有界的，则满足 Azuma-Hoeffding 引理，代入则得到：  
-$$  
-   P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq   
-   \exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^mc_i^2} \right)   
-$$  
-则原不等式得证。  
-  
-  
-  
-## Theorem 14: Slud 不等式  
+对于均值为$Z_0=\mu$的鞅差序列$\{Z_m,m\geq 1\}$，若$|Z_i-Z_{i-1}|\leq c_i$，则$\forall \varepsilon\gt 0$，有
+$$
+\begin{aligned}
+P\left(Z_{m}-\mu\geq\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
+P\left(Z_{m}-\mu\leq-\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
+\end{aligned}
+$$
+
+$Proof. $
+
+注意到Azuma不等式要求在鞍差序列上的对称界限，即$-c_i\leq Z_i-Z_{i-1}\leq c_i$。因此，如果已知的界限是非对称的，即$a_i\leq Z_i-Z_{i-1}\leq b_i$，那么为了使用Azuma不等式，我们需要选择$c_i=\max(|a_i|,|b_i|)$，这可能会浪费关于$X_t - X_{t-1}$的有界性的信息。然而，我们可以通过以下Azuma不等式的一般形式来解决这个问题。
+
+**引理 1** (Doob分解定理)：
+
+不妨让$(\Omega, \mathcal{F}, \mathbb{P})$表示一个概率空间，$I=\{0,1,2,...,N\},N\in\mathbb{N}$是一个索引集合，$(\mathcal{F}_n)_{n \in I}$是F的一个过滤器，$X=(X_n)_{n \in I}$是一个适应的随机过程，且对于任意$n \in I$，$E[|X_n|]\lt \infty$。则存在一个适应的随机过程$M=(M_n)_{n \in I}$和一个$A_0=0$的可积可预测的随机过程$A=(A_n)_{n \in I}$，满足：$X_n=M_n+A_n,n\in I$。
+
+详细证明参考[文章](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition/)
+
+根据Doob分解引理，我们可以将超鞍$X_t$分解成$X_t = Y_t + Z_t$，此时$\{Y_t,F_t\}$是鞍差序列，$\{Z_t,F_t\}$是一个非递增的可预测序列。在Azuma不等式的一般性形式中，有$A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，此时：
+$$
+\begin{aligned}
+-(Z_t - Z_{t-1}) + A_t \leq Y_t - Y_{t-1} \leq -(Z_t - Z_{t-1}) + B_t 
+\end{aligned}
+$$
+
+应用 Chernoff 不等式，对于$\forall\epsilon\gt 0$，有：
+
+$$
+\begin{aligned}
+P(Y_n-Y_0 \geq \epsilon)
+& \leq \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
+\end{aligned}
+$$
+
+（1）$\left\{Y_t\right\}$是鞍差序列，因此$\mathbb{E}[Y_t - Y_{t-1} \mid \mathcal{F}_{t-1}]=0$。
+
+（2）$\left\{Z_t\right\}$是一个可预测序列，因此$-(Z_t - Z_{t-1}) + A_t$和$-(Z_t - Z_{t-1}) + B_t$都是$\mathcal{F}_{t-1}$可测量的。
+
+应用 Hoeffding 引理，有：
+$$
+\begin{aligned}
+\mathbb{E} \left[\exp \left(s(Y_t-Y_{t-1}) \mid \mathcal{F}_{t-1} \right) \right] \leq
+\exp \left(\frac{s^2 (B_t - A_t)^2}{8} \right)
+\leq
+\exp \left(\frac{s^2 c_t^2}{8} \right)
+\end{aligned}
+$$
+
+重复这一步骤，我们可以得到：
+
+$$
+\begin{aligned}
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\underset{s\gt 0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
+\end{aligned}
+$$
+
+当$s = \frac{4 \epsilon}{\sum_{t=1}^{n}c_t^2}$时，上式右端取得极小值：
+$$
+\begin{aligned}
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+因为$X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且由$\{Z_n\}$的非增性得到$Z_n - Z_0 \leq 0$，因此由$\left\{X_n - X_0 \geq \epsilon\right\}$可推导出$\left\{Y_n - Y_0 \geq \epsilon\right\}$。
+
+因此，
+$$
+\begin{aligned}
+\text{P}(X_n-X_0 \geq \epsilon)
+\leq
+\text{P}(Y_n-Y_0 \geq \epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+同理可证得：
+$$
+\begin{aligned}
+\text{P}(X_n-X_0 \leq -\epsilon)
+\leq
+\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\end{aligned}
+$$
+
+当取$A_t = -c_t$，$B_t = c_t$时，退化成Azuma不等式的特殊情况。
+
+定理中涉及到了超鞍（上鞍）序列的概念，该可积随机过程满足：
+$$
+\begin{aligned}
+E[X_{n+1}|X_1,\ldots,X_n] \le X_n,\quad n\in \mathbb N
+\end{aligned}
+$$
+相应地，亚鞍（下鞍）序列满足：
+$$
+\begin{aligned}
+E[X_{n+1}|X_1,\ldots,X_n] \ge X_n,\quad n\in \mathbb N
+\end{aligned}
+$$
+这里给出一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望降低。”
+
+
+
+# 拓展
+
+
+
+## 定理 16: Slud 不等式  
   
 若$X\sim B(m,p)$，则有：  
 $$  
@@ -494,7 +642,7 @@ $$
   
   
   
-## Theorem 15: Johnson-Lindenstrauss 引理  
+## 定理 17: Johnson-Lindenstrauss 引理  
   
 首先借用上述工具考察一个示例：  
 ### $\chi_m^2$随机变量的集中度  
@@ -503,14 +651,13 @@ $$
 P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{6})  
 $$  
   
-  
 $Proof. $  
-若$X\sim N(0,1)$，则显然$\forall \lambda > 0$：  
+若$X\sim N(0,1)$，则显然$\forall \lambda \gt  0$：  
 $$  
    \mathbb{E}[e^{-\lambda X^2}] \leq 1 - \lambda\mathbb{E}[X^2] + \frac{\lambda^2}{2}\mathbb{E}[X^4] = 1 - \lambda + \frac{3}{2}\lambda^2  \leq e^{-\lambda + \frac{3}{2}\lambda^2}  
 $$  
 类似地使用 Chernoff 一般性技巧，在$\lambda = \varepsilon/3$时可以证得左端不等式。  
-对于右端不等式，考察矩母函数$\forall \lambda < 1/2$：  
+对于右端不等式，考察矩母函数$\forall \lambda \lt  1/2$：  
 $$  
    \mathbb{E}[e^{\lambda X^2}] = (1-2\lambda)^{-m/2}  
 $$  
@@ -520,9 +667,7 @@ $$
    P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{8})  
 $$  
 但和上面的结论没有本质区别。  
-这一结果实际上是高维情况下一个反直觉但常见的现象：这告诉我们标准的n维正态分布，随着n不断变大，这些点主要都分布在一个半径是$\sqrt{n}$的高维球面附近。 这一现象直接导致了一个更加深刻的结果。  
-  
-  
+这一结果实际上是高维情况下一个反直觉但常见的现象：这告诉我们标准的n维正态分布，随着n不断变大，这些点主要都分布在一个半径是$\sqrt{n}$的高维球面附近。 这一现象直接导致了一个更加深刻的结果。    
   
 ### Johnson-Lindenstrauss 引理  
   
@@ -536,6 +681,6 @@ $$
 $$  
 且该映射可以在多项式时间内被找到。  
   
-该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_Theorem)。  
+该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_定理)。  
   
 该定理的适用性极其广泛，例如在稀疏感知领域直接导致了约束等距性条件 (RIP条件)，即非凸的 $L_0$范数最小化问题与 $L_1$范数最小化问题等价性条件；在流形学习和优化理论中也有重要的应用。而其在学习理论中最重要的应用是对降维任务的估计。
