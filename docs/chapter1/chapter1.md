@@ -191,7 +191,10 @@ $$
 
 $Proof.$  
   
-取 $Y=(X-\mathbb{E}[X])^{2}$，则可以使用Markov 不等式证明。  
+利用Markov 不等式，有：
+$$
+P(|X-\mathbb{E}[X]| \geq \varepsilon) = P((X-\mathbb{E}[X])^2 \geq \varepsilon^{2}) \leq \frac{\mathbb{E}[(X-\mathbb{E}[X])^2]}{\varepsilon^{2}} = \frac{\mathbb{V}[X]}{\varepsilon^{2}}
+$$
   
   
   
