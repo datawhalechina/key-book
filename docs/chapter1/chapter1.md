@@ -229,18 +229,60 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshe
   
 $\forall \lambda\gt 0, \varepsilon\gt 0,$ 有 :  
 $$  
-P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
+P(X \geq \varepsilon) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
 $\forall \lambda\lt  0, \varepsilon\gt 0,$ 有 :  
 $$  
-P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
+P(X \leq \varepsilon) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
   
 $Proof. $  
+应用 Markov 不等式，有：
+
+$$  
+P(X \geq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \lambda\gt 0, \varepsilon\gt 0
+$$
+$$  
+P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \lambda\lt 0, \varepsilon\gt 0
+$$  
   
-取 $Y=e^{\lambda X},$ 应用 Markov 不等式即得证。  
+
   
+## 定理 11: Chernoff 不等式 (乘积形式)
+
+对m个独立同分布的随机变量$x_i \in [0, 1], i \in [m]$，令$X = \sum_{i=1}^m X_i$，$\mu>0$且$r\leq 1$
+
+如果$\mathbb{E}[x_i]\leq \mu$对于所有$i\leq m$都成立，有：
+$$  
+P(X \geq (1+r)\mu m) \leq e^{-\frac{r^2\mu m}{3}}, r \geq 0
+$$  
+$$  
+P(X \leq (1-r)\mu m) \leq e^{-\frac{r^2\mu m}{2}}, r \geq 0
+$$   
   
+$Proof. $  
+应用 Markov 不等式，有：
+$$  
+P(X\geq (1+r)\mu m) = P((1+r)^X \geq (1+r)^{(1+r)\mu m}) \leq \frac{\mathbb{E}[(1+r)^X]}{(1+r)^{(1+r)\mu m}}
+$$  
+根据$x_i$的独立性可知：
+$$
+\mathbb{E}[(1+r)^X] = \prod_{i=1}^m \mathbb{E}[(1+r)^{x_i}] \leq \prod_{i=1}^m \mathbb{E}[1+rx_i] \leq \prod_{i=1}^m 1+r\mu \leq e^{r\mu m}
+$$
+第二步用到了$\forall x\in [0,1]$，都有$(1+r)^x\leq 1+rx$
+
+第三步用到了$\forall i\leq m$，都有$\mathbb{E}[x_i]\leq \mu$
+
+第四步用到了$\forall x\in [0,1]$，都有$1+x\leq e^x$
+
+又因为$\forall r\in [0,1]$，有$\frac{e^r}{(1+r)^{1+r}}\leq e^{-\frac{r^2}{3}}$，综上：
+$$
+P(X\geq (1+r)\mu m) \leq (\frac{e^{r}}{(1+r)^{(1+r)}})^{\mu m} \leq e^{-\frac{r^2\mu m}{3}}
+$$
+
+当我们把$r$替换成$-r$，根据之前的推导，且在最后一步利用$\forall r\in [0,1]$，有$\frac{e^r}{(1-r)^{1-r}}\leq e^{-\frac{r^2}{2}}$，我们可以得到第二个不等式的证明
+
+
   
 ## 定理 12: Hoeffding 不等式  
   
