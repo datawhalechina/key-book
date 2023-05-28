@@ -53,7 +53,7 @@ https://github.com/datawhalechina/key-book/releases
 | 职责 | 名单 |
 | :---: | :---: |
 | **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
-| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) |
+| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) [@zhimin-z](https://github.com/zhimin-z)|
 | **致谢** | [@Drizzle-Zhang](https://github.com/Drizzle-Zhang) |
 
 
