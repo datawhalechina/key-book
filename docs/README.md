@@ -8,22 +8,19 @@
 
 ## 使用说明
 
-《钥匙书》的补充性工作，主要包括四个方面：
+- 《钥匙书》的补充性工作，主要包括四个方面：
 
-（1）**证明补充**：对部分证明的证明思路进行解释，对部分省略的证明过程进行补充。
+  （1）**证明补充**：对部分证明的证明思路进行解释，对部分省略的证明过程进行补充。
 
-（2）**案例补充**：增加解释案例，帮助读者理解。
+  （2）**案例补充**：增加解释案例，帮助读者理解。
 
-（3）**概念补充**：介绍部分文中涉及、但未阐释的概念。
+  （3）**概念补充**：介绍部分文中涉及、但未阐释的概念。
 
-（4）**参考文献讲解**：对部分重要的参考文献进行介绍。
+  （4）**参考文献讲解**：对部分重要的参考文献进行介绍。
 
-此外，由于《导引》一书的第一章节为基础知识补遗，简明易懂，因此《钥匙书》的内容从《导引》的第二章开始。
+  此外，由于《导引》一书的第一章节为基础知识补遗，简明易懂，因此《钥匙书》的内容从《导引》的第二章开始。
 
-### 在线阅读（内容实时更新）
-https://datawhalechina.github.io/key-book/
-
-### Github地址
+### Github地址（内容实时更新）
 https://github.com/datawhalechina/key-book
 
 ### 最新版PDF获取地址
@@ -52,10 +49,9 @@ https://github.com/datawhalechina/key-book/releases
 
 | 职责 | 名单 |
 | :---: | :---: |
-| **主编** | [@HaoZHAN](https://github.com/zhanhao93) |
-| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse) |
+| **主编** | [@詹好](https://github.com/zhanhao93) |
+| **编委** | [@MaolinWANG](https://github.com/mlw67) [@leafy-lee](https://github.com/leafy-lee) [@Youngfish42](https://github.com/youngfish42) [@Sm1les](https://github.com/Sm1les) [@J.Hu](https://github.com/inlmouse)[赵志民](https://github.com/zhimin-z) |
 | **致谢** | [@Drizzle-Zhang](https://github.com/Drizzle-Zhang) |
-
 
 
 ## 关注我们
@@ -65,17 +61,5 @@ https://github.com/datawhalechina/key-book/releases
 <p>或者加入QQ群：704768061</p>
 </div>
 
-
-## 相关工作
-
-周志华老师所著《机器学习》（西瓜书）是机器学习领域的经典入门教材之一。
-
-[Datawhale 开源组织](https://github.com/datawhalechina) 亦在其基础上进行了解读和补充。
-
-请参考[「南瓜书」](https://github.com/datawhalechina/pumpkin-book)项目，在线阅读地址：https://datawhalechina.github.io/pumpkin-book
-
-
-
 ## LICENSE
-
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
