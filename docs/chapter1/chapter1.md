@@ -748,7 +748,7 @@ $$f(x)+g(x) \leq f(x)+\sup_{y \in D_g} g(y).$$
 $$\sup_{x \in D_f \cap D_g}(f(x)+g(x)) \leq \sup_{x \in D_f \cap D_g}f(x)+\sup_{y \in D_g} g(y)\leq \sup_{z \in D_f}f(z)+\sup_{y \in D_g} g(y).$$
 这里我们使用了$\sup_{x \in D_f \cap D_g}f(x) \leq \sup_{z \in D_f}f(z)$ since $D_f \cap D_g \subset D_f$.
 
-值得注意的是，该不等式在（4.33）中利用过两次。
+值得注意的是，该不等式在（4.33）中利用过两次，且原推导并没有用到Jensen不等式的任何性质。
 
 另外，加性公式有几个常见的变形，例如：
 $$
