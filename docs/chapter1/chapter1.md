@@ -755,3 +755,32 @@ $$
 sup(f-g) - sup(f-k)\le sup(k-g)
 $$
 该不等式在（4.29）中出现过。
+
+
+
+## 正态分布不等式
+若$X$是一个服从标准正态分布的随机变量，那么对于任意$u\ge 0$，有：
+$$\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
+
+$Proof. $
+
+令$G(u)=\mathbb{P}[X\le u]$，则有：
+$$2G(u)=\int_{-u}^u(2\pi)^{-1/2}e^{-x^2/2}dx=\int_{-u}^u(2\pi)^{-1/2}e^{-y^2/2}dy$$
+因此：
+$$2\pi[2G(u)]^2=\int_{-u}^u\int_{-u}^ue^{-(x^2+y^2)/2}dxdy$$
+让我们考虑更一般的积分形式：
+$$2\pi[2G(u)]^2=\underset{R}{\int\int}e^{-(x^2+y^2)/2}dxdy$$
+此时$R$为任意面积为$4a^2$的区域，我们会发现只有当$R$为以原点为中心的圆形区域$R_0$时，积分值最大：
+$$R_0=\{(x,y):\pi(x^2+y^2)\le 4u^2\}$$
+此时，我们有：
+$$
+\begin{aligned}
+2\pi[2G(u)]^2&\le\underset{R_0}{\int\int}e^{-(x^2+y^2)/2}dxdy\\
+&=\int_0^{2\pi}\int_0^{2u\pi^{-1/2}}e^{-r^2/2}rdrd\varphi\\
+&=2\pi(1-e^{-2u^2/\pi})
+\end{aligned}
+$$
+因此，我们有：
+$$G(u)=\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
+进一步，我们可以得到：
+$$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
