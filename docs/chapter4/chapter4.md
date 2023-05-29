@@ -142,8 +142,19 @@ $$
 \frac{1}{2m}\Sigma^{(2m)!}_{i=1}\mathbb{I}(|\hat E_{T_iD}(h)-\hat E_{T_iD'}(h)||)=\Sigma_{k\in[l]\\s.t.|2k/m-l/m|\geq\epsilon/2}\frac{\tbinom{l}{k}\tbinom{2m-l}{m-k}}{\tbinom{2m}{m}}
 $$
 
+再通过进一步放缩，得到了最后的放缩式（4.19）。注意，该上界在原论文中并未给出证明，但是我们可以通过Hoeffding不等式来得到：
 
-再通过进一步放缩，得到了最后的放缩式。再将前后结合便能够证明引理。
+> $X=2k\in[0,2m]$ 可以被理解为$2m$个伯努利随机变量的和，这些随机变量的$p = 0.5$，并且是独立同分布的。
+> $\Gamma$可以被看作是所有$X$偏离其期望值$\mathbb{E}(X)=m$超过$\frac{εl}{2}$的结果的总和。应用霍夫丁不等式和$m\le2l$h这个约束，我们有：
+> $$
+> \begin{aligned}
+> P(|X - m| \ge \frac{εl}{2})&\le2exp(-\frac{2(\frac{εl}{2})^2}{\sum_{i=1}^m(1-0)^2})\\
+> &=2exp(-\frac{ε^2l^2}{2m})\le2exp(-\frac{ε^2l^2}{4l})\\
+> &=2exp(-\frac{ε^2l}{4})\lt2exp(-\frac{ε^2l}{8})
+> \end{aligned}
+> $$
+
+再将前后结合便能够证明引理。
 
 #### （2）思路分析
 
