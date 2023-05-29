@@ -150,11 +150,14 @@ $$
 > \begin{aligned}
 > P(|X - m| \ge \frac{εl}{2})&\le2exp(-\frac{2(\frac{εl}{2})^2}{\sum_{i=1}^m(1-0)^2})\\
 > &=2exp(-\frac{ε^2l^2}{2m})\le2exp(-\frac{ε^2l^2}{4l})\\
-> &=2exp(-\frac{ε^2l}{4})\lt2exp(-\frac{ε^2l}{8})
+> &=2exp(-\frac{ε^2l}{4})\le2exp(-\frac{ε^2l}{8})
 > \end{aligned}
 > $$
 
 再将前后结合便能够证明引理。
+
+注意，根据上面的推导，我们发现，即使把原不等式中$2exp(-\frac{ε^2l}{8})$替换成$2exp(-\frac{ε^2l}{4})$，原不等关系依然成立。
+此结论亦可推广到定理4.3的结论，但即便如此，泛化误差的收敛率依旧为$O(\sqrt\frac{ln(m/d)}{m/d})$，因此我们在这里不再赘述。
 
 #### （2）思路分析
 
@@ -166,7 +169,44 @@ $$
 
 
 
-## 7.【证明补充】二分类问题支持向量机泛化误差界
+## 7.【证明补充】引理4.2补充
+
+为了证明**P74**的引理4.2，我们设想两枚硬币$x_A$和硬币$x_B$。两枚硬币都稍微有些不均匀，即$P[x_A = 0] = 1/2−\alpha/2$ 和 $P[x_B = 0] = 1/2+\alpha/2$，其中 $0\lt\alpha\lt1$，0 表示正面，1 表示反面。
+假设我们随机从口袋里拿出一枚硬币 $x\in\{x_A,x_B\}$，抛 $m$ 次，公布他得到的 0 和 1 的序列，并问是哪一枚硬币被抛出，即选取并求得最佳决策函数$f:\{0,1\}^m\rightarrow\{x_A,x_B\}$。
+
+我们用$f$代表任意决策函数，用$F_A$代表满足$f(S)=x_A$的样本集合，用$F_B$代表满足$f(S)=x_B$的样本集合，用$N(S)$表示样本$S$中出现0的个数，根据泛化误差的定义，有：
+$$
+\begin{aligned}
+error(f) &=\displaystyle\sum_{S\in F_A}\mathbb{P}[S\wedge x_B]+\displaystyle\sum_{S\in F_B}\mathbb{P}[S\wedge x_A]\\
+&=\frac{1}{2}\displaystyle\sum_{S\in F_A}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_B}\mathbb{P}[S|x_A]\\
+&=\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_B]
++\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_A]+\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
+\end{aligned}
+$$
+如果$N(S)\ge \lceil m/2\rceil$，易证$\mathbb{P}[S|x_B]\ge\mathbb{P}[S|x_A]$。类似地，如果$N(S)\lt \lceil m/2\rceil$，易证$\mathbb{P}[S|x_A]\ge\mathbb{P}[S|x_B]$。因此，我们可以得到：
+$$
+\begin{aligned}
+error(f) &\ge\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]
++\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
+&=\frac{1}{2}\displaystyle\sum_{S:N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S:N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
+&=error(f_o)
+\end{aligned}
+$$
+因此，当我们选取$f_o$为决策函数时，泛化误差取得最小值，即当且仅当$N(S)\lt \lceil m/2\rceil$时，我们认为被抛的硬币是$f_o(S)=x_A$。
+
+注意到$\mathbb{P}[N(S)\ge \lceil m/2\rceil|x=x_A]=\mathbb{P}[B(m,p)\ge k]$，且$p=1/2-\epsilon /2,k=m/2$，因此$mp\le k\le m(1-p)$。
+
+根据Slud不等式，我们有：
+$$
+\begin{aligned}
+error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{m\epsilon/2}{\sqrt{1/4(1-\epsilon^2)m)}}]=\frac{1}{2}\mathbb{P}[N\ge\frac{\sqrt m\epsilon}{\sqrt{1-\epsilon^2)}}]
+\end{aligned}
+$$
+
+
+
+
+## 8.【证明补充】二分类问题支持向量机泛化误差界
 
 **P67**定理4.3的证明过程中提到将式（4.24）带入引理4.1，该证明过程补充如下。
 
@@ -206,7 +246,7 @@ $$
 
 
 
-## 8.【概念补充】回顾 Rademacher 复杂度
+## 9.【概念补充】回顾 Rademacher 复杂度
 
 **P68**谈论了基于 Rademacher 的泛化误差界，在此对 Rademacher 复杂度进行一下回顾。
 
@@ -218,7 +258,14 @@ $$
 
 
 
-## 9.【概念补充】$\rho$-间隔损失函数的 Lipschitz 性
+## 12.【证明补充】引理4.6的证明解析
+
+**P71**的定理4.6给出了泛化误差界的下界。
+
+不等式右边的数字$\frac{1}{100}$取得有些随意，但这里作者想表达的是：对于任意学习算法，总是存在某种分布和目标概念，使得输出的假设以较高的概率产生错误。事实上，根据（4.50）的结果，只要我们选取任意小于$\frac{1-e^{-\frac{d-1}{12}}}{7}$的数字，原不等式都是成立的。当$d=2$时，这个数字刚好为$0.0114$左右，此时选取$\frac{1}{100}$是较为恰当的。进一步我们可以发现，随着$d$的增加，这个数字会逐渐增大，并不断逼近$\frac{1}{7}$这个极限。但注意这并不意味对于任何分布和目标概念所能训练得到的泛化误差下界不会超过$\frac{1}{7}$，这一切只是因为定理证明时假设的数据分布是（4.42）。
+
+至于$32$这个数字，更是证明需要的产物。根据（4.50）的推导，我们可以发现，想要套用（4.49）的结论，就只能令$\epsilon=\frac{d-1}{16(1+r)}$。此时取$r=1$，分母部分自然得到$32$。
+## 10.【概念补充】$\rho$-间隔损失函数的 Lipschitz 性
 
 **P79**提到由经验损失（4.72）可知 $\Phi_\rho$ 最多是 $\frac{1}{\rho} - Lipschitz$。
 
@@ -226,7 +273,7 @@ $$
 
 
 
-## 10.【证明补充】二分类问题支持向量机泛化误差界
+## 11.【证明补充】二分类问题支持向量机泛化误差界
 
 **P79**的定理4.8给出了机遇间隔损失函数的而分类问题SVM的泛化误差界。
 
@@ -241,13 +288,3 @@ $$
 由于前面引理提到的关于 Lipschitz 函数的性质，同时我们说明了$\rho$-间隔损失函数的 Lipschitz 性，因此在简单改写复杂度之后便能得到要证明的定理。
 
 第二个定理同理可证。
-
-
-
-## 11.【证明补充】引理4.6的证明解析
-
-**P71**的定理4.6给出了泛化误差界的下界。
-
-不等式右边的数字$\frac{1}{100}$取得有些随意，但这里作者想表达的是：对于任意学习算法，总是存在某种分布和目标概念，使得输出的假设以较高的概率产生错误。事实上，根据（4.50）的结果，只要我们选取任意小于$\frac{1-e^{-\frac{d-1}{12}}}{7}$的数字，原不等式都是成立的。当$d=2$时，这个数字刚好为$0.0114$左右，此时选取$\frac{1}{100}$是较为恰当的。进一步我们可以发现，随着$d$的增加，这个数字会逐渐增大，并不断逼近$\frac{1}{7}$这个极限。但注意这并不意味对于任何分布和目标概念所能训练得到的泛化误差下界不会超过$\frac{1}{7}$，这一切只是因为定理证明时假设的数据分布是（4.42）。
-
-至于$32$这个数字，更是证明需要的产物。根据（4.50）的推导，我们可以发现，想要套用（4.49）的结论，就只能令$\epsilon=\frac{d-1}{16(1+r)}$。此时取$r=1$，分母部分自然得到$32$。
