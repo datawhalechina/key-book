@@ -729,3 +729,29 @@ $$
 该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_定理)。  
   
 该定理的适用性极其广泛，例如在稀疏感知领域直接导致了约束等距性条件 (RIP条件)，即非凸的 $L_0$范数最小化问题与 $L_1$范数最小化问题等价性条件；在流形学习和优化理论中也有重要的应用。而其在学习理论中最重要的应用是对降维任务的估计。
+
+
+
+## 上界不等式：加性公式
+若$f$和$g$均为函数，则有：
+$$
+sup(f+g)\le sup(f) + sup(g)
+$$
+
+$Proof. $
+
+假设 $f,g$ 分别有相同的定义域 $D_f,D_g$。根据上确界的定义，对于每一个 $x \in D_f \cap D_g$，我们有
+$$ g(x) \leq \sup_{y \in D_g}g(y),$$
+从而
+$$f(x)+g(x) \leq f(x)+\sup_{y \in D_g} g(y).$$
+因为这对于每一个 $x \in D_f \cap D_g$ 都是成立的，我们可以在不等式的两边取上确界，得到：
+$$\sup_{x \in D_f \cap D_g}(f(x)+g(x)) \leq \sup_{x \in D_f \cap D_g}f(x)+\sup_{y \in D_g} g(y)\leq \sup_{z \in D_f}f(z)+\sup_{y \in D_g} g(y).$$
+这里我们使用了$\sup_{x \in D_f \cap D_g}f(x) \leq \sup_{z \in D_f}f(z)$ since $D_f \cap D_g \subset D_f$.
+
+值得注意的是，该不等式在（4.33）中利用过两次。
+
+另外，加性公式有几个常见的变形，例如：
+$$
+sup(f-g) - sup(f-k)\le sup(k-g)
+$$
+该不等式在（4.29）中出现过。
