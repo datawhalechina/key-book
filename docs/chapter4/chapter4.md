@@ -177,7 +177,8 @@ $$
 我们用$f$代表任意决策函数，用$F_A$代表满足$f(S)=x_A$的样本集合，用$F_B$代表满足$f(S)=x_B$的样本集合，用$N(S)$表示样本$S$中出现0的个数，根据泛化误差的定义，有：
 $$
 \begin{aligned}
-error(f) &=\displaystyle\sum_{S\in F_A}\mathbb{P}[S\wedge x_B]+\displaystyle\sum_{S\in F_B}\mathbb{P}[S\wedge x_A]\\
+\mathbb{E}[\mathbb{P}_{S\sim\mathcal{D}_\alpha^m}(f(S)\neq x)]&=error(f) \\
+&=\displaystyle\sum_{S\in F_A}\mathbb{P}[S\wedge x_B]+\displaystyle\sum_{S\in F_B}\mathbb{P}[S\wedge x_A]\\
 &=\frac{1}{2}\displaystyle\sum_{S\in F_A}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_B}\mathbb{P}[S|x_A]\\
 &=\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_B]
 +\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_A]+\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
@@ -194,15 +195,21 @@ error(f) &\ge\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil
 $$
 因此，当我们选取$f_o$为决策函数时，泛化误差取得最小值，即当且仅当$N(S)\lt \lceil m/2\rceil$时，我们认为被抛的硬币是$f_o(S)=x_A$。
 
-注意到$\mathbb{P}[N(S)\ge \lceil m/2\rceil|x=x_A]=\mathbb{P}[B(m,p)\ge k]$，且$p=1/2-\epsilon /2,k=m/2$，因此$mp\le k\le m(1-p)$。
+注意到$\mathbb{P}[N(S)\ge \lceil m/2\rceil|x=x_A]=\mathbb{P}[B(2\lceil m/2\rceil,p)\ge k]$，且$p=1/2-\alpha /2,k=\lceil m/2\rceil$，因此$2\lceil m/2\rceil p\le k\le 2\lceil m/2\rceil(1-p)$。
 
 根据Slud不等式，我们有：
 $$
 \begin{aligned}
-error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{m\epsilon/2}{\sqrt{1/4(1-\epsilon^2)m)}}]=\frac{1}{2}\mathbb{P}[N\ge\frac{\sqrt m\epsilon}{\sqrt{1-\epsilon^2)}}]
+error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{\lceil m/2\rceil\alpha}{\sqrt{1/2(1-\alpha^2)\lceil m/2\rceil)}}]=\frac{1}{2}\mathbb{P}[N\ge\frac{\sqrt{2\lceil m/2\rceil}\alpha}{\sqrt{1-\alpha^2)}}]
 \end{aligned}
 $$
 
+根据第一章补充内容中的正态分布不等式推论，我们有：
+$$error(f_o)\ge\frac{1}{4}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})\ge\frac{1}{4}(1-\sqrt{1-e^{-u^2}})$$
+此处$u=\frac{\sqrt{2\lceil m/2\rceil}\alpha}{\sqrt{1-\alpha^2}}$
+
+事实上，根据上面的推导，我们可以进一步提升泛化误差的下界，即：
+$$\mathbb{E}[\mathbb{P}_{S\sim\mathcal{D}_\alpha^m}(f(S)\neq x)]\ge\frac{1}{4}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 
 
