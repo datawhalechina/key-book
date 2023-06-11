@@ -58,17 +58,17 @@ P122，介绍一种将样本空间划分成多个互不相容的区域，然后�
 
 一种典型的方案就是我们熟悉的决策树模型：
 
-<center><img src="./chapter6/imgs/1.png" width= "800"/></center>
+<center><img src="imgs/1.png" width= "800"/></center>
 
 每当构造出一个决策树的节点时，就等同于在样本空间上做出了一次划分。这一洞察方式同样可解释剪枝操作，例如剪枝前的样本空间为：
 
-<center><img src="./chapter6/imgs/2.png" width= "400"/></center>
+<center><img src="imgs/2.png" width= "400"/></center>
 
 
 
 而剪枝之后则为：
 
-<center><img src="./chapter6/imgs/3.png" width= "400"/></center>
+<center><img src="imgs/3.png" width= "400"/></center>
 
 此即所谓的划分机制。
 

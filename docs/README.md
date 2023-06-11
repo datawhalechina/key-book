@@ -66,7 +66,6 @@ https://github.com/datawhalechina/key-book/releases
 </div>
 
 
-
 ## 相关工作
 
 周志华老师所著《机器学习》（西瓜书）是机器学习领域的经典入门教材之一。
