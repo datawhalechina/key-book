@@ -48,9 +48,9 @@ $$
 
 
 
-## 3.【概念补充】可分情形下收敛率为何是 $O(1/m)$
+## 3.【概念补充】可分情形下收敛率为何是 $O(\frac{1}{m})$
 
-**P61**中提出，随着训练集中样本数目的逐渐增加，泛化误差的上界逐渐趋于0，收敛率为 $O(1/m)$ 。
+**P61**中提出，随着训练集中样本数目的逐渐增加，泛化误差的上界逐渐趋于0，收敛率为 $O(\frac{1}{m})$ 。
 
 由于 *$m \geq \frac{1}{\epsilon}(ln|\mathcal{H}|+ln\frac{1}{\delta})$ 时，有 $P(E(h)\leq\epsilon)\geq 1-\delta$* ，我们可以看出在给定 $\delta$ 与 $\mathcal{H}$ 之后，我们考虑泛化误差上界关于样本数目增加时的收敛情况是在取等条件下考虑问题，事实上我们有， $\forall m_1, m_2，\ m_1>m_2\geq \frac{1}{\epsilon}(ln|\mathcal{H}|+ln\frac{1}{\delta})$ ，$\exist \epsilon_1<\epsilon,，s.t.m1\geq\frac{1}{\epsilon_1}(ln|\mathcal{H}|+ln\frac{1}{\delta}) >m_2$。因此，总有样本数量增大时误差上界减小。根据等式： 
 $$
