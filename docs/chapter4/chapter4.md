@@ -30,7 +30,7 @@
 $$
 P(E(h) \leqslant \epsilon) \geqslant 1-\delta
 $$
-其中， 0 < $\epsilon$ , $\delta<1$，所有 $c \in \mathcal{C}$， $h \in \mathcal{H}$ 。
+其中， 0 < $\epsilon$ , $\delta < 1$，所有 $c \in \mathcal{C}$， $h \in \mathcal{H}$ 。
 
 **定理2.2**指出，所谓PAC可学，是指对于任何 $m \geqslant \operatorname{poly}(1 / \epsilon, 1 / \delta, \operatorname{size}(\boldsymbol{x}), \operatorname{size}(c))$ ，学习算法  $\mathfrak{L}$  能从假设空间 $\mathcal{H}$ 中PAC辨识概念类 $\mathcal{C}$ 。
 
@@ -200,16 +200,21 @@ $$
 根据Slud不等式，我们有：
 $$
 \begin{aligned}
-error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{\lceil m/2\rceil\alpha}{\sqrt{1/2(1-\alpha^2)\lceil m/2\rceil)}}]=\frac{1}{2}\mathbb{P}[N\ge\frac{\sqrt{2\lceil m/2\rceil}\alpha}{\sqrt{1-\alpha^2)}}]
+error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{\lceil m/2\rceil\alpha}{\sqrt{1/2(1-\alpha^2)\lceil m/2\rceil}}]=\frac{1}{2}\mathbb{P}[N\ge\sqrt{\frac{2\lceil m/2\rceil}{1-\alpha^2}}\alpha]
 \end{aligned}
 $$
 
 根据第一章补充内容中的正态分布不等式推论，我们有：
 $$error(f_o)\ge\frac{1}{4}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})\ge\frac{1}{4}(1-\sqrt{1-e^{-u^2}})$$
-此处$u=\frac{\sqrt{2\lceil m/2\rceil}\alpha}{\sqrt{1-\alpha^2}}$
+此处$u=\sqrt{\frac{2\lceil m/2\rceil}{1-\alpha^2}}\alpha$
 
 事实上，根据上面的推导，我们可以进一步提升泛化误差的下界，即：
 $$\mathbb{E}[\mathbb{P}_{S\sim\mathcal{D}_\alpha^m}(f(S)\neq x)]\ge\frac{1}{4}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
+
+在引理末尾处，提到了至少需要 $\Omega(\frac{1}{\alpha^2})$ 次采样才能个样本才能准确估计$\sigma_i$的取值，其推理过程如下：
+令泛化误差下界至多为$error(f_o)=\delta>0$，则有：
+$$\frac{1}{4}(1-\sqrt{1-e^{-u^2}})\le\delta\Leftrightarrow m\ge 2\lceil \frac{1-\epsilon^2}{2\epsilon^2}ln\frac{1}{8\delta(1-2\delta)} \rceil$$
+此时，我们发现m至少为$\Omega(\frac{1}{\alpha^2})$时，我们才能以$1-\delta$的概率确定$\sigma$的取值。
 
 
 
@@ -249,7 +254,7 @@ P(|E(h)-\widehat{E}(h)|>\sqrt{\frac{8 d \ln \frac{2 e m}{d}+8 \ln \frac{4}{\delt
 $$
 从而得到了定理4.3的结论。
 
-定理4.3其实表明了期望误差和经验误差之间的差异程度以概率的形式限定到了一定的区域范围之内，虽然这并不完全代表其误差一定会在$\sqrt{\frac{8 d \ln \frac{2 e m}{d}+8 \ln \frac{4}{\delta}}{m}}$这个范围之内,但在这其中的的概率达到了 $1-\delta$ 。并且我们从中可以发现其差异程度的控制范围和样本量以及其维度之间的关系，我们可以发现，当 $\frac{m}{d}$ 较大的时候（其代表样本量大，而 VC 维较低，这是数据在空间中分布较为密集的情况）由于 $ln(x)$ 相对于 $x$ 增加较慢，所以其差异可以控制的越小，反之亦然。
+定理4.3其实表明了期望误差和经验误差之间的差异程度以概率的形式限定到了一定的区域范围之内，虽然这并不完全代表其误差一定会在$\sqrt{\frac{8 d \ln \frac{2 e m}{d}+8 \ln \frac{4}{\delta}}{m}}$这个范围之内，但在这其中的的概率达到了 $1-\delta$ 。并且我们从中可以发现其差异程度的控制范围和样本量以及其维度之间的关系，我们可以发现，当 $\frac{m}{d}$ 较大的时候（其代表样本量大，而 VC 维较低，这是数据在空间中分布较为密集的情况）由于 $ln(x)$ 相对于 $x$ 增加较慢，所以其差异可以控制的越小，反之亦然。
 
 
 
@@ -280,7 +285,41 @@ $$
 
 
 
-## 11.【证明补充】定理4.8补充
+## 11.【证明补充】引理4.7的补充
+
+**P75**的定理4.7主要想表达无论算法有多强，在不可分的情况下，总会有某种“坏”分布使得输出假设的泛化误差以常数概率为$O(\sqrt\frac{d}{m})$，其中（4.61）中第二步变形用到了以下等式：
+$$
+\sum_{x_i\in S}(\mathbb{I}(h(x_i)\neq h_{\mathcal{D}_{\sigma}^*}(x_i))+\mathbb{I}(h(x_i) = h_{\mathcal{D}_{\sigma}^*}(x_i))) = d
+$$
+另外，（4.63）的第三步为何不直接利用引理4.2进行推导呢？这要是考虑到函数$\Phi(·,\alpha)$为减函数，即由$m/d+1\le2\lceil m/2\rceil$可知$\Phi(m/d+1,\alpha)\ge\Phi(2\lceil m/2\rceil,\alpha)$。可见后者并不是一个特别紧致的下界，因此我们转而考虑按照$|Z|_x$的取值进行拆分。
+
+在**P76**左下角的最后一个脚注中，提到了$m/d$为变量$|Z|_x$的期望值，如何得到这个结论呢？根据（4.58）和（4.59）以及$\mathcal{U}$为$\{-1,+1\}^d$均匀分布的性质，我们可以得到从分布中抽取给定点$x$的期望概率为$1/d$。
+当我们从 $D_σ$ 中独立抽取 $m$ 个样本的情况下，$S$ 中点 $x$ 出现的次数的期望值为 $m/d$。
+
+此外，（4.65）中用到了引理4.3，我们令$Z'=\frac{1}{\alpha}(E(h_Z)-E(h_{\mathcal{D}_{\sigma^*}^{m}}^{*}))$，根据（4.62）可知$0\le Z'\le1$。
+令$\gamma'=\gamma u$，因为$\Phi(·,\alpha)$为减函数，易知其最大值为$1/4$，因此有$\gamma'\in[0,1/4)\subseteq[0,1)$，此时带入引理4.3可得：
+$$
+P(Z'\gt\gamma')\ge E[Z']-\gamma' \ge u-u\gamma = (1-\gamma)u
+$$
+
+同时，（4.69）到（4.70）的推导中体现了充分条件的思想，由（4.69）可知：
+$$
+\frac{m}{d}\le \frac{A}{\epsilon^2}+B
+$$
+其中$A=(\frac{7}{64})^2ln\frac{4}{3}$，$B=-ln\frac{4}{3}-1$。
+
+我们希望能够推导出更为简洁的$\frac{m}{d}$与$\frac{1}{\epsilon^2}$之间关系，因此我们考虑寻找充分条件使以下不等式成立：
+$$
+\frac{m}{d}\le \frac{A}{\epsilon^2}+B\le\frac{\omega}{\epsilon^2}
+$$
+即使得$\omega\ge B\epsilon^2+A$成立，当$\epsilon\le 1/64$时，很容易得到$\omega$的最小值（4.70）。
+
+值得注意的是，整个证明过程共进行了四次启发式限制，分别为$\gamma=1-8\delta$，$\alpha=8\epsilon/(1-8\epsilon)$，$\delta\le1/64$和$\epsilon\le1/64$。
+这些启发式限制构造出来都是为了使得最终的不等式成立，其实我们亦可根据实际需要进行调整，继而得到该定理的不同变种。
+
+
+
+## 12.【证明补充】定理4.8补充
 
 **P79**的定理4.8给出了机遇间隔损失函数的而分类问题SVM的泛化误差界。
 
