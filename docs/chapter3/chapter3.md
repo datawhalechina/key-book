@@ -2,8 +2,6 @@
 
 *Edit: 王茂霖，李一飞，Hao ZHAN*
 
-*Update: 06/12/2020*
-
 ---
 
 类似于计算理论中的算法复杂度，机器学习理论也又对假设空间复杂度的研究。
@@ -66,7 +64,7 @@ $$
 
 这里用 $R^2$ 空间的示例进一步介绍打散的概念，以二维空间 $R^2$ 来说，一条任意的直线 $w_1x_1+w_2x_2+b=0$ 对于任意的三个点实现的对分（二分类）的所有情形如下：
 
-<center><img src="./chapter3/img/shattering.png" width= "600"/></center>
+<center><img src="imgs/shattering.png" width= "600"/></center>
 
 
 
@@ -76,7 +74,7 @@ $$
 
 例如，异或（XOR）问题：
 
-<center><img src="./chapter3/img/xor.png" width= "300"/></center>
+<center><img src="imgs/xor.png" width= "300"/></center>
 
 
 
