@@ -22,7 +22,7 @@
 
 ## 2.【证明补充】均匀稳定性与泛化上界
 
-**P92**中，定义5.1讨论了**均匀稳定性**与泛化性的关系。这里重新梳理一下均匀稳定性和泛化性究竟在哪一步证明过程中得以关联。
+**P92**中，定理5.1讨论了**均匀稳定性**与泛化性的关系。这里重新梳理一下均匀稳定性和泛化性究竟在哪一步证明过程中得以关联。
 
 ### （1）证明简述
 
@@ -38,6 +38,16 @@ $$
 $$
 P(R(\mathcal{L_D})-\hat R(\mathcal{L_D})\geq\beta+\epsilon)\leq exp(\frac{-2m\epsilon^2}{(2m\beta+M)^2})
 $$
+
+值得注意的是，（5.22）中最后一步不等式的推导其实是省略了一步，即：
+$$
+\begin{aligned}
+&\frac{|\ell(\mathfrak{L}_D,z_i)-\ell(\mathfrak{L}_{D^{i,z'_i}},z'_i)|}{m}+\sum_{j\neq i}\frac{|\ell(\mathfrak{L}_D,z_j)-\ell(\mathfrak{L}_{D^{i,z'_i}},z_j)|}{m}\\
+&\le \frac{M}{m}+\frac{m-1}{m}\beta \\
+&\le \frac{M}{m}+\beta
+\end{aligned}
+$$
+之所以这么做，是因为在样本量$m$较大的时候，$\frac{\beta}{m}$的大小可以忽略不计，因此在结论中我们直接将其省略。
 
 ### （2）均匀稳定性与泛化性的关系
 
