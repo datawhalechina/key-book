@@ -66,42 +66,21 @@ $$
 
 ## 3.【证明补充】假设稳定性与泛化上界
 
-**P94**中，定义5.2讨论了**假设稳定性**与泛化性的关系。这里重新梳理一下假设稳定性和泛化性究竟在哪一步证明过程中得以关联。
+**P94**中，定理5.2讨论了**假设稳定性**与泛化性的关系。这里重新梳理一下假设稳定性和泛化性究竟在哪一步证明过程中得以关联。
 
 ### （1）证明简述
 
 证明是关于 $R(\mathcal{L_D})-\hat R(\mathcal{L_D})$ 的平方平均，这是因为假设稳定性是比较弱的条件，只能保证误差的期望被上界控制，因此这里只能得到关于期望的不等式。同样的，因为不涉及到概率与置信度，因此我们并不需要复杂的不等式，只需要使用简单的放缩便能够得到答案。
 
-单纯从证明的角度来讲，里面可能最不容易理解的一点是关于 (5.30) 式的放缩，实质上是有关于期望的线性性的等式化简：
-$$
-\begin{aligned}
-&\frac{1}{m^2}\Sigma_{i\neq j}\mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\
-&=2\cdot C_m^2\cdot\frac{1}{m^2}\mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_i))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_j))]\\
-&=\frac{m-1}{m}\mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[1mm]
-&\leq \mathbb{E}_D
-[R(\mathcal{L_D})-\ell(\mathcal{L_D},\mathbf{z}_1))(R(\mathcal{L_D})-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[2mm]
-&=\mathbb{E}_D
-[\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\ell(\mathcal{L_D},\mathbf{z}_1))(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\ell(\mathcal{L}_D,\mathbf{z}_2))]\\[2mm]
-&=(
-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)])(\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)])\\[2mm]
-&=\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]-\mathbb{E}_{z\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]\\[2mm]
-&\qquad\quad+\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_2)]-\mathbb{E}_{z'\sim \mathcal{D}}[\ell(\mathcal{L}_D,\mathbf{z'})]\cdot\mathbb{E}_D[\ell(\mathcal{L_D},\mathbf{z}_1)]\\[2mm]
-&=\mathbb{E}_{z',z, \mathcal{D}}[\ell(\mathcal{L_D},\mathbf{z})\ell(\mathcal{L_D},\mathbf{z}')-\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)\\[2mm]
-&\qquad\quad+\ell(\mathcal{L_D},\mathbf{z}_1)\ell(\mathcal{L_D},\mathbf{z}_2)-\ell(\mathcal{L_D},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}_1)]
-\end{aligned}
-$$
-之后的部分在 (5.32) 式第二步实际是添加了一项 $(-\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}')+\ell(\mathcal{L_{D^{1,\mathbb{z}}}},\mathbf{z}')\ell(\mathcal{L_D},\mathbf{z}'))$ 之后简单的三角不等式放缩即得到结果。
+单纯从证明的角度来讲，里面可能最不容易理解的一点是反复出现于（5.30）至（5.33）中关于变量$z$的替换。搞清楚这一点，其他的不等式缩放便是非常顺畅的。
+根据独立同分布假设，即$\forall i,j\in \mathbb{N}^+,z,z',z_i,z_j\sim\mathcal{D}$，我们可以任意交换$z,z',z_i,z_j$的顺序，而期望值并不改变。
+例如，在（5.30）的第一步推导中，不失一般性地用$z_1,z_2$替代了$z_i,z_j$，因此原期望值之和得以化简为只跟$z_1,z_2$有关的期望值。
 
-其他地方的证明都非常朴素的放缩和化简，至此，证明的难点部分就讲述完成了。
+另外，在（5.32）的第一步推导中，利用到了不等式$E(X+Y)\le E(|X|)+E(|Y|)$。这种在期望缩放中运用绝对值不等式的处理方式在全书中并不少见，算是非常实用的小技巧了。
 
 ### （2）泛化性与假设稳定性
 
 这里实际上并不是简单的泛化界的关系，实际上给出了经验误差与泛化误差的差距的平方平均的界，这是因为假设稳定性并不是非常强的结论，事实上假设稳定性就是为了放松均匀稳定性这个较强的条件得到的。
-
-两个性质联系的关键点在 (5.32) 式，通过插项的三角不等式将两个数据集下 $\mathcal{D},\mathcal{D}^{1,z}$ 的损失函数复杂乘法关系转化成简单的加减法，再通过假设稳定性的上界得到最终需要的上界。
 
 
 
