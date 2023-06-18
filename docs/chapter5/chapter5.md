@@ -107,8 +107,23 @@ $$
 $$
 R(\mathfrak{L}_D)-R(h^*)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(2/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
 $$
-此时（5.45）的推论便比较自然了。
-这一章的几个实例又一次带我们回顾了前面几章的各个概念，足以体现本书结构优秀。
+此时（5.44）变为：
+$$
+\epsilon=\frac{1}{m}+(2+M)\sqrt{\frac{ln(2/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
+$$
+如果令$m'=\sqrt m$，则可以将上式转化为关于$m'$的一元二次方程：
+$$
+\epsilon m'^2-Am'-1=0
+$$
+其中$A=(2+M)\sqrt{\frac{ln(2/\delta)}{2}}+M\sqrt{\frac{ln(1/\delta)}{2}}=O(\sqrt{ln(1/\delta)})$，根据求根公式可得：
+$$
+m'=\frac{A\pm\sqrt{A^2+4\epsilon}}{2\epsilon} = O(\frac{1}{\epsilon}\sqrt{ln(\frac{1}{\delta})})
+$$
+因此，我们可以得到：
+$$
+m=m'^2=O(\frac{1}{\epsilon^2}ln(\frac{1}{\delta}))
+$$
+接下来的推导便水到渠成了。
 
 ### （2）稳定性与可学习性
 
