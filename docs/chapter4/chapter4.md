@@ -1,6 +1,6 @@
 # 第4章：泛化界
 
-*Edit: 李一飞，王茂霖，Hao ZHAN*
+*Edit: 李一飞，王茂霖，Hao ZHAN，赵志民*
 
 *Update: 07/07/2020*
 
