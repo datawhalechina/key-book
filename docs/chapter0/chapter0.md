@@ -2,8 +2,6 @@
 
 *Edit: Hao ZHAN*
 
-*Update: 06/12/2020*
-
 ---
 
 ## 1.关于《机器学习理论导引》
@@ -68,7 +66,7 @@
 
 [张	雨](https://github.com/Drizzle-Zhang)：第2章部分内容的修改
 
-[    J.Hu](https://github.com/inlmouse)：第一章内容的编辑
+[J.Hu](https://github.com/inlmouse)：第一章内容的编辑
 
 [赵志民](https://github.com/zhimin-z)：项目第二阶段的更新与维护
 
