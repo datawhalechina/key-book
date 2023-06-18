@@ -1,6 +1,6 @@
 # 第5章：稳定性
 
-*Edit: 李一飞，王茂霖，Hao ZHAN*
+*Edit: 李一飞，王茂霖，Hao ZHAN，赵志民*
 
 *Update: 06/12/2020*
 
