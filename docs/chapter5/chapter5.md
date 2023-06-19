@@ -105,23 +105,35 @@ $$
 $$
 
 这里的证明实际上就是利用经验风险与泛化风险之间的联系构造出（5.39），分而治之地讨论了不同场景下的稳定性与可学性关系。
-值得注意的是，（5.42）的结论有一处小错误，这里我们可以得到$\hat R \in [0,M]$且$R(h^*)=E_{\mathcal{D}}(\hat R(h^*))$，此时根据Hoeffding不等式（1.30），可知至少以$1-\delta$的概率有：
+
+其中，泛化风险与经验风险之差（5.40）可以根据定理5.1改写成：对于任意的$\delta\in(0,1)$，以至少$1-\delta$的概率有：
+$$
+R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2m\beta+M)\sqrt{\frac{ln(1/\delta)}{2m}}
+$$
+参考**P95**对于$lim_{m\rightarrow +\infty}m\beta$讨论，只要满足$lim_{m\rightarrow +\infty}m\beta\lt\infty$这个条件，算法的泛化性能就可以得到保障，因此我们需要确保$\beta$的取值不要太大。
+在此定理中，我们选取$\beta=1/m$，此时上式简化为：
+$$
+R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(1/\delta)}{2m}}
+$$
+
+在处理ERM算法情况下泛化风险与经验风险之差（5.42）时，原书中有一处小错误，不过对于最终结论的影响不是很大。这里我们给出正确的推导过程：
+根据$\ell(\mathfrak{L}_D,z)\in[0,M]$，我们可以得到$\hat R \in [0,M]$，又因为$R(h^*)=E_{\mathcal{D}}(\hat R(h^*))$，此时根据Hoeffding不等式（1.30），可知至少以$1-\delta$的概率有：
 $$
 \hat R(h^*)-R(h^*)\le M\sqrt{\frac{ln(1/\delta)}{2m}}
 $$
-此时结合（5.39）至（5.42）可知，至少以$1-\delta$的概率有：
+此时结合（5.39）至（5.42）可知，得知至少以$1-\delta$的概率有：
 $$
-R(\mathfrak{L}_D)-R(h^*)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(2/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
+R(\mathfrak{L}_D)-R(h^*)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(1/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
 $$
 此时（5.44）变为：
 $$
-\epsilon=\frac{1}{m}+(2+M)\sqrt{\frac{ln(2/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
+\epsilon=\frac{1}{m}+(1+M)\sqrt{\frac{2ln(1/\delta)}{m}}
 $$
-如果令$m'=\sqrt m$，则可以将上式转化为关于$m'$的一元二次方程：
+令$m'=\sqrt m$，则可以将上式转化为关于$m'$的一元二次方程：
 $$
 \epsilon m'^2-Am'-1=0
 $$
-其中$A=(2+M)\sqrt{\frac{ln(2/\delta)}{2}}+M\sqrt{\frac{ln(1/\delta)}{2}}=O(\sqrt{ln(1/\delta)})$，根据求根公式可得：
+其中$A=(1+M)\sqrt{2ln(1/\delta)}$，根据求根公式可得：
 $$
 m'=\frac{A\pm\sqrt{A^2+4\epsilon}}{2\epsilon} = O(\frac{1}{\epsilon}\sqrt{ln(\frac{1}{\delta})})
 $$
