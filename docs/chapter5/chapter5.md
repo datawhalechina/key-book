@@ -137,7 +137,7 @@ $$
 $$
 m'=\frac{A\pm\sqrt{A^2+4\epsilon}}{2\epsilon} = O(\frac{1}{\epsilon}\sqrt{ln(\frac{1}{\delta})})
 $$
-因此，我们可以得到：
+至此，我们得到了$m$的渐进复杂度：
 $$
 m=m'^2=O(\frac{1}{\epsilon^2}ln(\frac{1}{\delta}))
 $$
