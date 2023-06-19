@@ -110,7 +110,7 @@ $$
 $$
 R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2m\beta+M)\sqrt{\frac{ln(1/\delta)}{2m}}
 $$
-参考**P95**对于$lim_{m\rightarrow +\infty}m\beta$讨论，只要满足$lim_{m\rightarrow +\infty}m\beta\lt\infty$这个条件，算法的泛化性能就可以得到保障，因此我们需要确保$\beta$的取值不要太大。
+参考**P95**对于$lim_{m\rightarrow +\infty}m\beta$讨论，只要满足$lim_{m\rightarrow +\infty}m\beta\lt\infty$这个条件，算法的泛化性能就可以得到保障，因此我们应确保$\beta$的取值不要太大。
 在此定理中，我们选取$\beta=1/m$，此时上式简化为：
 $$
 R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(1/\delta)}{2m}}
