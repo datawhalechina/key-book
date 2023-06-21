@@ -129,3 +129,55 @@ $$
 $$
 R\left(h_{m}\right)-R^{*} \leqslant 2 \mathbb{E}[|\hat{\eta}(\boldsymbol{x})-\eta(\boldsymbol{x})|]  \rightarrow 0
 $$
+
+
+
+### 6. 【定理补充】随机森林的划分一致性
+
+**P130**定理6.5中，提到了一种简化版本的随机森林，即每次划分都是均匀随机的，并不依赖于训练集的标签。
+在证明直径$Diam(\Omega(x,Z))\rightarrow 0$有些步骤并不是很清晰，这里我们对其进行补充说明。
+
+首先，令$L_j$表示区域$\Omega(x,Z)$中第$j$个属性的边长，我们可以得到$Diam(\Omega(x,Z))$与$L_j$的关系：
+$$
+\begin{aligned}
+Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}||x-x'||\\
+&=\sqrt{\sum_{j=1}^dL_j^2}
+\end{aligned}
+$$
+当我们对于$Diam(\Omega(x,Z))$求期望时，我们可以得到：
+$$
+\mathbb{E}(Diam(\Omega(x,Z)))=\mathbb{E}(\sqrt{\sum_{j=1}^dL_j^2})
+$$
+
+令$L = \sum_{j=1}^dL_j^2$，因为$\sqrt L$为关于$L$的凸函数，根据Jensen不等式（1.11），我们可以得到：
+$$
+\mathbb{E}(\sqrt{\sum_{j=1}^dL_j^2})\le\sqrt{\sum_{j=1}^d\mathbb{E}(L_j^2)}
+$$
+每个属性的边长$L_j$在随机决策树构造中都是独立同分布的，因此我们可以得到：
+$$
+\sqrt{\sum_{j=1}^d\mathbb{E}(L_j^2)}=\sqrt{d\mathbb{E}(L_1^2)}=\sqrt{d}\mathbb{E}(L_1)
+$$
+综合以上各式，我们只需要证明当$k\rightarrow\infty$时有$\mathbb{E}(L_1)\rightarrow 0$，便证明了$Diam(\Omega(x,Z))\rightarrow 0$。
+
+令随机变量$U_i\sim \mathcal{U}(0,1)$表示第$j$个属性在第$i$次划分中的位置，因此$max(U_i,1-U_i)$表示了第$j$个属性在第$i$次划分中的最大长度。
+令$K_j\sim \mathcal{B}(T_m,1/d)$表示第$j$个属性被选用划分的次数。此时，第$j$个属性的边长的$K_j$次划分中最大长度的期望值为$\mathbb{E}_{K_j}[\prod_{i=1}^{K_j}max(U_i,1-U_i)]$，于是我们可以得到属性的边长期望满足（6.97）。
+
+令$T_m$表示区域$\Omega(x,Z)$被划分的次数，结合（6.98）以及划分事件的独立性，我们可以得到：
+$$
+\begin{aligned}
+\mathbb{E}(L_j)&\le\mathbb{E}[\mathbb{E}_{K_j}[\prod_{i=1}^{K_j}max(U_i,1-U_i)]]\\
+&=\mathbb{E}[(\mathbb{E}[max(U_1,1-U_1)])^{K_j}]\\
+&=\mathbb{E}[(\frac{3}{4})^{K_j}]\\
+&=\sum_{K_j=0}^{T_m}P(K_j)\cdot(\frac{3}{4})^{K_j}\\
+&=\sum_{K_j=0}^{T_m}\binom{T_m}{K_j}\cdot(\frac{1}{d})^{K_j}\cdot(1-\frac{1}{d})^{T_m-K_j}\cdot(\frac{3}{4})^{K_j}\\
+&=\sum_{K_j=0}^{T_m}\binom{T_m}{K_j}\cdot(\frac{3}{4d})^{K_j}\cdot(1-\frac{1}{d})^{T_m}\\
+&=(1-\frac{1}{d}+\frac{3}{4d})^{T_m}\\
+&=(1-\frac{1}{4d})^{T_m}
+\end{aligned}
+$$
+此时，我们只需要证明当$k\rightarrow\infty$时有$T_m\rightarrow\infty$，便证明了$\mathbb{E}(L_j)\rightarrow 0$。
+
+每一次划分结点都会增加一个新的结点，而且每次选择结点进行划分的概率都是相同的，即$p=1/i$，其中$i$为当前的结点数目。
+因此，区域$\Omega(x,Z)$在结点数为$i$时被选中进行划分的概率分布满足$\xi_i\sim Bernoulli(p)$，且有$T_m=\sum_{i=1}^k\xi_i$成立。
+
+结合（6.93），当$k\rightarrow\infty$时有$\mathbb{E}[T_m]\rightarrow\infty$，因此$T_m\rightarrow\infty$必然依概率成立，从而证明了$Diam(\Omega(x,Z))\rightarrow 0$。
