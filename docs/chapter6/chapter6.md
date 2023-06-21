@@ -178,6 +178,6 @@ $$
 此时，我们只需要证明当$k\rightarrow\infty$时有$T_m\rightarrow\infty$，便证明了$\mathbb{E}(L_j)\rightarrow 0$。
 
 每一次划分结点都会增加一个新的结点，而且每次选择结点进行划分的概率都是相同的，即$p=1/i$，其中$i$为当前的结点数目。
-因此，区域$\Omega(x,Z)$在结点数为$i$时被选中进行划分的概率分布满足$\xi_i\sim Bernoulli(p)$，且有$T_m=\sum_{i=1}^k\xi_i$成立。
+因此，区域$\Omega(x,Z)$在结点数为$i$时被选中进行划分的概率分布满足$\xi_i\sim Bernoulli(p)$，此时我们可以用划分次数$\xi_i$之和来表示$T_m=\sum_{i=1}^k\xi_i$。
 
-结合（6.93），当$k\rightarrow\infty$时有$\mathbb{E}[T_m]\rightarrow\infty$，因此$T_m\rightarrow\infty$必然依概率成立，从而证明了$Diam(\Omega(x,Z))\rightarrow 0$。
+由于$T_m$的期望为$\mathbb{E}[T_m]=\sum_{i=1}^k\frac{1}{i}$，因此当$k\rightarrow\infty$时有$\mathbb{E}[T_m]\rightarrow\infty$，因此$T_m\rightarrow\infty$必然依概率成立，从而证明了$Diam(\Omega(x,Z))\rightarrow 0$。
