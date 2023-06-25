@@ -1,6 +1,6 @@
 # 第7章：收敛率
 
-*Edit: 李一飞*
+*Edit: 李一飞，赵志民*
 
 ---
 
@@ -14,22 +14,30 @@
 $$
 \forall x_1,x_2\in C\\\theta x_1+(1-\theta x_2)\in C
 $$
-由于凸函数围成区域的特殊性质（无限区域），我们只需要考虑函数曲线所在的边界，因此条件转化为
+由于凸函数围成区域具有上述的特殊性质，我们只需要考虑函数曲线所在的边界，因此条件转化为
 $$
 f(\theta x + (1-\theta)z) \leq \theta f(x) + (1-\theta) f(z)
 $$
-由于凸函数的良好性质，我们可以推出凸函数局部最优解就是全局最优：假设 $x^*$ 是局部最优，即 $x^*$ 周围存在一个邻域，
+进一步地，我们可以推出凸函数局部最优解就是全局最优解。
+
+假设$f:\mathbb{R}^d\rightarrow\mathbb{R}$是凸函数，且$x^*$是$f$在凸集合$\mathcal{D}$中的局部最小值。
+因为凸集合的性质，对于任意$y$，$y-x^*$都是一个可行的方向。因此，我们总是可以选择一个足够小的$t>0$，满足：
 $$
-S = B(x^*,\delta),\forall x \in S, f(x)\geq f(x^*)
+f(x^*)\leq f(x^*+t(y-x^*))
 $$
- 因此 
+由$f$的凸函数性质可知:
 $$
-\forall y , f(x^*)\leq f((1-t)x^*+ty) , \,\, \{t\leq \frac{\delta}{|x^*-y|}\}
+f(x^*+t(y-x^*))=f((1-t)x^*+ty)\leq (1-t)f(x^*)+tf(y)
 $$
-由凸函数性质:
+结合以上两式，我们有：
 $$
-\forall y , f(x^*)\leq f((1-t)x^*+ty)\leq (1-t)f(x^*)+tf(y)\\\Rightarrow f(x^*)\leq f(y)
+\begin{aligned}
+&f(x^*)\leq (1-t)f(x^*)+tf(y)\\
+\Leftrightarrow &f(x^*)\leq f(y)
+\end{aligned}
 $$
+因为$y$是凸集合$\mathcal{D}$中的任意点，所以$x^*$是全局最小解。
+对于全局最大解，我们可以通过考虑函数$-f$的局部最小解来得到类似结论。
 
 
 
@@ -37,24 +45,47 @@ $$
 
 由 $l$-Lipschitz 的定义式 (1.7) 可以推出题目给的梯度条件:
 $$
-f(z)-f(x) \leq l\cdot|z-x|
-\\\Rightarrow\frac{|f(z)-f(x)|}{|z-x|}\leq l
-\\\Rightarrow lim_{z-x\rightarrow 0}\frac{|f(z)-f(x)|}{|z-x|}\leq l
-\\\Rightarrow||\nabla f(u)||\leq l
+\begin{aligned}
+&|f(z)-f(x)| \leq l\cdot|z-x|\\
+\Leftrightarrow&|\frac{f(z)-f(x)}{z-x}|\leq l\\
+\Leftrightarrow&lim_{z\rightarrow x}|\frac{f(z)-f(x)}{z-x}|\leq l\\
+\Leftrightarrow&|\nabla f(x)|\leq l
+\end{aligned}
 $$
 
 
 
 ## 3. 【概念补充】强凸函数
 
-### 定义
-
-对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,z\in\Psi$ 都有
+对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,z\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
 $$
-f(\theta x+(1-\theta)z)\leq \theta f(x)+(1-\theta)f(z)-\frac{\lambda}{2}\theta(1-\theta)||x-z||^2 \quad(\forall0\leq\theta\leq 1)
+f(\theta x+(1-\theta)z)\leq \theta f(x)+(1-\theta)f(z)-\frac{\lambda}{2}\theta(1-\theta)||x-z||^2
 $$
+则称 $f$ 为$\lambda$-强凸函数，其中$\lambda$ 为强凸系数。
 
-### 关于强凸函数
+强凸函数不仅收敛速度更快，还具备很多优良的性质。比如**P90**中的定理7.2，这里给出证明：
+
+根据强凸函数的定义，我们取$x=w,z=w^*$，然后两边除以$\theta$可得：
+$$
+\begin{aligned}
+&\frac{f(\theta w+(1-\theta)w^*)}{\theta}\leq f(w)+\frac{1-\theta}{\theta}f(w^*)-\frac{\lambda}{2}(1-\theta)||w-w^*||^2\\
+\Rightarrow&\frac{\lambda}{2}(1-\theta)||w-w^*||^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\theta)-f(w^*)}{\theta}
+\end{aligned}
+$$
+令$\theta\rightarrow 0^+$，则有：
+$$
+\begin{aligned}
+&lim_{\theta\rightarrow 0^+}\frac{\lambda}{2}(1-\theta)||w-w^*||^2\le f(w)-f(w^*)+lim_{\theta\rightarrow 0^+}\frac{f(w^* +(w-w^*)\theta)-f(w^*)}{\theta}\\
+\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+lim_{\Delta\rightarrow 0^+}\frac{f(w^* +\Delta)-f(w^*)}{\Delta}(w-w^*)\\
+\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+\nabla f(w^*)^T(w-w^*)
+\end{aligned}
+$$
+其中$\Delta=(w-w^*)\theta$
+
+因为$w^*$为最优解，所以$\nabla f(w^*)=0$，因此有：
+$$
+f(w)-f(w^*)\ge\frac{\lambda}{2}||w-w^*||^2
+$$
 
 强凸函数在定义式中可以看出有了一个关于 $\theta$ 和 $||x-z||^2$ 的项，通过简单的化简为 $f(z)\geq f(x)+\nabla f(x)^T(z-x)+\frac{\lambda}{2}||x-z||^2$ 就可以得知，这表明了函数不仅在切线的上方，还保持有二阶的距离，这一点可以从泰勒展开得到更深入地体现。
 
