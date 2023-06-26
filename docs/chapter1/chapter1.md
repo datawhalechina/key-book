@@ -14,7 +14,7 @@
 
 凸集是向量空间（如欧几里得空间）的一个子集，在该集合中，对于集合内的任意两点，连接它们的线段完全位于该集合内。换句话说，如果一个集合包含连接集合内任意两点的线段上的所有点，则该集合是凸集。
 
-更正式地说，考虑一个向量空间$\mathcal{V}$。如果对于该空间中的任意两点$x$和$y$，以及满足$\theta\in[0,1]$的任意标量$\theta$，点$\theta x+(1-\theta)y$也属于$\mathcal{D}$，那么集合$\mathcal{D}\subseteq\mathcal{V}$是凸集。
+更正式地说，考虑一个向量空间$\mathcal{V}$。如果对于该空间中的任意两点$x$和$y$，以及满足$\alpha\in[0,1]$的任意标量$\alpha$，点$\alpha x+(1-\alpha)y$也属于$\mathcal{D}$，那么集合$\mathcal{D}\subseteq\mathcal{V}$是凸集。
 例如，欧几里得空间中的闭球是一个凸集，因为球内的任意两点可以通过一条完全位于球内的线段相连。类似地，线段、平面或整个空间本身也都是凸集。
 
 凸集具有许多重要的性质和应用，在各个领域，包括优化、经济学、几何学和计算机科学等都有应用。凸性的概念在凸优化中至关重要，其中目标是在凸集上找到一个凸函数的最小值。凸集提供了一种良好的结构，可以实现高效的优化算法，并在许多情况下保证全局最优解。
@@ -23,28 +23,59 @@
 
 ## 2. 凸函数
 
-凸函数跟凸集合有一定的联系，满足如下条件的函数$f:\mathbb{R}^d\rightarrow\mathbb{R}$称为凸函数：
+凸函数与凸集合的概念紧密相连，凸函数是指其上图形成一个凸集的函数，这里一个函数的上图$epi(f)$是指位于函数$f(x)$图像上方或者与其重合的点的集合：
 $$
-\begin{aligned}
-&\forall x,y\in\mathcal{D},\theta\in[0,1]\\
-\Rightarrow&f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta) f(y)
-\end{aligned}
+epi(f) = \{(x, y) | x ∈ dom(f)，y ≥ f(x)\}
 $$
+其中，$dom(f)$ 是函数$f$的定义域。
+
+简单来说，对于一个函数 $f(x)$，如果对于其定义域内的任意两个点 $x$ 和 $y$，以及满足$\alpha\in[0,1]$的任意标量$\alpha$，以下不等式成立：
+$$
+f(\alpha x + (1-\alpha)y) \leq \alpha f(x) + (1-\alpha) f(y)
+$$
+
+这个不等式被称为凸性条件，表示函数上的任意两点之间的连线都位于函数上方或者在函数上。
+
+除了上面的线段定义法，凸函数还有几种等价的定义：
+1. 一阶条件：如果一个定义在凸集上的函数 $f(x)$，对于其定义域内的任意两个点 $x$ 和 $y$，以下不等式成立：
+$$
+f(y) ≥ f(x) + \nabla f(x)^T(y - x)
+$$
+其中，$\nabla f(x)$ 表示函数 $f(x)$ 在点 x 处的梯度。几何上，这个条件表示函数的图像位于任意一点处的切线之上。
+
+2. 二阶条件：如果函数 $f(x)$ 具有二次可微性，那么它是凸函数当且仅当其 Hessian 矩阵 $H_f$ 在其定义域内的所有点 $x$ 上都是半正定的，半正定性保证了 Hessian 矩阵的所有特征值都是非负的。其中，Hessian矩阵$H_f$是函数 $f(x)$ 的二阶偏导数构成的方阵：
+$$
+\mathbf H_f= \begin{bmatrix}
+  \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]
+  \dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]
+  \vdots & \vdots & \ddots & \vdots \\[2.2ex]
+  \dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}.
+$$
+其中，$x=[x_1,x_2,\cdots,x_n]$
+
+3. Jensen不等式：如果函数$f(x)$是凸函数，则对于其定义域内的任意一组点${x_1, x_2, \cdots, x_n}$和归一化的非负权重${w_1, w_2, \cdots, w_n}$，即$\sum_{i=1}^n w_i=1$，则有：
+$$
+f(\sum_{i=1}^n w_i x_i) ≤ \sum_{i=1}^n w_i f(x_i)
+$$
+
+
+
 进一步地，我们可以推出凸函数局部最优解就是全局最优解。
 
 假设$f:\mathbb{R}^d\rightarrow\mathbb{R}$是凸函数，且$x^*$是$f$在凸集合$\mathcal{D}$中的局部最小值。
-因为凸集合的性质，对于任意$y$，$y-x^*$都是一个可行的方向。因此，我们总是可以选择一个足够小的$t>0$，满足：
+因为凸集合的性质，对于任意$y$，$y-x^*$都是一个可行的方向。因此，我们总是可以选择一个足够小的$\alpha>0$，满足：
 $$
-f(x^*)\leq f(x^*+t(y-x^*))
+f(x^*)\leq f(x^*+\alpha(y-x^*))
 $$
 由$f$的凸函数性质可知:
 $$
-f(x^*+t(y-x^*))=f((1-t)x^*+ty)\leq (1-t)f(x^*)+tf(y)
+f(x^*+\alpha(y-x^*))=f((1-\alpha)x^*+\alpha y)\leq (1-\alpha)f(x^*)+\alpha f(y)
 $$
 结合以上两式，我们有：
 $$
 \begin{aligned}
-&f(x^*)\leq (1-t)f(x^*)+tf(y)\\
+&f(x^*)\leq (1-\alpha)f(x^*)+\alpha f(y)\\
 \Leftrightarrow &f(x^*)\leq f(y)
 \end{aligned}
 $$
@@ -55,39 +86,39 @@ $$
 
 ## 3. 强凸函数
 
-对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,y\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
+对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,y\in\Psi$且$\alpha\in[0,1]$ 都有下式成立：
 $$
-f(\theta x+(1-\theta)y)\leq \theta f(x)+(1-\theta)f(y)-\frac{\lambda}{2}\theta(1-\theta)||x-y||^2
+f(\alpha x+(1-\alpha)y)\leq \alpha f(x)+(1-\alpha)f(y)-\frac{\lambda}{2}\alpha(1-\alpha)||x-y||^2
 $$
 则称 $f$ 为$\lambda$-强凸函数，其中$\lambda$ 为强凸系数。
 
 强凸函数不仅收敛速度更快，还具备很多优良的性质。比如**P90**中的定理7.2，这里给出证明：
 
-根据强凸函数的定义，我们取$x=w,y=w^*$，然后两边除以$\theta$可得：
+根据强凸函数的定义，我们取$x=w,y=w^*$，然后两边除以$\alpha$可得：
 $$
 \begin{aligned}
-&\frac{f(\theta w+(1-\theta)w^*)}{\theta}\leq f(w)+\frac{1-\theta}{\theta}f(w^*)-\frac{\lambda}{2}(1-\theta)||w-w^*||^2\\
-\Rightarrow&\frac{\lambda}{2}(1-\theta)||w-w^*||^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\theta)-f(w^*)}{\theta}
+&\frac{f(\alpha w+(1-\alpha)w^*)}{\alpha}\leq f(w)+\frac{1-\alpha}{\alpha}f(w^*)-\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\\
+\Rightarrow&\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}
 \end{aligned}
 $$
-令$\theta\rightarrow 0^+$，则有：
+令$\alpha\rightarrow 0^+$，则有：
 $$
 \begin{aligned}
-&lim_{\theta\rightarrow 0^+}\frac{\lambda}{2}(1-\theta)||w-w^*||^2\le f(w)-f(w^*)+lim_{\theta\rightarrow 0^+}\frac{f(w^* +(w-w^*)\theta)-f(w^*)}{\theta}\\
+&lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\le f(w)-f(w^*)+lim_{\alpha\rightarrow 0^+}\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}\\
 \Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+lim_{\Delta\rightarrow 0^+}\frac{f(w^* +\Delta)-f(w^*)}{\Delta}(w-w^*)\\
-\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+\nabla f(w^*)^T(w-w^*)
+\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+\nabla f(w^*)^\alpha(w-w^*)
 \end{aligned}
 $$
-其中$\Delta=(w-w^*)\theta$
+其中$\Delta=(w-w^*)\alpha$
 
 因为$w^*$为最优解，所以$\nabla f(w^*)=0$，因此有：
 $$
 f(w)-f(w^*)\ge\frac{\lambda}{2}||w-w^*||^2
 $$
 
-强凸函数在定义式中可以看出有了一个关于 $\theta$ 和 $||x-z||^2$ 的项，通过简单的化简为 $f(z)\geq f(x)+\nabla f(x)^T(z-x)+\frac{\lambda}{2}||x-z||^2$ 就可以得知，这表明了函数不仅在切线的上方，还保持有二阶的距离，这一点可以从泰勒展开得到更深入地体现。
+强凸函数在定义式中可以看出有了一个关于 $\alpha$ 和 $||x-z||^2$ 的项，通过简单的化简为 $f(z)\geq f(x)+\nabla f(x)^\alpha(z-x)+\frac{\lambda}{2}||x-z||^2$ 就可以得知，这表明了函数不仅在切线的上方，还保持有二阶的距离，这一点可以从泰勒展开得到更深入地体现。
 
-强凸函数与凸函数的区别为，凸函数只关心二阶 Hessian 矩阵半正定，而强凸函数提出了更高的要求，对 $f$ 的二阶 Hessian 矩阵有 ：$\exists m>0, \nabla^{2} f(x)-m I \succeq 0$    这里的 $A \succeq \theta$ 代表A是半正定矩阵
+强凸函数与凸函数的区别为，凸函数只关心二阶 Hessian 矩阵半正定，而强凸函数提出了更高的要求，对 $f$ 的二阶 Hessian 矩阵有 ：$\exists m>0, \nabla^{2} f(x)-m I \succeq 0$    这里的 $A \succeq \alpha$ 代表A是半正定矩阵
 
 
 
