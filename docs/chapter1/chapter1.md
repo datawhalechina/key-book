@@ -783,7 +783,7 @@ $$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 # 概念深入篇
 
-## 1. 凸函数
+## 1. 凸集合
 
 **凸集合**$\mathcal{D}$是满足如下条件的集合：
 $$
@@ -792,6 +792,11 @@ $$
 \Rightarrow&\theta x+(1-\theta y)\in\mathcal{D}
 \end{aligned}
 $$
+
+
+
+## 2. 凸函数
+
 凸函数跟凸集合有一定的联系，满足如下条件的函数$f:\mathbb{R}^d\rightarrow\mathbb{R}$称为凸函数：
 $$
 \begin{aligned}
@@ -822,7 +827,7 @@ $$
 
 
 
-## 2. 【概念补充】强凸函数
+## 3. 强凸函数
 
 对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,y\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
 $$
@@ -860,7 +865,7 @@ $$
 
 
 
-## 3. $l$-Lipschitz
+## 4. $l$-Lipschitz
 
 由 $l$-Lipschitz 的定义式 (1.7) 可以推出题目给的梯度条件:
 $$
