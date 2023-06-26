@@ -783,7 +783,7 @@ $$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 # 概念深入篇
 
-## 1. 【概念补充】凸函数
+## 1. 凸函数
 
 **凸集合**$\mathcal{D}$是满足如下条件的集合：
 $$
@@ -822,21 +822,7 @@ $$
 
 
 
-## 2.【公式说明】$l$-Lipschitz 
-
-由 $l$-Lipschitz 的定义式 (1.7) 可以推出题目给的梯度条件:
-$$
-\begin{aligned}
-&|f(z)-f(x)| \leq l\cdot|z-x|\\
-\Leftrightarrow&|\frac{f(z)-f(x)}{z-x}|\leq l\\
-\Leftrightarrow&lim_{z\rightarrow x}|\frac{f(z)-f(x)}{z-x}|\leq l\\
-\Leftrightarrow&|\nabla f(x)|\leq l
-\end{aligned}
-$$
-
-
-
-## 3. 【概念补充】强凸函数
+## 2. 【概念补充】强凸函数
 
 对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,y\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
 $$
@@ -871,3 +857,17 @@ $$
 强凸函数在定义式中可以看出有了一个关于 $\theta$ 和 $||x-z||^2$ 的项，通过简单的化简为 $f(z)\geq f(x)+\nabla f(x)^T(z-x)+\frac{\lambda}{2}||x-z||^2$ 就可以得知，这表明了函数不仅在切线的上方，还保持有二阶的距离，这一点可以从泰勒展开得到更深入地体现。
 
 强凸函数与凸函数的区别为，凸函数只关心二阶 Hessian 矩阵半正定，而强凸函数提出了更高的要求，对 $f$ 的二阶 Hessian 矩阵有 ：$\exists m>0, \nabla^{2} f(x)-m I \succeq 0$    这里的 $A \succeq \theta$ 代表A是半正定矩阵
+
+
+
+## 3. $l$-Lipschitz
+
+由 $l$-Lipschitz 的定义式 (1.7) 可以推出题目给的梯度条件:
+$$
+\begin{aligned}
+&|f(z)-f(x)| \leq l\cdot|z-x|\\
+\Leftrightarrow&|\frac{f(z)-f(x)}{z-x}|\leq l\\
+\Leftrightarrow&lim_{z\rightarrow x}|\frac{f(z)-f(x)}{z-x}|\leq l\\
+\Leftrightarrow&|\nabla f(x)|\leq l
+\end{aligned}
+$$
