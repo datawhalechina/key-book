@@ -10,13 +10,19 @@
 
 ## 1. 【概念补充】凸函数
 
-回顾第一章中的介绍，**凸函数**是函数曲线围成区域为凸集的函数，即
+**凸集合**$\mathcal{D}$是满足如下条件的集合：
 $$
-\forall x_1,x_2\in C\\\theta x_1+(1-\theta x_2)\in C
+\begin{aligned}
+&\forall x,y\in\mathcal{D},\theta\in[0,1]\\
+\Rightarrow&\theta x+(1-\theta y)\in\mathcal{D}
+\end{aligned}
 $$
-由于凸函数围成区域具有上述的特殊性质，我们只需要考虑函数曲线所在的边界，因此条件转化为
+凸函数跟凸集合有一定的联系，满足如下条件的函数$f:\mathbb{R}^d\rightarrow\mathbb{R}$称为凸函数：
 $$
-f(\theta x + (1-\theta)z) \leq \theta f(x) + (1-\theta) f(z)
+\begin{aligned}
+&\forall x,y\in\mathcal{D},\theta\in[0,1]\\
+\Rightarrow&f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta) f(y)
+\end{aligned}
 $$
 进一步地，我们可以推出凸函数局部最优解就是全局最优解。
 
@@ -57,15 +63,15 @@ $$
 
 ## 3. 【概念补充】强凸函数
 
-对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,z\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
+对定义在凸集上的函数 $f: \R^d\rightarrow\R$，若 $\exists \lambda\in\R_+$，使得 $\forall x,y\in\Psi$且$\theta\in[0,1]$ 都有下式成立：
 $$
-f(\theta x+(1-\theta)z)\leq \theta f(x)+(1-\theta)f(z)-\frac{\lambda}{2}\theta(1-\theta)||x-z||^2
+f(\theta x+(1-\theta)y)\leq \theta f(x)+(1-\theta)f(y)-\frac{\lambda}{2}\theta(1-\theta)||x-y||^2
 $$
 则称 $f$ 为$\lambda$-强凸函数，其中$\lambda$ 为强凸系数。
 
 强凸函数不仅收敛速度更快，还具备很多优良的性质。比如**P90**中的定理7.2，这里给出证明：
 
-根据强凸函数的定义，我们取$x=w,z=w^*$，然后两边除以$\theta$可得：
+根据强凸函数的定义，我们取$x=w,y=w^*$，然后两边除以$\theta$可得：
 $$
 \begin{aligned}
 &\frac{f(\theta w+(1-\theta)w^*)}{\theta}\leq f(w)+\frac{1-\theta}{\theta}f(w^*)-\frac{\lambda}{2}(1-\theta)||w-w^*||^2\\
@@ -101,6 +107,13 @@ $$
 $$
 随机梯度是真实梯度的无偏估计
 $$
-\mathbb{E}\big[ \Sigma<\nabla f(\omega_t)-\mathbf{g}_t,\omega_t - \omega> \big]\\=\mathbb{E}\big[ \Sigma<\nabla f(\omega_t),\omega_t - \omega> \big]-\mathbb{E}\big[ \Sigma<\mathbf{g}_t,\omega_t - \omega> \big]\\=\Sigma\big[\mathbb{E}\big[<\nabla f(\omega_t),\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\=\Sigma\big[\mathbb{E}\big[<\mathbb{E}[\mathbf{g}_t],\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\=\Sigma\big[\mathbb{E}\big[\mathbf{g}_t,\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\=0
+\begin{aligned}
+&\mathbb{E}\big[ \Sigma<\nabla f(\omega_t)-\mathbf{g}_t,\omega_t - \omega> \big]\\
+=&\mathbb{E}\big[ \Sigma<\nabla f(\omega_t),\omega_t - \omega> \big]-\mathbb{E}\big[ \Sigma<\mathbf{g}_t,\omega_t - \omega> \big]\\
+=&\Sigma\big[\mathbb{E}\big[<\nabla f(\omega_t),\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\
+=&\Sigma\big[\mathbb{E}\big[<\mathbb{E}[\mathbf{g}_t],\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\
+=&\Sigma\big[\mathbb{E}\big[\mathbf{g}_t,\omega_t - \omega> \big]-\mathbb{E}\big[<\mathbf{g}_t,\omega_t - \omega>\big]\\
+=&0
+\end{aligned}
 $$
 
