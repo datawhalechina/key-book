@@ -69,7 +69,7 @@ $$
 对于定义在凸集上的函数$f(x)$，如果它满足以下性质，则称为强凸函数：
 $$
 \forall x,y\in dom(f),\alpha\in[0,1],\exists \lambda\gt0\\
-f(\alpha x+(1-\alpha)y)\leq \alpha f(x)+(1-\alpha)f(y)-\frac{\lambda}{2}\alpha(1-\alpha)||x-y||^2
+f(\alpha x+(1-\alpha)y)\leq \alpha f(x)+(1-\alpha)f(y)-\frac{\lambda}{2}\alpha(1-\alpha)||x-y||_2^2
 $$
 则称 $f(x)$ 为$\lambda$-强凸函数，其中$\lambda$ 为强凸系数。
 
@@ -77,9 +77,7 @@ $$
 
 1. Hessian 矩阵条件：如果一个两次可微的函数 $f(x)$ 的 Hessian 矩阵 $H_f$ 在凸集中的所有 $x$ 上都是正定的（即矩阵的所有元素为正），则它是强凸的。
 
-2. 梯度条件：如果一个可微函数 $f(x)$ 是强凸的，那么存在一个正常数 $m$，使得对于凸集中的任意 $x,y$，有 $||\nabla f(x) - \nabla f(y)|| ≥ m ||x - y||$ 成立。这里，$\nabla f(x)$ 表示 $f(x)$ 在点 $x$ 处的梯度。
-
-3. Lipschitz 梯度条件：如果一个可微函数 $f(x)$ 是强凸的，那么存在一个正常数$m$，使得对于凸集中的任意 $x$ 和 $y$，有 $||\nabla f(x) - \nabla f(y)||^2 ≤ m ||x - y||^2$ 成立。
+2. 梯度条件：如果一个可微函数 $f(x)$ 是强凸的，那么存在一个正常数 $m$，使得对于凸集中的任意 $x,y$，有 $||\nabla f(x) - \nabla f(y)||_2 ≥ m ||x - y||_2$ 成立。这里，$\nabla f(x)$ 表示 $f(x)$ 在点 $x$ 处的梯度。
 
 [comment]: <> (是否在此给出不同定义的等价性证明？)
 
@@ -89,23 +87,23 @@ $$
 根据强凸函数的定义，我们取$x=w,y=w^*$，然后两边除以$\alpha$可得：
 $$
 \begin{aligned}
-&\frac{f(\alpha w+(1-\alpha)w^*)}{\alpha}\leq f(w)+\frac{1-\alpha}{\alpha}f(w^*)-\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\\
-\Rightarrow&\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}
+&\frac{f(\alpha w+(1-\alpha)w^*)}{\alpha}\leq f(w)+\frac{1-\alpha}{\alpha}f(w^*)-\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\\
+\Rightarrow&\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}
 \end{aligned}
 $$
 令$\alpha\rightarrow 0^+$，则有：
 $$
 \begin{aligned}
-&lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)||w-w^*||^2\le f(w)-f(w^*)+lim_{\alpha\rightarrow 0^+}\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}\\
-\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+lim_{\Delta\rightarrow 0^+}\frac{f(w^* +\Delta)-f(w^*)}{\Delta}(w-w^*)\\
-\Rightarrow&\frac{\lambda}{2}||w-w^*||^2\le f(w)-f(w^*)+\nabla f(w^*)^\alpha(w-w^*)
+&lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\le f(w)-f(w^*)+lim_{\alpha\rightarrow 0^+}\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}\\
+\Rightarrow&\frac{\lambda}{2}||w-w^*||_2^2\le f(w)-f(w^*)+lim_{\Delta\rightarrow 0^+}\frac{f(w^* +\Delta)-f(w^*)}{\Delta}(w-w^*)\\
+\Rightarrow&\frac{\lambda}{2}||w-w^*||_2^2\le f(w)-f(w^*)+\nabla f(w^*)^T(w-w^*)
 \end{aligned}
 $$
 其中$\Delta=(w-w^*)\alpha$
 
 因为$w^*$为最优解，所以$\nabla f(w^*)=0$，因此有：
 $$
-f(w)-f(w^*)\ge\frac{\lambda}{2}||w-w^*||^2
+f(w)-f(w^*)\ge\frac{\lambda}{2}||w-w^*||_2^2
 $$
 
 
@@ -156,7 +154,7 @@ $$
 光滑性指的是函数的一个特性，描述了函数在可导性方面的良好行为。形式上，函数$f(x)$被称为$L$-光滑，则必须满足以下不等式：
 $$
 \forall x,y\in dom(f),\exists L>0\\
-|\nabla f(x)-\nabla f(y)| \leq L|x-y|
+||\nabla f(x)-\nabla f(y)||_2 \leq L||x-y||_2
 $$
 这里，$L$被称为光滑系数。
 
@@ -179,7 +177,7 @@ $$
 Lipschitz连续性是连续性的一个更强的形式，它要求函数在变化速度方面有界。具体而言，如果存在一个正常数L，使得函数在任意两点处的函数值之间的绝对差小于等于L乘以这两点之间的距离，那么该函数被称为Lipschitz连续，即：
 $$
 \forall x,y\in dom(f),\exists L>0\\
-|f(x)-f(y)| \leq L|x-y|
+||f(x)-f(y)||_2 \leq L||x-y||_2
 $$
 这里，$L$ 被称为Lipschitz常数，表示函数的最大变化率。如果$L$较大，函数可以快速变化，而较小的$L$表示更渐进的变化。
 
