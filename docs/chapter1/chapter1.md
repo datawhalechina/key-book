@@ -1005,3 +1005,36 @@ $$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 
 
+## 定理 21: AM-GM 不等式
+
+算术平均数和几何平均数的不等式，简称AM-GM不等式。该不等式指出非负实数序列的算术平均数大于等于该序列的几何平均数，当且仅当序列中的每个数相同时，等号成立。
+形式上，对于非负实数序列$\{x_n\}$，其算术平均值定义为：
+$$
+A_n=\frac{1}{n}\sum_{i=1}^nx_i
+$$
+其几何平均值定义为：
+$$
+G_n=\sqrt[n]{\prod_{i=1}^nx_i}
+$$
+则AM-GM 不等式成立：
+$$
+A_n\ge G_n
+$$
+
+我们可以通过Jensen不等式（1.11）来证明AM-GM不等式。首先，我们考虑函数$f(x)=-\ln x$，该函数是凸函数，因此有：
+$$
+\frac{1}{n}\sum_{i=1}^n-\ln x_i\ge-\ln\left(\frac{1}{n}\sum_{i=1}^nx_i\right)
+$$
+即：
+$$
+\begin{aligned}
+&\ln\left(\frac{1}{n}\sum_{i=1}^nx_i\right)\ge\frac{1}{n}\sum_{i=1}^n\ln x_i=\sum_{i=1}^n\ln x_i^{\frac{1}{n}}=\ln\sqrt[n]{\prod_{i=1}^nx_i}\\
+
+\Rightarrow&\frac{1}{n}\sum_{i=1}^nx_i \le \sqrt[n]{\prod_{i=1}^nx_i}
+\end{aligned}
+$$
+当取$x_1=x_2=\cdots=x_n$时，等号成立。
+特别地，当$n=2$时，我们有：
+$$
+\frac{x_1+x_2}{2}\ge\sqrt{x_1x_2}
+$$
