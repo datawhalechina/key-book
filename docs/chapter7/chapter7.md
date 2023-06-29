@@ -74,3 +74,34 @@ $$
     - 当$0\lt\frac{\lambda}{2(\gamma-\lambda)}\lt1$时，$f(\alpha)$取得最小值只能在$\alpha=\frac{\lambda}{2(\gamma-\lambda)}$处，故而得到（7.21）。
 
 余下的推导部分与书中相同，此处不再赘述。
+
+
+
+## 4.【定理补充】随机梯度下降
+
+**P150**引理7.2给出了随机梯度下降收敛率的上界，我们对其中的一部分推导进行必要补充。
+
+首先，（7.60）中第二个不等式的推导利用了Cauchy-Schwarz不等式（1.14），即$\|x^Ty\|\le\|x\|\|y\|$。
+这里，我们令$x=\underbrace{[1,\cdots,1]}_{T}$，$y=\underbrace{[\|\omega_1-w^*\|,\cdots,\|\omega_T-w^*\|]}_{T}$，则有：
+$$
+|x^Ty|=\sum_{t=1}^T\|\omega_t-w^*\|\le \sqrt{T}\sqrt{\sum_{t=1}^T\|\omega_t-w^*\|^2}=|x||y|
+$$
+
+其次，（7.62）中最后两个不等式的推导利用了一些常见的缩放技巧，我们在这里给出完整形式：
+$$
+\begin{aligned}
+&\sum_{i=1}^m P(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau+\frac{4l^2}{\lambda},V_T^2\le4l^2A_T,A_T\in(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i]) \\
+\le &\sum_{i=1}^m P(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau,V_T^2\le4l^2A_T,A_T\in(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i]) \\
+\le &\sum_{i=1}^m P(\sum_{t=1}^T \delta_t \ge \sqrt{2\frac{16l^42^i}{\lambda^2T}\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau,V_T^2\le\frac{16l^42^i}{\lambda^2T}) \\
+\le &\sum_{i=1}^m P(\max_{j=1,\cdots,T}\underbrace{\sum_{t=1}^j \delta_t}_{S_j} \ge \sqrt{2\underbrace{\frac{16l^42^i}{\lambda^2T}}_{\nu}\tau}+\frac{2}{3}\underbrace{\frac{4l^2}{\lambda}}_{K}\tau,V_T^2\le\underbrace{\frac{16l^42^i}{\lambda^2T}}_{\nu}) \\
+\le &\sum_{i=1}^m e^{-\tau} \\
+= &me^{-\tau}
+\end{aligned}
+$$
+这里，第一个不等式利用了$\frac{4l^2}{\lambda} \gt 0$的事实对$\sum_{t=1}^T \delta_t$的范围进行概率缩放；
+第二个不等式利用了$A_T$的下界和上界分别对$\sum_{t=1}^T \delta_t$和$V_T^2$的范围进行概率缩放；
+第三个不等式利用了$\max_{j=1,\cdots,T}\sum_{t=1}^j \delta_t$比$\sum_{t=1}^T \delta_t$更为宽松的事实对$V_T^2$进行概率缩放；
+第四个不等式利用了定理7.6的结论。
+
+最后，（7.64）中第二个不等式的推导利用了开口向下的二次函数$f(x)=ax^2+bx+c,a\lt0$拥有最大值点$x_0=-\frac{b}{2a}$的事实。
+我们令$x=\sqrt{A_T}$，然后取$a=-\frac{\lambda}{2},b=2\sqrt{4l^2\log\frac{m}{\delta}},c=0$，则易知$f(x)$的最大值为$\frac{8l^2}{\lambda}\log\frac{m}{\delta}$，于是便得到了（7.64）中的结论。
