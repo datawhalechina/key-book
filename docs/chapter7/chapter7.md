@@ -48,4 +48,29 @@ $$
 
 ## 3.【定理补充】强凸函数确定优化
 
-在**P142**定理7.3的
+**P142**中，在证明定理7.3时，对于（7.19）的讨论这里进行一些补充。
+首先，如果目标函数满足$\lambda$-强凸且$\gamma$-光滑，那么根据第一章补充内容中关于强凸函数和光滑性的结论，我们有$\gamma\ge\lambda$。
+这是因为对于任意$\omega,\omega'$，光滑系数$\gamma$的被定义为：
+$$f(\omega)\le f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\gamma}{2}||\omega-\omega'||^2$$
+而强凸系数$\lambda$的被定义为
+$$f(\omega)\ge f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\lambda}{2}||\omega-\omega'||^2$$
+对于任意$\omega$，光滑系数$\gamma$决定了$f(\omega)$的上界，而强凸系数$\lambda$决定了$f(\omega)$的下界，因此光滑系数$\gamma$不小于强凸系数$\lambda$。
+
+此时，令$f(\alpha)=\frac{\gamma-\lambda}{\lambda}\alpha^2-\alpha$，因为$\frac{\gamma-\lambda}{\lambda}\ge0$，故而我们可以分成以下两种情况讨论：
+1. 当$\frac{\gamma-\lambda}{\lambda}=0$时，（7.19）转化为：
+$$
+\begin{aligned}
+&f(\omega_{t+1})\le min_{\alpha\in[0,1]}\{f(\omega_t)-\alpha (f(\omega_t)-f(\omega^*))\} \\
+\Rightarrow&f(\omega_{t+1})-f(\omega^*)\le min_{\alpha\in[0,1]}\{1-\alpha\}(f(\omega_t)-f(\omega^*)) \\
+\end{aligned}
+$$
+因为$f(\omega_t)-f(\omega^*)\ge0$，所以当且仅当$\alpha=1$时，不等式右侧取得最小值$0$，此时易知$f(\omega_{t+1})=f(\omega^*)$。
+根据凸函数局部最优解等于全局最优解的结论，我们可以得到$\omega_{t+1}=\omega^*$，即算法在第$t+1$轮迭代中收敛到最优解。
+
+2. 当$\frac{\gamma-\lambda}{\lambda}>0$时，$f(\alpha)$为关于$\alpha$开口向上的二次函数。
+令$f'(\alpha)=2\frac{\gamma-\lambda}{\lambda}\alpha-1=0$，得到$f(\alpha)$的对称轴为$\alpha=\frac{\lambda}{2(\gamma-\lambda)}$。
+此时我们可以分成以下两种情况讨论：
+    - 当$\frac{\lambda}{2(\gamma-\lambda)}\ge1$时，$f(\alpha)$取得最小值只能在$\alpha=1$处，故而得到（7.20）。
+    - 当$0\lt\frac{\lambda}{2(\gamma-\lambda)}\lt1$时，$f(\alpha)$取得最小值只能在$\alpha=\frac{\lambda}{2(\gamma-\lambda)}$处，故而得到（7.21）。
+
+余下的推导部分与书中相同，此处不再赘述。
