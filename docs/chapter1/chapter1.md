@@ -208,8 +208,8 @@ $$
 根据微分中值定理，对于任意$x\le y$，存在$c\in[x,y]$，使得：
 $$
 \begin{aligned}
-&\|f'(c)\|_2=\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}\\
-\Rightarrow&\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}\le L
+&\|f(x)-f(y)\|_2=\|f'(c)\|_2\|x-y\|_2\\
+\Rightarrow&\|f(x)-f(y)\|_2\le L \|x-y\|_2
 \end{aligned}
 $$
 此时，函数是$L$-Lipschitz连续的。
@@ -220,14 +220,11 @@ $$
 $$
 根据微分中值定理，对于任意$x\le y$，存在$c\in[x,y]$，使得：
 $$
-\begin{aligned}
-&\|f'(c)\|_2=\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}\\
-\Rightarrow&\|f'(c)\|_2\le L
-\end{aligned}
+\|f(x)-f(y)\|_2=\|f'(c)\|_2\|x-y\|_2
 $$
-不妨令$x\rightarrow y$，因为$f(y)$具有可微的性质，使得：
+不妨令$x\rightarrow y$，则$c\rightarrow y$，因为$f(y)$具有可微的性质，可得：
 $$
-\lim_{x\rightarrow y}\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}=\|\lim_{x\rightarrow y}\frac{f(x)-f(y)}{x-y}\|_2=\|f'(y)\|_2\le L
+\|f'(y)\|_2=\|\lim_{x\rightarrow y}\frac{f(x)-f(y)}{x-y}\|_2=\lim_{x\rightarrow y}\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}\le\lim_{x\rightarrow y}L=L
 $$
 因为$y$的任意性，所以函数的导数是有界的。
 
