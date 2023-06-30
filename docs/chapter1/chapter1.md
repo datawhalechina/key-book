@@ -222,7 +222,11 @@ $$
 \Rightarrow&\|f'(c)\|_2\le L
 \end{aligned}
 $$
-因为$x,y$是任意的，所以$c$也是任意的，因此函数的导数是有界的。
+不妨令$x\rightarrow y$，因为$f(x)$具有可微的性质，使得：
+$$
+\lim_{x\rightarrow y}\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}=\|\lim_{x\rightarrow y}\frac{f(x)-f(y)}{x-y}\|_2=\|f'(y)\|_2\le L
+$$
+因为$y$的任意性，所以函数的导数是有界的。
 
 连续性关注函数图像中的跳跃或中断的缺失，而Lipschitz连续性关注函数的变化速度。因此，Lipschitz连续性是比连续性更严格的条件。
 一个连续函数不一定是Lipschitz连续的，因为连续性不要求函数的变化速度有界。然而，一个Lipschitz连续的函数必然是连续的，因为Lipschitz连续性蕴含着连续性。
