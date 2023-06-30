@@ -222,7 +222,7 @@ $$
 \Rightarrow&\|f'(c)\|_2\le L
 \end{aligned}
 $$
-不妨令$x\rightarrow y$，因为$f(x)$具有可微的性质，使得：
+不妨令$x\rightarrow y$，因为$f(y)$具有可微的性质，使得：
 $$
 \lim_{x\rightarrow y}\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2}=\|\lim_{x\rightarrow y}\frac{f(x)-f(y)}{x-y}\|_2=\|f'(y)\|_2\le L
 $$
