@@ -214,7 +214,10 @@ $$
 $$
 此时，函数是$L$-Lipschitz连续的。
 
-2. 如果函数$f(x)$是$L$-Lipschitz连续的，即对于任意$x,y$，有$\|f(x)-f(y)\|_2\le L\|x-y\|_2$。
+2. 如果函数$f(x)$是$L$-Lipschitz连续的，即对于任意$x,y$，有
+$$
+\|f(x)-f(y)\|_2\le L\|x-y\|_2
+$$
 根据微分中值定理，对于任意$x\le y$，存在$c\in[x,y]$，使得：
 $$
 \begin{aligned}
