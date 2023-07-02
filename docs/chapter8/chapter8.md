@@ -61,7 +61,7 @@ $$
 至于该级数的具体值，对定理的结论并没有影响，因此我们可以直接将其视为一个常数，然后带入后续的推导过程中。
 不过这里出于证明完整性的考虑，我们对此进行简要说明。
 
-$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}$的取值在数学界被称为Basel问题，证明过程涉及诸多前置定理，感兴趣的同学可以查看这个[讲义](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。
+$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}$的取值在数学界被称为Basel问题，推导过程涉及诸多前置定理，感兴趣的同学可以查看这个[讲义](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。
 此处给出另一种在微积分变换中更为常见的缩放方法，即：
 $$
 \begin{aligned}
@@ -76,7 +76,7 @@ $$
 $$
 代入（8.46），一样可以得到类似（8.47）的结论。
 
-这里依旧沿用$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}=\frac{\pi^2}{6}$的结论，得到遗憾界（8.47），即：
+这里依旧沿用书中给出的$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}=\frac{\pi^2}{6}$，代入（8.46）得到遗憾界（8.47），即：
 $$
 \mathbb{E}[regret]\le\sum_{i=1}^{K}\frac{2\ln T}{\Delta_i^2}+O(1)
 $$
