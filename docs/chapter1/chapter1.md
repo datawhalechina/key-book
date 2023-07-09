@@ -362,7 +362,10 @@ $$
 # 常用不等式
 
 记：X 和 Y 表示随机变量，$\mathbb{E}[X]$ 表示 X 的数学期望，$\mathbb{V}[X]$ 表示 X 的方差。 
-  
+
+定理8到18统称为集中不等式 (Concentration Inequalities)，提供了随机变量如何偏离某个值（通常是其期望值）的界限。 
+经典概率论的大数定律指出，样本数量越多，则其算术平均值就有越高的机率接近期望值。 
+
 ## 定理 1:  Jensen 不等式  
   
 对于任意凸函数 $f,$ 则有:  
@@ -785,7 +788,7 @@ P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{m \vareps
 $$  
 成立。  
   
-Remark: Bernstein 不等式实际是 Hoeffding 不等式的加强。对于个各随机变量独立的条件可以放宽为弱独立结论仍成立。  
+Remark: Bernstein 不等式实际是 Hoeffding 不等式的加强版。对于个各随机变量独立的条件可以放宽为弱独立结论仍成立。  
   
 上述几个 Bernstein 类集中不等式，更多的是在非渐近观点下看到的大数定律的表现。也即是，这些不等式更多刻画了样本均值如何集中在总体均值的附近。  
   
