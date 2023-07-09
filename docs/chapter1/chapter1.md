@@ -409,7 +409,7 @@ $Proof. $
 $$  
 M=\left(\int|x|^{p} f(x) d x\right)^{\frac{1}{p}}, N=\left(\int|x|^{q} g(x) d x\right)^{\frac{1}{q}}  
 $$  
-由杨氏不等式:  
+由 Young 不等式:  
 $$  
 \frac{|X|}{M} \frac{|Y|}{N} \leq \frac{1}{p}\left(\frac{|X|}{M}\right)^{p}+\frac{1}{q}\left(\frac{|Y|}{N}\right)^{q}  
 $$  
@@ -1150,6 +1150,8 @@ $$
 A_n\ge G_n
 $$
 
+$Proof. $
+
 我们可以通过Jensen不等式（1.11）来证明AM-GM不等式。首先，我们考虑函数$f(x)=-\ln x$，该函数是凸函数，因此有：
 $$
 \frac{1}{n}\sum_{i=1}^n-\ln x_i\ge-\ln\left(\frac{1}{n}\sum_{i=1}^nx_i\right)
@@ -1172,3 +1174,22 @@ $$
 
 ## 定理 22: Young 不等式
 
+对于任意$a,b\ge 0, p.q\gt 1$，若$\frac{1}{p}+\frac{1}{q}=1$，则有：
+$$
+ab\le\frac{a^p}{p}+\frac{b^q}{q}
+$$
+当且仅当$a^p=b^q$时，等号成立。
+
+$Proof. $
+
+我们可以通过Jensen不等式（1.11）来证明Young不等式。
+首先，当$ab=0$时，该不等式显然成立。
+当$a,b\gt 0$时，我们令$t=1/p,1-t=1/q$，根据$ln(x)$的凹性，我们有：
+$$
+\begin{aligned}
+\ln(ta^p+(1-t)b^q)&\ge t\ln(a^p)+(1-t)\ln(b^q)\\
+&=\ln(a)+\ln(b)\\
+&=\ln(ab)
+\end{aligned}
+$$
+当且仅当$a^p=b^q$时，等号成立。
