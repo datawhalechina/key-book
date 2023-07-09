@@ -516,6 +516,8 @@ $$
 $$ P\left(X\cup Y\right) \leq P(X) + P(Y) $$
 
 $Proof.$
+
+根据概率的加法公式：
 $$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
 此处 $P(X \cap Y) \geq 0$.
   
