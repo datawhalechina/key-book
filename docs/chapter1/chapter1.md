@@ -397,25 +397,27 @@ $$
   
 $\forall p, q \in \mathbb{R}^{+}, \frac{1}{p}+\frac{1}{q}=1$，则有：  
 $$  
-\mathbb{E}[|X Y|] \leq\left(\mathbb{E}\left[|X|^{p}\right]\right)^{\frac{1}{p}}\left(\mathbb{E}\left[|Y|^{q}\right]\right)^{\frac{1}{q}}  
+\mathbb{E}[|X Y|] \leq\left(\mathbb{E}\left[|X|^p\right]\right)^{\frac{1}{p}}\left(\mathbb{E}\left[|Y|^q\right]\right)^{\frac{1}{q}}  
 $$  
 成立。  
   
-  
-  
 $Proof. $  
   
-记 $f(x), g(x)$ 分别为 $X,Y$ 的概率密度函数，  
+记 $f(x), g(y)$ 分别为 $X,Y$ 的概率密度函数，  
 $$  
-M=\left(\int|x|^{p} f(x) d x\right)^{\frac{1}{p}}, N=\left(\int|x|^{q} g(x) d x\right)^{\frac{1}{q}}  
+M=\frac{|x|}{(\int_X|x|^pf(x)dx)^{\frac{1}{p}}}, N=\frac{|y|}{(\int_Y|y|^qg(y)dy)^{\frac{1}{q}}}
 $$  
-由 Young 不等式:  
+代入 Young 不等式：  
 $$  
-\frac{|X|}{M} \frac{|Y|}{N} \leq \frac{1}{p}\left(\frac{|X|}{M}\right)^{p}+\frac{1}{q}\left(\frac{|Y|}{N}\right)^{q}  
+MN\leq \frac{1}{p}M^p+\frac{1}{q}N^q  
 $$  
-对上式取期望:  
-$$  
-\mathbb{E}\left[\frac{|X|}{M} \frac{|Y|}{N}\right] \leq \frac{1}{p M^{p}} \mathbb{E}\left[|X|^{p}\right]+\frac{1}{q N^{q}} \mathbb{E}\left[|Y|^{q}\right]=1  
+对这个不等式两边同时取期望：
+$$
+\begin{aligned}
+\frac{\mathbb{E}[|XY|]}{\left(\mathbb{E}\left[|X|^p\right]\right)^{\frac{1}{p}}\left(\mathbb{E}\left[|Y|^q\right]\right)^{\frac{1}{q}}} &= \frac{\int_{XY}|xy|f(x)g(y)dxdy}{(\int_X|x|^pf(x)dx)^{\frac{1}{p}}(\int_Y|y|^qf(y)dy)^{\frac{1}{q}}}\\
+&\leq \frac{\int_X|x|^pf(x)dx}{p\int_X|x|^pf(x)dx} +\frac{\int_Y|y|^qg(y)dy}{q\int_Y|y|^pg(y)dy} \\
+&= 1
+\end{aligned}
 $$  
 原不等式得证。  
   
@@ -443,7 +445,7 @@ $\forall p \geq 1:$
 $$  
 \begin{aligned}  
 \mathbb{E}\left[|X|^{r}\right] &=\mathbb{E}\left[|X \times 1|^{r}\right] \\  
-& {\leq}\left(\mathbb{E}\left[\left(|X|^{r}\right)^{p}\right]\right)^{1 / p} \times 1 \\  
+& {\leq}\left(\mathbb{E}\left[\left(|X|^{r}\right)^p\right]\right)^{1 / p} \times 1 \\  
 &=\left(\mathbb{E}\left[|X|^{r p}\right]\right)^{1 / p}  
 \end{aligned}  
 $$  
@@ -459,7 +461,7 @@ $$
   
 $\forall p \geq 1,$ 有：  
 $$  
-\sqrt[p]{\mathbb{E}\left[|X+Y|^{p}\right]} \leq \sqrt[p]{\mathbb{E}\left[|X|^{p}\right]}+\sqrt[p]{\mathbb{E}\left[|Y|^{p}\right]}  
+\sqrt[p]{\mathbb{E}\left[|X+Y|^p\right]} \leq \sqrt[p]{\mathbb{E}\left[|X|^p\right]}+\sqrt[p]{\mathbb{E}\left[|Y|^p\right]}  
 $$  
   
   
@@ -467,10 +469,10 @@ $Proof.$
 由三角不等式及Hölder不等式：  
 $$  
 \begin{aligned}  
-\mathbb{E}\left[|X+Y|^{p}\right] & {\leq}\mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\  
+\mathbb{E}\left[|X+Y|^p\right] & {\leq}\mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\  
 &= \mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
-& {\leq}\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q} \\  
-&= \left[\left(\mathbb{E}\left[|X|^{p}\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^{p}\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^{p}\right]}{\left(\mathbb{E}\left[|X+Y|^{p}\right]\right)^{1 / p}}  
+& {\leq}\left(\mathbb{E}\left[|X|^p\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q}+\left(\mathbb{E}\left[|Y|^p\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q} \\  
+&= \left[\left(\mathbb{E}\left[|X|^p\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^p\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^p\right]}{\left(\mathbb{E}\left[|X+Y|^p\right]\right)^{1 / p}}  
 \end{aligned}  
 $$  
 化简上式即得证。  
