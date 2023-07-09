@@ -45,7 +45,7 @@ $$
 
 函数空间$\mathcal F$关于$\mathcal Z$在分布$\mathcal D$上的Rademacher复杂度为：
 $$
-\Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}[\hat\Re_{\mathcal Z}(\mathcal F)]=E_{Z\subset\mathcal Z:|Z|=m}[E_{\sigma}[\underset{f\in\mathcal F}{sup}\frac{1}{m}\sideset{}{_{i=1}^m}\sum\sigma_i f(z_i)]]
+\Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}[\hat\Re_{\mathcal Z}(\mathcal F)]=E_{Z\subset\mathcal Z:|Z|=m}[E_{\sigma}[\underset{f\in\mathcal F}{sup}\frac{1}{m} \sum_{i=1}^m \sigma_i f(z_i)]]
 $$
 这里$\sigma_i$是${-1,+1}$上服从均匀分布的随机变量。如果将$\sigma_i$改为其他分布，会得到一些别的复杂度定义。
 
