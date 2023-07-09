@@ -45,7 +45,7 @@ $$
 
 函数空间$\mathcal F$关于$\mathcal Z$在分布$\mathcal D$上的Rademacher复杂度为：
 $$
-\Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}[\hat\Re_{\mathcal Z}(\mathcal F)]=E_{Z\subset\mathcal Z:|Z|=m}[E_{\sigma}[\underset{f\in\mathcal F}{sup}\frac{1}{m}\sideset{}{_{i=1}^m}\sum\sigma_i f(z_i)]]
+\Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}[\hat\Re_{\mathcal Z}(\mathcal F)]=E_{Z\subset\mathcal Z:|Z|=m}[E_{\sigma}[\underset{f\in\mathcal F}{sup}\frac{1}{m} \sum_{i=1}^m \sigma_i f(z_i)]]
 $$
 这里$\sigma_i$是${-1,+1}$上服从均匀分布的随机变量。如果将$\sigma_i$改为其他分布，会得到一些别的复杂度定义。
 
@@ -64,9 +64,7 @@ $$
 
 这里用 $R^2$ 空间的示例进一步介绍打散的概念，以二维空间 $R^2$ 来说，一条任意的直线 $w_1x_1+w_2x_2+b=0$ 对于任意的三个点实现的对分（二分类）的所有情形如下：
 
-<center><img src="imgs/shattering.png" width= "600"/></center>
-
-
+![shattering](imgs/shattering.png)
 
 可以发现，使用二维平面 $R^2$ 中的一条直线 $sign(wx+b)$ 可以实现三点的所有对分。
 
@@ -74,7 +72,7 @@ $$
 
 例如，异或（XOR）问题：
 
-<center><img src="imgs/xor.png" width= "300"/></center>
+![xor](imgs/xor.png)
 
 
 
