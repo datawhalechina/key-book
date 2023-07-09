@@ -576,11 +576,12 @@ P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\var
 $$  
 原不等式得证。  
   
-Note: Cantelli 不等式是 Chebyshev 不等式的加强，也称单边 Chebyshev 不等式。通过类似的构造，可以求得诸多比 Cantelli 不等式更严格的界。  
+Note: Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Chebyshev 不等式。
+通过类似的构造，我们可以求得诸多比 Cantelli 不等式更严格的上界。  
   
   
   
-## 定理 11: Chernoff 不等式  
+## 定理 11: Chernoff 不等式（Chernoff 界）
   
 $\forall \lambda\gt 0, \varepsilon\gt 0,$ 有 :  
 $$  
