@@ -64,9 +64,7 @@ $$
 
 这里用 $R^2$ 空间的示例进一步介绍打散的概念，以二维空间 $R^2$ 来说，一条任意的直线 $w_1x_1+w_2x_2+b=0$ 对于任意的三个点实现的对分（二分类）的所有情形如下：
 
-<center><img src="./imgs/shattering.png" width= "600"/></center>
-
-
+![shattering](imgs/shattering.png)
 
 可以发现，使用二维平面 $R^2$ 中的一条直线 $sign(wx+b)$ 可以实现三点的所有对分。
 
@@ -74,7 +72,7 @@ $$
 
 例如，异或（XOR）问题：
 
-<center><img src="./imgs/xor.png" width= "300"/></center>
+![xor](imgs/xor.png)
 
 
 
