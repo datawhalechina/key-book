@@ -356,8 +356,24 @@ $$
 其中，$dom(f)$是函数$f(x)$的定义域。
 
 共轭函数有一些有用的性质，包括：
-1. 凸性：函数$f(x)$的共轭函数$f^*(y)$一定是凸函数。
-2. 逆序性：对定义域中所有元素$x$，有$f(x)\le g(x)$，那么一定有$f^*(y)\ge g^*(y)$。
+1. 凸性：函数$f(x)$的共轭函数$f^*(y)$一定是凸函数。证明如下：
+$$
+\begin{aligned}
+f^*(\lambda y_1+(1-\lambda)y_2) &= \sup_{x\in dom(f)}\{x(\lambda y_1+(1-\lambda)y_2)-f(x)\}\\
+&\le\lambda\sup_{x\in dom(f)}\{xy_1-f(x)\}+(1-\lambda)\sup_{x\in dom(f)}\{xy_2-f(x)\}\\
+&=\lambda f^*(y_1)+(1-\lambda)f^*(y_2)\\
+\end{aligned}
+$$
+其中的不等式缩放利用了本章定理19的内容。
+
+2. 逆序性：对定义域中所有元素$x$，有$f(x)\le g(x)$，那么一定有$f^*(y)\ge g^*(y)$。证明如下：
+
+因为$f(x)\le g(x)$，有$xy-f(x)\ge xy-g(x)$。两边同时取上界，根据定义有：
+$$
+f^*(y)=sup_{x\in dom(f)}\{xy-f(x)\}\ge sup_{x\in dom(f)}\{xy-g(x)\}=g^*(y)\}
+$$
+
+
 
 # 常用不等式
 
