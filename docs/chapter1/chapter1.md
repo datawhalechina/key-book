@@ -370,9 +370,20 @@ $$
 
 因为$f(x)\le g(x)$，有$xy-f(x)\ge xy-g(x)$。两边同时取上界，根据定义有：
 $$
-f^*(y)=sup_{x\in dom(f)}\{xy-f(x)\}\ge sup_{x\in dom(f)}\{xy-g(x)\}=g^*(y)\}
+f^*(y)=sup_{x\in dom(f)}\{xy-f(x)\}\ge sup_{x\in dom(f)}\{xy-g(x)\}=g^*(y)
 $$
 
+3. 极值变换：若$f$可微，则对于$\forall y$，则有：
+$$
+f^*(y)\le f^*(\nabla f(x))=\nabla f^*(x)^Tx-f(x)=-[f(x)+\nabla f(x)^T(0-x)]
+$$
+此性质即书中的（1.10），此处给出完整证明：
+
+为了在$f^*$的定义中找到上确界，我们对右侧$x$求导，并将其设置为零以找到极大值点：
+$$
+\frac{d}{dx}(xy−f(x))=y−\nabla f(x)=0
+$$
+此时有$y=\nabla f(x)$，得证。
 
 
 # 常用不等式
