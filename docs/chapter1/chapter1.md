@@ -853,6 +853,20 @@ $$
 
 
 
+## 定理 23: 分离/支撑超平面定理
+
+超平面（Hyperplane）是指$n$维线性空间中维度为$n-1$的子空间，它可以把线性空间分割成不相交的两部分。
+对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。
+凸集的支撑超平面也称为tac-planes或tac-hyperplanes。
+
+分离超平面定理：如果有两个不相交的非空凸集，则存在一个超平面可以将它们完全分隔开。
+形式化来说，若$C,D$为非空凸集，且$C\cap D=\varnothing$，则存在一个超平面$a\neq0,b$，使得$\forall x\in C,a^Tx\le b$且$\forall x\in D,a^Tx\ge b$，即$inf_{x\in D}a^Tx\ge sup_{x\in C}a^Tx$。
+
+支撑超平面定理：对于一个非空的凸集，在凸集的边界上存在至少一个点，该点可以找到一个支撑超平面。
+形式化来说，若$C$为非空凸集，则对于$\forall x_0\in\partial C$，支撑超平面为$\{x|a^Tx=a^Tx_0\}$，其中$a\in\{a|a^Tx\le a^Tx_0,\forall x\in C,a\neq0\}$。
+
+
+
 # 常用概念
 
 
@@ -1146,13 +1160,14 @@ $Proof.$
 
 考虑集合$\mathcal{V}\subset\mathbb{R}^m\times\mathbb{R}$满足：
 $$
-\mathcal{V}:=\{(u,w)\in\mathbb{R}^m\times\mathbb{R}:f_0(x)\le v,f_i(x)\le u_i,\forall i\in[m],\forall x\}
+\mathcal{V}:=\{(u,w)\in\mathbb{R}^m\times\mathbb{R}:f_0(x)\le w,f_i(x)\le u_i,\forall i\in[m],\forall x\}
 $$
 集合$\mathcal{V}$有以下几个性质：
 1. 它是凸集合，由$f_i,i\in\{0\}\cup[m]$的凸性质可知。
-2. 若$(u,v)\in\mathcal{V}$，且$(u',v')\succeq(u,v)$，则$(u',v')\in\mathcal{V}$。
+2. 若$(u,w)\in\mathcal{V}$，且$(u',w')\succeq(u,w)$，则$(u',w')\in\mathcal{V}$。
 
-
+易证向量$(0,p^*)\notin int(\mathcal{V})$，否则一定存在$\epsilon>0$，使得$(0,p^*-\epsilon)\in int(\mathcal{V})$，这明显与$p^*$为最优解矛盾。
+因此，必有$(0,p^*)\in \partial\mathcal{V}$或$(0,p^*)\notin\mathcal{V}$。套用支撑平面定理
 
 
 ## 7. 连续性
