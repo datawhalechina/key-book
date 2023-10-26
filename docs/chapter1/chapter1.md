@@ -863,7 +863,7 @@ $$
 形式化来说，若$C,D$为非空凸集，且$C\cap D=\varnothing$，则存在一个超平面$a\neq0,b$，使得$\forall x\in C,a^Tx\le b$且$\forall x\in D,a^Tx\ge b$，即$inf_{x\in D}a^Tx\ge sup_{x\in C}a^Tx$。
 
 支撑超平面定理：对于一个非空的凸集，在凸集的边界上存在至少一个点，该点可以找到一个支撑超平面。
-形式化来说，若$C$为非空凸集，则对于$\forall x_0\in\partial C$，支撑超平面为$\{x|a^Tx=a^Tx_0\}$，其中$a\in\{a|a^Tx\le a^Tx_0,\forall x\in C,a\neq0\}$。
+形式化来说，若$C$为非空凸集，则对于$\forall x_0\in\partial C$，则存在一个超平面$\{x|a^Tx=a^Tx_0,a\neq0\}$，使得$\forall x\in C,a^Tx\le a^Tx_0$。
 
 
 
