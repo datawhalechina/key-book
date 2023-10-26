@@ -25,7 +25,7 @@ $$
   
   
   
-$Proof. $  
+$Proof.$  
   
 记 $p(x)$ 为 $X$ 的概率密度函数。由 Taylor 公式及 $f$ 的凸性，$\exists \xi$ s.t.  
 $$  
@@ -53,7 +53,7 @@ $$
 $$  
 成立。  
   
-$Proof. $  
+$Proof.$  
   
 记 $f(x), g(y)$ 分别为 $X,Y$ 的概率密度函数，  
 $$  
@@ -244,7 +244,7 @@ $$
 P(X \leq \varepsilon) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$  
   
-$Proof. $  
+$Proof.$  
 应用 Markov 不等式，有：
 
 $$  
@@ -268,7 +268,7 @@ $$
 P(X \leq (1-r)\mu m) \leq e^{-\frac{r^2\mu m}{2}}, r \geq 0
 $$   
   
-$Proof. $  
+$Proof.$  
 应用 Markov 不等式，有：
 $$  
 P(X\geq (1+r)\mu m) = P((1+r)^X \geq (1+r)^{(1+r)\mu m}) \leq \frac{\mathbb{E}[(1+r)^X]}{(1+r)^{(1+r)\mu m}}
@@ -300,7 +300,7 @@ $$
 \mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)  
 $$  
   
-$Proof. $  
+$Proof.$  
 由于$e^x$为凸函数，则显然$\forall x\in[a,b]$：  
 $$  
    e^{\lambda x} \leq \frac{b-x}{b-a}e^{\lambda a} + \frac{x-a}{b-a}e^{\lambda b}  
@@ -342,7 +342,7 @@ $$
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}\right)  
 $$   
   
-$Proof. $  
+$Proof.$  
   
 由 Markov 不等式知， $\forall \lambda\gt 0$ :  
 $$  
@@ -408,7 +408,7 @@ P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, 
 $$  
   
   
-$Proof. $  
+$Proof.$  
   
 构造一个鞅差序列：  
 $$  
@@ -468,7 +468,7 @@ P\left(Z_{m}-\mu \geq \varepsilon\right)=P\left(\sum_{i=1}^{m} X_{i} \geq \varep
 $$  
   
   
-$Proof. $  
+$Proof.$  
   
 首先，若 $\mathbb{E}[X \mid Y]=0,$ 则有 $\forall \lambda\gt 0:$  
 $$  
@@ -517,7 +517,7 @@ $$
   
   
   
-$Proof. $  
+$Proof.$  
  令$Y_i = X_i - \mathbb{E}X_i$
  因此条件可以转化为
  $$  
@@ -578,7 +578,7 @@ P\left(Z_{m}-\mu\leq-\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2
 \end{aligned}
 $$
 
-$Proof. $
+$Proof.$
 
 注意到Azuma不等式要求在鞍差序列上的对称界限，即$-c_i\leq Z_i-Z_{i-1}\leq c_i$。因此，如果已知的界限是非对称的，即$a_i\leq Z_i-Z_{i-1}\leq b_i$，那么为了使用Azuma不等式，我们需要选择$c_i=\max(|a_i|,|b_i|)$，这可能会浪费关于$X_t - X_{t-1}$的有界性的信息。然而，我们可以通过以下Azuma不等式的一般形式来解决这个问题。
 
@@ -700,7 +700,7 @@ $$
 P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{6})  
 $$  
   
-$Proof. $  
+$Proof.$  
 若$X\sim N(0,1)$，则显然$\forall \lambda \gt  0$：  
 $$  
    \mathbb{E}[e^{-\lambda X^2}] \leq 1 - \lambda\mathbb{E}[X^2] + \frac{\lambda^2}{2}\mathbb{E}[X^4] = 1 - \lambda + \frac{3}{2}\lambda^2  \leq e^{-\lambda + \frac{3}{2}\lambda^2}  
@@ -742,7 +742,7 @@ $$
 sup(f+g)\le sup(f) + sup(g)
 $$
 
-$Proof. $
+$Proof.$
 
 假设 $f,g$ 分别有相同的定义域 $D_f,D_g$。根据上确界的定义，对于每一个 $x \in D_f \cap D_g$，我们有
 $$ g(x) \leq \sup_{y \in D_g}g(y),$$
@@ -766,7 +766,7 @@ $$
 若$X$是一个服从标准正态分布的随机变量，那么对于任意$u\ge 0$，有：
 $$\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
 
-$Proof. $
+$Proof.$
 
 令$G(u)=\mathbb{P}[X\le u]$，则有：
 $$2G(u)=\int_{-u}^u(2\pi)^{-1/2}e^{-x^2/2}dx=\int_{-u}^u(2\pi)^{-1/2}e^{-y^2/2}dy$$
@@ -807,7 +807,7 @@ $$
 A_n\ge G_n
 $$
 
-$Proof. $
+$Proof.$
 
 我们可以通过Jensen不等式（1.11）来证明AM-GM不等式。首先，我们考虑函数$f(x)=-\ln x$，该函数是凸函数，因此有：
 $$
@@ -837,7 +837,7 @@ ab\le\frac{a^p}{p}+\frac{b^q}{q}
 $$
 当且仅当$a^p=b^q$时，等号成立。
 
-$Proof. $
+$Proof.$
 
 我们可以通过Jensen不等式（1.11）来证明Young不等式。
 首先，当$ab=0$时，该不等式显然成立。
@@ -1119,10 +1119,11 @@ $$
 仿射包具有以下性质：
 1. aff(aff(S)) = aff(S)
 2. aff(S+T) = aff(S) + aff(T)
-3. 如果$S$只有有限维度，则aff(S)为闭集合。
+3. 若$S$为有限维度，则aff(S)为闭集合。
 
 
-## 7. Slater条件/定理
+
+## 8. Slater条件/定理
 
 关于强对偶性的讨论，原书已有详细说明，故不再赘述。
 这里着重讨论下11页左下角附注提到的slater条件，即：
@@ -1131,14 +1132,28 @@ $$
 $$
 \begin{aligned}
 &f_i(x)\lt0,i\in[m]\\
-&Ax=b
 \end{aligned}
 $$
 此处$D=\cap_0^m dom(f_i)$。
 
 其中，$relint(D)$为$D$的相对内部，即其仿射包的内部所有点，即$relint(D)=int(aff(D))$。
 
-相应地，Slater定理：当Slater条件成立且原问题是凸优化问题时，强对偶（$p^*=d^*$）成立。
+相应地，Slater定理：当满足Slater条件且原始问题为凸优化问题时，
+1. 强对偶性成立。此时，对偶间隙（Duality Gap）为零，即原始问题与对偶问题的目标函数值之差$p^*-d^*=0$。
+2. 对偶最优解集合非空且有界。
+
+$Proof.$
+
+考虑集合$\mathcal{V}\subset\mathbb{R}^m\times\mathbb{R}$满足：
+$$
+\mathcal{V}:=\{(u,w)\in\mathbb{R}^m\times\mathbb{R}:f_0(x)\le v,f_i(x)\le u_i,\forall i\in[m],\forall x\}
+$$
+集合$\mathcal{V}$有以下几个性质：
+1. 它是凸集合，由$f_i,i\in\{0\}\cup[m]$的凸性质可知。
+2. 若$(u,v)\in\mathcal{V}$，且$(u',v')\succeq(u,v)$，则$(u',v')\in\mathcal{V}$。
+
+
+
 
 ## 7. 连续性
 
@@ -1188,7 +1203,7 @@ Lipschitz连续性的性质在数学的各个领域中经常被应用，例如�
 
 
 
-## 8. 光滑性
+## 9. 光滑性
 
 在数学分析中，函数的光滑性（smoothness）是通过函数在某个域（称为可微性类）上的连续导数的数量来衡量的属性。
 最基本的情况下，如果一个函数在每个点上都可导（因此连续），则可以认为它是光滑的。
@@ -1208,7 +1223,7 @@ L-光滑函数在优化中非常有用，因为它们可以加快梯度下降算
 
 
 
-## 9. 次梯度
+## 10. 次梯度
 
 次梯度（subgradient）是凸函数导数的一种推广形式，某些凸函数在特定区域内导数可能并不存在，但我们依旧可以用次梯度来表示此区域内函数变化率的下界。
 形式上，对于凸函数 $f(x)$中任意点$x$， 在点$x_0$处的次梯度$c$必须满足以下不等式：
@@ -1226,7 +1241,7 @@ $$
 
 
 
-## 10. 对偶空间
+## 11. 对偶空间
 
 线性泛函（linear form）是指由向量空间$V$到对应标量域$k$的线性映射，满足加法和数乘的性质，即对于任意向量 $x,y\in V$ 和标量 $\alpha\in k$，有：
 $$
