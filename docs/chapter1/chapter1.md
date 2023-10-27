@@ -78,7 +78,7 @@ $$
   
 ## 定理 3: Cauchy-Schwarz 不等式  
   
-特别的，$p = q = 2 $ 时，Hölder不等式退化为 Cauchy-Schwarz 不等式：  
+特别的，$p = q = 2$ 时，Hölder不等式退化为 Cauchy-Schwarz 不等式：  
 $$  
 \mathbb{E}[|X Y|] \leq \sqrt{\mathbb{E}\left[X^{2}\right] \mathbb{E}\left[Y^{2}\right]}  
 $$  
@@ -166,12 +166,16 @@ $$
 
 
 ## 定理 7: Union Bound（Boole's）不等式
-$$ P\left(X\cup Y\right) \leq P(X) + P(Y) $$
+$$
+P\left(X\cup Y\right) \leq P(X) + P(Y)
+$$
 
 $Proof.$
 
 根据概率的加法公式：
-$$ P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y) $$
+$$
+P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y)
+$$
 此处 $P(X \cap Y) \geq 0$.
   
 
@@ -521,7 +525,7 @@ $$
 $Proof.$  
  令$Y_i = X_i - \mathbb{E}X_i$
  因此条件可以转化为
- $$  
+$$  
 \mathbb{E}\left|Y_i\right|^{k} \leq k ! b^{k-2} \frac{\mathbb{V}\left[Y_{i}\right]}{2}  
 $$  
 首先利用泰勒展开的性质，我们证明引理：
@@ -530,8 +534,8 @@ $$
 \mathbb{E}e^{\lambda Y_i} \leq e^{\lambda \mathbb{E}Y_i + \frac{\mathbb{V}[Y_i]\lambda ^2}{2(1-\lambda b)}}
 \end{aligned}  
 $$
-$Proof of lemma. $
-  $$
+其中：
+$$
 \begin{aligned} 
 \mathbb{E}e^{\lambda Y_i} &\leq \sum_{n=0}^\infty \frac{\mathbb{E}(\lambda Y_i)^n}{n!}
 \\&=1 + \lambda\mathbb{E}Y_i+\sum_{n=2}^\infty \frac{(\lambda)^n}{n!}\mathbb{E}(Y_i^n)
@@ -676,7 +680,7 @@ $$
 E[X_{n+1}|X_1,\ldots,X_n] \ge X_n,\quad n\in \mathbb N
 \end{aligned}
 $$
-这里给出一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望降低。”
+这里给出一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望逐渐降低。”
 
 
 
@@ -688,7 +692,7 @@ $$
 $$  
 其中$p = (1- \varepsilon)/2$。  
   
-该定理的证明使用了正态分布的标准尾边界，其所需前序知识超出了本笔记的讨论范围。详细证明可以阅读Slud在1977年发表的[论文](https://projecteuclid.org/download/pdf_1/euclid.aop/1176995801)。  
+该定理的证明使用了正态分布的标准尾边界，其所需前序知识超出了本笔记的讨论范围，详细证明可参考[论文](https://projecteuclid.org/download/pdf_1/euclid.aop/1176995801)。  
   
   
   
@@ -731,7 +735,7 @@ $$
 $$  
 且该映射可以在多项式时间内被找到。  
   
-该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明及映射的构造可以阅读南京大学的一个[讲义](http://tcs.nju.edu.cn/wiki/index.php/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95_(Fall_2011)/Johnson-Lindenstrauss_定理)。  
+该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明可参考[论文](https://onlinelibrary.wiley.com/doi/pdf/10.1002/rsa.10073)。  
   
 该定理的适用性极其广泛，例如在稀疏感知领域直接导致了约束等距性条件 (RIP条件)，即非凸的 $L_0$范数最小化问题与 $L_1$范数最小化问题等价性条件；在流形学习和优化理论中也有重要的应用。而其在学习理论中最重要的应用是对降维任务的估计。
 
@@ -865,6 +869,8 @@ $$
 
 支撑超平面定理：对于一个非空的凸集，在凸集的边界上存在至少一个点，该点可以找到一个支撑超平面。
 形式化来说，若$C$为非空凸集，则对于$\forall x_0\in\partial C$，则存在一个超平面$\{x|a^Tx=a^Tx_0,a\neq0\}$，使得$\forall x\in C,a^Tx\le a^Tx_0$。
+
+两定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明可参考[教材](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)。
 
 
 
