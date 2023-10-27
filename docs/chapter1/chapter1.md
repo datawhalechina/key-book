@@ -1153,11 +1153,12 @@ $$
 其中，$relint(D)$为$D$的相对内部，即其仿射包的内部所有点，即$relint(D)=int(aff(D))$。
 
 相应地，Slater定理：当满足Slater条件且原始问题为凸优化问题时，
-1. 强对偶性成立。此时，对偶间隙（Duality Gap）为零，即原始问题与对偶问题的目标函数值之差$p^*-d^*=0$。
+1. 强对偶性成立。
 2. 对偶最优解集合非空且有界。
 
 $Proof.$
 
+首先证明对偶间隙（Duality Gap）为零，即原始问题与对偶问题的目标函数值之差$p^*-d^*=0$。
 考虑集合$\mathcal{V}\subset\mathbb{R}^m\times\mathbb{R}$满足：
 $$
 \mathcal{V}:=\{(u,w)\in\mathbb{R}^m\times\mathbb{R}:f_0(x)\le w,f_i(x)\le u_i,\forall i\in[m],\forall x\}
@@ -1167,7 +1168,66 @@ $$
 2. 若$(u,w)\in\mathcal{V}$，且$(u',w')\succeq(u,w)$，则$(u',w')\in\mathcal{V}$。
 
 易证向量$(0,p^*)\notin int(\mathcal{V})$，否则一定存在$\epsilon>0$，使得$(0,p^*-\epsilon)\in int(\mathcal{V})$，这明显与$p^*$为最优解矛盾。
-因此，必有$(0,p^*)\in \partial\mathcal{V}$或$(0,p^*)\notin\mathcal{V}$。套用支撑平面定理
+因此，必有$(0,p^*)\in \partial\mathcal{V}$或$(0,p^*)\notin\mathcal{V}$。
+应用支撑超平面定理（定理23），我们可以得知，存在一个非零点$(\lambda,\lambda_0)\in\mathbb{R}^m\times\mathbb{R}$，满足以下条件：
+$$
+\begin{equation}
+(\lambda,\lambda_0)^T(u,w)=\lambda^Tu+\lambda_0w\ge\lambda_0p^*,\forall(u,w)\in\mathcal{V}
+\end{equation}
+$$
+在此情况下，必然有 $\lambda \succeq 0$ 和 $\lambda_0 \geq 0$。
+这是因为，如果在 $\lambda$ 和 $\lambda_0$ 的分量中出现任何负数，根据集合 $\mathcal{V}$ 的性质二，$(u, w)$ 的分量可以在集合 $\mathcal{V}$ 内取得任意大的值，从而导致式（1）不一定成立。
+因此，我们只需要考虑两种情况：
+1. $\lambda_0=0$：此时根据（1），我们可知
+$$
+\begin{equation}
+\inf_{(u,w)\in\mathcal{V}}\lambda^Tu=0
+\end{equation}
+$$。
+另一方面，根据$\mathcal{V}$的定义，$\lambda\succeq0$且$\lambda\neq0$，可得：
+$$
+\inf_{(u,w)\in\mathcal{V}}\lambda^Tu=\inf_{x}\sum_{i=1}^m\lambda_i f_i(x)\le\sum_{i=1}^m\lambda_i f_i(\bar{x})\lt0
+$$
+其中，$\bar{x}$是Slater向量，而最后一个不等式是依据Slater条件得出的。
+此结论刚好与（2）矛盾，因此$\lambda_0\neq0$。
+
+2. $\lambda_0\gt0$：我们对（1）左右两边除以$\lambda_0$，有：
+$$
+\inf_{(u,w)\in\mathcal{V}}\{\tilde\lambda^Tu+w\}\ge p^*
+$$
+此处，$\tilde\lambda:=\frac{\lambda}{\lambda_0}\succeq0$。
+
+考虑拉格朗日函数$L:\mathbb{R}^n\times\mathbb{R}^n\rightarrow\mathbb{R}$：
+$$
+L(x,\tilde\lambda):=f_0(x)+\sum_{i=1}^m\tilde\lambda_if_i(x)
+$$
+其对偶函数为：
+$$
+g(\tilde\lambda):=\inf_{x}L(x,\tilde\lambda)\ge p^*
+$$
+其对偶问题为：
+$$
+\max_{\lambda}g(\lambda),\lambda\succeq0
+$$
+因此，我们可以得到：$d^* \geq p^*$。根据弱对偶性，我们知道 $d^* \leq p^*$，从而可以推断出 $d^* = p^*$。
+
+其次证明对偶问题最优解集合非空且有界。对于任意对偶最优解$\tilde\lambda\succeq0$，有：
+$$
+\begin{aligned}
+d^*=g(\tilde\lambda)&=\inf_{x}\{f_0(x)+\sum_{i=1}^m\tilde\lambda_if_i(x)\}\\
+&\le f_0(\bar{x})+\sum_{i=1}^m\tilde\lambda_if_i(\bar{x}) \\
+&\le f_0(\bar{x})+\max_{i\in[m]}\{f_i(\bar{x})\}[\sum_{i=1}^m\tilde\lambda_i]
+\end{aligned}
+$$
+因此，我们有：
+$$
+\min_{i\in[m]}\{-f_i(\bar{x})\}[\sum_{i=1}^m\tilde\lambda_i]\le f_0(\bar{x})-d^*
+$$
+进而，有：
+$$
+\|\tilde\lambda\|\le\sum_{i=1}^m\tilde\lambda_i\le\frac{f_0(\bar{x})-d^*}{\min_{i\in[m]}\{-f_i(\bar{x})\}}\lt\infty
+$$
+其中，最后一个不等式是依据Slater条件得出的。
 
 
 ## 7. 连续性
