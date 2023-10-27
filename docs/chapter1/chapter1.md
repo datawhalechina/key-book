@@ -68,6 +68,7 @@ $$
 \begin{aligned}
 \frac{\mathbb{E}[|XY|]}{\left(\mathbb{E}\left[|X|^p\right]\right)^{\frac{1}{p}}\left(\mathbb{E}\left[|Y|^q\right]\right)^{\frac{1}{q}}} &= \frac{\int_{XY}|xy|f(x)g(y)dxdy}{(\int_X|x|^pf(x)dx)^{\frac{1}{p}}(\int_Y|y|^qf(y)dy)^{\frac{1}{q}}}\\
 &\leq \frac{\int_X|x|^pf(x)dx}{p\int_X|x|^pf(x)dx} +\frac{\int_Y|y|^qg(y)dy}{q\int_Y|y|^pg(y)dy} \\
+&=\frac{1}{p}+\frac{1}{q}\\
 &= 1
 \end{aligned}
 $$  
