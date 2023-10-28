@@ -1159,9 +1159,11 @@ $$
 
 其中，$relint(D)$为$D$的相对内部，即其仿射包的内部所有点，即$relint(D)=int(aff(D))$。
 
-相应地，Slater定理：当满足Slater条件且原始问题为凸优化问题时，
+Slater条件通常被称为“约束规范”（constraint qualification），相应地，当满足Slater条件且原始问题为凸优化问题时，
 1. 强对偶性成立。
 2. 对偶最优解集合非空且有界。
+
+这就是Slater定理。
 
 $Proof.$
 
