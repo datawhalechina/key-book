@@ -69,6 +69,8 @@ Update datetime: 2024/03/15
 4. 其他章节之前内容的校订 
 5. 统一全书markdown的格式
 
+！！！特别注明：由于《Understanding Machine Learning》 和 《Foundations of Machine Learning》中有大量很好的理论说明材料，未避免重复造轮子，减少项目工作量，在项目中将会大量引用其中的材料，大家也可以将此项目视为《机器学习理论导引》、《Understanding Machine Learning》 和 《Foundations of Machine Learning》的融合整理。
+
 ## 4.项目成员
 
 [王茂霖](https://github.com/mlw67)：第2、3、4、5、6、7章内容的编辑，项目的二期更新修订		
