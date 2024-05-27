@@ -690,10 +690,30 @@ $$
 $$  
       P(\frac{X}{m} \geq \frac{1}{2}) \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^{2}}{1-\varepsilon^{2}}\right)}\right]  
 $$  
-其中$p = (1- \varepsilon)/2$。  
-  
-该定理的证明使用了正态分布的标准尾边界，其所需前序知识超出了本笔记的讨论范围，详细证明可参考[论文](https://projecteuclid.org/download/pdf_1/euclid.aop/1176995801)。  
-  
+其中$p = (1-\varepsilon)/2$。  
+
+$Proof.$  
+二项随机变量$X$统计在$m$次独立伯努利试验中成功的次数，成功概率为$p$。对于对于大的$m$，二项分布$B(m,p)$可以近似为均值$\mu=mp$和方差$\sigma^2=mp(1-p)$的正态分布：
+$$
+\begin{aligned}
+\mu &= \frac{m(1-\varepsilon)}{2} \\
+\sigma^2 &= \frac{m(1-\varepsilon^2)}{4}
+\end{aligned}
+$$
+令$Z=\frac{X-\mu}{\sigma}$，代入$\mu$和$\sigma$，有：
+$$
+P[\frac{X}{m} \geq \frac{1}{2}] = P[Z \geq \frac{\frac{m}{2}-\mu}{\sigma}] = P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}]
+$$
+根据正态分布不等式（定理 20），有：
+$$
+P[Z \geq x] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{2x^2}{\pi}\right)}\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-x^2\right)}\right]
+$$
+代入可得：
+$$
+P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^2}{1-\varepsilon^2}\right)}\right]
+$$
+得证。  
+
   
   
 ## 定理 18: Johnson-Lindenstrauss 引理  
