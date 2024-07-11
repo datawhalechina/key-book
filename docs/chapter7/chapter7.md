@@ -77,7 +77,80 @@ $$
 
 
 
-## 4.【定理补充】Epoch-GD的收敛率
+## 4.【定理证明】鞅差序列的Bernstein不等式
+
+**P49**定理7.6给出了鞅差序列的Bernstein不等式，我们在这里给出其证明。
+
+我们对原文中出现的条件方差定义进行些许勘误，即$X_n$的条件方差定义为：
+$$
+V_n^2 = \sum_{k=1}^n \mathbb{E}[X_k^2|F_{k-1}]
+$$
+
+此时，考虑函数 $f(x) = (e^{\theta x} -\theta x-1)/x^2$，并且 $f(0) = \theta^2/2$。
+
+通过不断地对这个函数进行求导，我们可知该函数是非减的。即$f(x) \leq f(1), x \leq 1$，因此：
+$$e^{\theta x} = 1 + \theta x + x^2f(x) \leq 1+\theta x+x^2f(1) = 1 + \theta x + g(\theta)x^2, \quad x \leq 1$$
+
+将其用于随机变量 $X_k/K$ 的期望，可得：
+$$\mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k-1}\right] \leq 1 + \frac{\theta}{K} \mathbb{E} \left[X_k | \mathcal{F}_{k-1} \right] + \frac{g(\theta)}{K^2} \mathbb{E} \left[X_k^2 | \mathcal{F}_{k-1} \right]$$
+
+由于 $\{X_k\}$ 是一个鞅差序列，我们有 $\mathbb{E} \left[X_k | \mathcal{F}_{k-1} \right] = 0$，结合 $1+x \leq e^x, x \geq 0$，我们有：
+$$ \mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k-1}\right] = 1 + \frac{g(\theta)}{K^2} \mathbb{E} \left[X_k^2 | \mathcal{F}_{k-1} \right] \leq \exp \left(g(\theta) \frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2} \right) $$
+
+考虑一个随机过程：
+$$Q_k = \exp \left(\theta \frac{S_k}{K} - g(\theta) \frac{\Sigma_k^2}{K^2}\right), \quad Q_0 = 1$$
+我们证明这个过程对于滤波 $\mathcal{F}_n$ 是一个超鞅，即 $\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq Q_{k-1}$。
+
+证明如下：
+$$
+\begin{align*}
+\mathbb{E} [Q_k|\mathcal{F}_{k-1}] &= \mathbb{E} \left[\exp \left(\theta \frac{S_k}{K} - g(\theta) \frac{\Sigma_k^2}{K^2}\right)\bigg|\mathcal{F}_{k-1}\right] \\
+&= \mathbb{E} \left[\exp \left(\theta \frac{S_{k-1}}{K} - g(\theta) \frac{\Sigma_{k-1}^2}{K^2} - g(\theta)\frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2} + \theta \frac{X_k}{K}\right)\bigg|\mathcal{F}_{k-1}\right] \\
+&= \exp \left(\theta \frac{S_{k-1}}{K} - g(\theta) \frac{\Sigma_{k-1}^2}{K^2} - g(\theta)\frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2}\right) \mathbb{E} \left[ \exp \left(\theta \frac{X_k}{K}\right)\bigg|\mathcal{F}_{k-1}\right]
+\end{align*}
+$$
+
+应用在之前证明过的不等式，我们得到：
+$$\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq \exp \left(\theta \frac{S_{k-1}}{K} - g(\theta) \frac{\Sigma_{k-1}^2}{K^2}\right) = Q_{k-1}$$
+
+我们定义 $A = \{k \geq 0: \max_{i=1,\cdots,k} S_i \gt t,\Sigma_k^2 \le v\}$，然后我们有：
+$$Q_k\geq \exp \left(\theta \frac{t}{K} - g(\theta) \frac{v}{K^2}\right), k \in A$$
+
+由于 $\{Q_k\}$ 是超鞅，我们有：
+$$\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq \mathbb{E} [Q_{k-1}|\mathcal{F}_{k-2}] \leq \cdots \leq Q_0 = 1$$
+
+考虑到 $1 \geq \mathbb{P}(A)$，我们有：
+$$1 \geq \mathbb{E} [Q_k|\mathcal{F}_{k-1}] \geq \exp \left(\theta \frac{t}{K} - g(\theta) \frac{v}{K^2}\right) \geq \exp \left(\theta \frac{t}{K} - g(\theta) \frac{v}{K^2}\right) \mathbb{P}(A), k \in A$$
+
+因此：
+$$
+\begin{align*}
+\mathbb{P}(A) \leq \exp \left(g(\theta) \frac{v}{K^2} -\theta \frac{t}{K} \right)
+\end{align*}
+$$
+
+由于上述不等式对任何 $\theta > 0$ 都成立，我们可以写为：
+$$P(A) \leq \inf_{\theta > 0} \exp \left(g(\theta) \frac{v}{K^2} - \theta \frac{t}{K} \right)$$
+检查不等式右边的一阶导数，我们知道该下确界在 $\theta = \log (1+Kt/v)$ 处取得。
+
+对于指数内部的表达式，我们进行如下变换：
+$$
+\begin{align*}
+\theta \frac{t}{K} - g(\theta)\frac{v}{K^2} &= \log \left(1 + \frac{Kt}{v}\right) \frac{t}{K} - \frac{v}{K^2} \left(\frac{Kt}{v} - \log \left(1 + \frac{Kt}{v}\right) \right) \\
+&=\frac{v}{K^2} \left( \left(1+\frac{Kt}{v} \right) \log \left(1 + \frac{Kt}{v}\right) - \frac{Kt}{v} \right) \\
+&= \frac{v}{K^2} h\left( \frac{Kt}{v} \right)
+\end{align*}
+$$
+其中 $h(u) = (1+u)\log(1+u) - u$。
+
+通过对表达式求二阶导数的方法，我们也可以证明：
+$$h(u) \geq \frac{u^2}{2(1 + u/3)},\quad u \geq 0$$
+
+综上所述，我们有：
+$$P(A) \leq \exp \left( -\frac{v}{K^2} h \left( \frac{Kt}{v} \right)\right) \leq \exp \left( - \frac{v}{K^2} \frac{K^2t^2}{2v (v+Kt/3)} \right) = \exp\left( -\frac{t^2}{2(v+Kt/3)}\right)$$
+
+
+## 5.【定理补充】Epoch-GD的收敛率
 
 **P150**引理7.2给出了Epoch-GD外层循环收敛率的泛化上界，我们对其中部分推导进行必要补充。
 
