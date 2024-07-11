@@ -99,7 +99,7 @@ $$ \mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k
 
 考虑一个随机过程：
 $$Q_k = \exp \left(\theta \frac{S_k}{K} - g(\theta) \frac{\Sigma_k^2}{K^2}\right), \quad Q_0 = 1$$
-我们证明这个过程对于滤波 $\mathcal{F}_n$ 是一个超鞅序列，即 $\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq Q_{k-1}$。
+我们证明这个过程对于滤波 $\mathcal{F}_n$ 是一个超鞅，即 $\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq Q_{k-1}$。
 
 证明如下：
 $$
@@ -116,7 +116,7 @@ $$\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq \exp \left(\theta \frac{S_{k-1}}{K} - 
 我们定义 $A = \{k \geq 0: \max_{i=1,\cdots,k} S_i \gt t,\Sigma_k^2 \le v\}$，然后我们有：
 $$Q_k\geq \exp \left(\theta \frac{t}{K} - g(\theta) \frac{v}{K^2}\right), k \in A$$
 
-由于 $\{Q_k\}$ 是超鞅序列，我们有：
+由于 $\{Q_k\}$ 是超鞅，我们有：
 $$\mathbb{E} [Q_k|\mathcal{F}_{k-1}] \leq \mathbb{E} [Q_{k-1}|\mathcal{F}_{k-2}] \leq \cdots \leq Q_0 = 1$$
 
 考虑到 $1 \geq \mathbb{P}(A)$，我们有：
