@@ -296,8 +296,35 @@ $$
 当我们把$r$替换成$-r$，根据之前的推导，且在最后一步利用$\forall r\in [0,1]$，有$\frac{e^r}{(1-r)^{1-r}}\leq e^{-\frac{r^2}{2}}$，我们可以得到第二个不等式的证明
 
 
+
+## 定理 12: 最优 Chernoff 界
+
+如果$X$是一个随机变量，且$\mathbb{E}e^{\lambda(X-\mathbb{E}X)} \leq e^{\phi(\lambda)},\forall \lambda \geq 0$
+那么，有以下公式成立：
+$$
+P(X-\mathbb{E}X \geq \varepsilon) \leq e^{-\phi^*(\varepsilon)}, \varepsilon \geq 0
+$$
+或者
+$$
+P(X-\mathbb{E}X \leq (\phi^*)^{-1}(ln(1/\delta))) \geq 1 - \delta, \delta \in [0,1]
+$$
+其中，$\phi^*$是$\phi$的凸共轭函数，即$\phi^*(x) = \sup_{\lambda \geq 0}(\lambda x - \phi(\lambda))$。
+
+$Proof.$
+
+根据 Chernoff 不等式，我们有：
+$$
+\begin{aligned}
+P(X-\mathbb{E}X \geq \varepsilon) &\leq \inf_{\lambda \geq 0} e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(X-\mathbb{E}X)}] \\
+&\leq \inf_{\lambda \geq 0} e^{\phi(\lambda)-\lambda\varepsilon} \\
+&= e^{-\sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda))} \\
+&= e^{-\phi^*(\varepsilon)}
+\end{aligned}
+$$
+
+
   
-## 定理 12: Hoeffding 不等式  
+## 定理 13: Hoeffding 不等式  
   
 ### 引理1 (Hoeffding 定理)  
 若$\mathbb{E}[X] = 0, X\in[a,b]$，则$\forall \lambda \in \mathbb{R}$有：  
@@ -405,7 +432,7 @@ $$
   
   
   
-## 定理 13. McDiarmid 不等式  
+## 定理 14. McDiarmid 不等式  
   
 对 $m$ 个独立随机变量 $X_{i} \in \mathcal{X},$ 函数 $f$ 为 差有界的，则 $\forall \varepsilon\gt 0$ 有：  
 $$  
@@ -432,7 +459,7 @@ $$
   
   
   
-## 定理 14: Bennett 不等式  
+## 定理 15: Bennett 不等式  
   
 对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值, 若 $\exists b\gt 0,$ s.t.$|X-\mathbb{E}[X]|\lt b$  
   
@@ -508,7 +535,7 @@ $$
   
   
   
-## 定理 15: Bernstein 不等式  
+## 定理 16: Bernstein 不等式  
   
 对 $m$ 个独立随机变量 $X_{i},$ 令 $\bar{X}$ 为 $X_{i}$ 均值，若 $\exists b\gt 0,$ s.t. $\forall k \geq 2$ 有 Bound 矩约束 $(\text {Bernstein Condition}):$  
 $$  
@@ -573,7 +600,7 @@ $$
   
   
   
-## 定理 16: Azuma（Azuma–Hoeffding） 不等式  
+## 定理 17: Azuma（Azuma–Hoeffding） 不等式  
   
 对于均值为$Z_0=\mu$的鞅差序列$\{Z_m,m\geq 1\}$，若$|Z_i-Z_{i-1}|\leq c_i$，则$\forall \varepsilon\gt 0$，有
 $$
@@ -600,14 +627,14 @@ $$
 \end{aligned}
 $$
 
-应用 Chernoff 不等式，对于$\forall\epsilon\gt 0$，有：
+应用 Chernoff 不等式，对于$\forall\varepsilon\gt 0$，有：
 
 $$
 \begin{aligned}
-P(Y_n-Y_0 \geq \epsilon)
-& \leq \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
-& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
-& = \underset{s\gt 0}{\min} \ e^{-s\epsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
+P(Y_n-Y_0 \geq \varepsilon)
+& \leq \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
+& = \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
 \end{aligned}
 $$
 
@@ -629,40 +656,40 @@ $$
 
 $$
 \begin{aligned}
-\text{P}(Y_n-Y_0 \geq \epsilon)
+\text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
-\underset{s\gt 0}{\min} \ e^{-s\epsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
+\underset{s\gt 0}{\min} \ e^{-s\varepsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
 \end{aligned}
 $$
 
-当$s = \frac{4 \epsilon}{\sum_{t=1}^{n}c_t^2}$时，上式右端取得极小值：
+当$s = \frac{4 \varepsilon}{\sum_{t=1}^{n}c_t^2}$时，上式右端取得极小值：
 $$
 \begin{aligned}
-\text{P}(Y_n-Y_0 \geq \epsilon)
+\text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
-\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
 \end{aligned}
 $$
 
-因为$X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且由$\{Z_n\}$的非增性得到$Z_n - Z_0 \leq 0$，因此由$\left\{X_n - X_0 \geq \epsilon\right\}$可推导出$\left\{Y_n - Y_0 \geq \epsilon\right\}$。
+因为$X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且由$\{Z_n\}$的非增性得到$Z_n - Z_0 \leq 0$，因此由$\left\{X_n - X_0 \geq \varepsilon\right\}$可推导出$\left\{Y_n - Y_0 \geq \varepsilon\right\}$。
 
 因此，
 $$
 \begin{aligned}
-\text{P}(X_n-X_0 \geq \epsilon)
+\text{P}(X_n-X_0 \geq \varepsilon)
 \leq
-\text{P}(Y_n-Y_0 \geq \epsilon)
+\text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
-\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
 \end{aligned}
 $$
 
 同理可证得：
 $$
 \begin{aligned}
-\text{P}(X_n-X_0 \leq -\epsilon)
+\text{P}(X_n-X_0 \leq -\varepsilon)
 \leq
-\exp \left(-\frac{2 \epsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
+\exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
 \end{aligned}
 $$
 
@@ -684,7 +711,7 @@ $$
 
 
 
-## 定理 17: Slud 不等式  
+## 定理 18: Slud 不等式  
   
 若$X\sim B(m,p)$，则有：  
 $$  
@@ -716,12 +743,9 @@ $$
 
   
   
-## 定理 18: Johnson-Lindenstrauss 引理  
+## 定理 19: Johnson-Lindenstrauss 引理  
 
 JL引理可以非常通俗地表达为：压缩N个向量只需要$O(logN)$维空间，且相对距离的误差可控制在一定范围内。
-
-
-
 首先借用上述工具考察一个示例：  
 ### $\chi_m^2$随机变量的集中度  
 若随机变量$Z\sim \chi_m^2$，则$\forall \varepsilon \in (0, 3)$有：  
@@ -765,7 +789,7 @@ $$
 
 
 
-## 定理 19: 上界不等式之加性公式
+## 定理 20: 上界不等式之加性公式
 若$sup(f)$和$sup(g)$分别为函数$f$和$g$的上界，则有：
 $$
 sup(f+g)\le sup(f) + sup(g)
@@ -791,7 +815,7 @@ $$
 
 
 
-## 定理 20: 正态分布不等式
+## 定理 21: 正态分布不等式
 若$X$是一个服从标准正态分布的随机变量，那么对于任意$u\ge 0$，有：
 $$\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
 
@@ -820,7 +844,7 @@ $$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 
 
-## 定理 21: AM-GM 不等式
+## 定理 22: AM-GM 不等式
 
 算术平均数和几何平均数的不等式，简称AM-GM不等式。该不等式指出非负实数序列的算术平均数大于等于该序列的几何平均数，当且仅当序列中的每个数相同时，等号成立。
 形式上，对于非负实数序列$\{x_n\}$，其算术平均值定义为：
@@ -858,7 +882,7 @@ $$
 
 
 
-## 定理 22: Young 不等式
+## 定理 23: Young 不等式
 
 对于任意$a,b\ge 0, p.q\gt 1$，若$\frac{1}{p}+\frac{1}{q}=1$，则有：
 $$
@@ -882,7 +906,7 @@ $$
 
 
 
-## 定理 23: 分离/支撑超平面定理
+## 定理 24: 分离/支撑超平面定理
 
 超平面（Hyperplane）是指$n$维线性空间中维度为$n-1$的子空间，它可以把线性空间分割成不相交的两部分。
 对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。
@@ -1200,7 +1224,7 @@ $$
 1. 它是凸集合，由$f_i,i\in\{0\}\cup[m]$的凸性质可知。
 2. 若$(u,w)\in\mathcal{V}$，且$(u',w')\succeq(u,w)$，则$(u',w')\in\mathcal{V}$。
 
-易证向量$(0,p^*)\notin int(\mathcal{V})$，否则一定存在$\epsilon>0$，使得$(0,p^*-\epsilon)\in int(\mathcal{V})$，这明显与$p^*$为最优解矛盾。
+易证向量$(0,p^*)\notin int(\mathcal{V})$，否则一定存在$\varepsilon>0$，使得$(0,p^*-\varepsilon)\in int(\mathcal{V})$，这明显与$p^*$为最优解矛盾。
 因此，必有$(0,p^*)\in \partial\mathcal{V}$或$(0,p^*)\notin\mathcal{V}$。
 应用支撑超平面定理（定理23），我们可以得知，存在一个非零点$(\lambda,\lambda_0)\in\mathbb{R}^m\times\mathbb{R}$，满足以下条件：
 $$
