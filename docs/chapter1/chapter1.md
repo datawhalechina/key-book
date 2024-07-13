@@ -1242,7 +1242,7 @@ $$
 $$
 \mathbb{E} e^{\frac{\lambda}{n} \sum_{i=1}^{n} ({X_i} - \mathbb{E}[X_i])} = \prod_{i=1}^n \mathbb{E} e^{\frac{\lambda}{n} ({X_i} - \mathbb{E}[X_i])} 
 \leq e^{n \phi(\lambda/n)}
-= e^{\psi(\lambda)}
+\equiv e^{\psi(\lambda)}
 $$
 其中，我们定义$\psi(\lambda) := n\phi(\lambda/n)$，可得：
 $$
