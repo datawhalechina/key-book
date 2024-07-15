@@ -1,0 +1,51 @@
+name: Docs to PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  converttopdf:
+    name: build-release-pdf
+    runs-on: ubuntu-latest
+    steps:
+      - id: today
+        run: echo "name=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      
+      # Checkout the repository
+      - uses: actions/checkout@v3
+
+      # Install pandoc
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      # Create directory for PDFs
+      - name: Create PDF directory
+        run: mkdir -p pdfs
+
+      # Concatenate all markdown files into a single file
+      - name: Concatenate markdown files
+        run: find . -name "*.md" -exec cat {} + > combined.md
+
+      # Convert the concatenated markdown to PDF
+      - name: Convert markdown to PDF
+        run: pandoc combined.md -o pdfs/combined.pdf
+      
+      # Upload the PDF artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: release
+          path: pdfs
+
+      # Create a release with the PDF
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: release-${{ env.name }}
+          release_name: release-${{ env.name }}
+          draft: false
+          prerelease: false
+          files: pdfs/combined.pdf
