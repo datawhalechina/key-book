@@ -29,7 +29,7 @@ $$
 $$
 
 现在我们来证明经验风险是泛化风险的无偏估计：
-首先这需要一些先验假设，我们假设所有的样本都是从一个未知的样本-标签空间$D$中独立同分布（I.i.d）采样的。由此，对于经验风险求期望：
+首先这需要一些先验假设，我们假设所有的样本都是从一个未知的样本-标签空间$D$中独立同分布采样的。由此，对于经验风险求期望：
 $$
 \begin{aligned}
 \mathbb{E}({\hat R(f)}) &=\mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(y_{i} f\left(\boldsymbol{x}_{i}\right) \leqslant 0\right)}] \\

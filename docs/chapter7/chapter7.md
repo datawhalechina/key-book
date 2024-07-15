@@ -95,7 +95,9 @@ $$e^{\theta x} = 1 + \theta x + x^2f(x) \leq 1+\theta x+x^2f(1) = 1 + \theta x +
 $$\mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k-1}\right] \leq 1 + \frac{\theta}{K} \mathbb{E} \left[X_k | \mathcal{F}_{k-1} \right] + \frac{g(\theta)}{K^2} \mathbb{E} \left[X_k^2 | \mathcal{F}_{k-1} \right]$$
 
 由于 $\{X_k\}$ 是一个鞅差序列，我们有 $\mathbb{E} \left[X_k | \mathcal{F}_{k-1} \right] = 0$，结合 $1+x \leq e^x, x \geq 0$，我们有：
-$$ \mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k-1}\right] = 1 + \frac{g(\theta)}{K^2} \mathbb{E} \left[X_k^2 | \mathcal{F}_{k-1} \right] \leq \exp \left(g(\theta) \frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2} \right) $$
+$$
+\mathbb{E} \left[\exp \left(\frac{\theta X_k}{K}\right) \bigg| \mathcal{F}_{k-1}\right] = 1 + \frac{g(\theta)}{K^2} \mathbb{E} \left[X_k^2 | \mathcal{F}_{k-1} \right] \leq \exp \left(g(\theta) \frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2} \right)
+$$
 
 考虑一个随机过程：
 $$Q_k = \exp \left(\theta \frac{S_k}{K} - g(\theta) \frac{\Sigma_k^2}{K^2}\right), \quad Q_0 = 1$$
