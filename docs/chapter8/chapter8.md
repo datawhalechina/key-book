@@ -1,6 +1,6 @@
 # 第8章：遗憾界
 
-*Edit: Hao ZHAN，赵志民*
+*Edit: 赵志民，Hao ZHAN*
 
 ---
 
