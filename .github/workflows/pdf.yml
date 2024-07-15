@@ -17,9 +17,9 @@ jobs:
       # Checkout the repository
       - uses: actions/checkout@v3
 
-      # Install pandoc
-      - name: Install pandoc
-        run: sudo apt-get install -y pandoc
+      # Install pandoc and texlive
+      - name: Install dependencies
+        run: sudo apt-get install -y pandoc texlive
 
       # Create directory for PDFs
       - name: Create PDF directory
@@ -31,7 +31,7 @@ jobs:
 
       # Convert the concatenated markdown to PDF
       - name: Convert markdown to PDF
-        run: pandoc combined.md -o pdfs/combined.pdf
+        run: pandoc combined.md -o pdfs/combined.pdf --pdf-engine=pdflatex
       
       # Upload the PDF artifact
       - uses: actions/upload-artifact@v3
