@@ -1568,7 +1568,126 @@ $$
 
 
 
-## 定理 24: 分离/支撑超平面定理
+## 定理 24: 广义二项式定理
+
+广义二项式定理（Generalized Binomial Theorem）是二项式定理的扩展，适用于任何实数或复数的指数$r$。
+$$
+(x + y)^r = \sum_{n=0}^{\infty} \frac{(r)_n}{n!} x^{r-n} y^n, |x| \lt |y|
+$$
+其中$(r)_n = r(r-1) \cdots (r-n+1)$为递降阶乘（falling factorial）。
+该定理的完整证明参考 https://en.wikibooks.org/wiki/Advanced_Calculus/Newton%27s_general_binomial_theorem，这里不做展开。
+
+
+
+## 定理 25: Stirling 公式
+
+Stirling 公式是用于近似计算阶乘的一种公式，即使在$n$很小时也有很高的精度。
+Stirling公式的一种形式为：
+$$
+n! = \sqrt{2\pi} n^{n+1/2} e^{-n} e^{r_n}
+$$
+其中，$\frac{1}{12n + 1} \lt r_n \lt \frac{1}{12n}$
+
+$Proof.$
+
+我们令：
+$$
+S_n = ln(n!) = \sum_{p=1}{n-1} \ln(p+1)
+$$
+且
+$$
+\ln(p+1) = A_p + b_p - \varepsilon_p
+$$
+其中：
+$$
+\begin{aligned}
+A_p &= \int_{p}^{p+1} \ln xdx \\
+b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
+\varepsilon_p &= \int_{p}^{p+1} \ln xdx - \frac{1}{2} [\ln(p+1) + \ln(p)]
+\end{aligned}
+$$
+此时：
+$$
+S_n = \sum_{p=1}^{n-1} (A_p + b_p - \varepsilon_p)
+= \int_{1}^{n} \ln xdx + \frac{1}{2} \ln n - \sum_{p=1}^{n-1} \varepsilon_p
+$$
+易证$\int \ln xdx = x\ln x - x + C, C \in \mathbb{R}$，故：
+$$
+S_n = (n+1/2)ln n - n + 1 - \sum_{p=1}^{n-1} \varepsilon_p
+$$
+此时：
+$$
+\varepsilon_p = \frac{2p+1}{2} \ln(\frac{p+1}{p}) - 1
+$$
+
+接下来我们对$\ln(\frac{p+1}{p})$进行级数展开，根据广义二项式定理，即：
+
+我们令$a = -1, x = 1, y = t, t \in (-1, 1)$，则有：
+$$
+(1 + t)^{-1} = 1 - t + t^2 - t^3 + t^4 - \cdots
+$$
+对上式进行积分，我们有：
+$$
+\ln (1 + t) = t - \frac{1}{2} t^2 + \frac{1}{3} t^3 - \frac{1}{4} t^4 + \cdots
+$$
+如果我们令$-t$来代替$t$，则有：
+$$
+\ln \frac{1}{1 - t} = t + \frac{1}{2} t^2 + \frac{1}{3} t^3 + \frac{1}{4} t^4 + \cdots 
+$$
+将两式相加，我们有：
+$$
+\frac{1}{2} \ln \frac{1 + t}{1 - t} = n + \frac{1}{3} t^3 + \frac{1}{5} t^5 + \cdots
+$$
+
+回到我们的问题，我们令$t = (2p + 1)^{-1} \in (0, 1)$，如此才满足$\frac{1+t}{1-t} = \frac{p+1}{p}$，带入前式：
+$$
+\varepsilon_p = \frac{1}{3(2p+1)^2} + \frac{1}{5(2p+1)^4} + \frac{1}{7(2p+1)^6} + \cdots
+$$
+因此：
+$$
+\varepsilon_p \lt \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{(2p+1)^{2i}} 
+= \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{(2p+1)^2}} 
+= \frac{1}{3[(2p+1)^2 - 1]} 
+= \frac{1}{12} (\frac{1}{p} - \frac{1}{p+1})
+$$
+且
+$$
+\varepsilon_p \gt \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{[3(2p+1)^2]^{i}} 
+= \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{3(2p+1)^2}} 
+= \frac{1}{3(2p+1)^2 - 1}
+$$
+易证
+$$
+(p+\frac{1}{12})(p+1+\frac{1}{12})
+= p^2 + \frac{7}{6}p + \frac{13}{144}
+\gt p^2 + p + \frac{1}{6}
+= \frac{1}{12} [3(2p+1)^2 - 1], p \in \mathbb{N}^+
+$$
+因此：
+$$
+\varepsilon_p \gt \frac{1}{12} (\frac{1}{p+\frac{1}{12}} - \frac{1}{p+1+\frac{1}{12}})
+$$
+我们令：
+$$
+B = \sum_{p=1}^{\infty} \varepsilon_p, \quad r_n = \sum_{p=n}^{\infty} \varepsilon_p
+$$
+那么易得：
+$$
+\frac{1}{13} \lt B \lt \frac{1}{12}, \quad \frac{1}{12(n+1)} \lt r_n \lt \frac{1}{12n}
+$$
+带入$S_n$的表达式：
+$$
+S_n = (n+\frac{1}{2})\ln n - n + 1 - B + r_n
+$$
+可得：
+$$
+n! = e^{1-B} n^{n+1/2} e^{-n} e^{r_n}
+$$
+令$C = e^{1-B}$，我们可知常数$C$的取值范围为$(e^{11/12}, e^{12/13})$，此处我们取$C = \sqrt{2\pi}$，Stirling 公式得证。
+
+
+
+## 定理 26: 分离/支撑超平面定理
 
 超平面（Hyperplane）是指$n$维线性空间中维度为$n-1$的子空间，它可以把线性空间分割成不相交的两部分。
 对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。

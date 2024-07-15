@@ -156,121 +156,14 @@ $$
 
 **P106**中，引理5.2讨论了二次分布$X \sim B(k, 1/2)$的k-近邻的稳定性，这里我们给出详细的证明过程。
 
-首先我们先引入 Stirling 公式：
-$$
-k! = \sqrt{2\pi} k^{k+1/2} e^{-k} e^{r_k}
-$$
-其中，$\frac{1}{12k + 1} \lt r_k \lt \frac{1}{12k}$
-
-证明：
-
-我们令：
-$$
-S_k = ln(k!) = \sum_{p=1}{k-1} \ln(p+1)
-$$
-且
-$$
-\ln(p+1) = A_p + b_p - \varepsilon_p
-$$
-其中：
-$$
-\begin{aligned}
-A_p &= \int_{p}^{p+1} \ln xdx \\
-b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
-\varepsilon_p &= \int_{p}^{p+1} \ln xdx - \frac{1}{2} [\ln(p+1) + \ln(p)]
-\end{aligned}
-$$
-此时：
-$$
-S_k = \sum_{p=1}^{k-1} (A_p + b_p - \varepsilon_p)
-= \int_{1}^{k} \ln xdx + \frac{1}{2} \ln k - \sum_{p=1}^{k-1} \varepsilon_p
-$$
-易证$\int \ln xdx = x\ln x - x + C, C \in \mathbb{R}$，故：
-$$
-S_k = (k+1/2)ln k - k + 1 - \sum_{p=1}^{k-1} \varepsilon_p
-$$
-此时：
-$$
-\varepsilon_p = \frac{2p+1}{2} \ln(\frac{p+1}{p}) - 1
-$$
-
-接下来我们对$\ln(\frac{p+1}{p})$进行级数展开，根据广义二项式定理，即：
-$$
-(x + y)^r = \sum_{n=0}^{\infty} \frac{(r)_n}{n!} x^{r-n} y^n, r \in \mathbb{R}, |x| \lt |y|
-$$
-其中$(r)_n = r(r-1) \cdots (r-n+1)$为递降阶乘（falling factorial）。
-该定理的完整证明参考 https://en.wikibooks.org/wiki/Advanced_Calculus/Newton%27s_general_binomial_theorem，这里不做展开。
-
-我们令$a = -1, x = 1, y = t, t \in (-1, 1)$，则有：
-$$
-(1 + t)^{-1} = 1 - t + t^2 - t^3 + t^4 - \cdots
-$$
-对上式进行积分，我们有：
-$$
-\ln (1 + t) = t - \frac{1}{2} t^2 + \frac{1}{3} t^3 - \frac{1}{4} t^4 + \cdots
-$$
-如果我们令$-t$来代替$t$，则有：
-$$
-\ln \frac{1}{1 - t} = t + \frac{1}{2} t^2 + \frac{1}{3} t^3 + \frac{1}{4} t^4 + \cdots 
-$$
-将两式相加，我们有：
-$$
-\frac{1}{2} \ln \frac{1 + t}{1 - t} = n + \frac{1}{3} t^3 + \frac{1}{5} t^5 + \cdots
-$$
-
-回到我们的问题，我们令$t = (2p + 1)^{-1} \in (0, 1)$，如此才满足$\frac{1+t}{1-t} = \frac{p+1}{p}$，带入前式：
-$$
-\varepsilon_p = \frac{1}{3(2p+1)^2} + \frac{1}{5(2p+1)^4} + \frac{1}{7(2p+1)^6} + \cdots
-$$
-因此：
-$$
-\varepsilon_p \lt \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{(2p+1)^{2i}} 
-= \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{(2p+1)^2}} 
-= \frac{1}{3[(2p+1)^2 - 1]} 
-= \frac{1}{12} (\frac{1}{p} - \frac{1}{p+1})
-$$
-且
-$$
-\varepsilon_p \gt \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{[3(2p+1)^2]^{i}} 
-= \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{3(2p+1)^2}} 
-= \frac{1}{3(2p+1)^2 - 1}
-$$
-易证
-$$
-(p+\frac{1}{12})(p+1+\frac{1}{12})
-= p^2 + \frac{7}{6}p + \frac{13}{144}
-\gt p^2 + p + \frac{1}{6}
-= \frac{1}{12} [3(2p+1)^2 - 1], p \in \mathbb{N}^+
-$$
-因此：
-$$
-\varepsilon_p \gt \frac{1}{12} (\frac{1}{p+\frac{1}{12}} - \frac{1}{p+1+\frac{1}{12}})
-$$
-我们令：
-$$
-B = \sum_{p=1}^{\infty} \varepsilon_p, \quad r_k = \sum_{p=k}^{\infty} \varepsilon_p
-$$
-那么易得：
-$$
-\frac{1}{13} \lt B \lt \frac{1}{12}, \quad \frac{1}{12(k+1)} \lt r_k \lt \frac{1}{12k}
-$$
-带入$S_k$的表达式：
-$$
-S_k = (k+\frac{1}{2})\ln k - k + 1 - B + r_k
-$$
-可得：
-$$
-k! = e^{1-B} k^{k+1/2} e^{-k} e^{r_k}
-$$
-令$C = e^{1-B}$，我们可知常数$C$的取值范围为$(e^{11/12}, e^{12/13})$，此处我们取$C = \sqrt{2\pi}$，Stirling 公式得证。
-
-接下来我们套用 Stirling 公式，按照$k$的取值分为两种情况进行讨论。
+首先，我们按照$k$的取值分为两种情况进行讨论。
 当$k$为偶数时，二项式展开的最大项为：
 $$
 \frac{1}{2^k} \binom{k}{k/2} \leq \frac{2}{\sqrt{2\pi k}} \exp(\frac{1}{12k} - \frac{2}{6k+1}) \lt \frac{2}{\sqrt{2\pi k}}
 $$
-其中，最后一步推导利用了函数$l(x) = \exp(\frac{1}{12x} - \frac{2}{6x+1})$在$[1,\infty)$区间单调递增且取值在$(0,1)$之间的特性。
-故：
+其中，第二步推导利用了 Stirling 公式。
+最后一步推导则利用了函数$l(x) = \exp(\frac{1}{12x} - \frac{2}{6x+1})$在$[1,\infty)$区间单调递增且取值在$(0,1)$之间的特性。
+因此，我们有：
 $$
 P(|X-\frac{k}{2}| \leq \frac{a}{2}) = (a+1) \frac{2}{\sqrt{2\pi k}} \lt \frac{4a}{\sqrt{2\pi k}} 
 $$
@@ -280,11 +173,11 @@ $$
 \lt \frac{1}{\sqrt{2\pi (k-1)}} \lt \frac{2}{\sqrt{\pi k}}
 $$
 当$k=1$时，二项式展开的最大项为$\frac{1}{2} \lt \frac{2}{\sqrt{\pi}}$
-故：
+因此，我们有：
 $$
 P(|X-\frac{k}{2}| \leq \frac{a}{2}) = a \frac{2}{\sqrt{\pi k}} \lt \frac{4a}{\sqrt{2\pi k}}
 $$
-综上，我们得到了引理5.2的结论。
+综上，引理5.2得证。
 
 
 
