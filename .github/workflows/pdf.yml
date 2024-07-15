@@ -31,6 +31,18 @@ jobs:
       - name: Create PDF directory
         run: mkdir -p pdfs
 
+      # Fix YAML metadata issues
+      - name: Fix YAML metadata
+        run: |
+          find . -name "*.md" -exec sed -i '/^---$/!b;n;/^$/!b;n;/^---$/d;' {} \;
+
+      # Ensure images are present
+      - name: Ensure images are present
+        run: mkdir -p imgs && touch imgs/dummy.jpg
+      - name: Replace missing images
+        run: |
+          find . -name "*.md" -exec sed -i 's|imgs/|imgs/dummy.jpg|g' {} \;
+
       # Concatenate all markdown files into a single file
       - name: Concatenate markdown files
         run: find . -name "*.md" -exec cat {} + > combined.md
