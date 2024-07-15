@@ -1,57 +1,32 @@
-name: Docs to PDF
+name: Convert Markdown to PDF
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-  workflow_dispatch: {}
 
 jobs:
-  converttopdf:
-    name: build-release-pdf
+  build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
     steps:
-      - id: today
-        run: echo "name=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-      
-      # Checkout the repository
-      - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # Install pandoc and xelatex
-      - name: Install dependencies
-        run: sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
+    - name: Install Pandoc
+      run: sudo apt-get install -y pandoc
 
-      # Create directory for PDFs
-      - name: Create PDF directory
-        run: mkdir -p pdfs
+    - name: Install LaTeX
+      run: sudo apt-get install -y texlive-full
 
-      # Concatenate all markdown files into a single file
-      - name: Concatenate markdown files
-        run: find . -name "*.md" -exec cat {} + > combined.md
+    - name: Combine Markdown files
+      run: cat $(find . -name "*.md" | sort) > combined.md
 
-      # Convert the concatenated markdown to PDF using xelatex and custom template
-      - name: Convert markdown to PDF
-        run: pandoc combined.md -o pdfs/combined.pdf --pdf-engine=xelatex --template=template.tex
-      
-      # Upload the PDF artifact
-      - uses: actions/upload-artifact@v3
-        with:
-          name: release
-          path: pdfs
+    - name: Convert to PDF
+      run: pandoc combined.md -o output.pdf
 
-      # Create a release with the PDF
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: release-${{ env.name }}
-          release_name: release-${{ env.name }}
-          draft: false
-          prerelease: false
-          files: pdfs/combined.pdf
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: output-pdf
+        path: output.pdf
