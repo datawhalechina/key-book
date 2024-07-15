@@ -19,7 +19,7 @@ jobs:
 
       # Install pandoc and xelatex
       - name: Install dependencies
-        run: sudo apt-get install -y pandoc texlive-xetex
+        run: sudo apt-get update && sudo apt-get install -y pandoc texlive-xetex
 
       # Create directory for PDFs
       - name: Create PDF directory
@@ -29,9 +29,9 @@ jobs:
       - name: Concatenate markdown files
         run: find . -name "*.md" -exec cat {} + > combined.md
 
-      # Convert the concatenated markdown to PDF using xelatex
+      # Convert the concatenated markdown to PDF using xelatex and custom template
       - name: Convert markdown to PDF
-        run: pandoc combined.md -o pdfs/combined.pdf --pdf-engine=xelatex
+        run: pandoc combined.md -o pdfs/combined.pdf --pdf-engine=xelatex --template=template.tex
       
       # Upload the PDF artifact
       - uses: actions/upload-artifact@v3
