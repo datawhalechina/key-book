@@ -1,6 +1,6 @@
 # 第6章：一致性
 
-*Edit: 王茂霖，Hao ZHAN，赵志民*
+*Edit: 赵志民，王茂霖，Hao ZHAN*
 
 ---
 
