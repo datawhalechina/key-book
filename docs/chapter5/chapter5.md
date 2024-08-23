@@ -39,11 +39,11 @@ $$
 
 值得注意的是，（5.22）中最后一步不等式的推导其实是省略了一步，即：
 $$
-\begin{aligned}
+\begin{align}
 &\frac{|\ell(\mathfrak{L}_D,z_i)-\ell(\mathfrak{L}_{D^{i,z'_i}},z'_i)|}{m}+\sum_{j\neq i}\frac{|\ell(\mathfrak{L}_D,z_j)-\ell(\mathfrak{L}_{D^{i,z'_i}},z_j)|}{m}\\
 &\le \frac{M}{m}+\frac{m-1}{m}\beta \\
 &\le \frac{M}{m}+\beta
-\end{aligned}
+\end{align}
 $$
 之所以这么做，是因为在样本量$m$较大的时候，$\frac{\beta}{m}$的大小可以忽略不计，因此在结论中并没有出现这一项。
 

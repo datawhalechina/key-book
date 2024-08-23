@@ -17,10 +17,10 @@
 
 泛化风险定义：
 $$
-\begin{aligned}
+\begin{align}
 R(f) &=\mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}}[\mathbb{I}(y f(\boldsymbol{x}) \leqslant 0)] \\
 &=\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}_{\mathcal{X}}[\eta(\boldsymbol{x}) \mathbb{I}(f(\boldsymbol{x}) \leqslant 0)+(1-\eta(\boldsymbol{x})) \mathbb{I}(f(\boldsymbol{x}) \geqslant 0)]}
-\end{aligned}
+\end{align}
 $$
 
 经验风险定义：
@@ -31,13 +31,13 @@ $$
 现在我们来证明经验风险是泛化风险的无偏估计：
 首先这需要一些先验假设，我们假设所有的样本都是从一个未知的样本-标签空间$D$中独立同分布采样的。由此，对于经验风险求期望：
 $$
-\begin{aligned}
+\begin{align}
 \mathbb{E}({\hat R(f)}) &=\mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(y_{i} f\left(\boldsymbol{x}_{i}\right) \leqslant 0\right)}] \\
 &= \frac{1}{m} \sum_{i=1}^{m} \mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \mathbb{I}\left(y_{i} f\left(\boldsymbol{x}_{i}\right) \leqslant 0\right)}]\\
 &= \frac{1}{m} \sum_{i=1}^{m} \mathbb{E}_{(\boldsymbol{x}, y) \sim \mathcal{D}}[{ \mathbb{I}\left(y f\left(\boldsymbol{x}\right) \leqslant 0\right)}]\\
 &= \frac{1}{m} \sum_{i=1}^{m} R(f)\\
 &= R(f)
-\end{aligned} 
+\end{align} 
 $$
 
 
@@ -130,10 +130,10 @@ $$
 
 首先，令$L_j$表示区域$\Omega(x,Z)$中第$j$个属性的边长，我们可以得到$Diam(\Omega(x,Z))$与$L_j$的关系：
 $$
-\begin{aligned}
+\begin{align}
 Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}||x-x'||\\
 &=\sqrt{\sum_{j=1}^dL_j^2}
-\end{aligned}
+\end{align}
 $$
 当我们对于$Diam(\Omega(x,Z))$求期望时，我们可以得到：
 $$
@@ -155,7 +155,7 @@ $$
 
 令$T_m$表示区域$\Omega(x,Z)$被划分的次数，结合（6.98）以及划分点的独立性，我们可以得到：
 $$
-\begin{aligned}
+\begin{align}
 \mathbb{E}(L_j)&\le\mathbb{E}[\mathbb{E}_{K_j}[\prod_{i=1}^{K_j}max(U_i,1-U_i)]]\\
 &=\mathbb{E}[(\mathbb{E}[max(U_1,1-U_1)])^{K_j}]\\
 &=\mathbb{E}[(\frac{3}{4})^{K_j}]\\
@@ -164,7 +164,7 @@ $$
 &=\sum_{K_j=0}^{T_m}\binom{T_m}{K_j}\cdot(\frac{3}{4d})^{K_j}\cdot(1-\frac{1}{d})^{T_m}\\
 &=(1-\frac{1}{d}+\frac{3}{4d})^{T_m}\\
 &=(1-\frac{1}{4d})^{T_m}
-\end{aligned}
+\end{align}
 $$
 此时，我们只需要证明当$k\rightarrow\infty$时有$T_m\rightarrow\infty$，便证明了$\mathbb{E}(L_j)\rightarrow 0$。
 

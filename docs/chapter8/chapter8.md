@@ -51,11 +51,11 @@ P(\mu_*\le\mu_i+\sqrt{\frac{2\ln t}{q}})=0,q\ge\ell
 $$
 代入（8.44），可得：
 $$
-\begin{aligned}
+\begin{align}
 \mathbb{E}[n_i^T]&\le\lceil\frac{2\ln T}{\Delta_i^2}\rceil+2\sum_{t=1}^{T-1}\sum_{p=1}^{t-1}\sum_{q=\ell}^{t-1}t^{-4} \\
 &\le\frac{2\ln T}{\Delta_i^2}+1+2\sum_{t=1}^{T-1}\sum_{p=1}^{t}\sum_{q=1}^{t}t^{-4} \\
 &\le\frac{2\ln T}{\Delta_i^2}+1+2\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2} 
-\end{aligned}
+\end{align}
 $$
 根据$p$-级数判别法，当$p=2\gt1$时，级数收敛，因此$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$是有界的。
 至于该级数的具体值，对定理的结论并没有影响，因此我们可以直接将其视为一个常数，然后带入后续的推导过程中。
@@ -64,11 +64,11 @@ $$
 $\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}$的取值在数学界被称为Basel问题，推导过程涉及诸多前置定理，感兴趣的同学可以查看这个[讲义](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。
 此处给出另一种在微积分变换中更为常见的缩放方法，即：
 $$
-\begin{aligned}
+\begin{align}
 \sum_{t=1}^{T-1}t^{-2}&\le1+\int_{1}^{T-1}\frac{1}{x^2}dx \\
 &=1+(-\frac{1}{x})|_1^{T-1} \\
 &=2-\frac{1}{T}
-\end{aligned}
+\end{align}
 $$
 对不等式两边同时取极限，可得：
 $$
@@ -103,11 +103,11 @@ f(w)=(Y-w^T X)^T(Y-w^T X)+\lambda w^T w
 $$
 为了求得最优解$w^*$，我们令$f'(w)=0$，可推导出（8.53）：
 $$
-\begin{aligned}
+\begin{align}
 &\frac{\partial f(w)}{\partial w}=-2X^T(Y-w^T X)+2\lambda w = 0 \\
 \Rightarrow&X^TY = (X^TX + \lambda I)w \\
 \Rightarrow&w^* = (X^TX + \lambda I)^{-1}X^TY
-\end{aligned}
+\end{align}
 $$
 相比于每次传入新数据$(x_t,y_t)$时从头计算$w_t$，这里巧妙地利用了Sherman-Morrison-Woodbury公式，继而在$O(d^2)$的时间复杂度内完成参数的更新，即（8.55）至（8.57）。
 值得注意的是，Sherman-Morrison-Woodbury公式可以将任何形如$(A+uv^T)^{-1}$的矩阵逆转化为可逆矩阵$A$和列向量$u,v$之间的运算，有效地降低了计算量。
@@ -143,10 +143,10 @@ $$
 从上面的结论可知，当迭代次数$T$足够大时，必然有$\delta\rightarrow0$。
 因此，我们不妨取$\alpha=\frac{\delta}{\Lambda_1}$，代入（8.91）中并利用对钩函数$f(\delta)$的性质，可得：
 $$
-\begin{aligned}
+\begin{align}
 &\delta^*=T^{-1/4}\sqrt{\frac{dc\Lambda_1\Lambda_2}{3(l\Lambda_1+c)}} \\
 &f(\delta^*)=O(T^{3/4})
-\end{aligned}
+\end{align}
 $$
 进一步地，我们可以发现，$\delta*$的取值并不唯一，这是因为（8.91）的第二个不等式缩放并非必需。
 如果我们取$\delta^*=T^{-1/4}\sqrt{\frac{dc\Lambda_1\Lambda_2}{3l\Lambda_1+2c}}$，亦可得到更紧致的遗憾界，并保证定理的结论不变。

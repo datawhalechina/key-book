@@ -76,19 +76,19 @@ $$
 
 根据式4.6，有
 $$
-\begin{aligned}
+\begin{align}
 & P(\exists h \in \mathcal{H}:|\widehat{E}(h)-E(h)|>\epsilon) \\
 =& P\left(\left(\left|\widehat{E}\left(h_{1}\right)-E\left(h_{1}\right)\right|>\epsilon\right) \vee \cdots \vee\left(\left|\widehat{E}\left(h_{|\mathcal{H}|}\right)-E\left(h_{|\mathcal{H}|}\right)\right|>\epsilon\right)\right) \\
 \leqslant & \sum_{h \in \mathcal{H}} P(|\widehat{E}(h)-E(h)|>\epsilon)
-\end{aligned}
+\end{align}
 $$
 引理2.1提出，若训练集 D 包含 $m$ 个从分布 D 上独立同分布采样而得的样本, $0<\epsilon<1,$ 则对任意 $h \in \mathcal{H},$ 有
 $$
-\begin{aligned}
+\begin{align}
 P(\widehat{E}(h)-E(h) \geqslant \epsilon) & \leqslant \exp \left(-2 m \epsilon^{2}\right) \\
 P(E(h)-\widehat{E}(h) \geqslant \epsilon) & \leqslant \exp \left(-2 m \epsilon^{2}\right) \\
 P(|E(h)-\widehat{E}(h)| \geqslant \epsilon) & \leqslant 2 \exp \left(-2 m \epsilon^{2}\right)
-\end{aligned}
+\end{align}
 $$
 使用第三个式子，即，
 $$
@@ -145,11 +145,11 @@ $$
 > $X=2k\in[0,2m]$ 可以被理解为$2m$个伯努利随机变量的和，这些随机变量的$p = 0.5$，并且是独立同分布的。
 > $\Gamma$可以被看作是所有$X$偏离其期望值$\mathbb{E}(X)=m$超过$\frac{εl}{2}$的结果的总和。应用霍夫丁不等式和$m\le2l$h这个约束，我们有：
 > $$
-> \begin{aligned}
+> \begin{align}
 > P(|X - m| \ge \frac{εl}{2})&\le2exp(-\frac{2(\frac{εl}{2})^2}{\sum_{i=1}^m(1-0)^2})\\
 > &=2exp(-\frac{ε^2l^2}{2m})\le2exp(-\frac{ε^2l^2}{4l})\\
 > &=2exp(-\frac{ε^2l}{4})\le2exp(-\frac{ε^2l}{8})
-> \end{aligned}
+> \end{align}
 > $$
 
 再将前后结合便能够证明引理。
@@ -175,21 +175,21 @@ $$
 
 我们用$f$代表任意决策函数，用$F_A$代表满足$f(S)=x_A$的样本集合，用$F_B$代表满足$f(S)=x_B$的样本集合，用$N(S)$表示样本$S$中出现0的个数，根据泛化误差的定义，有：
 $$
-\begin{aligned}
+\begin{align}
 error(f)&=\displaystyle\sum_{S\in F_A}\mathbb{P}[S\wedge x_B]+\displaystyle\sum_{S\in F_B}\mathbb{P}[S\wedge x_A]\\
 &=\frac{1}{2}\displaystyle\sum_{S\in F_A}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_B}\mathbb{P}[S|x_A]\\
 &=\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_B]
 +\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_A]+\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
-\end{aligned}
+\end{align}
 $$
 如果$N(S)\ge \lceil m/2\rceil$，易证$\mathbb{P}[S|x_B]\ge\mathbb{P}[S|x_A]$。类似地，如果$N(S)\lt \lceil m/2\rceil$，易证$\mathbb{P}[S|x_A]\ge\mathbb{P}[S|x_B]$。因此，我们可以得到：
 $$
-\begin{aligned}
+\begin{align}
 error(f) &\ge\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]
 +\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
 &=\frac{1}{2}\displaystyle\sum_{S:N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\displaystyle\sum_{S:N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
 &=error(f_o)
-\end{aligned}
+\end{align}
 $$
 因此，当我们选取$f_o$为决策函数时，泛化误差取得最小值，即当且仅当$N(S)\lt \lceil m/2\rceil$时，我们认为被抛的硬币是$f_o(S)=x_A$。
 
@@ -197,9 +197,9 @@ $$
 
 根据Slud不等式，我们有：
 $$
-\begin{aligned}
+\begin{align}
 error(f_o) &\ge \frac{1}{2}\mathbb{P}[N\ge\frac{\lceil m/2\rceil\alpha}{\sqrt{1/2(1-\alpha^2)\lceil m/2\rceil}}]=\frac{1}{2}\mathbb{P}[N\ge\sqrt{\frac{2\lceil m/2\rceil}{1-\alpha^2}}\alpha]
-\end{aligned}
+\end{align}
 $$
 
 根据第一章补充内容中的正态分布不等式推论，我们有：

@@ -73,11 +73,11 @@ $$
 $$
 根据 Cauchy-Schwarz 不等式（1.14），我们有：
 $$
-\begin{aligned}
+\begin{align}
 &\|y-y'\|_2^2 \le \langle x-x',y-y'\rangle \le \|x-x'\|_2\,\|y-y'\|_2\\
 \Rightarrow &\|y-y'\|_2 \le \|x-x'\|_2 \\
 \Rightarrow &\|\Pi(x) - \Pi(x')\|_2 \le \|x-x'\|_2
-\end{aligned}
+\end{align}
 $$
 
 该性质在凸优化中经常被使用，因为这种投影映射可以将一个优化问题转化为一个凸优化问题。
@@ -167,18 +167,18 @@ $$
 
 这里给出定理7.2的证明：根据强凸函数的定义，我们取$x=w,y=w^*$，然后两边除以$\alpha$可得：
 $$
-\begin{aligned}
+\begin{align}
 &\frac{f(\alpha w+(1-\alpha)w^*)}{\alpha}\leq f(w)+\frac{1-\alpha}{\alpha}f(w^*)-\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\\
 \Rightarrow&\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\le f(w)-f(w^*)-\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}
-\end{aligned}
+\end{align}
 $$
 令$\alpha\rightarrow 0^+$，则有：
 $$
-\begin{aligned}
+\begin{align}
 &lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)||w-w^*||_2^2\le f(w)-f(w^*)+lim_{\alpha\rightarrow 0^+}\frac{f(w^* +(w-w^*)\alpha)-f(w^*)}{\alpha}\\
 \Rightarrow&\frac{\lambda}{2}||w-w^*||_2^2\le f(w)-f(w^*)+lim_{\Delta\rightarrow 0^+}\frac{f(w^* +\Delta)-f(w^*)}{\Delta}(w-w^*)\\
 \Rightarrow&\frac{\lambda}{2}||w-w^*||_2^2\le f(w)-f(w^*)+\nabla f(w^*)^T(w-w^*)
-\end{aligned}
+\end{align}
 $$
 其中$\Delta=(w-w^*)\alpha$
 
@@ -210,11 +210,11 @@ $$
 
 凸优化问题的一般形式可以表示为：
 $$
-\begin{aligned}
+\begin{align}
 &min &f_0(x)\\
 &s.t. &f_i(x) \le 0,i\in[m]\\
 &&g_j(x) = 0,j\in[n]
-\end{aligned}
+\end{align}
 $$
 其中，$f_0(x)$是凸目标函数，$f_i(x)$是凸不等式约束条件，$g_j(x)$是仿射等式约束条件。
 
@@ -238,10 +238,10 @@ f(x^*+\alpha(y-x^*))=f((1-\alpha)x^*+\alpha y)\leq (1-\alpha)f(x^*)+\alpha f(y)
 $$
 结合以上两式，我们有：
 $$
-\begin{aligned}
+\begin{align}
 &f(x^*)\leq (1-\alpha)f(x^*)+\alpha f(y)\\
 \Leftrightarrow &f(x^*)\leq f(y)
-\end{aligned}
+\end{align}
 $$
 因为$y$是凸集合$\mathcal{D}$中的任意点，所以$x^*$是全局最小解。
 对于$f(x)$的全局最大解，我们可以通过考虑函数$-f(x)$的局部最小解来得到类似结论。
@@ -285,9 +285,9 @@ $$
 
 存在一点$x\in relint(D)$，该点又叫做Slater向量，有：
 $$
-\begin{aligned}
+\begin{align}
 &f_i(x)\lt0,i\in[m]\\
-\end{aligned}
+\end{align}
 $$
 此处$D=\cap_0^m dom(f_i)$。
 
@@ -356,11 +356,11 @@ $$
 
 其次证明对偶问题最优解集合非空且有界。对于任意对偶最优解$\tilde\lambda\succeq0$，有：
 $$
-\begin{aligned}
+\begin{align}
 d^*=g(\tilde\lambda)&=\inf_{x}\{f_0(x)+\sum_{i=1}^m\tilde\lambda_if_i(x)\}\\
 &\le f_0(\bar{x})+\sum_{i=1}^m\tilde\lambda_if_i(\bar{x}) \\
 &\le f_0(\bar{x})+\max_{i\in[m]}\{f_i(\bar{x})\}[\sum_{i=1}^m\tilde\lambda_i]
-\end{aligned}
+\end{align}
 $$
 因此，我们有：
 $$
@@ -465,10 +465,10 @@ $$
 1. 如果函数$f(x)$的导数有界，即存在常数$L\ge0$，使得对于任意$x$，有$|f'(x)|\leq L$。
 根据微分中值定理，对于任意$x\le y$，存在$c\in[x,y]$，使得：
 $$
-\begin{aligned}
+\begin{align}
 &\|f(x)-f(y)\|_2=\|f'(c)\|_2\|x-y\|_2\\
 \Rightarrow&\|f(x)-f(y)\|_2\le L \|x-y\|_2
-\end{aligned}
+\end{align}
 $$
 此时，函数是$L$-Lipschitz连续的。
 
@@ -535,10 +535,10 @@ $$
 
 线性泛函（linear form）是指由向量空间$V$到对应标量域$k$的线性映射，满足加法和数乘的性质，即对于任意向量 $x,y\in V$ 和标量 $\alpha\in k$，有：
 $$
-\begin{aligned}
+\begin{align}
 &f(x+y)=f(x)+f(y)\\
 &f(\alpha x)=\alpha f(x)
-\end{aligned}
+\end{align}
 $$
 所有$V$到$k$的线性泛函构成的集合被称为$V$的对偶空间（dual space），记为$V^*=Hom_k(V,k)$，对偶空间中的元素被称为对偶向量。
 
@@ -573,11 +573,11 @@ $$
 共轭函数有一些有用的性质，包括：
 1. 凸性：函数$f(x)$的共轭函数$f^*(y)$一定是凸函数。证明如下：
 $$
-\begin{aligned}
+\begin{align}
 f^*(\lambda y_1+(1-\lambda)y_2) &= \sup_{x\in dom(f)}\{x(\lambda y_1+(1-\lambda)y_2)-f(x)\}\\
 &\le\lambda\sup_{x\in dom(f)}\{xy_1-f(x)\}+(1-\lambda)\sup_{x\in dom(f)}\{xy_2-f(x)\}\\
 &=\lambda f^*(y_1)+(1-\lambda)f^*(y_2)\\
-\end{aligned}
+\end{align}
 $$
 其中的不等式缩放利用了本章定理19的内容。
 
@@ -777,17 +777,17 @@ $Proof.$
   
 记 $p(x)$ 为 $X$ 的概率密度函数。由 Taylor 公式及 $f$ 的凸性，$\exists \xi$ s.t.  
 $$
-\begin{aligned}  
+\begin{align}  
 f(x) &=f(\mathbb{E}[X])+f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X])+\frac{f^{\prime \prime}(\xi)}{2}(x-\mathbb{E}[X])^{2} \\  
 & \geq f(\mathbb{E}[X])+f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X])  
-\end{aligned}  
+\end{align}  
 $$
 对上式取期望：  
 $$
-\begin{aligned}  
+\begin{align}  
 \mathbb{E}[f(X)]=\int p(x) f(x) d x & \geq f(\mathbb{E}[X]) \int p(x) d x+f^{\prime}(\mathbb{E}[X]) \int p(x)(x-\mathbb{E}[X]) d x \\  
 &=f(\mathbb{E}[X])  
-\end{aligned}  
+\end{align}  
 $$
 原不等式得证。 
 
@@ -819,12 +819,12 @@ MN\leq \frac{1}{p}M^p+\frac{1}{q}N^q
 $$
 对这个不等式两边同时取期望：
 $$
-\begin{aligned}
+\begin{align}
 \frac{\mathbb{E}[|XY|]}{\left(\mathbb{E}\left[|X|^p\right]\right)^{\frac{1}{p}}\left(\mathbb{E}\left[|Y|^q\right]\right)^{\frac{1}{q}}} &= \frac{\int_{XY}|xy|f(x)g(y)dxdy}{(\int_X|x|^pf(x)dx)^{\frac{1}{p}}(\int_Y|y|^qf(y)dy)^{\frac{1}{q}}}\\
 &\leq \frac{\int_X|x|^pf(x)dx}{p\int_X|x|^pf(x)dx} +\frac{\int_Y|y|^qg(y)dy}{q\int_Y|y|^pg(y)dy} \\
 &=\frac{1}{p}+\frac{1}{q}\\
 &= 1
-\end{aligned}
+\end{align}
 $$
 原不等式得证。  
   
@@ -850,11 +850,11 @@ $Proof.$
 由Hölder不等式：  
 $\forall p \geq 1:$  
 $$
-\begin{aligned}  
+\begin{align}  
 \mathbb{E}\left[|X|^{r}\right] &=\mathbb{E}\left[|X \times 1|^{r}\right] \\  
 & {\leq}\left(\mathbb{E}\left[\left(|X|^{r}\right)^p\right]\right)^{1 / p} \times 1 \\  
 &=\left(\mathbb{E}\left[|X|^{r p}\right]\right)^{1 / p}  
-\end{aligned}  
+\end{align}  
 $$
 记 $s=r p \geq r,$ 则 :  
 $$
@@ -875,12 +875,12 @@ $$
 $Proof.$  
 由三角不等式及Hölder不等式：  
 $$
-\begin{aligned}  
+\begin{align}  
 \mathbb{E}\left[|X+Y|^p\right] & {\leq}\mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\  
 &= \mathbb{E}\left[|X||X+Y|^{p-1}\right]+\mathbb{E}\left[|Y||X+Y|^{p-1}\right] \\  
 & {\leq}\left(\mathbb{E}\left[|X|^p\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q}+\left(\mathbb{E}\left[|Y|^p\right]\right)^{1 / p}\left(\mathbb{E}\left[|X+Y|^{(p-1) q}\right]\right)^{1 / q} \\  
 &= \left[\left(\mathbb{E}\left[|X|^p\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^p\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^p\right]}{\left(\mathbb{E}\left[|X+Y|^p\right]\right)^{1 / p}}  
-\end{aligned}  
+\end{align}  
 $$
 化简上式即得证。  
 
@@ -897,18 +897,18 @@ $$
 $Proof.$ 
 因为 $a\leq X\leq b$，所以有:
 $$
-\begin{aligned}  
+\begin{align}  
 0&\leq \mathbb{E}[(b-X)(X-a)] \\
 &= -\mathbb{E}[X^2]-ab+(a+b)\mathbb{E}[X]
-\end{aligned}
+\end{align}
 $$
 因此，
 $$
-\begin{aligned}  
+\begin{align}  
 \mathbb{V}[X] &= \mathbb{E}[X^2]-\mathbb{E}[X]^2 \\
 &\leq -ab+(a+b)\mathbb{E}[X]-\mathbb{E}[X^2] \\
 &=(b-\mathbb{E}[X])(\mathbb{E}[X]-a)
-\end{aligned}
+\end{align}
 $$
 
 考虑 AM-GM 不等式：
@@ -975,11 +975,11 @@ $Proof.$
   
 记 $Y=X-\mathbb{E}[X],$ 则对 $\forall \lambda \geq 0$ 有 :  
 $$
-\begin{aligned}  
+\begin{align}  
 P(X-\mathbb{E}[X] \geq \varepsilon) &=P(Y+\lambda \geq \varepsilon+\lambda) \\  
 &=P\left((Y+\lambda)^{2} \geq(\varepsilon+\lambda)^{2}\right) \\  
 & \quad \leq \frac{\mathbb{E}\left[(Y+\lambda)^{2}\right]}{(\varepsilon+\lambda)^{2}}=\frac{\mathbb{V}[X]+\lambda^{2}}{(\varepsilon+\lambda)^{2}}  
-\end{aligned}  
+\end{align}  
 $$
 通过求导可知，上式右端在 $\lambda=\frac{\mathrm{V}[X]}{\varepsilon}$ 时取得最小值 $\frac{\mathrm{V}[X]}{\mathrm{V}[X]+\varepsilon^{2}},$ 于是：  
 $$
@@ -992,7 +992,7 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Cheby
   
   
   
-## 定理 11: Chernoff 界（Chernoff-Cramér 界）
+## 定理 11: Chernoff（Chernoff-Cramér）界
   
 $\forall \lambda\gt 0, \varepsilon \gt 0,$ 有 :  
 $$
@@ -1069,12 +1069,12 @@ $Proof.$
 
 根据 Chernoff 不等式，我们有：
 $$
-\begin{aligned}
+\begin{align}
 P(X-\mathbb{E}X \geq \varepsilon) &\leq \inf_{\lambda \geq 0} e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(X-\mathbb{E}X)}] \\
 &\leq \inf_{\lambda \geq 0} e^{\phi(\lambda)-\lambda\varepsilon} \\
 &= e^{-\sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda))} \\
 &= e^{-\phi^*(\varepsilon)}
-\end{aligned}
+\end{align}
 $$
 
 
@@ -1263,20 +1263,20 @@ $$
 $$
 于是，由恒等式$\mathbb{E}[\mathbb{E}[X \mid Y]]=\mathbb{E}[X]$及 Chernoff 一般性技巧 $\forall \lambda\gt 0$:
 $$
-\begin{aligned}  
+\begin{align}  
 P\left(Z_{m}-\mu\geq\varepsilon\right) &\geq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\  
 & = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\  
 & = e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\mathbb{E}\left[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}\right]\right]
-\end{aligned}  
+\end{align}  
 $$
   
   
 又因为 $\{X_{i}\}$ 为鞅差序列，则 $\mathbb{E}\left[X_{m} \mid \mathcal{F}_{m-1}\right]=0, \mathbb{E}\left[X_{i}\right]=0$ ，再结合不等式$\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]$及 Hoeffding 引理，有：  
 $$
-\begin{aligned}  
+\begin{align}  
 P\left(Z_{m}-\mu \geq \varepsilon\right) & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{n}}\right] \\  
 & {\leq} e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \exp \left(\frac{\lambda^{2} c_{m}^{2}}{2}\right)  
-\end{aligned}  
+\end{align}  
 $$
 迭代上不等式可得:  
 $$
@@ -1366,10 +1366,10 @@ $$
   
 对于均值为$Z_0=\mu$的鞅差序列$\{Z_m,m\geq 1\}$，若$|Z_i-Z_{i-1}|\leq c_i$，则$\forall \varepsilon\gt 0$，有
 $$
-\begin{aligned}
+\begin{align}
 P\left(Z_{m}-\mu\geq\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
 P\left(Z_{m}-\mu\leq-\varepsilon\right) &\leq\exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)\\
-\end{aligned}
+\end{align}
 $$
 
 $Proof.$
@@ -1384,20 +1384,20 @@ $Proof.$
 
 根据Doob分解引理，我们可以将超鞍$X_t$分解成$X_t = Y_t + Z_t$，此时$\{Y_t,F_t\}$是鞍差序列，$\{Z_t,F_t\}$是一个非递增的可预测序列。在Azuma不等式的一般性形式中，有$A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，此时：
 $$
-\begin{aligned}
+\begin{align}
 -(Z_t - Z_{t-1}) + A_t \leq Y_t - Y_{t-1} \leq -(Z_t - Z_{t-1}) + B_t 
-\end{aligned}
+\end{align}
 $$
 
 应用 Chernoff 不等式，对于$\forall\varepsilon\gt 0$，有：
 
 $$
-\begin{aligned}
+\begin{align}
 P(Y_n-Y_0 \geq \varepsilon)
 & \leq \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} [e^{s (Y_n-Y_0) }] \\
 & = \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n}(Y_t-Y_{t-1}) \right) \right] \\
 & = \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1}(Y_t-Y_{t-1}) \right) \right] \mathbb{E} \left[\exp \left( s(Y_n-Y_{n-1} ) \mid \mathcal{F}_{n-1} \right) \right]
-\end{aligned}
+\end{align}
 $$
 
 1. $\left\{Y_t\right\}$是鞍差序列，因此$\mathbb{E}[Y_t - Y_{t-1} \mid \mathcal{F}_{t-1}]=0$。
@@ -1405,68 +1405,68 @@ $$
 
 应用 Hoeffding 引理，有：
 $$
-\begin{aligned}
+\begin{align}
 \mathbb{E} \left[\exp \left(s(Y_t-Y_{t-1}) \mid \mathcal{F}_{t-1} \right) \right] \leq
 \exp \left(\frac{s^2 (B_t - A_t)^2}{8} \right)
 \leq
 \exp \left(\frac{s^2 c_t^2}{8} \right)
-\end{aligned}
+\end{align}
 $$
 
 重复这一步骤，我们可以得到：
 
 $$
-\begin{aligned}
+\begin{align}
 \text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
 \underset{s\gt 0}{\min} \ e^{-s\varepsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n}c_t^2}{8}\right)
-\end{aligned}
+\end{align}
 $$
 
 当$s = \frac{4 \varepsilon}{\sum_{t=1}^{n}c_t^2}$时，上式右端取得极小值：
 $$
-\begin{aligned}
+\begin{align}
 \text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
 \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
-\end{aligned}
+\end{align}
 $$
 
 因为$X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且由$\{Z_n\}$的非增性得到$Z_n - Z_0 \leq 0$，因此由$\left\{X_n - X_0 \geq \varepsilon\right\}$可推导出$\left\{Y_n - Y_0 \geq \varepsilon\right\}$。
 
 因此，
 $$
-\begin{aligned}
+\begin{align}
 \text{P}(X_n-X_0 \geq \varepsilon)
 \leq
 \text{P}(Y_n-Y_0 \geq \varepsilon)
 \leq
 \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
-\end{aligned}
+\end{align}
 $$
 
 同理可证得：
 $$
-\begin{aligned}
+\begin{align}
 \text{P}(X_n-X_0 \leq -\varepsilon)
 \leq
 \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
-\end{aligned}
+\end{align}
 $$
 
 当取$A_t = -c_t$，$B_t = c_t$时，退化成Azuma不等式的特殊情况。
 
 定理中涉及到了超鞍（上鞍）序列的概念，该可积随机过程满足：
 $$
-\begin{aligned}
+\begin{align}
 E[X_{n+1}|X_1,\ldots,X_n] \le X_n,\quad n\in \mathbb N
-\end{aligned}
+\end{align}
 $$
 相应地，亚鞍（下鞍）序列满足：
 $$
-\begin{aligned}
+\begin{align}
 E[X_{n+1}|X_1,\ldots,X_n] \ge X_n,\quad n\in \mathbb N
-\end{aligned}
+\end{align}
 $$
 这里给出一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望逐渐降低。”
 
@@ -1483,10 +1483,10 @@ $$
 $Proof.$  
 二项随机变量$X$统计在$m$次独立伯努利试验中成功的次数，成功概率为$p$。对于对于大的$m$，二项分布$B(m,p)$可以近似为均值$\mu=mp$和方差$\sigma^2=mp(1-p)$的正态分布：
 $$
-\begin{aligned}
+\begin{align}
 \mu &= \frac{m(1-\varepsilon)}{2} \\
 \sigma^2 &= \frac{m(1-\varepsilon^2)}{4}
-\end{aligned}
+\end{align}
 $$
 令$Z=\frac{X-\mu}{\sigma}$，代入$\mu$和$\sigma$，有：
 $$
@@ -1546,11 +1546,11 @@ $$2\pi[2G(u)]^2=\underset{R}{\int\int}e^{-(x^2+y^2)/2}dxdy$$
 $$R_0=\{(x,y):\pi(x^2+y^2)\le 4u^2\}$$
 此时，我们有：
 $$
-\begin{aligned}
+\begin{align}
 2\pi[2G(u)]^2&\le\underset{R_0}{\int\int}e^{-(x^2+y^2)/2}dxdy\\
 &=\int_0^{2\pi}\int_0^{2u\pi^{-1/2}}e^{-r^2/2}rdrd\varphi\\
 &=2\pi(1-e^{-2u^2/\pi})
-\end{aligned}
+\end{align}
 $$
 因此，我们有：
 $$G(u)=\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
@@ -1583,11 +1583,11 @@ $$
 $$
 即：
 $$
-\begin{aligned}
+\begin{align}
 &\ln\left(\frac{1}{n}\sum_{i=1}^nx_i\right)\ge\frac{1}{n}\sum_{i=1}^n\ln x_i=\sum_{i=1}^n\ln x_i^{\frac{1}{n}}=\ln\sqrt[n]{\prod_{i=1}^nx_i}\\
 
 \Rightarrow&\frac{1}{n}\sum_{i=1}^nx_i \le \sqrt[n]{\prod_{i=1}^nx_i}
-\end{aligned}
+\end{align}
 $$
 当取$x_1=x_2=\cdots=x_n$时，等号成立。
 特别地，当$n=2$时，我们有：
@@ -1611,11 +1611,11 @@ $Proof.$
 首先，当$ab=0$时，该不等式显然成立。
 当$a,b\gt 0$时，我们令$t=1/p,1-t=1/q$，根据$\ln(x)$的凹性，我们有：
 $$
-\begin{aligned}
+\begin{align}
 \ln(ta^p+(1-t)b^q)&\ge t\ln(a^p)+(1-t)\ln(b^q)\\
 &=\ln(a)+\ln(b)\\
 &=\ln(ab)
-\end{aligned}
+\end{align}
 $$
 当且仅当$a^p=b^q$时，等号成立。
 
@@ -1672,12 +1672,46 @@ $$
 
 ## 定理 24: 广义二项式定理
 
-广义二项式定理（Generalized Binomial Theorem）是二项式定理的扩展，适用于任何实数或复数的指数$r$。
+广义二项式定理（Generalized Binomial Theorem）是二项式定理的扩展：
 $$
-(x + y)^r = \sum_{n=0}^{\infty} \frac{(r)_n}{n!} x^{r-n} y^n, |x| \lt |y|
+(x + y)^r = \sum_{k=0}^{\infty} \binom{r}{k} x^{r-k} y^k, |x| \lt |y|, k \in \mathbb{N}, r \in \mathbb{R}
 $$
-其中$(r)_n = r(r-1) \cdots (r-n+1)$为递降阶乘（falling factorial）。
-该定理的完整证明参考 https://en.wikibooks.org/wiki/Advanced_Calculus/Newton%27s_general_binomial_theorem，这里不做展开。
+其中我们令$\binom{r}{k}:=\frac{(r)_k}{k!}$，$(r)_k = r(r-1) \cdots (r-k+1)$为递降阶乘（falling factorial）。
+
+$Proof.$
+
+首先代入定义，易证：
+$$
+(r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} = r \binom{r}{k}
+$$
+
+我们从特殊情况 $y = 1$ 开始。首先我们证明只要 $|x| < 1$，后者级数就会收敛。
+
+这里我们通过使用幂级数收敛半径的商式来证明这一点，由于绝对值的连续性使我们可以先在绝对值内部计算极限，可得：
+$$
+\lim_{k \to \infty} \frac{|a_k|}{|a_{k+1}|} = \lim_{k \to \infty} \left| \frac{k+1}{r-k} \right| = |-1| = 1
+$$
+因此我们有一个为 $1$ 的收敛半径。这种收敛使我们能够在 $|x| < 1$ 的收敛区域内应用逐项求导，得到
+$$ \frac{d}{dx} \sum_{k=0}^\infty \binom{r}{k} x^k = \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1}。$$
+如果我们将我们正在考虑的级数定义的函数记为 $g(x)$，我们得到
+$$\begin{align}
+(1 + x) \frac{d}{dx} g(x) & = \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1} + \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^k \\
+& = r + \sum_{k=1}^\infty \left( (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} \right) x^k \\
+& = r + r \sum_{k=1}^\infty \binom{r}{k} x^k \\
+& = r g(x),
+\end{align}$$
+上式的推导使用了前述引理。
+
+现在定义 $f(x) = (1 + x)^r$，我们通过通常的求导规则得到：
+$$ \frac{d}{dx} \left( \frac{g(x)}{f(x)} \right) = \frac{g'(x) f(x) - f'(x) g(x)}{f(x)^2} = \frac{r\frac{g(x)}{x+1}(1+x)^r - rg(x)(1 + x)^{r-1}}{f(x)^2} = 0$$
+$|x| < 1$ 意味着 $f(x) \neq 0$，因此 $g/f$ 为常数。又 $f(0) = g(0) = 1$ 可得 $f(x) = g(x)$。
+
+对于一般的 $x, y \in \mathbb{R}$ 且 $|x| < |y|$，我们有
+$$\begin{align}
+\frac{(x + y)^r}{y^r} & = (x/y + 1)^r \\
+& = \sum_{k=0}^\infty \binom{r}{k} (x/y)^k;
+\end{align}$$
+收敛性由假设 $|x/y| < 1$ 保证。为了得到原定理的形式，我们只需乘以 $y^r$ 即可。
 
 
 
@@ -1702,11 +1736,11 @@ $$
 $$
 其中：
 $$
-\begin{aligned}
+\begin{align}
 A_p &= \int_{p}^{p+1} \ln xdx \\
 b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
 \varepsilon_p &= \int_{p}^{p+1} \ln xdx - \frac{1}{2} [\ln(p+1) + \ln(p)]
-\end{aligned}
+\end{align}
 $$
 此时：
 $$
