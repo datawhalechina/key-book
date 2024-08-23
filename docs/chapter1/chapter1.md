@@ -8,7 +8,7 @@
 
 
 
-# 常用概念
+# 重要概念
 
 
 ## 1. 范数
@@ -756,7 +756,7 @@ $$
 
 
 
-# 常用不等式
+# 重要定理
 
 记：X 和 Y 表示随机变量，$\mathbb{E}[X]$ 表示 X 的数学期望，$\mathbb{V}[X]$ 表示 X 的方差。 
 
@@ -992,15 +992,15 @@ Note: Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Cheby
   
   
   
-## 定理 11: Chernoff 不等式（Chernoff 界）
+## 定理 11: Chernoff 界（Chernoff-Cramér 界）
   
-$\forall \lambda\gt 0, \varepsilon\gt 0,$ 有 :  
+$\forall \lambda\gt 0, \varepsilon \gt 0,$ 有 :  
 $$
-P(X \geq \varepsilon) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
+P(X \geq \varepsilon) \leq \min_{\lambda \gt 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$
-$\forall \lambda\lt  0, \varepsilon\gt 0,$ 有 :  
+$\forall \lambda\lt  0, \varepsilon \gt 0,$ 有 :  
 $$
-P(X \leq \varepsilon) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
+P(X \leq \varepsilon) \leq \min_{\lambda \lt 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}  
 $$
   
 $Proof.$  
@@ -1012,7 +1012,8 @@ $$
 $$
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \lambda\lt 0, \varepsilon\gt 0
 $$
-  
+进而 Chernoff 界得证。
+
 
   
 ## 定理 11: Chernoff 不等式 (乘积形式)
@@ -1501,55 +1502,9 @@ P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}] \geq \frac{1}{2}\le
 $$
 得证。  
 
-  
-  
-## 定理 19: Johnson-Lindenstrauss 引理  
-
-JL引理可以非常通俗地表达为：压缩N个向量只需要$O(\log N)$维空间，且相对距离的误差可控制在一定范围内。
-首先借用上述工具考察一个示例：  
-### $\chi_m^2$随机变量的集中度  
-若随机变量$Z\sim \chi_m^2$，则$\forall \varepsilon \in (0, 3)$有：  
-$$
-P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{6})  
-$$
-  
-$Proof.$  
-若$X\sim N(0,1)$，则显然$\forall \lambda \gt  0$：  
-$$
-   \mathbb{E}[e^{-\lambda X^2}] \leq 1 - \lambda\mathbb{E}[X^2] + \frac{\lambda^2}{2}\mathbb{E}[X^4] = 1 - \lambda + \frac{3}{2}\lambda^2  \leq e^{-\lambda + \frac{3}{2}\lambda^2}  
-$$
-类似地使用 Chernoff 一般性技巧，在$\lambda = \varepsilon/3$时可以证得左端不等式。  
-对于右端不等式，考察矩母函数$\forall \lambda \lt  1/2$：  
-$$
-   \mathbb{E}[e^{\lambda X^2}] = (1-2\lambda)^{-m/2}  
-$$
-再次使用 Chernoff 一般性技巧，取$\lambda = \varepsilon/6$即可得证。  
-Note: 实际上可以通过卡方分布的次指数性得到一个更强且更普适的界$\forall \varepsilon \in (0, 4)$：  
-$$
-   P\left((1-\varepsilon) \leq \frac{Z}{m} \leq (1 + \varepsilon)\right) \leq \exp(-\frac{m\varepsilon^2}{8})  
-$$
-但和上面的结论没有本质区别。  
-这一结果实际上是高维情况下一个反直觉但常见的现象：这告诉我们标准的n维正态分布，随着n不断变大，这些点主要都分布在一个半径是$\sqrt{n}$的高维球面附近。 这一现象直接导致了一个更加深刻的结果。    
-  
-### Johnson-Lindenstrauss 引理  
-  
-$\forall \varepsilon \in (0,1), n \in \mathbb{N}^+$，若正整数$k$满足：  
-$$
-      k\geq \frac{4\ln n}{\varepsilon^2/2 - \varepsilon^3/3}  
-$$
-那么对于任意$\mathbb{R}^d$空间中的$n$个点构成的集合$V$，始终存在一个映射$f:\mathbb{R}^d\to \mathbb{R}^k$，s.t. $\forall u,v \in V$，有：  
-$$
-   (1−\varepsilon)\|u−v\|_2^2\leq \|f(u)−f(v)\|_2^2≤(1+\varepsilon)\|u−v\|_2^2  
-$$
-且该映射可以在多项式时间内被找到。  
-  
-该定理的证明其所需前序知识超出了本笔记的讨论范围，详细证明可参考[论文](https://onlinelibrary.wiley.com/doi/pdf/10.1002/rsa.10073)。  
-  
-该定理的适用性极其广泛，例如在稀疏感知领域直接导致了约束等距性条件 (RIP条件)，即非凸的 $L_0$范数最小化问题与 $L_1$范数最小化问题等价性条件；在流形学习和优化理论中也有重要的应用。而其在学习理论中最重要的应用是对降维任务的估计。
 
 
-
-## 定理 20: 上界不等式之加性公式
+## 定理 19: 上界不等式之加性公式
 若$sup(f)$和$sup(g)$分别为函数$f$和$g$的上界，则有：
 $$
 sup(f+g)\le sup(f) + sup(g)
@@ -1575,7 +1530,7 @@ $$
 
 
 
-## 定理 21: 正态分布不等式
+## 定理 20: 正态分布不等式
 若$X$是一个服从标准正态分布的随机变量，那么对于任意$u\ge 0$，有：
 $$\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
 
@@ -1604,7 +1559,7 @@ $$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
 
 
 
-## 定理 22: AM-GM 不等式
+## 定理 21: AM-GM 不等式
 
 算术平均数和几何平均数的不等式，简称AM-GM不等式。该不等式指出非负实数序列的算术平均数大于等于该序列的几何平均数，当且仅当序列中的每个数相同时，等号成立。
 形式上，对于非负实数序列$\{x_n\}$，其算术平均值定义为：
@@ -1642,7 +1597,7 @@ $$
 
 
 
-## 定理 23: Young 不等式
+## 定理 22: Young 不等式
 
 对于任意$a,b\ge 0, p.q\gt 1$，若$\frac{1}{p}+\frac{1}{q}=1$，则有：
 $$
@@ -1666,7 +1621,7 @@ $$
 
 
 
-## 定理 24: Bayes 定理
+## 定理 23: Bayes 定理
 
 贝叶斯定理是概率论中的一个重要定理，它描述了在已知某些条件下更新事件概率的数学方法。
 贝叶斯定理的公式为：
@@ -1715,7 +1670,7 @@ $$
 
 
 
-## 定理 25: 广义二项式定理
+## 定理 24: 广义二项式定理
 
 广义二项式定理（Generalized Binomial Theorem）是二项式定理的扩展，适用于任何实数或复数的指数$r$。
 $$
@@ -1726,7 +1681,7 @@ $$
 
 
 
-## 定理 26: Stirling 公式
+## 定理 25: Stirling 公式
 
 Stirling 公式是用于近似计算阶乘的一种公式，即使在$n$很小时也有很高的精度。
 Stirling公式的一种形式为：
@@ -1834,7 +1789,7 @@ $$
 
 
 
-## 定理 27: 分离/支撑超平面定理
+## 定理 26: 分离/支撑超平面定理
 
 超平面（Hyperplane）是指$n$维线性空间中维度为$n-1$的子空间，它可以把线性空间分割成不相交的两部分。
 对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。
