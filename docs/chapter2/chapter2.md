@@ -54,7 +54,7 @@ $Y$：表示所有可能的标签或目标值的集合。$X$有时也被称为�
 需要注意的是，这种理解适用于传统的机器学习，但在深度学习领域，我们观察到的现象更加复杂。
 例如，最新的研究中观察到的双下降现象（参考文献：[Deep Double Descent: Where Bigger Models and More Data Hurt](https://arxiv.org/abs/1912.02292)） 表明，对于深层神经网络的双下降机制，我们仍然需要深入理解这样的一个开放性问题。
 
-![double_descent](imgs/double_descent.jpg)
+![double_descent](../images/double_descent.jpg)
 
 
 
