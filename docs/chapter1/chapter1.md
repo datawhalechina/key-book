@@ -371,9 +371,7 @@ $$
 $$
 \|\tilde\lambda\|\le\sum_{i=1}^m\tilde\lambda_i\le\frac{f_0(\bar{x})-d^*}{\min_{i\in[m]}\{-f_i(\bar{x})\}}\lt\infty
 $$
-其中，最后一个不等式是依据Slater条件得出的。
-
-$\square$
+其中，最后一个不等式是依据Slater条件得出的。$\square$
 
 
 
@@ -405,9 +403,7 @@ Slater条件特定于凸优化问题，用于确保这些问题中的强对偶�
 当Slater条件成立时，KKT条件是最优解的充要条件，此时强对偶性成立。
 
 KKT条件和Slater条件通常被归类为“正则条件”（regularity condition）或“约束资格”（constraint qualification）。
-这些条件为优化问题提供了一个结构化的框架，以便在约束的情况下分析和确定解的最优性。更多的正则条件详见[论文](https://link.springer.com/chapter/10.1007/BFb0120988)。
-
-$\square$
+这些条件为优化问题提供了一个结构化的框架，以便在约束的情况下分析和确定解的最优性。更多的正则条件详见[论文](https://link.springer.com/chapter/10.1007/BFb0120988)。$\square$
 
 
 
@@ -842,9 +838,7 @@ $$
 $$
 f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]  
 $$
-只需要将上述证明中的$f$替换成$-f$即可。
-
-$\square$
+只需要将上述证明中的$f$替换成$-f$即可。$\square$
 
 
 
@@ -874,9 +868,7 @@ $$
 &=\frac{1}{p}+\frac{1}{q}\\
 &= 1
 \end{align}
-$$
-
-$\square$
+$$$\square$
   
   
   
@@ -911,9 +903,7 @@ $$
 $$
 \mathbb{E}\left[|X|^{r}\right] \leq\left(\mathbb{E}\left[|X|^{s}\right]\right)^{r / s}  
 $$
-原不等式得证。
-
-$\square$
+原不等式得证。$\square$
   
   
   
@@ -935,9 +925,7 @@ $$
 &= \left[\left(\mathbb{E}\left[|X|^p\right]\right)^{1 / p}+\left(\mathbb{E}\left[|Y|^p\right]\right)^{1 / p}\right] \frac{\mathbb{E}\left[|X+Y|^p\right]}{\left(\mathbb{E}\left[|X+Y|^p\right]\right)^{1 / p}}  
 \end{align}  
 $$
-化简上式即得证。 
-
-$\square$
+化简上式即得证。 $\square$
 
 
 
@@ -971,9 +959,7 @@ $$
 $$
 xy \leq (\frac{x+y}{2})^2
 $$
-将$x=b-\mathbb{E}[X]$和$y=\mathbb{E}[X]-a$带入化简即得证。
-
-$\square$
+将$x=b-\mathbb{E}[X]$和$y=\mathbb{E}[X]-a$带入化简即得证。$\square$
 
 
 
@@ -988,9 +974,7 @@ $Proof.$
 $$
 P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y)
 $$
-此处 $P(X \cap Y) \geq 0$.
-
-$\square$
+此处 $P(X \cap Y) \geq 0$.$\square$
   
 
 
@@ -1005,9 +989,7 @@ $Proof.$
 
 $$
 \mathbb{E}[X]=\int_{0}^{\infty} x p(x) d x \geq \int_{\varepsilon}^{\infty} x p(x) d x \geq \int_{\varepsilon}^{\infty} \varepsilon p(x) d x=\varepsilon P(X \geq \varepsilon)  
-$$
-
-$\square$
+$$$\square$
   
   
   
@@ -1023,9 +1005,7 @@ $Proof.$
 利用Markov 不等式，有：
 $$
 P(|X-\mathbb{E}[X]| \geq \varepsilon) = P((X-\mathbb{E}[X])^2 \geq \varepsilon^{2}) \leq \frac{\mathbb{E}[(X-\mathbb{E}[X])^2]}{\varepsilon^{2}} = \frac{\mathbb{V}[X]}{\varepsilon^{2}}
-$$
-
-$\square$
+$$$\square$
 
   
   
@@ -1050,9 +1030,7 @@ $$
 $$
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}  
 $$
-原不等式得证。 
-
-$\square$  
+原不等式得证。 $\square$  
   
 注意Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Chebyshev 不等式。
 通过类似的构造，我们可以求得诸多比 Cantelli 不等式更严格的上界。  
@@ -1080,9 +1058,7 @@ $$
 $$
 P(X \leq \varepsilon)=P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \lambda\lt 0, \varepsilon\gt 0
 $$
-进而 Chernoff 界得证。
-
-$\square$
+进而 Chernoff 界得证。$\square$
 
 
   
@@ -1119,9 +1095,7 @@ $$
 P(X\geq (1+r)\mu m) \leq (\frac{e^{r}}{(1+r)^{(1+r)}})^{\mu m} \leq e^{-\frac{r^2\mu m}{3}}
 $$
 
-当我们把$r$替换成$-r$，根据之前的推导，且在最后一步利用$\forall r\in [0,1]$，有$\frac{e^r}{(1-r)^{1-r}}\leq e^{-\frac{r^2}{2}}$，我们可以得到第二个不等式的证明
-
-$\square$
+当我们把$r$替换成$-r$，根据之前的推导，且在最后一步利用$\forall r\in [0,1]$，有$\frac{e^r}{(1-r)^{1-r}}\leq e^{-\frac{r^2}{2}}$，我们可以得到第二个不等式的证明$\square$
 
 
 
@@ -1148,9 +1122,7 @@ P(X-\mathbb{E}X \geq \varepsilon) &\leq \inf_{\lambda \geq 0} e^{-\lambda \varep
 &= e^{-\sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda))} \\
 &= e^{-\phi^*(\varepsilon)}
 \end{align}
-$$
-
-$\square$
+$$$\square$
 
 
   
@@ -1193,9 +1165,7 @@ $$
 由泰勒公式可得：  
 $$
 \varphi(\theta, h) \leq 0 + 0 + \frac{h^2}{8} = \frac{\lambda^2(b-a)^2}{8}  
-$$
-
-$\square$
+$$$\square$
   
   
   
@@ -1220,9 +1190,7 @@ $$
 于是：  
 $$
 P((\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon)) \leq \exp (g(\lambda)) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i}-a_{i}\right)^{2}}\right)  
-$$
-
-$\square$  
+$$$\square$  
   
 注意这里没有限定随机变量同分布，下同。可以使用 Hoeffding 不等式解释集成学习的原理。  
   
@@ -1284,9 +1252,7 @@ $$
 $$
 P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq \exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^mc_i^2} \right)   
 $$
-则原不等式得证。 
-
-$\square$
+则原不等式得证。 $\square$
   
   
   
@@ -1360,9 +1326,7 @@ $$
 $$
 P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)  
 $$
-原不等式得证。   
-
-$\square$
+原不等式得证。   $\square$
   
   
   
@@ -1434,9 +1398,7 @@ $$
 应用以上引理即可得：
 $$
 P(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon) \leq \exp(-\frac{n\mathbb{V} [X]}{b^2} h(\frac{b\varepsilon}{\mathbb{V} [X]})) \leq \exp(-\frac{n\varepsilon^2}{2(\mathbb{V} [X] + b\varepsilon)})
-$$
-
-$\square$
+$$$\square$
 
 
 
@@ -1530,9 +1492,7 @@ $$
 \leq
 \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n}c_t^2}\right)
 \end{align}
-$$
-
-$\square$
+$$$\square$
 
 当取$A_t = -c_t$，$B_t = c_t$时，退化成Azuma不等式的特殊情况。
 
@@ -1580,9 +1540,7 @@ $$
 代入可得：
 $$
 P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^2}{1-\varepsilon^2}\right)}\right]
-$$
-
-$\square$
+$$$\square$
 
 
 
@@ -1600,9 +1558,7 @@ $$g(x) \leq \sup_{y \in D_g}g(y),$$
 $$f(x)+g(x) \leq f(x)+\sup_{y \in D_g} g(y).$$
 因为这对于每一个 $x \in D_f \cap D_g$ 都是成立的，我们可以在不等式的两边取上确界，得到：
 $$\sup_{x \in D_f \cap D_g}(f(x)+g(x)) \leq \sup_{x \in D_f \cap D_g}f(x)+\sup_{y \in D_g} g(y)\leq \sup_{z \in D_f}f(z)+\sup_{y \in D_g} g(y).$$
-这里我们使用了$\sup_{x \in D_f \cap D_g}f(x) \leq \sup_{z \in D_f}f(z)$ since $D_f \cap D_g \subset D_f$.
-
-$\square$
+这里我们使用了$\sup_{x \in D_f \cap D_g}f(x) \leq \sup_{z \in D_f}f(z)$ since $D_f \cap D_g \subset D_f$.$\square$
 
 值得注意的是，该不等式在（4.33）中利用过两次，且原推导并没有用到Jensen不等式的任何性质。
 
@@ -1639,9 +1595,7 @@ $$
 因此，我们有：
 $$G(u)=\mathbb{P}[X\le u]\le\frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}$$
 进一步，我们可以得到：
-$$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$
-
-$\square$
+$$\mathbb{P}[X\ge u]\ge\frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})$$$\square$
 
 
 
@@ -1679,9 +1633,7 @@ $$
 特别地，当$n=2$时，我们有：
 $$
 \frac{x_1+x_2}{2}\ge\sqrt{x_1x_2}
-$$
-
-$\square$
+$$$\square$
 
 
 
@@ -1705,9 +1657,7 @@ $$
 &=\ln(ab)
 \end{align}
 $$
-当且仅当$a^p=b^q$时，等号成立。
-
-$\square$
+当且仅当$a^p=b^q$时，等号成立。$\square$
 
 
 
@@ -1754,9 +1704,7 @@ $$
 将上述等式两边同时除以 $P(B)$，得到贝叶斯定理：
 $$
 P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
-$$
-
-$\square$
+$$$\square$
 
 通过先验和后验的更新过程，贝叶斯统计提供了一种动态的、不断修正认知的不确定性量化方法。
 
@@ -1803,9 +1751,7 @@ $$\begin{align}
 \frac{(x + y)^r}{y^r} & = (x/y + 1)^r \\
 & = \sum_{k=0}^\infty \binom{r}{k} (x/y)^k;
 \end{align}$$
-收敛性由假设 $|x/y| < 1$ 保证。为了得到原定理的形式，我们只需乘以 $y^r$ 即可。
-
-$\square$
+收敛性由假设 $|x/y| < 1$ 保证。为了得到原定理的形式，我们只需乘以 $y^r$ 即可。$\square$
 
 
 
@@ -1913,9 +1859,7 @@ $$
 $$
 n! = e^{1-B} n^{n+1/2} e^{-n} e^{r_n}
 $$
-令$C = e^{1-B}$，我们可知常数$C$的取值范围为$(e^{11/12}, e^{12/13})$，此处我们取$C = \sqrt{2\pi}$，该公式得证。
-
-$\square$
+令$C = e^{1-B}$，我们可知常数$C$的取值范围为$(e^{11/12}, e^{12/13})$，此处我们取$C = \sqrt{2\pi}$，该公式得证。$\square$
 
 
 
@@ -1967,9 +1911,7 @@ $Proof.$
 
 代数上，超平面 $L_A, L_B$ 由向量 $v:= b_0 - a_0$ 定义，并由两个常数 $c_A := \langle v, a_0\rangle < c_B := \langle v, b_0\rangle$ 确定，使得 $L_A = \{x: \langle v, x\rangle = c_A\}, L_B = \{x: \langle v, x\rangle = c_B\}$。我们的主张是 $\forall a\in A, \langle v, a\rangle \leq c_A$ 并且 $\forall b\in B, \langle v, b\rangle \geq c_B$。
 
-假设存在某个 $a\in A$ 使得 $\langle v, a\rangle > c_A$，则令 $a'$ 为从 $b_0$ 到线段 $[a_0, a]$ 的垂足。由于 $A$ 是凸集，$a'$ 在 $A$ 内部，并且根据平面几何，$a'$ 比 $a_0$ 更接近 $b_0$，这与 $a_0$ 和 $b_0$ 的最小距离相矛盾。类似的论证适用于 $B$。
-
-$\square$
+假设存在某个 $a\in A$ 使得 $\langle v, a\rangle > c_A$，则令 $a'$ 为从 $b_0$ 到线段 $[a_0, a]$ 的垂足。由于 $A$ 是凸集，$a'$ 在 $A$ 内部，并且根据平面几何，$a'$ 比 $a_0$ 更接近 $b_0$，这与 $a_0$ 和 $b_0$ 的最小距离相矛盾。类似的论证适用于 $B$。$\square$
 
 
 
@@ -1987,6 +1929,4 @@ $Proof.$
 
 设 $x\in \mathrm{int}(S)$，并考虑线段 $[x, y]$。令 $t$ 为最大的数，使得 $[x, t(y-x) + x]$ 被包含在 $S$ 中。则 $t\in (0, 1)$。
 令 $b = t(y-x) + x$，那么 $b\in \partial S$。在 $b$ 处画一条支撑超平面，令其表示为一个非零线性泛函 $f: \mathbb{R}^n \to \mathbb{R}$，使得 $\forall a\in T, f(a) \geq f(b)$。
-由于 $x\in \mathrm{int}(S)$，我们有 $f(x) > f(b)$。因此，由 $\frac{f(y) - f(b)}{1-t} = \frac{f(b) - f(x)}{t - 0} \lt 0$，我们得到 $f(y) < f(b)$，所以 $y \not\in T$。
-
-$\square$
+由于 $x\in \mathrm{int}(S)$，我们有 $f(x) > f(b)$。因此，由 $\frac{f(y) - f(b)}{1-t} = \frac{f(b) - f(x)}{t - 0} \lt 0$，我们得到 $f(y) < f(b)$，所以 $y \not\in T$。$\square$
