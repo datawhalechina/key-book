@@ -1054,7 +1054,7 @@ $$
 
 $\square$  
   
-Note: Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Chebyshev 不等式。
+注意Cantelli 不等式是 Chebyshev 不等式的加强版，也称单边 Chebyshev 不等式。
 通过类似的构造，我们可以求得诸多比 Cantelli 不等式更严格的上界。  
   
   
@@ -1224,7 +1224,7 @@ $$
 
 $\square$  
   
-Note：注意这里没有限定随机变量同分布，下同。可以使用 Hoeffding 不等式解释集成学习的原理。  
+注意这里没有限定随机变量同分布，下同。可以使用 Hoeffding 不等式解释集成学习的原理。  
   
   
   
