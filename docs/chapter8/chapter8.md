@@ -17,17 +17,17 @@
 
 超额风险这一评估指标被定义为，
 $$
-ER = \mathbb{E}_{(x,y)\sim D[l(w_{T+1},(x,y))]} - min_{w \in W} \mathbb{E}_{(x,y)\sim D[l(w,(x,y))]}
+ER = \mathbb{E}_{(x,y)\sim D[l(w_{T+1},(x,y))]} - \min_{w \in W} \mathbb{E}_{(x,y)\sim D[l(w,(x,y))]}
 $$
-其中，$ER$ 指的是excess risk，等式右边的前半部分 $\mathbb{E}_{(x,y)\sim D[l(w_{T+1},(x,y))]}$ 指的是模型 $w_{T+1}$ 的风险，等式右边的后半部分 $min_{w \in W} \mathbb{E}_{(x,y)\sim D[l(w,(x,y))]}$ 指的是假设空间内的最优模型的风险。值得注意的是，这里的评估是在整个数据集上进行的，也正是因为如此，我们必须要引入期望的操作。
+其中，$ER$ 指的是excess risk，等式右边的前半部分 $\mathbb{E}_{(x,y)\sim D[l(w_{T+1},(x,y))]}$ 指的是模型 $w_{T+1}$ 的风险，等式右边的后半部分 $\min_{w \in W} \mathbb{E}_{(x,y)\sim D[l(w,(x,y))]}$ 指的是假设空间内的最优模型的风险。值得注意的是，这里的评估是在整个数据集上进行的，也正是因为如此，我们必须要引入期望的操作。
 
 而遗憾这一评估指标，被定义为，
 $$
-regret = \sum^{T}_{t=1}f_t(w_t)-min_{w\in W}\sum^{T}_{t=1}f_t(w)
+regret = \sum^{T}_{t=1}f_t(w_t)-\min_{w\in W}\sum^{T}_{t=1}f_t(w)
 $$
 其中，$f_t(w_t)$ 指的是，
 $$
-\sum^{T}_{t=1}l(w_t,(x_t,y_t)) - min_{w \in W}\sum^{T}_{t=1}l(w,(x_t,y_t))
+\sum^{T}_{t=1}l(w_t,(x_t,y_t)) - \min_{w \in W}\sum^{T}_{t=1}l(w,(x_t,y_t))
 $$
 由于$w_t$的计算过程与样本$(x_t,y_t)$ 无关，而是与$(x_1,y_1)...(x_{t-1},y_{t-1})$ 有关，因此可以直接使用 $l(w,(x_t,y_t))$ 来衡量性能。
 

@@ -102,7 +102,7 @@ $$
 
 对所有分布 $\mathcal{D}$ ，若存在学习算法 $\mathcal{L}$ 与多项式函数 $poly(\cdot,\cdot,\cdot,\cdot)$ ，使得对于任何 $m\geq poly(1/\epsilon,1/\delta,size(\mathbf{x}),size(c))$ $\mathcal{L}$ 输出的假设能满足
 $$
-   	P\big(E(h)-min_{h'\in\mathcal{H}}E(h')\leq\epsilon\big)\geq1-\delta
+   	P\big(E(h)-\min_{h'\in\mathcal{H}}E(h')\leq\epsilon\big)\geq1-\delta
 $$
 
 这里的证明实际上就是利用经验风险与泛化风险之间的联系构造出（5.39），继而分而治之地讨论了不同情况下的稳定性关系。

@@ -60,8 +60,8 @@ $$f(\omega)\ge f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\lambda}{2}|
 1. 当$\frac{\gamma-\lambda}{\lambda}=0$时，（7.19）转化为：
 $$
 \begin{align}
-&f(\omega_{t+1})\le min_{\alpha\in[0,1]}\{f(\omega_t)-\alpha (f(\omega_t)-f(\omega^*))\} \\
-\Rightarrow&f(\omega_{t+1})-f(\omega^*)\le min_{\alpha\in[0,1]}\{1-\alpha\}(f(\omega_t)-f(\omega^*)) \\
+&f(\omega_{t+1})\le \min_{\alpha\in[0,1]}\{f(\omega_t)-\alpha (f(\omega_t)-f(\omega^*))\} \\
+\Rightarrow&f(\omega_{t+1})-f(\omega^*)\le \min_{\alpha\in[0,1]}\{1-\alpha\}(f(\omega_t)-f(\omega^*)) \\
 \end{align}
 $$
 因为$f(\omega_t)-f(\omega^*)\ge0$，所以当且仅当$\alpha=1$时，不等式右侧取得最小值$0$，此时易知$f(\omega_{t+1})=f(\omega^*)$。
