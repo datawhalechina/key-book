@@ -44,32 +44,44 @@
 凸集合具有非扩张性（non-expansiveness），即对于集合内的任意两点，连接这两点的线段完全包含在集合内。这种性质使得凸集合在许多数学环境中易于处理，特别是在优化问题中：在凸集合中找到的最小值或最大值必为全局值，没有局部最小值或最大值，从而简化了搜索过程。
 
 不仅凸集合具有非扩张性，映射到凸集合的投影操作也是非扩张的，即两点在凸集合上的投影之间的距离不大于两点本身之间的距离。形式上，对于闭合凸集合 $K\subseteq\mathbb{R}^D$，投影算子 $\Pi:\mathbb{R}^D\rightarrow K$ 定义为：
-$$
+\begin{equation}
+
 \Pi(x)=\arg \min_{y\in K} \| x-y\|_2
-$$
+
+\end{equation}
 即将一个向量映射到最接近它的凸集合中的点。投影算子 $\Pi$ 在 $\ell_2$ 范数下是非扩张的，即对于任意 $x,x'\in\mathbb{R}^D$，有：
-$$
+\begin{equation}
+
 \| \Pi(x) - \Pi(x')\|_2 \leq \| x - x'\|_2
-$$
+
+\end{equation}
 
 该性质证明如下：  
 令 $y=\Pi(x)$，易知 $x$ 和 $K$ 分处于通过 $y$ 的超平面 $H=\{z\in\mathbb{R}^D:\langle z-y,x-y\rangle=0\}$ 的两侧。因此，对于 $K$ 中的任意 $u$，有以下不等式成立：
-$$
+\begin{equation}
+
 \langle x-y,u-y\rangle \leq 0
-$$
+
+\end{equation}
 同理，令 $y'=\Pi(x')$，对于 $K$ 中的任意 $u'$，有以下不等式成立：
-$$
+\begin{equation}
+
 \langle x'-y',u'-y'\rangle \leq 0
-$$
+
+\end{equation}
 此时，令 $u=y'$ 且 $u'=y$，则有：
-$$
+\begin{equation}
+
 \langle x-y,y'-y\rangle \leq 0 \\
 \langle x'-y',y-y'\rangle \leq 0
-$$
+
+\end{equation}
 将两个不等式相加可得：
-$$
+\begin{equation}
+
 \langle (x-x')+(y'-y),y'-y\rangle \leq 0
-$$
+
+\end{equation}
 根据 Cauchy-Schwarz 不等式，有：
 $$
 \begin{align}
@@ -86,40 +98,50 @@ $$
 ## 1.1.2 凸函数
 
 凸函数（convex function）是定义在凸集上的实值函数，满足以下性质：对于定义域内的任意两个点 $x$ 和 $y$ 以及满足 $\alpha\in[0,1]$ 的任意标量 $\alpha$，函数图像上这两点之间的线段位于或位于函数图像上方，即：
-$$
+\begin{equation}
+
 f(\alpha x + (1-\alpha)y) \leq \alpha f(x) + (1-\alpha) f(y)
-$$
+
+\end{equation}
 该不等式被称为凸性条件。
 
 除了上述定义，凸函数还有以下几种等价的定义方式：
 
 1. **一阶条件**：若一个定义在凸集上的函数 $f(x)$ 满足下述条件：
-$$
+\begin{equation}
+
 f(y) \geq f(x) + \nabla f(x)^T(y - x)
-$$
+
+\end{equation}
 其中，$\nabla f(x)$ 表示函数 $f(x)$ 在点 $x$ 处的梯度。几何上，这意味着函数的图像位于任意一点处的切线之上。
 
 2. **二阶条件**：若函数 $f(x)$ 是二次可微的，则它是凸函数当且仅当其 Hessian 矩阵 $H_f$ 在其定义域内的所有点 $x$ 上都是半正定的（即矩阵的所有特征值均为非负）。
 Hessian 矩阵 $H_f$ 是由函数 $f(x)$ 的二阶偏导数组成的方阵：
-$$
+\begin{equation}
+
 \mathbf H_f= \begin{bmatrix}
   \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]
   \dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]
   \vdots & \vdots & \ddots & \vdots \\[2.2ex]
   \dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2}
 \end{bmatrix}.
-$$
+
+\end{equation}
 其中，$x=[x_1,x_2,\cdots,x_n]$。
 
 3. **Jensen 不等式**：若 $f(x)$ 是凸函数，则对于定义域内的任意一组点 ${x_1, x_2, \cdots, x_n}$ 和归一化的非负权重 ${w_1, w_2, \cdots, w_n}$，即 $\sum_{i=1}^n w_i=1$，有：
-$$
+\begin{equation}
+
 f\left(\sum_{i=1}^n w_i x_i\right) \leq \sum_{i=1}^n w_i f(x_i)
-$$
+
+\end{equation}
 
 4. **上图集定义**：凸函数与凸集合的概念密切相关。函数 $f$ 是凸函数，当且仅当其上图集（epigraph）是一个凸集。上图集是位于函数图像上方的点的集合，定义为：
-$$
+\begin{equation}
+
 epi(f) = \{(x, y) | x \in dom(f)，y \geq f(x)\}
-$$
+
+\end{equation}
 其中，$dom(f)$ 是函数 $f$ 的定义域。
 
 凸函数的一些特性包括：
@@ -133,9 +155,11 @@ $$
 ## 1.1.3 凹函数
 
 凹函数（concave function）的定义与凸函数相反。对于其定义域内的任意两个点 $x$ 和 $y$ 以及满足 $\alpha\in[0,1]$ 的任意标量 $\alpha$，满足以下不等式：
-$$
+\begin{equation}
+
 f(\alpha x + (1-\alpha)y) \geq \alpha f(x) + (1-\alpha) f(y)
-$$
+
+\end{equation}
 此不等式被称为凹性条件。
 
 其他定义与凸函数类似，这里不再赘述。值得注意的是，若函数 $f(x)$ 为凹函数，则 $-f(x)$ 为凸函数。因此，可以将凹函数问题转化为凸函数问题，从而利用凸函数的性质来求解凹函数问题。
@@ -145,10 +169,12 @@ $$
 ## 1.1.4 强凸函数
 
 对于定义在凸集上的函数 $f(x)$，若其满足以下性质，则称其为强凸函数：
-$$
+\begin{equation}
+
 \forall x,y\in dom(f),\ \alpha\in[0,1],\ \exists \lambda > 0,\ \text{使得} \\
 f(\alpha x + (1-\alpha)y) \leq \alpha f(x) + (1-\alpha)f(y) - \frac{\lambda}{2}\alpha(1-\alpha)\|x-y\|_2^2
-$$
+
+\end{equation}
 此时，称 $f(x)$ 为 $\lambda$-强凸（strongly convex）函数，其中 $\lambda$ 为强凸系数。
 
 强凸函数的其他等价定义包括：
@@ -176,9 +202,11 @@ $$
 其中 $\Delta = (w-w^*)\alpha$。
 
 由于 $w^*$ 为最优解，因此 $\nabla f(w^*) = 0$，则有：
-$$
+\begin{equation}
+
 f(w) - f(w^*) \geq \frac{\lambda}{2}\|w-w^*\|_2^2
-$$
+
+\end{equation}
 
 
 
@@ -221,13 +249,17 @@ $$
 以下证明凸函数任何局部最优解均为全局最优解的性质。
 
 假设 $f(x)$ 是凸函数，$x^*$ 是 $f$ 在凸集合 $\mathcal{D}$ 中的局部最优解。由于凸集的性质，对于任意 $y$，$y-x^*$ 是一个可行方向。因此，总可以选择足够小的 $\alpha > 0$，使得：
-$$
+\begin{equation}
+
 f(x^*) \leq f(x^* + \alpha(y-x^*))
-$$
+
+\end{equation}
 由 $f$ 的凸性可得:
-$$
+\begin{equation}
+
 f(x^* + \alpha(y-x^*)) = f((1-\alpha)x^* + \alpha y) \leq (1-\alpha)f(x^*) + \alpha f(y)
-$$
+
+\end{equation}
 结合以上两式，可得：
 $$
 \begin{align}
@@ -242,9 +274,11 @@ $$
 ## 1.1.7 仿射
 
 仿射变换（Affine transformation），又称仿射映射，是指在几何中，对一个向量空间进行一次线性变换并加上一个平移，变换为另一个向量空间。若该线性映射被表示为矩阵 $A$，平移被表示为向量 $\vec{b}$，则仿射映射 $f$ 可表示为：
-$$
+\begin{equation}
+
 \vec{y} = f(\vec{x}) = A\vec{x} + \vec{b}
-$$
+
+\end{equation}
 其中，$A$ 被称为仿射变换矩阵或投射变换矩阵。
 
 仿射变换具有以下性质：
@@ -258,9 +292,11 @@ $$
 仿射集（affine set）是指欧氏空间 $R^n$ 中具有以下性质的点集 $S$：对于任意 $x,y\in S$，以及 $\forall \lambda\in[0,1]$，有 $(1-\lambda)x+\lambda y\in S$。容易证明，包含原点的仿射集 $S$ 是 $R^n$ 的子空间。
 
 仿射包（affine hull/span）是包含集合 $S$ 的所有仿射集的交集，也是集合 $S$ 中元素通过不断连接直线所形成的所有元素的集合。仿射包是包含集合 $S$ 的最小仿射集，记为 $aff(S)$，即：
-$$
+\begin{equation}
+
 aff(S) = \left\{\sum_{i=1}^k \alpha_i x_i \mid k>0, x_i\in S, \alpha_i\in R, \sum_{i=1}^k \alpha_i = 1\right\}
-$$
+
+\end{equation}
 仿射包具有以下性质：
 
 1. $aff(aff(S)) = aff(S)$
@@ -291,9 +327,11 @@ $$
 **证明**：
 
 首先证明对偶间隙（Duality Gap）为零，即原始问题与对偶问题的目标函数值之差 $p^* - d^* = 0$。考虑集合 $\mathcal{V}\subset \mathbb{R}^m \times \mathbb{R}$，满足：
-$$
+\begin{equation}
+
 \mathcal{V}:=\{(u,w)\in\mathbb{R}^m \times \mathbb{R} \mid f_0(x) \le w, f_i(x) \le u_i, \forall i\in[m], \forall x\}
-$$
+
+\end{equation}
 集合 $\mathcal{V}$ 具有以下性质：
 
 1. 它是凸集合，可由 $f_i,\ i\in\{0\}\cup[m]$ 的凸性质得出。
@@ -316,29 +354,39 @@ $$
 \end{equation}
 $$
 另一方面，根据 $\mathcal{V}$ 的定义，$\lambda\succeq 0$ 且 $\lambda \neq 0$，可得：
-$$
+\begin{equation}
+
 \inf_{(u,w)\in\mathcal{V}}\lambda^Tu = \inf_{x}\sum_{i=1}^m \lambda_i f_i(x) \leq \sum_{i=1}^m \lambda_i f_i(\bar{x}) < 0
-$$
+
+\end{equation}
 其中，$\bar{x}$ 是 Slater 向量，而最后一个不等式依据 Slater 条件得出。此结论与（2）矛盾，因此 $\lambda_0 \neq 0$。
 
 2. **$\lambda_0 > 0$**：对（1）左右两边除以 $\lambda_0$，得：
-$$
+\begin{equation}
+
 \inf_{(u,w)\in\mathcal{V}}\{\tilde\lambda^Tu + w\} \ge p^*
-$$
+
+\end{equation}
 其中，$\tilde\lambda := \frac{\lambda}{\lambda_0}\succeq 0$。
 
 考虑拉格朗日函数 $L:\mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$：
-$$
+\begin{equation}
+
 L(x,\tilde\lambda) := f_0(x) + \sum_{i=1}^m \tilde\lambda_i f_i(x)
-$$
+
+\end{equation}
 其对偶函数为：
-$$
+\begin{equation}
+
 g(\tilde\lambda) := \inf_{x} L(x,\tilde\lambda) \ge p^*
-$$
+
+\end{equation}
 其对偶问题为：
-$$
+\begin{equation}
+
 \max_{\lambda} g(\lambda), \lambda\succeq 0
-$$
+
+\end{equation}
 因此，可得 $d^* \geq p^*$。根据弱对偶性，$d^* \leq p^*$，从而推断出 $d^* = p^*$。
 
 接着证明对偶问题最优解集合非空且有界。对于任意对偶最优解 $\tilde\lambda\succeq 0$，有：
@@ -350,13 +398,17 @@ d^* = g(\tilde\lambda) &= \inf_{x} \{f_0(x) + \sum_{i=1}^m \tilde\lambda_i f_i(x
 \end{align}
 $$
 因此，有：
-$$
+\begin{equation}
+
 \min_{i\in[m]}\{-f_i(\bar{x})\}\left[\sum_{i=1}^m \tilde\lambda_i\right] \leq f_0(\bar{x}) - d^*
-$$
+
+\end{equation}
 进而得出：
-$$
+\begin{equation}
+
 \|\tilde\lambda\| \leq \sum_{i=1}^m \tilde\lambda_i \leq \frac{f_0(\bar{x}) - d^*}{\min_{i\in[m]}\{-f_i(\bar{x})\}} < \infty
-$$
+
+\end{equation}
 其中，最后一个不等式依据 Slater 条件得出。$\square$
 
 
@@ -438,9 +490,11 @@ KKT条件和 Slater 条件通常被归类为“正则条件”（regularity cond
 连续性意味着输入的微小变化导致输出的微小变化。如果一个函数在其定义域的每个点上都是连续的，则称其为连续函数。
 
 Lipschitz 连续性是连续性的更强形式，它要求函数在变化速度方面有界。具体而言，如果存在一个常数 $L$，使得函数在任意两点的函数值之间的绝对差小于等于 $L$ 乘以两点之间的距离，则称该函数为 $L$-Lipschitz 连续，即：
-$$
+\begin{equation}
+
 \forall x,y\in \text{dom}(f),\ \exists L > 0\ \text{使得}\ \|f(x)-f(y)\|_2 \leq L\|x-y\|_2
-$$
+
+\end{equation}
 其中，$L$ 称为 Lipschitz 常数，表示函数的最大变化率。若 $L$ 较大，函数可以快速变化；若 $L$ 较小，函数变化更渐进。
 
 事实上，如果一个函数的导数有界，那么它一定是 Lipschitz 连续的；反之，如果一个可微函数是 Lipschitz 连续的，那么它的导数一定有界。以下给出证明：
@@ -455,17 +509,23 @@ $$
 此时，函数是 $L$-Lipschitz 连续的。
 
 2. 若函数 $f(x)$ 是 $L$-Lipschitz 连续的，即对于任意 $x,y$，有
-$$
+\begin{equation}
+
 \|f(x)-f(y)\|_2 \le L\|x-y\|_2
-$$
+
+\end{equation}
 根据微分中值定理，对于任意 $x \le y$，存在 $c \in [x,y]$，使得：
-$$
+\begin{equation}
+
 \|f(x)-f(y)\|_2 = \|f'(c)\|_2\|x-y\|_2
-$$
+
+\end{equation}
 不妨令 $x \rightarrow y$，则 $c \rightarrow y$。因为 $f(y)$ 可微，可得：
-$$
+\begin{equation}
+
 \|f'(y)\|_2 = \|\lim_{x \rightarrow y}\frac{f(x)-f(y)}{x-y}\|_2 = \lim_{x \rightarrow y}\frac{\|f(x)-f(y)\|_2}{\|x-y\|_2} \le \lim_{x \rightarrow y} L = L
-$$
+
+\end{equation}
 因为 $y$ 的任意性，所以函数的导数有界。
 
 连续性关注函数图像中跳跃或中断的缺失，而 Lipschitz 连续性关注函数的变化速度。因此，Lipschitz 连续性是比连续性更严格的条件。一个连续函数不一定是 Lipschitz 连续的，因为连续性不要求函数变化速度有界。然而，一个 Lipschitz 连续的函数必然是连续的，因为 Lipschitz 连续性蕴含连续性。
@@ -479,9 +539,11 @@ Lipschitz 连续性的性质在数学的各个领域中广泛应用，如分析�
 在数学分析中，函数的光滑性（smoothness）通过函数在某个域（称为可微性类）上的连续导数的数量来衡量。最基本的情况下，如果一个函数在每个点上都可导（因此连续），则可以认为它是光滑的。
 
 在优化理论中，$L$-光滑函数是指具有 $L$-Lipschitz 连续性的函数，这意味着函数的梯度的幅度在其定义域中的任何地方都被 $L$ 所限制。形式上，函数 $f(x)$ 被称为 $L$-光滑，则必须满足以下不等式：
-$$
+\begin{equation}
+
 \forall x,y\in \text{dom}(f),\ \exists L > 0\ \text{使得}\ f(y) \leq f(x) + \nabla f(x)(y-x) + \frac{L}{2}\|y-x\|_2^2
-$$
+
+\end{equation}
 这里，$L$ 被称为光滑系数。上式表明，对于光滑函数 $f(x)$，可以在任意一点处构造一个二次函数作为其上界。
 
 如果一个函数的梯度是 $L$-Lipschitz 连续的，那么它就是 $L$-光滑的。因此，$L$-光滑性比连续性更强。换句话说，所有 $L$-光滑的函数都是连续的，但并非所有连续函数都是 $L$-光滑的。光滑性关注导数的存在和规则性，而 Lipschitz 连续性关注限制函数的变化速度。Lipschitz 连续性保证变化速度有界，而光滑性确保函数具有定义良好的导数。
@@ -493,13 +555,17 @@ $L$-光滑函数在优化中非常有用，因为它们可以加快梯度下降�
 ## 1.1.16 次梯度
 
 次梯度（subgradient）是凸函数导数的推广形式。某些凸函数在特定区域内可能不存在导数，但我们依旧可以用次梯度来表示该区域内函数变化率的下界。形式上，对于凸函数 $f(x)$，在任意点 $x_0$ 处的次梯度 $c$ 必须满足以下不等式：
-$$
+\begin{equation}
+
 f(x) - f(x_0) \geq c(x - x_0)
-$$
+
+\end{equation}
 根据微分中值定理的逆命题，$c$ 通常在 $[a,b]$ 之间取值，其中 $a,b$ 是函数 $f(x)$ 在 $x_0$ 处的左右导数，即：
-$$
+\begin{equation}
+
 a = \lim_{x \rightarrow x_0^-}\frac{f(x) - f(x_0)}{x - x_0},\ b = \lim_{x \rightarrow x_0^+}\frac{f(x) - f(x_0)}{x - x_0}
-$$
+
+\end{equation}
 此时，次梯度 $c$ 的集合 $[a,b]$ 被称为次微分，即 $\partial f(x_0)$。当 $a = b$ 时，次梯度 $c$ 退化为导数。
 
 次梯度在机器学习领域广泛应用，特别是在训练支持向量机（SVM）和其他具有非可微损失函数的模型中。它们还构成了随机次梯度方法的基础，这些方法在处理大规模机器学习问题时非常有效。
@@ -535,9 +601,11 @@ $$
 凸共轭（convex conjugate）是 Legendre 变换的一种推广，因此也被称为 Legendre-Fenchel 变换（Legendre-Fenchel transform）。通过凸共轭变换，原函数可以转换为凸函数，从而利用凸函数的性质来解决原问题。
 
 形式上，对于函数 $f(x)$，其共轭函数 $f^*(y)$ 定义为：
-$$
+\begin{equation}
+
 f^*(y) = \sup_{x \in \text{dom}(f)}(y^T x - f(x))
-$$
+
+\end{equation}
 其中，$\text{dom}(f)$ 是函数 $f(x)$ 的定义域。
 
 共轭函数具有以下一些有用的性质：
@@ -555,20 +623,26 @@ $$
 2. **逆序性**：对于定义域中所有元素 $x$，若 $f(x) \leq g(x)$，则 $f^*(y) \geq g^*(y)$。证明如下：
 
 由于 $f(x) \leq g(x)$，因此 $x^T y - f(x) \geq x^T y - g(x)$。两边同时取上确界，根据定义有：
-$$
+\begin{equation}
+
 f^*(y) = \sup_{x\in \text{dom}(f)}\{x^T y - f(x)\} \geq \sup_{x\in \text{dom}(f)}\{x^T y - g(x)\} = g^*(y)
-$$
+
+\end{equation}
 
 3. **极值变换**：若 $f$ 可微，则对于 $\forall y$，有：
-$$
+\begin{equation}
+
 f^*(y) \leq f^*(\nabla f(x)) = \nabla f^*(x)^T x - f(x) = -[f(x) + \nabla f(x)^T(0 - x)]
-$$
+
+\end{equation}
 此性质即书中的（1.10），完整证明如下：
 
 为了在 $f^*$ 的定义中找到上确界，对右侧的 $x$ 求导，并将其设置为零以找到极大值点：
-$$
+\begin{equation}
+
 \frac{d}{dx}(x^T y − f(x)) = y − \nabla f(x) = 0
-$$
+
+\end{equation}
 此时有 $y = \nabla f(x)$，得证。
 
 
@@ -639,13 +713,17 @@ KL 散度（Kullback-Leibler 散度），也称为相对熵，是一种用于衡
 ### 定义
 
 假设有两个概率分布 $P$ 和 $Q$，它们定义在同一个概率空间上。$P$ 通常被认为是“真实”分布，而 $Q$ 是近似分布。KL 散度 $D_{KL}(P \| Q)$ 表示为：
-$$
+\begin{equation}
+
 D_{KL}(P \| Q) = \sum_{x} P(x) \ln \frac{P(x)}{Q(x)}
-$$
+
+\end{equation}
 对于连续分布：
-$$
+\begin{equation}
+
 D_{KL}(P \| Q) = \int_{-\infty}^{+\infty} p(x) \ln \frac{p(x)}{q(x)} \, dx
-$$
+
+\end{equation}
 其中，$P(x)$ 和 $Q(x)$ 分别是分布 $P$ 和 $Q$ 在 $x$ 处的概率密度函数（或概率质量函数）。
 
 ### 性质
@@ -655,32 +733,44 @@ $$
 ### 非负性的证明
 
 KL 散度的非负性可以通过 Jensen 不等式来证明。首先，考虑离散情况下的 KL 散度定义：
-$$
+\begin{equation}
+
 D_{KL}(P \| Q) = \sum_{x} P(x) \ln \frac{P(x)}{Q(x)}
-$$
+
+\end{equation}
 由于对数函数是一个凹函数，可以应用 Jensen 不等式。对于凹函数 $f$ 和随机变量 $X$，有：
-$$
+\begin{equation}
+
 f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]
-$$
+
+\end{equation}
 
 将 $f(x) = \ln(x)$，并令 $X = \frac{Q(x)}{P(x)}$。则有：
-$$
+\begin{equation}
+
 \ln\left(\mathbb{E}\left[\frac{Q(x)}{P(x)}\right]\right) \geq \mathbb{E}\left[\ln\left(\frac{Q(x)}{P(x)}\right)\right]
-$$
+
+\end{equation}
 
 因为 $\sum_{x} P(x) = 1$ 且 $Q(x) \geq 0$，所以：
-$$
+\begin{equation}
+
 \mathbb{E}\left[\frac{Q(x)}{P(x)}\right] = \sum_{x} P(x) \frac{Q(x)}{P(x)} = \sum_{x} Q(x) = 1
-$$
+
+\end{equation}
 
 于是，有：
-$$
+\begin{equation}
+
 0 = \ln(1) \geq \sum_{x} P(x) \ln\left(\frac{Q(x)}{P(x)}\right)
-$$
+
+\end{equation}
 即：
-$$
+\begin{equation}
+
 D_{KL}(P \| Q) = \sum_{x} P(x) \ln\left(\frac{P(x)}{Q(x)}\right) \geq 0
-$$
+
+\end{equation}
 
 2. **非对称性**：$D_{KL}(P \| Q) \neq D_{KL}(Q \| P)$，即 KL 散度不是对称的，交换 $P$ 和 $Q$ 一般会导致不同的结果。
 
@@ -711,9 +801,11 @@ $$
 **表示方法**：用 $P(\theta \mid D)$ 表示，其中 $\theta$ 代表参数或事件， $D$ 代表新观察到的数据。
 
 **计算方法**：根据贝叶斯定理，后验概率可以通过先验概率、似然函数和边际似然计算得到：
-$$
+\begin{equation}
+
 P(\theta \mid D) = \frac{P(D \mid \theta) P(\theta)}{P(D)}
-$$
+
+\end{equation}
 其中：
 - $P(\theta \mid D)$ 是后验概率。
 - $P(D \mid \theta)$ 是似然函数，表示在给定参数 $\theta$ 时观察到数据 $D$ 的概率。
@@ -736,19 +828,25 @@ $$
 半空间（Half Space）是指拓扑向量空间被超平面划分出的两个区域之一。
 
 假设有一个超平面，其由以下方程定义：
-$$
+\begin{equation}
+
 \mathbf{n} \cdot \mathbf{x} = c
-$$
+
+\end{equation}
 其中，$\mathbf{n}$ 是垂直于超平面的法向量，$\mathbf{x}$ 是空间中的一个点，$c$ 是一个常数。
 
 两个半空间分别由以下不等式定义：
-$$
+\begin{equation}
+
 \mathbf{n} \cdot \mathbf{x} \geq c
-$$
+
+\end{equation}
 和
-$$
+\begin{equation}
+
 \mathbf{n} \cdot \mathbf{x} \leq c
-$$
+
+\end{equation}
 这些不等式中的每一个代表了超平面两侧的一个半空间，满足其中一个不等式的点位于相应的半空间中。
 
 ## 1.1.26 紧空间
@@ -774,9 +872,11 @@ $$
 ## 1.2.1 Jensen 不等式
 
 对于任意凸函数 $f$，则有：
-$$
+\begin{equation}
+
 f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]
-$$
+
+\end{equation}
 成立。
 
 ### 证明
@@ -799,9 +899,11 @@ $$
 因此，原不等式得证。
 
 如果 $f$ 是凹函数，则 Jensen 不等式变为：
-$$
+\begin{equation}
+
 f(\mathbb{E}[X]) \geq \mathbb{E}[f(X)]
-$$
+
+\end{equation}
 这一结论可以通过将上述证明中的 $f$ 替换为 $-f$ 得到。$\square$
 
 
@@ -809,21 +911,27 @@ $$
 ## 1.2.2 Hölder 不等式
 
 对于任意 $p, q \in \mathbb{R}^{+}$，且满足 $\frac{1}{p} + \frac{1}{q} = 1$，则有：
-$$
+\begin{equation}
+
 \mathbb{E}[|XY|] \leq \left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|Y|^q]\right)^{\frac{1}{q}}
-$$
+
+\end{equation}
 成立。
 
 ### 证明
 
 设 $f(x)$ 和 $g(y)$ 分别为 $X$ 和 $Y$ 的概率密度函数，定义：
-$$
+\begin{equation}
+
 M = \frac{|x|}{\left(\int_X |x|^p f(x) \,dx\right)^{\frac{1}{p}}}, \quad N = \frac{|y|}{\left(\int_Y |y|^q g(y) \,dy\right)^{\frac{1}{q}}}
-$$
+
+\end{equation}
 代入 Young 不等式：
-$$
+\begin{equation}
+
 MN \leq \frac{1}{p}M^p + \frac{1}{q}N^q
-$$
+
+\end{equation}
 对该不等式两边同时取期望：
 $$
 \begin{align}
@@ -840,18 +948,22 @@ $$
 ## 1.2.3 Cauchy-Schwarz 不等式
 
 当 $p = q = 2$ 时，Hölder 不等式退化为 Cauchy-Schwarz 不等式：
-$$
+\begin{equation}
+
 \mathbb{E}[|XY|] \leq \sqrt{\mathbb{E}[X^{2}] \cdot \mathbb{E}[Y^{2}]}
-$$
+
+\end{equation}
 
 
 
 ## 1.2.4 Lyapunov 不等式
 
 对于任意 $0 < r \leq s$，有：
-$$
+\begin{equation}
+
 \sqrt[r]{\mathbb{E}[|X|^{r}]} \leq \sqrt[s]{\mathbb{E}[|X|^{s}]}
-$$
+
+\end{equation}
 
 ### 证明
 
@@ -865,9 +977,11 @@ $$
 \end{align}
 $$
 记 $s = rp \geq r$，则：
-$$
+\begin{equation}
+
 \mathbb{E}[|X|^{r}] \leq \left(\mathbb{E}[|X|^{s}]\right)^{\frac{r}{s}}
-$$
+
+\end{equation}
 因此，原不等式得证。$\square$
 
 
@@ -875,9 +989,11 @@ $$
 ## 1.2.5 Minkowski 不等式
 
 对于任意 $p \geq 1$，有：
-$$
+\begin{equation}
+
 \sqrt[p]{\mathbb{E}[|X+Y|^p]} \leq \sqrt[p]{\mathbb{E}[|X|^p]} + \sqrt[p]{\mathbb{E}[|Y|^p]}
-$$
+
+\end{equation}
 
 ### 证明
 
@@ -898,9 +1014,11 @@ $$
 ## 1.2.6 Bhatia-Davis 不等式
 
 对 $X \in [a,b]$，有：
-$$
+\begin{equation}
+
 \mathbb{V}[X] \leq (b - \mathbb{E}[X])(\mathbb{E}[X] - a) \leq \frac{(b-a)^2}{4}
-$$
+
+\end{equation}
 
 ### 证明
 
@@ -921,9 +1039,11 @@ $$
 $$
 
 考虑 AM-GM 不等式：
-$$
+\begin{equation}
+
 xy \leq \left(\frac{x+y}{2}\right)^2
-$$
+
+\end{equation}
 将 $x = b - \mathbb{E}[X]$ 和 $y = \mathbb{E}[X] - a$ 带入并化简即得证。$\square$
 
 
@@ -931,16 +1051,20 @@ $$
 ## 1.2.7 Union Bound（Boole's）不等式
 
 对于任意事件 $X$ 和 $Y$，有：
-$$
+\begin{equation}
+
 P(X \cup Y) \leq P(X) + P(Y)
-$$
+
+\end{equation}
 
 ### 证明
 
 根据概率的加法公式：
-$$
+\begin{equation}
+
 P(X \cup Y) = P(X) + P(Y) - P(X \cap Y) \leq P(X) + P(Y)
-$$
+
+\end{equation}
 由于 $P(X \cap Y) \geq 0$，因此不等式得证。$\square$
   
 
@@ -948,16 +1072,20 @@ $$
 ## 1.2.8 Markov 不等式
 
 若 $X \geq 0$，则对于任意 $\varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P(X \geq \varepsilon) \leq \frac{\mathbb{E}[X]}{\varepsilon}
-$$
+
+\end{equation}
 
 ### 证明
 
 由定义可得：
-$$
+\begin{equation}
+
 \mathbb{E}[X] = \int_{0}^{\infty} x p(x) \,dx \geq \int_{\varepsilon}^{\infty} x p(x) \,dx \geq \varepsilon \int_{\varepsilon}^{\infty} p(x) \,dx = \varepsilon P(X \geq \varepsilon)
-$$
+
+\end{equation}
 因此，原不等式得证。$\square$
 
 
@@ -965,16 +1093,20 @@ $$
 ## 1.2.9 Chebyshev 不等式
 
 对于任意 $\varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P(|X-\mathbb{E}[X]| \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\varepsilon^{2}}
-$$
+
+\end{equation}
 
 ### 证明
 
 利用 Markov 不等式，得到：
-$$
+\begin{equation}
+
 P(|X-\mathbb{E}[X]| \geq \varepsilon) = P((X-\mathbb{E}[X])^2 \geq \varepsilon^{2}) \leq \frac{\mathbb{E}[(X-\mathbb{E}[X])^2]}{\varepsilon^{2}} = \frac{\mathbb{V}[X]}{\varepsilon^{2}}
-$$
+
+\end{equation}
 因此，Chebyshev 不等式得证。$\square$
 
 
@@ -982,9 +1114,11 @@ $$
 ## 1.2.10 Cantelli 不等式
 
 对于任意 $\varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}
-$$
+
+\end{equation}
 
 ### 证明
 
@@ -998,9 +1132,11 @@ P(X-\mathbb{E}[X] \geq \varepsilon) &= P(Y \geq \varepsilon) \\
 \end{align}
 $$
 通过对 $\lambda$ 求导，得右端在 $\lambda = \frac{\mathbb{V}[X]}{\varepsilon}$ 时取得最小值 $\frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}$，因此：
-$$
+\begin{equation}
+
 P(X-\mathbb{E}[X] \geq \varepsilon) \leq \frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}
-$$
+
+\end{equation}
 原不等式得证。$\square$
 
 值得注意的是，Cantelli 不等式是 Chebyshev 不等式的加强版，也称为单边 Chebyshev 不等式。通过类似的构造方法，可以推导出比 Cantelli 不等式更严格的上界。
@@ -1010,32 +1146,42 @@ $$
 ## 1.2.11 Chernoff 界（Chernoff-Cramér 界）
 
 对于任意 $\lambda > 0, \varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P(X \geq \varepsilon) \leq \min_{\lambda > 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}
-$$
+
+\end{equation}
 对于任意 $\lambda < 0, \varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P(X \leq \varepsilon) \leq \min_{\lambda < 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}
-$$
+
+\end{equation}
 
 ### 证明
 
 应用 Markov 不等式，有：
-$$
+\begin{equation}
+
 P(X \geq \varepsilon) = P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \quad \lambda > 0, \varepsilon > 0
-$$
+
+\end{equation}
 同理，
-$$
+\begin{equation}
+
 P(X \leq \varepsilon) = P\left(e^{\lambda X} \leq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \quad \lambda < 0, \varepsilon > 0
-$$
+
+\end{equation}
 因此，Chernoff 界得证。$\square$
 
 基于上述 Chernoff 界的技术，我们可以进一步定义次高斯性：
 
 **定义 1** (随机变量的次高斯性)：若一个期望为零的随机变量 $X$ 的矩母函数满足 $\forall \lambda \in \mathbb{R}^+$：
-$$
+\begin{equation}
+
 \mathbb{E}[e^{\lambda X}] \leq \exp\left(\frac{\sigma^2\lambda^2}{2}\right)
-$$
+
+\end{equation}
 则称 $X$ 服从参数为 $\sigma$ 的次高斯分布。
 
 实际上，Hoeffding 引理中的随机变量 $X$ 服从 $\frac{(b-a)}{2}$ 的次高斯分布。Hoeffding 引理也是次高斯分布的直接体现。次高斯性还有一系列等价定义，这里不作详细讨论。
@@ -1045,15 +1191,19 @@ $$
 显然，并非所有常见的随机变量都是次高斯的，例如指数分布。为此可以扩大定义：
 
 **定义 2** (随机变量的次指数性)：若非负的随机变量 $X$ 的矩母函数满足 $\forall \lambda \in (0,a)$：
-$$
+\begin{equation}
+
 \mathbb{E}[e^{\lambda X}] \leq \frac{a}{a - \lambda}
-$$
+
+\end{equation}
 则称 $X$ 服从参数为 $(\mathbb{V}[X], 1/a)$ 的次指数分布。
 
 同样地，次指数性也有一系列等价定义。一种不直观但更常用的定义如下：存在 $(\sigma^2, b)$，使得 $\forall |s| < 1/b$：
-$$
+\begin{equation}
+
 \mathbb{E}[e^{s(X−\mathbb{E}[X])}] \leq \exp \left( \frac{s^2\sigma^2}{2} \right)
-$$
+
+\end{equation}
 
 常见的次指数分布包括：指数分布，Gamma 分布，以及**任何有界随机变量**。
 
@@ -1064,29 +1214,39 @@ $$
 ## 1.2.12 Chernoff 不等式（乘积形式）
 
 对于 $m$ 个独立同分布的随机变量 $x_i \in [0, 1], i \in [m]$，设 $X = \sum_{i=1}^m X_i$，$\mu > 0$ 且 $r \leq 1$。若对所有 $i \leq m$ 都有 $\mathbb{E}[x_i] \leq \mu$，则：
-$$
+\begin{equation}
+
 P(X \geq (1+r)\mu m) \leq e^{-\frac{r^2 \mu m}{3}}, \quad r \geq 0
-$$
-$$
+
+\end{equation}
+\begin{equation}
+
 P(X \leq (1-r)\mu m) \leq e^{-\frac{r^2 \mu m}{2}}, \quad r \geq 0
-$$
+
+\end{equation}
 
 ### 证明
 
 应用 Markov 不等式，有：
-$$
+\begin{equation}
+
 P(X \geq (1+r)\mu m) = P((1+r)^X \geq (1+r)^{(1+r)\mu m}) \leq \frac{\mathbb{E}[(1+r)^X]}{(1+r)^{(1+r)\mu m}}
-$$
+
+\end{equation}
 由于 $x_i$ 之间是独立的，可得：
-$$
+\begin{equation}
+
 \mathbb{E}[(1+r)^X] = \prod_{i=1}^m \mathbb{E}[(1+r)^{x_i}] \leq \prod_{i=1}^m \mathbb{E}[1+rx_i] \leq \prod_{i=1}^m (1+r\mu) \leq e^{r\mu m}
-$$
+
+\end{equation}
 其中，第二步使用了 $\forall x \in [0,1]$ 都有 $(1+r)^x \leq 1+rx$，第三步使用了 $\mathbb{E}[x_i] \leq \mu$，第四步使用了 $\forall x \in [0,1]$ 都有 $1+x \leq e^x$。
 
 又由于 $\forall r \in [0,1]$，有 $\frac{e^r}{(1+r)^{1+r}} \leq e^{-\frac{r^2}{3}}$，综上所述：
-$$
+\begin{equation}
+
 P(X \geq (1+r)\mu m) \leq \left(\frac{e^r}{(1+r)^{(1+r)}}\right)^{\mu m} \leq e^{-\frac{r^2 \mu m}{3}}
-$$
+
+\end{equation}
 
 当我们将 $r$ 替换为 $-r$ 时，根据之前的推导，并利用 $\forall r \in [0,1]$ 有 $\frac{e^r}{(1-r)^{1-r}} \leq e^{-\frac{r^2}{2}}$，可得第二个不等式的证明。$\square$
 
@@ -1095,13 +1255,17 @@ $$
 ## 1.2.13 最优 Chernoff 界
 
 如果 $X$ 是一个随机变量，并且 $\mathbb{E}[e^{\lambda(X-\mathbb{E}X)}] \leq e^{\phi(\lambda)}$ 对于所有 $\lambda \geq 0$ 成立，则有以下结论：
-$$
+\begin{equation}
+
 P(X - \mathbb{E}X \geq \varepsilon) \leq e^{-\phi^*(\varepsilon)}, \quad \varepsilon \geq 0
-$$
+
+\end{equation}
 或
-$$
+\begin{equation}
+
 P(X - \mathbb{E}X \leq (\phi^*)^{-1}(\ln(1/\delta))) \geq 1 - \delta, \quad \delta \in [0,1]
-$$
+
+\end{equation}
 其中，$\phi^*$ 是 $\phi$ 的凸共轭函数，即 $\phi^*(x) = \sup_{\lambda \geq 0}(\lambda x - \phi(\lambda))$。
 
 ### 证明
@@ -1124,63 +1288,85 @@ $$
 ### 引理 1 (Hoeffding 定理)
 
 若 $\mathbb{E}[X] = 0, X \in [a, b]$，则对于任意 $\lambda \in \mathbb{R}$，有：
-$$
+\begin{equation}
+
 \mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
-$$
+
+\end{equation}
 
 ### 证明
 
 由于 $e^x$ 为凸函数，对于任意 $x \in [a, b]$，有：
-$$
+\begin{equation}
+
 e^{\lambda x} \leq \frac{b-x}{b-a}e^{\lambda a} + \frac{x-a}{b-a}e^{\lambda b}
-$$
+
+\end{equation}
 对上式取期望，得到：
-$$
+\begin{equation}
+
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}
-$$
+
+\end{equation}
 
 记 $\theta = -\frac{a}{b-a} > 0, h = \lambda(b-a)$，则：
-$$
+\begin{equation}
+
 \frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = \left[1-\theta + \theta e^{h}\right]e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}
-$$
+
+\end{equation}
 
 记函数 $\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$。注意到 $\theta$ 实际上与 $h$ 无关。考察关于 $h$ 的偏导数：
-$$
+\begin{equation}
+
 \frac{\partial \varphi}{\partial h} = \frac{\theta e^h}{1 - \theta + \theta e^h} - \theta
-$$
+
+\end{equation}
 显然有：$\frac{\partial \varphi}{\partial h}|_{h=0^+} = 0$。同理，使用链式法则可计算：
-$$
+\begin{equation}
+
 \frac{\partial^2 \varphi}{\partial h^2} = \frac{\theta e^h(1 - \theta + \theta e^h) - \theta^2e^{2h}}{(1 - \theta + \theta e^h)^2} = \frac{\theta e^h}{1 - \theta + \theta e^h}\left(1- \frac{\theta e^h}{1 - \theta + \theta e^h}\right) \leq \frac{1}{4}
-$$
+
+\end{equation}
 由泰勒公式可得：
-$$
+\begin{equation}
+
 \varphi(\theta, h) \leq 0 + 0 + \frac{h^2}{8} = \frac{\lambda^2(b-a)^2}{8}
-$$
+
+\end{equation}
 $\square$
 
 ### Hoeffding 不等式
 
 对于 $m$ 个独立随机变量 $X_{i} \in \left[a_{i}, b_{i}\right]$，令 $\bar{X}$ 为 $X_{i}$ 的均值，则有：
-$$
+\begin{equation}
+
 P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
-$$
+
+\end{equation}
 
 ### 证明
 
 由 Markov 不等式可知，对于任意 $\lambda > 0$：
-$$
+\begin{equation}
+
 P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) = P\left(e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}
-$$
+
+\end{equation}
 由独立性及 Hoeffding 引理：
-$$
+\begin{equation}
+
 \frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}} = e^{-\lambda \varepsilon} \prod_{i=1}^{m} \mathbb{E}\left[e^{\lambda\left(X_{i} - \mathbb{E}\left[X_{i}\right]\right) / m}\right] \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2}\left(b_{i} - a_{i}\right)^{2}}{8 m^{2}}\right)
-$$
+
+\end{equation}
 考虑二次函数 $g(\lambda) = -\lambda \varepsilon + \frac{\lambda^{2}}{8 m^{2}} \sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}$，容易求得最小值为 $-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}$。
 
 因此：
-$$
+\begin{equation}
+
 P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp (g(\lambda)) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
-$$
+
+\end{equation}
 $\square$
 
 注意，这里没有限定随机变量同分布。Hoeffding 不等式可以用来解释集成学习的原理。
@@ -1190,24 +1376,32 @@ $\square$
 ## 1.2.15 McDiarmid 不等式
 
 对于 $m$ 个独立随机变量 $X_{i} \in \mathcal{X}$，若函数 $f$ 是差有界的，则对于任意 $\varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
-$$
+
+\end{equation}
 
 ### 证明
 
 构造一个鞅差序列：
-$$
+\begin{equation}
+
 D_j = \mathbb{E}[f(X) \mid X_1, \cdots, X_j] - \mathbb{E}[f(X) \mid X_1, \cdots, X_{j-1}]
-$$
+
+\end{equation}
 容易验证：
-$$
+\begin{equation}
+
 f(X) - \mathbb{E}[f(X)] = \sum_{i=1}^m D_i
-$$
+
+\end{equation}
 由于 $f$ 是差有界的，因此满足 Azuma-Hoeffding 引理。代入后可得：
-$$
+\begin{equation}
+
 P\left(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon\right) \leq \exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^m c_i^2} \right)
-$$
+
+\end{equation}
 原不等式得证。$\square$
 
 
@@ -1215,9 +1409,11 @@ $$
 ## 1.2.16 Bennett 不等式
 
 对于 $m$ 个独立随机变量 $X_{i}$，令 $\bar{X}$ 为 $X_{i}$ 的均值，若存在 $b > 0$，使得 $|X_i-\mathbb{E}[X_i]| < b$，则有：
-$$
+\begin{equation}
+
 P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{m \varepsilon^{2}}{2\left(\sum_{i=1}^{m} \mathbb{V}\left[X_{i}\right] / m + b \varepsilon / 3\right)}\right)
-$$
+
+\end{equation}
 
 ### 证明
 
@@ -1226,17 +1422,21 @@ $$
 这些 Bernstein 类的集中不等式更多地反映了在非渐近观点下的大数定律表现，即它们刻画了样本均值如何集中在总体均值附近。
 
 如果将样本均值看作是样本（数据点的函数），即令 $f\left(X_{1}, \cdots, X_{m}\right) = \sum_{i=1}^{m} X_{i} / m$，那么 Bernstein 类不等式刻画了如下的概率：
-$$
+\begin{equation}
+
 P\left(f\left(X_{1}, \cdots, X_{m}\right) - \mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right)
-$$
+
+\end{equation}
 为了在某些泛函上也具有类似 Bernstein 类的集中不等式形式，显然 $f$ 需要满足某些特定性质。差有界性是一种常见的约束条件。
 
 ### 定义 3: 差有界性
 
 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}$ 满足对于每个 $i$，存在常数 $c_{i} < \infty$，使得：
-$$
+\begin{equation}
+
 \left|f\left(x_{1}, \cdots, x_{i}, \cdots, x_{m}\right)-f\left(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m}\right)\right| \leq c_{i}
-$$
+
+\end{equation}
 则称 $f$ 是差有界的。
 
 为了证明这些结果，需要引入一些新的数学工具。
@@ -1253,16 +1453,20 @@ $$
 ### 引理 2: Azuma-Hoeffding 定理
 
 对于鞅 $Z_{i}$，若 $\mathbb{E}\left[Z_{i}\right] = \mu, Z_{1} = \mu_{\circ}$，则构造鞅差序列 $X_{i} = Z_{i} - Z_{i-1}$，且 $\left|X_{i}\right| \leq c_{i}$，则对于任意 $\varepsilon > 0$，有：
-$$
+\begin{equation}
+
 P\left(Z_{m}-\mu \geq \varepsilon\right) = P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
-$$
+
+\end{equation}
 
 ### 证明
 
 首先，若 $\mathbb{E}[X \mid Y] = 0$，则有 $\forall \lambda > 0$：
-$$
+\begin{equation}
+
 \mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]
-$$
+
+\end{equation}
 因此，由恒等式 $\mathbb{E}[\mathbb{E}[X \mid Y]] = \mathbb{E}[X]$ 及 Chernoff 一般性技巧，对于任意 $\lambda > 0$：
 $$
 \begin{align}
@@ -1280,13 +1484,17 @@ P\left(Z_{m}-\mu \geq \varepsilon\right) & \leq e^{-\lambda \varepsilon} \mathbb
 \end{align}
 $$
 迭代上不等式可得：
-$$
+\begin{equation}
+
 P\left(Z_{m}-\mu \geq \varepsilon\right) \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2} c_{i}^{2}}{2}\right)
-$$
+
+\end{equation}
 当 $\lambda = \frac{\varepsilon}{\sum_{i=1}^{m} c_{i}^{2}}$ 时，上式右端取得极小值：
-$$
+\begin{equation}
+
 P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
-$$
+
+\end{equation}
 原不等式得证。$\square$
 
   
@@ -1294,74 +1502,98 @@ $$
 ## 1.2.17 Bernstein 不等式
 
 首先，我们定义参数为 $b > 0$ 的单边 Bernstein 条件（One-sided Bernstein's condition），即随机变量 $X$ 满足：
-$$
+\begin{equation}
+
 \mathbb{E} [e^{\lambda(X−\mathbb{E}[X])}] \leq \exp\left(\frac{\mathbb{V}[X]\lambda^2/2}{1 − b\lambda}\right), \quad \forall \lambda \in [0,1/b)
-$$
+
+\end{equation}
 若独立同分布的随机变量 $X_1, \ldots, X_n \sim X$ 均满足单边 Bernstein 条件，则对于任意 $\varepsilon > 0,\delta \in [0,1]$，有如下不等式成立：
-$$
+\begin{equation}
+
 P\left(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon\right) \leq \exp \left(-\frac{n \varepsilon^{2}}{2\left(\mathbb{V}[X] + b \varepsilon\right)}\right)
-$$
+
+\end{equation}
 
 ### 证明
 
 1. 我们首先确定 Bernstein 条件下的上尾界（或上尾界限），即：
-$$
+\begin{equation}
+
 P(X - \mathbb{E}[X] \geq \varepsilon) \leq \exp\left(-\frac{\mathbb{V}[X]}{b^2} h\left(\frac{b\varepsilon}{\mathbb{V}[X]}\right)\right) \leq \exp\left(-\frac{\varepsilon^2}{2\left(\mathbb{V}[X] + b\varepsilon\right)}\right)
-$$
+
+\end{equation}
 其中 $h(x) = 1 + x - \sqrt{1 + 2x}$。此时，有：
-$$
+\begin{equation}
+
 P\left(X - \mathbb{E}[X] < b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}\right) \geq 1 - \delta, \quad \delta \in [0,1]
-$$
+
+\end{equation}
 
 #### 证明：
 
 令 $\phi(\lambda) = \frac{a\lambda^2}{2(1 - b\lambda)}, \lambda \in [0,1/b), a = \mathbb{V}[X]$。则对于任意 $\varepsilon > 0$，有 $\phi(\lambda)$ 的凸共轭：
-$$
+\begin{equation}
+
 \phi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda)) = \frac{a}{b^2} h\left(\frac{b\varepsilon}{a}\right) \geq \frac{\varepsilon^2}{2(a + b\varepsilon)}
-$$
+
+\end{equation}
 最后一步推导利用了不等式 $h(x) \geq \frac{x^2}{2(1 + x)}, x > 0$，该式可通过对两侧连续求导得证。
 
 根据最优 Chernoff 界，可以得出上尾界：
-$$
+\begin{equation}
+
 e^{-\phi^*(\varepsilon)} = \exp\left(-\frac{a}{b^2} h\left(\frac{b\varepsilon}{a}\right)\right) \leq \exp\left(-\frac{\varepsilon^2}{2(a + b\varepsilon)}\right)
-$$
+
+\end{equation}
 此时，令 $e^{-\phi^*(\varepsilon)} = \delta$，可得 $\varepsilon = b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}$。
 
 2. 接下来，我们证明一个引理：
 
 若 $\mathbb{E}[e^{\lambda (X - \mathbb{E} X)}] \leq e^{\phi(\lambda)}, \lambda \geq 0$，则对于任意正整数 $n$，有：
-$$
+\begin{equation}
+
 P\left(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X \geq \varepsilon\right) \leq e^{-n \phi^*(\varepsilon)}, \quad \varepsilon \geq 0
-$$
+
+\end{equation}
 亦或者：
-$$
+\begin{equation}
+
 P\left(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X < (\phi^*)^{-1} \left(\frac{\ln(1/\delta)}{n}\right)\right) \geq 1 - \delta, \quad \delta \in [0,1]
-$$
+
+\end{equation}
 
 #### 证明：
 
-$$
+\begin{equation}
+
 \mathbb{E}\left[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}\right] = \prod_{i=1}^n \mathbb{E}\left[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}\right] 
 \leq e^{n \phi(\lambda/n)}
 \equiv e^{\psi(\lambda)}
-$$
+
+\end{equation}
 定义 $\psi(\lambda) := n\phi(\lambda/n)$，可得：
-$$
+\begin{equation}
+
 \psi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \psi(\lambda)) = n \sup_{\lambda \geq 0}\left(\frac{\varepsilon \lambda}{n} - \phi\left(\frac{\lambda}{n}\right)\right)
 = n \sup_{\lambda \geq 0} (\lambda \varepsilon - \phi(\lambda)) = n\phi^*(\varepsilon)
-$$
+
+\end{equation}
 根据最优 Chernoff 界即可得证。
 
 3. 最后，我们考虑 Bernstein 不等式的左边界，可以得到：
-$$
+\begin{equation}
+
 \mathbb{E}\left[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}\right] \leq \prod_{i=1}^n \mathbb{E}\left[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}\right]
 \leq \prod_{i=1}^n \exp\left(\frac{\mathbb{V}[X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))}\right) 
 = \exp\left(\frac{\mathbb{V}\left[\frac{1}{n} \sum_{i=1}^n X_i\right] (\lambda/n)^2}{2(1 - b(\lambda/n))}\right)
-$$
+
+\end{equation}
 应用以上引理即可得到：
-$$
+\begin{equation}
+
 P\left(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon\right) \leq \exp\left(-\frac{n\mathbb{V}[X]}{b^2} h\left(\frac{b\varepsilon}{\mathbb{V}[X]}\right)\right) \leq \exp\left(-\frac{n\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)}\right)
-$$
+
+\end{equation}
 $\square$
 
 
@@ -1387,9 +1619,11 @@ Azuma 不等式要求鞅差序列的对称界限，即 $-c_i \leq Z_i - Z_{i-1} 
 详细证明参考[文章](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition/)。
 
 根据 Doob 分解引理，我们可以将超鞅 $X_t$ 分解为 $X_t = Y_t + Z_t$，此时 $\{Y_t, \mathcal{F}_t\}$ 是鞅差序列，$\{Z_t, \mathcal{F}_t\}$ 是一个非递增的可预测序列。在 Azuma 不等式的一般形式中，若有 $A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，则：
-$$
+\begin{equation}
+
 -(Z_t - Z_{t-1}) + A_t \leq Y_t - Y_{t-1} \leq -(Z_t - Z_{t-1}) + B_t
-$$
+
+\end{equation}
 
 应用 Chernoff 不等式，对于任意 $\varepsilon > 0$，有：
 $$
@@ -1404,43 +1638,57 @@ $$
 2. $\{Z_t\}$ 是一个可预测序列，因此 $-(Z_t - Z_{t-1}) + A_t$ 和 $-(Z_t - Z_{t-1}) + B_t$ 都是 $\mathcal{F}_{t-1}$ 可测的。
 
 应用 Hoeffding 引理，有：
-$$
+\begin{equation}
+
 \mathbb{E} \left[\exp \left(s(Y_t - Y_{t-1}) \mid \mathcal{F}_{t-1}\right)\right] \leq \exp \left(\frac{s^2 (B_t - A_t)^2}{8}\right) \leq \exp \left(\frac{s^2 c_t^2}{8}\right)
-$$
+
+\end{equation}
 
 重复这个步骤，我们可以得到：
-$$
+\begin{equation}
+
 P(Y_n - Y_0 \geq \varepsilon) \leq \underset{s > 0}{\min} \ e^{-s\varepsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n} c_t^2}{8}\right)
-$$
+
+\end{equation}
 
 当 $s = \frac{4 \varepsilon}{\sum_{t=1}^{n} c_t^2}$ 时，上式右端取得极小值：
-$$
+\begin{equation}
+
 P(Y_n - Y_0 \geq \varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-$$
+
+\end{equation}
 
 由于 $X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且 $\{Z_n\}$ 的非增性得到 $Z_n - Z_0 \leq 0$，因此从 $\left\{X_n - X_0 \geq \varepsilon\right\}$ 可以推导出 $\left\{Y_n - Y_0 \geq \varepsilon\right\}$。
 
 因此，
-$$
+\begin{equation}
+
 P(X_n - X_0 \geq \varepsilon) \leq P(Y_n - Y_0 \geq \varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-$$
+
+\end{equation}
 
 同理可证得：
-$$
+\begin{equation}
+
 P(X_n - X_0 \leq -\varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-$$
+
+\end{equation}
 $\square$
 
 当取 $A_t = -c_t$，$B_t = c_t$ 时，退化为 Azuma 不等式的特殊情况。
 
 在定理中涉及到超鞅（上鞅）序列的概念，该可积随机过程满足：
-$$
+\begin{equation}
+
 \mathbb{E}[X_{n+1} \mid X_1, \ldots, X_n] \leq X_n, \quad n \in \mathbb{N}
-$$
+
+\end{equation}
 相应地，亚鞅（下鞅）序列满足：
-$$
+\begin{equation}
+
 \mathbb{E}[X_{n+1} \mid X_1, \ldots, X_n] \geq X_n, \quad n \in \mathbb{N}
-$$
+
+\end{equation}
 这里有一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望逐渐降低。”
 
 
@@ -1448,9 +1696,11 @@ $$
 ## 1.2.19 Slud 不等式
 
 若 $X \sim B(m,p)$，则有：
-$$
+\begin{equation}
+
 P\left(\frac{X}{m} \geq \frac{1}{2}\right) \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^{2}}{1-\varepsilon^{2}}\right)}\right]
-$$
+
+\end{equation}
 其中 $p = \frac{1-\varepsilon}{2}$。
 
 ### 证明
@@ -1463,17 +1713,23 @@ $$
 \end{align}
 $$
 令 $Z=\frac{X-\mu}{\sigma}$，代入 $\mu$ 和 $\sigma$，有：
-$$
+\begin{equation}
+
 P\left[\frac{X}{m} \geq \frac{1}{2}\right] = P\left[Z \geq \frac{\frac{m}{2}-\mu}{\sigma}\right] = P\left[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}\right]
-$$
+
+\end{equation}
 根据正态分布不等式（定理 21），有：
-$$
+\begin{equation}
+
 P\left[Z \geq x\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{2x^2}{\pi}\right)}\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-x^2\right)}\right]
-$$
+
+\end{equation}
 代入可得：
-$$
+\begin{equation}
+
 P\left[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^2}{1-\varepsilon^2}\right)}\right]
-$$
+
+\end{equation}
 $\square$
 
 
@@ -1481,32 +1737,42 @@ $\square$
 ## 1.2.20 上界不等式之加性公式
 
 若 $\sup(f)$ 和 $\sup(g)$ 分别为函数 $f$ 和 $g$ 的上界，则有：
-$$
+\begin{equation}
+
 \sup(f+g) \leq \sup(f) + \sup(g)
-$$
+
+\end{equation}
 
 ### 证明
 
 假设 $f,g$ 分别有相同的定义域 $D_f,D_g$。根据上确界的定义，对于每一个 $x \in D_f \cap D_g$，我们有
-$$
+\begin{equation}
+
 g(x) \leq \sup_{y \in D_g} g(y),
-$$
+
+\end{equation}
 从而
-$$
+\begin{equation}
+
 f(x) + g(x) \leq f(x) + \sup_{y \in D_g} g(y).
-$$
+
+\end{equation}
 因为这对于每一个 $x \in D_f \cap D_g$ 都成立，我们可以在不等式的两边取上确界，得到：
-$$
+\begin{equation}
+
 \sup_{x \in D_f \cap D_g}(f(x) + g(x)) \leq \sup_{x \in D_f \cap D_g} f(x) + \sup_{y \in D_g} g(y) \leq \sup_{z \in D_f} f(z) + \sup_{y \in D_g} g(y).
-$$
+
+\end{equation}
 这里我们使用了 $\sup_{x \in D_f \cap D_g} f(x) \leq \sup_{z \in D_f} f(z)$，因为 $D_f \cap D_g \subset D_f$。$\square$
 
 值得注意的是，该不等式在（4.33）中利用过两次，且原推导并没有用到 Jensen 不等式的任何性质。
 
 另外，加性公式有几个常见的变形，例如：
-$$
+\begin{equation}
+
 \sup(f-g) - \sup(f-k) \leq \sup(k-g)
-$$
+
+\end{equation}
 该不等式在（4.29）中出现过。
 
 
@@ -1514,28 +1780,38 @@ $$
 ## 1.2.21 正态分布不等式
 
 若 $X$ 是一个服从标准正态分布的随机变量，那么对于任意 $u \geq 0$，有：
-$$
+\begin{equation}
+
 \mathbb{P}[X \leq u] \leq \frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}
-$$
+
+\end{equation}
 
 ### 证明
 
 令 $G(u)=\mathbb{P}[X \leq u]$，则有：
-$$
+\begin{equation}
+
 2G(u) = \int_{-u}^u(2\pi)^{-1/2}e^{-x^2/2}\,dx = \int_{-u}^u(2\pi)^{-1/2}e^{-y^2/2}\,dy
-$$
+
+\end{equation}
 因此：
-$$
+\begin{equation}
+
 2\pi[2G(u)]^2 = \int_{-u}^u \int_{-u}^u e^{-(x^2+y^2)/2}\,dx\,dy
-$$
+
+\end{equation}
 让我们考虑更一般的积分形式：
-$$
+\begin{equation}
+
 2\pi[2G(u)]^2 = \iint_R e^{-(x^2+y^2)/2}\,dx\,dy
-$$
+
+\end{equation}
 此时 $R$ 为任意面积为 $4u^2$ 的区域。通过反证法可以证明，只有当 $R$ 为以原点为中心的圆形区域 $R_0$ 时，积分值最大：
-$$
+\begin{equation}
+
 R_0 = \{(x,y):\pi(x^2+y^2)\leq 4u^2\}
-$$
+
+\end{equation}
 此时，有：
 $$
 \begin{align}
@@ -1545,13 +1821,17 @@ $$
 \end{align}
 $$
 因此，有：
-$$
+\begin{equation}
+
 G(u) = \mathbb{P}[X \leq u] \leq \frac{1}{2}\sqrt{1-e^{-\frac{2}{\pi}u^2}}
-$$
+
+\end{equation}
 进一步，我们可以得到：
-$$
+\begin{equation}
+
 \mathbb{P}[X \geq u] \geq \frac{1}{2}\left(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}}\right)
-$$
+
+\end{equation}
 $\square$
 
 
@@ -1559,24 +1839,32 @@ $\square$
 ## 1.2.22 AM-GM 不等式
 
 算术平均数和几何平均数的不等式，简称 AM-GM 不等式。该不等式指出非负实数序列的算术平均数大于等于该序列的几何平均数，当且仅当序列中的每个数相同时，等号成立。形式上，对于非负实数序列 $\{x_n\}$，其算术平均值定义为：
-$$
+\begin{equation}
+
 A_n=\frac{1}{n}\sum_{i=1}^n x_i
-$$
+
+\end{equation}
 其几何平均值定义为：
-$$
+\begin{equation}
+
 G_n=\sqrt[n]{\prod_{i=1}^n x_i}
-$$
+
+\end{equation}
 则 AM-GM 不等式成立：
-$$
+\begin{equation}
+
 A_n \geq G_n
-$$
+
+\end{equation}
 
 ### 证明
 
 我们可以通过 Jensen 不等式来证明 AM-GM 不等式。首先，我们考虑函数 $f(x)=-\ln x$，该函数是凸函数，因此有：
-$$
+\begin{equation}
+
 \frac{1}{n}\sum_{i=1}^n -\ln x_i \geq -\ln\left(\frac{1}{n}\sum_{i=1}^n x_i\right)
-$$
+
+\end{equation}
 即：
 $$
 \begin{align}
@@ -1585,9 +1873,11 @@ $$
 \end{align}
 $$
 当取 $x_1 = x_2 = \cdots = x_n$ 时，等号成立。特别地，当 $n=2$ 时，我们有：
-$$
+\begin{equation}
+
 \frac{x_1 + x_2}{2} \geq \sqrt{x_1 x_2}
-$$
+
+\end{equation}
 $\square$
 
 
@@ -1595,9 +1885,11 @@ $\square$
 ## 1.2.23 Young 不等式
 
 对于任意 $a, b \geq 0$ 且 $p, q > 1$，若 $\frac{1}{p} + \frac{1}{q} = 1$，则有：
-$$
+\begin{equation}
+
 ab \leq \frac{a^p}{p} + \frac{b^q}{q}
-$$
+
+\end{equation}
 当且仅当 $a^p = b^q$ 时，等号成立。
 
 ### 证明
@@ -1617,9 +1909,11 @@ $$
 ## 1.2.24 Bayes 定理
 
 贝叶斯定理是概率论中的一个重要定理，它描述了在已知某些条件下更新事件概率的数学方法。贝叶斯定理的公式为：
-$$
+\begin{equation}
+
 P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
-$$
+
+\end{equation}
 其中：
 - $P(A|B)$ 是在事件 B 发生的情况下事件 A 发生的后验概率。
 - $P(B|A)$ 是在事件 A 发生的情况下事件 B 发生的似然函数。
@@ -1629,34 +1923,46 @@ $$
 ### 证明
 
 根据条件概率的定义，事件 A 在事件 B 发生下的条件概率 $P(A|B)$ 表示为：
-$$
+\begin{equation}
+
 P(A|B) = \frac{P(A \cap B)}{P(B)}
-$$
+
+\end{equation}
 
 同样地，事件 B 在事件 A 发生下的条件概率 $P(B|A)$ 表示为：
-$$
+\begin{equation}
+
 P(B|A) = \frac{P(A \cap B)}{P(A)}
-$$
+
+\end{equation}
 
 通过这两个公式可以得到联合概率 $P(A \cap B)$ 的两种表示方式：
-$$
+\begin{equation}
+
 P(A \cap B) = P(A|B) \cdot P(B)
-$$
+
+\end{equation}
 
 以及：
-$$
+\begin{equation}
+
 P(A \cap B) = P(B|A) \cdot P(A)
-$$
+
+\end{equation}
 
 由于联合概率的性质，我们可以将上述两个等式等同：
-$$
+\begin{equation}
+
 P(A|B) \cdot P(B) = P(B|A) \cdot P(A)
-$$
+
+\end{equation}
 
 将上述等式两边同时除以 $P(B)$，得到贝叶斯定理：
-$$
+\begin{equation}
+
 P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
-$$
+
+\end{equation}
 $\square$
 
 通过先验和后验的更新过程，贝叶斯统计提供了一种动态的、不断修正认知的不确定性量化方法。
@@ -1666,28 +1972,36 @@ $\square$
 ## 1.2.25 广义二项式定理
 
 广义二项式定理（Generalized Binomial Theorem）是二项式定理的扩展：
-$$
+\begin{equation}
+
 (x + y)^r = \sum_{k=0}^{\infty} \binom{r}{k} x^{r-k} y^k, \quad |x| < |y|, \quad k \in \mathbb{N}, \quad r \in \mathbb{R}
-$$
+
+\end{equation}
 其中我们令 $\binom{r}{k} := \frac{(r)_k}{k!}$，$(r)_k = r(r-1) \cdots (r-k+1)$ 为递降阶乘（falling factorial）。
 
 ### 证明
 
 首先代入定义，易证：
-$$
+\begin{equation}
+
 (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} = r \binom{r}{k}
-$$
+
+\end{equation}
 
 我们从特殊情况 $y = 1$ 开始。首先我们证明只要 $|x| < 1$，后者级数就会收敛。
 
 通过使用幂级数收敛半径的商式来证明这一点，由于绝对值的连续性使我们可以先在绝对值内部计算极限，可得：
-$$
+\begin{equation}
+
 \lim_{k \to \infty} \frac{|a_k|}{|a_{k+1}|} = \lim_{k \to \infty} \left| \frac{k+1}{r-k} \right| = |-1| = 1
-$$
+
+\end{equation}
 因此我们有一个为 1 的收敛半径。这种收敛使我们能够在 $|x| < 1$ 的收敛区域内应用逐项求导，得到：
-$$
+\begin{equation}
+
 \frac{d}{dx} \sum_{k=0}^\infty \binom{r}{k} x^k = \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1}
-$$
+
+\end{equation}
 如果我们将我们正在考虑的级数定义的函数记为 $g(x)$，我们得到：
 $$
 \begin{align}
@@ -1700,15 +2014,19 @@ $$
 上式的推导使用了前述引理。
 
 现在定义 $f(x) = (1 + x)^r$，我们通过通常的求导规则得到：
-$$
+\begin{equation}
+
 \frac{d}{dx} \left( \frac{g(x)}{f(x)} \right) = \frac{g'(x) f(x) - f'(x) g(x)}{f(x)^2} = \frac{r\frac{g(x)}{x+1}(1+x)^r - rg(x)(1 + x)^{r-1}}{f(x)^2} = 0
-$$
+
+\end{equation}
 $|x| < 1$ 意味着 $f(x) \neq 0$，因此 $g/f$ 为常数。又 $f(0) = g(0) = 1$ 可得 $f(x) = g(x)$。
 
 对于一般的 $x, y \in \mathbb{R}$ 且 $|x| < |y|$，我们有：
-$$
+\begin{equation}
+
 \frac{(x + y)^r}{y^r} = \left(\frac{x}{y} + 1\right)^r = \sum_{k=0}^\infty \binom{r}{k} \left(\frac{x}{y}\right)^k;
-$$
+
+\end{equation}
 收敛性由假设 $|x/y| < 1$ 保证。为了得到原定理的形式，我们只需乘以 $y^r$ 即可。$\square$
 
 
@@ -1716,21 +2034,27 @@ $$
 ## 1.2.26 Stirling 公式
 
 Stirling 公式是用于近似计算阶乘的一种公式，即使在 $n$ 很小时也有很高的精度。Stirling 公式的一种形式为：
-$$
+\begin{equation}
+
 n! = \sqrt{2\pi} n^{n+1/2} e^{-n} e^{r_n}
-$$
+
+\end{equation}
 其中，$\frac{1}{12n + 1} < r_n < \frac{1}{12n}$。
 
 ### 证明
 
 我们令：
-$$
+\begin{equation}
+
 S_n = \ln(n!) = \sum_{p=1}^{n-1} \ln(p+1)
-$$
+
+\end{equation}
 且
-$$
+\begin{equation}
+
 \ln(p+1) = A_p + b_p - \varepsilon_p
-$$
+
+\end{equation}
 其中：
 $$
 \begin{align}
@@ -1740,82 +2064,114 @@ b_p &= \frac{1}{2} \left[\ln(p+1) - \ln(p)\right] \\
 \end{align}
 $$
 此时：
-$$
+\begin{equation}
+
 S_n = \sum_{p=1}^{n-1} (A_p + b_p - \varepsilon_p)
 = \int_{1}^{n} \ln x \, dx + \frac{1}{2} \ln n - \sum_{p=1}^{n-1} \varepsilon_p
-$$
+
+\end{equation}
 易证 $\int \ln x \, dx = x \ln x - x + C, \, C \in \mathbb{R}$，故：
-$$
+\begin{equation}
+
 S_n = (n+1/2)\ln n - n + 1 - \sum_{p=1}^{n-1} \varepsilon_p
-$$
+
+\end{equation}
 此时：
-$$
+\begin{equation}
+
 \varepsilon_p = \frac{2p+1}{2} \ln\left(\frac{p+1}{p}\right) - 1
-$$
+
+\end{equation}
 
 接下来我们对 $\ln\left(\frac{p+1}{p}\right)$ 进行级数展开，根据广义二项式定理，即：
 
 令 $a = -1, \, t = \frac{1}{p}, \, t \in (-1, 1)$，则有：
-$$
+\begin{equation}
+
 \frac{1}{1 + t} = 1 - t + t^2 - t^3 + t^4 - \cdots
-$$
+
+\end{equation}
 对上式进行积分，我们有：
-$$
+\begin{equation}
+
 \ln(1 + t) = t - \frac{1}{2} t^2 + \frac{1}{3} t^3 - \frac{1}{4} t^4 + \cdots
-$$
+
+\end{equation}
 如果我们令 $-t$ 来代替 $t$，则有：
-$$
+\begin{equation}
+
 \ln \frac{1}{1 - t} = t + \frac{1}{2} t^2 + \frac{1}{3} t^3 + \frac{1}{4} t^4 + \cdots 
-$$
+
+\end{equation}
 将两式相加，我们有：
-$$
+\begin{equation}
+
 \frac{1}{2} \ln \frac{1 + t}{1 - t} = t + \frac{1}{3} t^3 + \frac{1}{5} t^5 + \cdots
-$$
+
+\end{equation}
 
 回到我们的问题，我们令 $t = (2p + 1)^{-1} \in (0, 1)$，如此才满足 $\frac{1+t}{1-t} = \frac{p+1}{p}$，带入前式：
-$$
+\begin{equation}
+
 \varepsilon_p = \frac{1}{3(2p+1)^2} + \frac{1}{5(2p+1)^4} + \frac{1}{7(2p+1)^6} + \cdots
-$$
+
+\end{equation}
 因此：
-$$
+\begin{equation}
+
 \varepsilon_p < \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{(2p+1)^{2i}} 
 = \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{(2p+1)^2}} 
 = \frac{1}{3[(2p+1)^2 - 1]} 
 = \frac{1}{12} \left(\frac{1}{p} - \frac{1}{p+1}\right)
-$$
+
+\end{equation}
 且
-$$
+\begin{equation}
+
 \varepsilon_p > \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{[3(2p+1)^2]^{i}} 
 = \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{3(2p+1)^2}} 
 = \frac{1}{3(2p+1)^2 - 1}
-$$
+
+\end{equation}
 易证
-$$
+\begin{equation}
+
 (p+\frac{1}{12})(p+1+\frac{1}{12})
 = p^2 + \frac{7}{6}p + \frac{13}{144}
 > p^2 + p + \frac{1}{6}
 = \frac{1}{12} [3(2p+1)^2 - 1], \quad p \in \mathbb{N}^+
-$$
+
+\end{equation}
 因此：
-$$
+\begin{equation}
+
 \varepsilon_p > \frac{1}{12} \left(\frac{1}{p+\frac{1}{12}} - \frac{1}{p+1+\frac{1}{12}}\right)
-$$
+
+\end{equation}
 我们令：
-$$
+\begin{equation}
+
 B = \sum_{p=1}^{\infty} \varepsilon_p, \quad r_n = \sum_{p=n}^{\infty} \varepsilon_p
-$$
+
+\end{equation}
 那么易得：
-$$
+\begin{equation}
+
 \frac{1}{13} < B < \frac{1}{12}, \quad \frac{1}{12(n+1)} < r_n < \frac{1}{12n}
-$$
+
+\end{equation}
 带入 $S_n$ 的表达式：
-$$
+\begin{equation}
+
 S_n = (n+\frac{1}{2})\ln n - n + 1 - B + r_n
-$$
+
+\end{equation}
 可得：
-$$
+\begin{equation}
+
 n! = e^{1-B} n^{n+1/2} e^{-n} e^{r_n}
-$$
+
+\end{equation}
 令 $C = e^{1-B}$，我们可知常数 $C$ 的取值范围为 $(e^{11/12}, e^{12/13})$，此处我们取 $C = \sqrt{2\pi}$，该公式得证。$\square$
 
 
@@ -1823,11 +2179,15 @@ $$
 ## 1.2.27 分离超平面定理
 
 如果有两个不相交的非空凸集，则存在一个超平面能够将它们完全分隔开，这个超平面叫做分离超平面（Separating Hyperplane）。形式上，设 $A$ 和 $B$ 是 $\mathbb{R}^n$ 中的两个不相交的非空凸集，那么存在一个非零向量 $v$ 和一个实数 $c$，使得：
-$$\langle x, v \rangle \geq c \, \text{且} \, \langle y, v \rangle \leq c$$
+\begin{equation}
+\langle x, v \rangle \geq c \, \text{且} \, \langle y, v \rangle \leq c
+\end{equation}
 对所有 $x \in A$ 和 $y \in B$ 都成立。即超平面 $\langle \cdot, v \rangle = c$ 以 $v$ 作为分离轴（Separating Axis），将 $A$ 和 $B$ 分开。
 
 进一步，如果这两个集合都是闭集，并且至少其中一个是紧致的，那么这种分离可以是严格的，即存在 $c_1 > c_2$ 使得：
-$$\langle x, v \rangle > c_1 \, \text{且} \, \langle y, v \rangle < c_2$$
+\begin{equation}
+\langle x, v \rangle > c_1 \, \text{且} \, \langle y, v \rangle < c_2
+\end{equation}
 
 在不同情况下，我们可以通过调整 $v$ 和 $c$ 来使得分离超平面的边界更加清晰。
 
@@ -1863,7 +2223,9 @@ $$\langle x, v \rangle > c_1 \, \text{且} \, \langle y, v \rangle < c_2$$
 ## 1.2.28 支撑超平面定理
 
 对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。形式上，若 $S$ 是非空凸集，且 $x_0$ 是 $S$ 的边界上的一点，那么存在一个包含 $x_0$ 的支撑超平面。如果 $x^* \in X^* \backslash \{0\}$（$X^*$ 是 $X$ 的对偶空间，$x^*$ 是一个非零的线性泛函），并且对于所有 $x \in S$ 都有 $x^*\left(x_0\right) \geq x^*(x)$，那么
-$$H = \{x \in X: x^*(x) = x^*\left(x_0\right)\}$$
+\begin{equation}
+H = \{x \in X: x^*(x) = x^*\left(x_0\right)\}
+\end{equation}
 定义了一个支撑超平面。
 
 ### 证明

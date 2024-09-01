@@ -13,19 +13,25 @@
 8.1介绍了遗憾这一评估指标的基本概念，我们在此基础上梳理一下其与超额风险这一评估指标的区别。
 
 超额风险这一评估指标被定义为：
-$$
+$$\begin{equation}
+
 ER = \mathbb{E}_{(x,y)\sim D}[l(w_{T+1},(x,y))] - \min_{w \in W} \mathbb{E}_{(x,y)\sim D}[l(w,(x,y))]
-$$
+
+\end{equation}$$
 其中，$ER$ 指的是excess risk，等式右边的前半部分 $\mathbb{E}_{(x,y)\sim D}[l(w_{T+1},(x,y))]$ 指的是模型 $w_{T+1}$ 的风险，等式右边的后半部分 $\min_{w \in W} \mathbb{E}_{(x,y)\sim D}[l(w,(x,y))]$ 指的是假设空间内的最优模型的风险。值得注意的是，这里的评估是在整个数据集上进行的，也正是因为如此，我们必须要引入期望的操作。
 
 而遗憾这一评估指标，被定义为：
-$$
+$$\begin{equation}
+
 regret = \sum^{T}_{t=1}f_t(w_t)-\min_{w\in W}\sum^{T}_{t=1}f_t(w)
-$$
+
+\end{equation}$$
 其中，$f_t(w_t)$ 指的是：
-$$
+$$\begin{equation}
+
 \sum^{T}_{t=1}l(w_t,(x_t,y_t)) - \min_{w \in W}\sum^{T}_{t=1}l(w,(x_t,y_t))
-$$
+
+\end{equation}$$
 由于$w_t$的计算过程与样本$(x_t,y_t)$ 无关，而是与$(x_1,y_1),...,(x_{t-1},y_{t-1})$ 有关，因此可以直接使用 $l(w,(x_t,y_t))$ 来衡量性能。
 
 由此，我们可以总结出二者之间的两个主要区别：首先，超额风险引入了**期望**，而遗憾没有；其次，超额风险是在所有数据上进行的一次性计算，而遗憾是对多次损失的一个**求和**。同时，由于在线学习不依赖于任何分布假设，因此适用于非独立同分布样本或固定分布的情形。
@@ -35,13 +41,17 @@ $$
 **P172**中定理8.3给出了随机多臂赌博机的遗憾界，我们在此基础上对部分证明过程进行补充。
 
 首先，（8.42）给出当$\overline{\mu}_*(p)+\sqrt{\frac{2\ln t}{p}}\le\overline{\mu}_i(q)+\sqrt{\frac{2\ln t}{q}}$成立时，必然有三种可能情况中的一种成立。但这三种情况并不是互斥的，因此显得不直观，这里将第二种情况做了细微调整，即：
-$$
+$$\begin{equation}
+
 \overline{\mu}_*(p)+\sqrt{\frac{2\ln t}{p}}\le\mu_*,\mu_*\le\overline{\mu}_i(q)+\sqrt{\frac{2\ln t}{q}},\overline{\mu}_i(q)+\sqrt{\frac{2\ln t}{q}}\le\overline{\mu}_i(p)
-$$
+
+\end{equation}$$
 此时，构造（8.44）和（8.45）的逻辑更加顺畅。我们令$\ell=\lceil(2\ln T)/\Delta_i^2\rceil$，则（8.45）转化为：
-$$
+$$\begin{equation}
+
 P(\mu_*\le\mu_i+\sqrt{\frac{2\ln t}{q}})=0,q\ge\ell
-$$
+
+\end{equation}$$
 代入（8.44），可得：
 $$
 \begin{align}
@@ -61,32 +71,42 @@ $$
 \end{align}
 $$
 对不等式两边同时取极限，可得：
-$$
+$$\begin{equation}
+
 \lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}\le2
-$$
+
+\end{equation}$$
 代入（8.46），同样可得类似（8.47）的结论。
 
 这里继续沿用书中给出的$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T}t^{-2}=\frac{\pi^2}{6}$，代入（8.46）得到遗憾界（8.47）：
-$$
+$$\begin{equation}
+
 \mathbb{E}[regret]\le\sum_{i=1}^{K}\frac{2\ln T}{\Delta_i^2}+O(1)
-$$
+
+\end{equation}$$
 
 此时（8.46）变为：
-$$
+$$\begin{equation}
+
 \mathbb{E}[n_i^T]\le\sum_{i\neq*}^K\frac{2\ln T}{\Delta_i}+(1+\frac{\pi^2}{3}){\Delta_i}=O(K\log T)
-$$
+
+\end{equation}$$
 观察（8.47）可知，求和公式中的每一项符合对钩函数的构造，即：
-$$
+$$\begin{equation}
+
 f(x)=Ax+\frac{B}{x},x\gt0,A\gt0,B\gt0
-$$
+
+\end{equation}$$
 这里$x=\Delta_i,A=1+\frac{\pi^2}{3},B=2\ln T$，因此无论$\Delta_i$过大或过小时，都会导致遗憾界的上界变大。另外，遗憾界跟摇臂的个数$K$呈线性关系，当$K$越大时，遗憾界也越大。
 
 ## 8.3 【概念补充】线性赌博机
 
 **P176**的8.3.2节介绍了线性赌博机的概念，我们在此基础上对参数估计部分进行补充。为了估计线性赌博机的参数，我们将原问题转化为岭回归问题，即（8.52）：
-$$
+$$\begin{equation}
+
 f(w)=(Y-w^T X)^T(Y-w^T X)+\lambda w^T w
-$$
+
+\end{equation}$$
 为了求得最优解$w^*$，我们令$f'(w)=0$，可推导出（8.53）：
 $$
 \begin{align}
@@ -104,21 +124,29 @@ $$
 对于步长$\eta$，在缩放（8.87）中 $\mathbb{E}[\sum_{t=1}^T\hat f_t(z_t)]-\min_{w\in(1-\alpha)\mathcal{W}}\sum_{t=1}^T\hat f_t(w)$ 时，为使用引理8.3创造条件，因此采用步长$\eta=\frac{\Lambda}{l'\sqrt{T}}$。根据（8.89）的推导，我们可令$\Lambda=\Lambda_2$且$l'=\frac{dc}{\delta}$，此时，将$\eta=\frac{\Lambda_2}{(dc/\delta)\sqrt T}$带入到更新公式（8.76）中即可得到（8.88）。
 
 对于缩减系数$\alpha$与扰动系数$\delta$，可以一同考虑这两个系数的取值。观察（8.91）第一个不等式的形式，我们发现这是一个关于$\delta$的对钩函数：
-$$
+$$\begin{equation}
+
 f(\delta)=A\delta+\frac{B}{\delta}+C
-$$
+
+\end{equation}$$
 假设$\alpha$的取值与$\delta$无关，那么：
-$$
+$$\begin{equation}
+
 A=3lT,B=dc\Lambda_2\sqrt T,C=2\alpha cT
-$$
+
+\end{equation}$$
 令$f'(\delta)=0$，可得：
-$$
+$$\begin{equation}
+
 \delta^*=T^{-1/4}\sqrt{\frac{dc\Lambda_2}{3l}}
-$$
+
+\end{equation}$$
 此时，$f(\delta)$的最小值为：
-$$
+$$\begin{equation}
+
 f(\delta^*)=O(T^{3/4})
-$$
+
+\end{equation}$$
 如果我们想加速收敛，则可将$\alpha$的取值与$\delta$相关联。根据上面的结论，当迭代次数$T$足够大时，必然有$\delta\rightarrow0$。因此，不妨取$\alpha=\frac{\delta}{\Lambda_1}$，代入（8.91）中并利用对钩函数$f(\delta)$的性质，得到：
 $$
 \begin{align}

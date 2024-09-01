@@ -30,9 +30,11 @@
 在学习理论中，学习的概念可以等同于从 $X$ 到 $\{0, 1\}$ 的映射，或 $X$ 的子集。概念类是我们希望学习的概念的集合，用 $\mathcal{C}$ 表示。例如，它可以是平面中所有三角形的集合。
 
 > **假设空间**（hypothesis space）$\mathcal{H}$ 是指所有可能假设的集合，每个假设 $h \in \mathcal{H}$ 是一个从输入空间 $X$ 到输出空间 $Y$ 的映射函数，形式化定义为：  
-$$
+$$\begin{equation}
+
 \mathcal{H} = \{h: X \rightarrow Y\}
-$$
+
+\end{equation}$$
 
 假设空间的大小和复杂性决定了算法能够学习到的解决方案的类型。如果假设空间太小或太简单，它可能无法捕捉到数据中的复杂模式，导致欠拟合（Underfitting）。相反，如果假设空间过大或太复杂，它可能包含过于复杂的模型，这些模型可能会过度拟合（Overfitting）训练数据，从而在新的、未见过的数据上表现不佳。
 
@@ -43,47 +45,61 @@ $$
 为了衡量学习到的概念 $h$ 与目标概念 $c$ 之间的差异，定义了以下的度量方式：
 
 **泛化误差**：  
-$$
+$$\begin{equation}
+
 R(h)=\underset{x\sim\mathcal{D}}{\operatorname*{\mathbb{P}}}\left[h(x)\neq c(x)\right]=\underset{x\sim\mathcal{D}}{\operatorname*{\mathbb{E}}}\left[1_{h(x)\neq c(x)}\right], \tag{1}
-$$
+
+\end{equation}$$
 其中，$1_{\omega}$ 是事件 $\omega$ 的指示函数。
 
 由于泛化误差无法直接求得（其原因在于 $\mathcal{D}$ 的未知性），我们需要利用能够获取的信息来近似泛化误差，因此定义了经验误差：
 
 **经验误差**：  
-$$
+$$\begin{equation}
+
 \widehat{R}_S(h)=\frac{1}{m}\sum_{i=1}^{m}1_{h(x_i)\neq c(x_i)}.\tag{2}
-$$
+
+\end{equation}$$
 
 经验误差的期望等于其泛化误差：
 
-$$
+$$\begin{equation}
+
 \mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
-$$
+
+\end{equation}$$
 
 证明过程分为两步，首先考察等式右边，泛化误差可表示为： 
 
-$$
+$$\begin{equation}
+
 R(h ; \mathcal{D})=P_{(x, y) \sim \mathcal{D}}(h(x) \neq y)=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(h(x) \neq y)]
-$$
+
+\end{equation}$$
 
 然后考察等式左边，经验误差可表示为： 
 
-$$
+$$\begin{equation}
+
 \widehat{R}(h ; D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)
-$$
+
+\end{equation}$$
 
 经验误差的期望为： 
 
-$$
+$$\begin{equation}
+
 \mathrm{E}[\widehat{R}(h ; D)]=\underset{D \sim D^{m}}{\mathrm{E}}[\widehat{R}(h)]=\frac{1}{m} \sum_{i=1}^{m} \underset{(x,y) \sim D}{\mathrm{E}}[\mathbb{I}\left(h\left(\boldsymbol{x}_{i}\right) \neq y_{i}\right)]
-$$
+
+\end{equation}$$
  
 由于样本服从独立同分布，所有样本的期望值相同，期望的平均值就等于样本的期望，因此：
 
-$$
+$$\begin{equation}
+
 \mathrm{E}[\widehat{R}(h ; D)]=R(h ; \mathcal{D})
-$$
+
+\end{equation}$$
 
 证毕。
 
@@ -110,9 +126,11 @@ $$
 PAC学习理论主要研究如何在有限的样本和计算资源下，从给定的假设空间中找到一个近似正确的假设。PAC-Bayes理论结合了PAC学习和贝叶斯方法的优点，其核心思想是通过考虑假设空间中的概率分布来描述学习算法的行为，并给出关于学习算法在有限数据情况下泛化误差的界限。
 
 PAC-Bayes不等式是PAC-Bayes理论的核心结果之一，它为后验分布下的泛化误差提供了一个上界。典型的PAC-Bayes不等式形式如下（参考文献：[PAC-Bayesian Stochastic Model Selection](https://link.springer.com/article/10.1023/A:1021840411064)）：
-$$
+$$\begin{equation}
+
 \mathbb{E}_{Q}[L(h)] \leq \mathbb{E}_{Q}[\hat{L}(h)] + \sqrt{\frac{KL(Q \| P) + \ln\frac{1}{\delta} + \ln m + \ln 2}{2m-1}}
-$$
+
+\end{equation}$$
 
 其中：
 - $L(h)$ 是假设 $h$ 的真实误差（泛化误差）。
