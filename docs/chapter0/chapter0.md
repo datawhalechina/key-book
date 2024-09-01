@@ -53,7 +53,7 @@
 - [谢文睿](https://github.com/Sm1les)：项目激励与支持
 - [张雨](https://github.com/Drizzle-Zhang)：第2章部分内容修改
 - [J.Hu](https://github.com/inlmouse)：第1章内容编辑
-- [赵志民](https://github.com/zhimin-z)：项目二期更新与维护
+- [赵志民](https://github.com/zhimin-z)：项目二期更新与维护，全书内容编辑
 - [詹好](https://github.com/zhanhao93)：项目规划与统筹，全书内容编辑
 
 ---
