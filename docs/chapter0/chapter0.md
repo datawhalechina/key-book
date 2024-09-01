@@ -62,7 +62,3 @@
 4. Devroye, Luc, László Györfi, and Gábor Lugosi. A probabilistic theory of pattern recognition. Vol. 31. Springer Science & Business Media, 2013.
 5. Mohri, Mehryar. "Foundations of machine learning." (2018).
 6. Wainwright, Martin J. High-dimensional statistics: A non-asymptotic viewpoint. Vol. 48. Cambridge university press, 2019.
-
----
-
-[1]: 关于学习理论的作用，可参阅《机器学习理论导引》第1.5节内容。
