@@ -43,8 +43,6 @@
 
 -- *ML67*
 
-**特别说明**：由于*Understanding Machine Learning*和*Foundations of Machine Learning*中包含大量优秀的理论材料，为避免重复劳动并减少工作量，项目中将大量引用其中的内容。大家也可以将此项目视为《机器学习理论导引》、*Understanding Machine Learning*（简称《UML》）和*Foundations of Machine Learning*（简称《FOML》）的融合整理。
-
 ## 项目成员
 
 - [王茂霖](https://github.com/mlw67)：第2-7章内容编辑，项目二期更新与修订
@@ -55,6 +53,15 @@
 - [J.Hu](https://github.com/inlmouse)：第1章内容编辑
 - [赵志民](https://github.com/zhimin-z)：项目二期更新与维护，全书内容编辑
 - [詹好](https://github.com/zhanhao93)：项目规划与统筹，全书内容编辑
+
+## 参考文献
+
+1. Feller, William. "An introduction to probability theory and its applications." (1971).
+2. Kearns, Michael J., and Umesh Vazirani. An introduction to computational learning theory. MIT press, 1994.
+3. Boyd, Stephen, and Lieven Vandenberghe. Convex optimization. Cambridge university press, 2004.
+4. Devroye, Luc, László Györfi, and Gábor Lugosi. A probabilistic theory of pattern recognition. Vol. 31. Springer Science & Business Media, 2013.
+5. Mohri, Mehryar. "Foundations of machine learning." (2018).
+6. Wainwright, Martin J. High-dimensional statistics: A non-asymptotic viewpoint. Vol. 48. Cambridge university press, 2019.
 
 ---
 

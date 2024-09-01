@@ -1612,11 +1612,9 @@ $$
 
 Azuma 不等式要求鞅差序列的对称界限，即 $-c_i \leq Z_i - Z_{i-1} \leq c_i$。如果已知的界限是非对称的，即 $a_i \leq Z_i - Z_{i-1} \leq b_i$，为了使用 Azuma 不等式，我们可以选择 $c_i = \max(|a_i|, |b_i|)$。尽管这可能会浪费关于 $Z_i - Z_{i-1}$ 的有界性信息，但我们可以通过 Azuma 不等式的一般形式来解决这个问题。
 
-**引理 1** (Doob 分解定理)：
+**引理 1** (Doob 分解定理)【详细证明参考：[The Doob-Meyer Decomposition](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition)】：
 
 设 $(\Omega, \mathcal{F}, \mathbb{P})$ 是一个概率空间，$I = \{0, 1, 2, \ldots, N\}, N \in \mathbb{N}$ 是一个索引集合，$(\mathcal{F}_n)_{n \in I}$ 是 $\mathcal{F}$ 的一个过滤器，$X = (X_n)_{n \in I}$ 是一个适应的随机过程，且对于任意 $n \in I$，$\mathbb{E}[|X_n|] < \infty$。则存在一个适应的随机过程 $M = (M_n)_{n \in I}$ 和一个 $A_0 = 0$ 的可积可预测的随机过程 $A = (A_n)_{n \in I}$，使得 $X_n = M_n + A_n, n \in I$。
-
-详细证明参考[文章](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition/)。
 
 根据 Doob 分解引理，我们可以将超鞅 $X_t$ 分解为 $X_t = Y_t + Z_t$，此时 $\{Y_t, \mathcal{F}_t\}$ 是鞅差序列，$\{Z_t, \mathcal{F}_t\}$ 是一个非递增的可预测序列。在 Azuma 不等式的一般形式中，若有 $A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，则：
 \begin{equation}

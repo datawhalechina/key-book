@@ -64,9 +64,3 @@ $$\begin{equation}
 ![shattering](../images/shattering.jpg)
 
 因此，线性分类器在$R^2$中的VC维为3。
-
-## 部分参考文献
-
-[1] Understanding Machine Learning：3  
-[2] Foundations of Machine Learning：3，4  
-[3] Statistical Learning Theory：9.2

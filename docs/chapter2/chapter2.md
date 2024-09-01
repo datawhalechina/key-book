@@ -125,7 +125,7 @@ $$\begin{equation}
 
 PAC学习理论主要研究如何在有限的样本和计算资源下，从给定的假设空间中找到一个近似正确的假设。PAC-Bayes理论结合了PAC学习和贝叶斯方法的优点，其核心思想是通过考虑假设空间中的概率分布来描述学习算法的行为，并给出关于学习算法在有限数据情况下泛化误差的界限。
 
-PAC-Bayes不等式是PAC-Bayes理论的核心结果之一，它为后验分布下的泛化误差提供了一个上界。典型的PAC-Bayes不等式形式如下（参考文献：[PAC-Bayesian Stochastic Model Selection](https://link.springer.com/article/10.1023/A:1021840411064)）：
+PAC-Bayes不等式是PAC-Bayes理论的核心结果之一，它为后验分布下的泛化误差提供了一个上界。典型的PAC-Bayes不等式形式如下（详细证明参考：[PAC-Bayesian Stochastic Model Selection](https://link.springer.com/article/10.1023/A:1021840411064)）：
 $$\begin{equation}
 
 \mathbb{E}_{Q}[L(h)] \leq \mathbb{E}_{Q}[\hat{L}(h)] + \sqrt{\frac{KL(Q \| P) + \ln\frac{1}{\delta} + \ln m + \ln 2}{2m-1}}
@@ -201,9 +201,3 @@ $$\begin{equation}
 因此，对于每个反例$e(i,j)$，公式$T_R \vee T_B \vee T_Y$都不会为真，这就保证了公式与样本集$S_G$一致。
 
 如果我们可以有效地学习3项DNF公式，那么就可以用它来解决 $NP$ 完全问题（如图的3-着色），这意味着$RP = NP$。由于普遍认为$RP \neq NP$，所以3项DNF类在PAC学习下是不可有效学习的。
-
-## 参考文献
-
-[1] Understanding Machine Learning：3.1，8.1  
-[2] Foundations of Machine Learning：2  
-[3] An Introduction to Computational Learning Theory：1.2
