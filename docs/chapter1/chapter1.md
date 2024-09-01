@@ -1281,94 +1281,72 @@ $$
   
 ## 1.2.14 Hoeffding 不等式
 
-### 引理 1 (Hoeffding 定理)
-
-若 $\mathbb{E}[X] = 0, X \in [a, b]$，则对于任意 $\lambda \in \mathbb{R}$，有：
+设有 $m$ 个独立随机变量 $X_{i} \in \left[a_{i}, b_{i}\right]$，令 $\bar{X}$ 为 $X_{i}$ 的均值。Hoeffding 不等式表示：
 $$
-\begin{equation}
-\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
-\end{equation}
+P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
 $$
 
 ### 证明
 
-由于 $e^x$ 为凸函数，对于任意 $x \in [a, b]$，有：
+首先，我们引入一个引理 (Hoeffding 定理)：
+
+对于 $\mathbb{E}[X] = 0$ 且 $X \in [a, b]$ 的随机变量，对于任意 $\lambda \in \mathbb{R}$，有：
 $$
-\begin{equation}
+\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
+$$
+
+由于 $e^x$ 是凸函数，对于任意 $x \in [a, b]$，可以写为：
+$$
 e^{\lambda x} \leq \frac{b-x}{b-a}e^{\lambda a} + \frac{x-a}{b-a}e^{\lambda b}
-\end{equation}
 $$
+
 对上式取期望，得到：
 $$
-\begin{equation}
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}
-\end{equation}
 $$
 
-记 $\theta = -\frac{a}{b-a} > 0, h = \lambda(b-a)$，则：
+记 $\theta = -\frac{a}{b-a}$，$h = \lambda(b-a)$，则：
 $$
-\begin{equation}
 \frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = \left[1-\theta + \theta e^{h}\right]e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}
-\end{equation}
 $$
 
-记函数 $\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$。注意到 $\theta$ 实际上与 $h$ 无关。考察关于 $h$ 的偏导数：
+定义函数 $\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$。注意到 $\theta$ 实际上与 $h$ 无关。对 $h$ 求偏导数：
 $$
-\begin{equation}
 \frac{\partial \varphi}{\partial h} = \frac{\theta e^h}{1 - \theta + \theta e^h} - \theta
-\end{equation}
 $$
-显然有：$\frac{\partial \varphi}{\partial h}|_{h=0^+} = 0$。同理，使用链式法则可计算：
+
+显然有 $\frac{\partial \varphi}{\partial h}\big|_{h=0^+} = 0$。同理，利用链式法则可得：
 $$
-\begin{equation}
 \frac{\partial^2 \varphi}{\partial h^2} = \frac{\theta e^h(1 - \theta + \theta e^h) - \theta^2e^{2h}}{(1 - \theta + \theta e^h)^2} = \frac{\theta e^h}{1 - \theta + \theta e^h}\left(1- \frac{\theta e^h}{1 - \theta + \theta e^h}\right) \leq \frac{1}{4}
-\end{equation}
-$$
-由泰勒公式可得：
-$$
-\begin{equation}
-\varphi(\theta, h) \leq 0 + 0 + \frac{h^2}{8} = \frac{\lambda^2(b-a)^2}{8}
-\end{equation}
-$$
-$\square$
-
-### Hoeffding 不等式
-
-对于 $m$ 个独立随机变量 $X_{i} \in \left[a_{i}, b_{i}\right]$，令 $\bar{X}$ 为 $X_{i}$ 的均值，则有：
-$$
-\begin{equation}
-P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
-\end{equation}
 $$
 
-### 证明
+根据泰勒展开式，可以得到：
+$$
+\varphi(\theta, h) \leq \frac{h^2}{8} = \frac{\lambda^2(b-a)^2}{8}
+$$
 
 由 Markov 不等式可知，对于任意 $\lambda > 0$：
 $$
-\begin{equation}
 P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) = P\left(e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}
-\end{equation}
 $$
-由独立性及 Hoeffding 引理：
-$$
-\begin{equation}
-\frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}} = e^{-\lambda \varepsilon} \prod_{i=1}^{m} \mathbb{E}\left[e^{\lambda\left(X_{i} - \mathbb{E}\left[X_{i}\right]\right) / m}\right] \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2}\left(b_{i} - a_{i}\right)^{2}}{8 m^{2}}\right)
-\end{equation}
-$$
-考虑二次函数 $g(\lambda) = -\lambda \varepsilon + \frac{\lambda^{2}}{8 m^{2}} \sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}$，容易求得最小值为 $-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}$。
 
-因此：
+利用随机变量的独立性及 Hoeffding 引理，有：
 $$
-\begin{equation}
-P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp (g(\lambda)) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
-\end{equation}
+\frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}]})\right]}{e^{\lambda \varepsilon}} = e^{-\lambda \varepsilon} \prod_{i=1}^{m} \mathbb{E}\left[e^{\lambda\left(X_{i} - \mathbb{E}\left[X_{i}\right]\right) / m}\right] \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2}\left(b_{i} - a_{i}\right)^{2}}{8 m^{2}}\right)
+$$
+
+考虑二次函数 $g(\lambda) = -\lambda \varepsilon + \frac{\lambda^{2}}{8 m^{2}} \sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}$，其最小值为 $-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}$。
+
+因此可以得到：
+$$
+P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
 $$
 $\square$
 
-注意，这里没有限定随机变量同分布。Hoeffding 不等式可以用来解释集成学习的原理。
+注意，这里并未要求随机变量同分布，因此Hoeffding 不等式常用来解释集成学习的基本原理。
 
 
-  
+
 ## 1.2.15 McDiarmid 不等式
 
 对于 $m$ 个独立随机变量 $X_{i} \in \mathcal{X}$，若函数 $f$ 是差有界的，则对于任意 $\varepsilon > 0$，有：
