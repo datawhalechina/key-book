@@ -95,7 +95,23 @@ $$
 
 
 
-## 1.1.2 凸函数
+## 1.1.3 Hessian 矩阵
+
+Hessian 矩阵 $H_f$ 是由函数 $f(x)$ 的二阶偏导数组成的方阵，即：
+$$
+\begin{equation}
+\mathbf H_f= \begin{bmatrix}
+  \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]
+  \dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]
+  \vdots & \vdots & \ddots & \vdots \\[2.2ex]
+  \dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}.
+\end{equation}
+$$
+其中，$x=[x_1,x_2,\cdots,x_n]$。
+
+
+## 1.1.4 凸函数
 
 凸函数（convex function）是定义在凸集上的实值函数，满足以下性质：对于定义域内的任意两个点 $x$ 和 $y$ 以及满足 $\alpha\in[0,1]$ 的任意标量 $\alpha$，函数图像上这两点之间的线段位于或位于函数图像上方，即：
 $$
@@ -116,18 +132,6 @@ $$
 其中，$\nabla f(x)$ 表示函数 $f(x)$ 在点 $x$ 处的梯度。几何上，这意味着函数的图像位于任意一点处的切线之上。
 
 2. **二阶条件**：若函数 $f(x)$ 是二次可微的，则它是凸函数当且仅当其 Hessian 矩阵 $H_f$ 在其定义域内的所有点 $x$ 上都是半正定的（即矩阵的所有特征值均为非负）。
-Hessian 矩阵 $H_f$ 是由函数 $f(x)$ 的二阶偏导数组成的方阵：
-$$
-\begin{equation}
-\mathbf H_f= \begin{bmatrix}
-  \dfrac{\partial^2 f}{\partial x_1^2} & \dfrac{\partial^2 f}{\partial x_1\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_1\,\partial x_n} \\[2.2ex]
-  \dfrac{\partial^2 f}{\partial x_2\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f}{\partial x_2\,\partial x_n} \\[2.2ex]
-  \vdots & \vdots & \ddots & \vdots \\[2.2ex]
-  \dfrac{\partial^2 f}{\partial x_n\,\partial x_1} & \dfrac{\partial^2 f}{\partial x_n\,\partial x_2} & \cdots & \dfrac{\partial^2 f}{\partial x_n^2}
-\end{bmatrix}.
-\end{equation}
-$$
-其中，$x=[x_1,x_2,\cdots,x_n]$。
 
 3. **Jensen 不等式**：若 $f(x)$ 是凸函数，则对于定义域内的任意一组点 ${x_1, x_2, \cdots, x_n}$ 和归一化的非负权重 ${w_1, w_2, \cdots, w_n}$，即 $\sum_{i=1}^n w_i=1$，有：
 $$
@@ -152,7 +156,7 @@ $$
 
 
 
-## 1.1.3 凹函数
+## 1.1.5 凹函数
 
 凹函数（concave function）的定义与凸函数相反。对于其定义域内的任意两个点 $x$ 和 $y$ 以及满足 $\alpha\in[0,1]$ 的任意标量 $\alpha$，满足以下不等式：
 $$
@@ -166,7 +170,7 @@ $$
 
 
 
-## 1.1.4 强凸函数
+## 1.1.6 强凸函数
 
 对于定义在凸集上的函数 $f(x)$，若其满足以下性质，则称其为强凸函数：
 $$
@@ -210,7 +214,7 @@ $$
 
 
 
-## 1.1.5 指数凹函数
+## 1.1.7 指数凹函数
 
 若函数 $f(x)$ 的指数 $\exp(f(x))$ 为凹函数，则称 $f(x)$ 为指数凹（exponentially concave）函数。注意，当 $\exp(f(x))$ 是凹函数时，$f(x)$ 本身不一定是凹函数。
 若 $f(x)$ 为指数凹函数，则 $\exp(-f(x))$ 必为凸函数。因此，指数凹是一种弱于强凸但强于凸的性质。
@@ -224,7 +228,7 @@ $$
 
 
 
-## 1.1.6 凸优化
+## 1.1.8 凸优化
 
 凸优化（convex optimization）是优化理论的一个分支，研究的是在凸函数的凸集上进行优化的问题。凸优化的目标是在满足一组凸约束条件的情况下，找到凸目标函数的最小值。
 
@@ -271,7 +275,7 @@ $$
 
 
 
-## 1.1.7 仿射
+## 1.1.9 仿射
 
 仿射变换（Affine transformation），又称仿射映射，是指在几何中，对一个向量空间进行一次线性变换并加上一个平移，变换为另一个向量空间。若该线性映射被表示为矩阵 $A$，平移被表示为向量 $\vec{b}$，则仿射映射 $f$ 可表示为：
 $$
@@ -305,7 +309,7 @@ $$
 
 
 
-## 1.1.8 Slater条件/定理
+## 1.1.10 Slater条件/定理
 
 关于强对偶性的讨论，原书已有详细说明，此处不再赘述。这里着重讨论 **P11** 左下角附注提到的 Slater 条件，即：
 
@@ -413,7 +417,7 @@ $$
 
 
 
-## 1.1.9 KKT条件
+## 1.1.11 KKT条件
 
 KKT条件（Karush-Kuhn-Tucker条件）在凸优化领域具有至关重要的地位。虽然在原书的 **P12-13** 中对其进行了基本解释，此处将进行更为深入的分析。KKT条件中的符号 $\lambda_i,\ i\in[m]$ 和 $\mu_i,\ i\in[n]$ 被视为 KKT 乘子。特别地，当 $m=0$ 时，即不存在不等式约束条件时，KKT条件退化为拉格朗日条件，此时 KKT 乘子也被称为拉格朗日乘子。以下为 KKT 条件的证明：
 
@@ -450,7 +454,7 @@ KKT条件和 Slater 条件通常被归类为“正则条件”（regularity cond
 
 
 
-## 1.1.10 偏序集
+## 1.1.12 偏序集
 
 序理论（order theory）是研究捕捉数学排序直觉的各种二元关系的数学分支。在序理论中，一个偏序集（partial order set，简称 poset）包含一个非空集合 $P$ 和一个满足特定条件的二元关系 $\leq$。这个二元关系称为偏序关系，它必须满足以下三个条件：
 
@@ -462,25 +466,25 @@ KKT条件和 Slater 条件通常被归类为“正则条件”（regularity cond
 
 
 
-## 1.1.11 上下界
+## 1.1.13 上下界
 
 上界（upper bound 或 majorant）是与偏序集有关的特殊元素，指偏序集中大于或等于其子集中一切元素的元素。若数集 $S$ 为实数集 $R$ 的子集且有上界，则显然有无穷多个上界，其中最小的上界常常具有重要作用，称为数集 $S$ 的上确界（tight upper bound 或 supremum）。同理，可以定义下界（lower bound 或 minorant）和下确界（tight lower bound 或 infimum）。
 
 
 
-## 1.1.12 尾界
+## 1.1.14 尾界
 
 **尾界（tail bound）**是指给定一个随机变量，其概率分布尾部部分的界限。上尾界（upper tail bound）描述随机变量在其分布上尾处的概率上限，而下尾界（lower tail bound）描述随机变量在其分布下尾处的概率上限。Chebyshev 不等式、Hoeffding 不等式和 Bernstein 不等式都是尾界的例子，它们提供了随机变量偏离其期望值的概率界限。
 
 
 
-## 1.1.13 置信界
+## 1.1.15 置信界
 
 **置信界（confidence bound）**是在估计一个未知参数时，给出一个包含该参数的区间，并且这个区间具有特定的置信水平。例如，一个95%的置信区间意味着我们有95%的信心该区间包含真实的参数值。置信界可以是上置信界（upper confidence bound），下置信界（lower confidence bound），或同时包含上下界的置信区间（confidence interval）。上置信界提供对参数估计的可能最大值的上限，下置信界提供对参数估计的可能最小值的下限。
 
 
 
-## 1.1.14 连续性
+## 1.1.16 连续性
 
 连续性（continuity）表示函数在某处的变化不会突然中断或跳跃。形式上，如果函数 $f(x)$ 在 $x = a$ 处满足以下条件，则称其在该点连续：
 
@@ -489,7 +493,7 @@ KKT条件和 Slater 条件通常被归类为“正则条件”（regularity cond
 
 连续性意味着输入的微小变化导致输出的微小变化。如果一个函数在其定义域的每个点上都是连续的，则称其为连续函数。
 
-Lipschitz 连续性是连续性的更强形式，它要求函数在变化速度方面有界。具体而言，如果存在一个常数 $L$，使得函数在任意两点的函数值之间的绝对差小于等于 $L$ 乘以两点之间的距离，则称该函数为 $L$-Lipschitz 连续，即：
+Lipschitz 连续性是连续性的更强形式，它要求函数在变化速度方面有界。具体而言，如果存在一个常数 $L$，使得函数在任意两点的函数值之间的绝对差小于等于 $L$ 乘以两点之间的距离，则称该函数为 $L-Lipschitz$ 连续，即：
 $$
 \begin{equation}
 \forall x,y\in \text{dom}(f),\ \exists L > 0\ \text{使得}\ \|f(x)-f(y)\|_2 \leq L\|x-y\|_2
@@ -506,9 +510,9 @@ $$
 \Rightarrow &\|f(x)-f(y)\|_2 \le L \|x-y\|_2
 \end{align}
 $$
-此时，函数是 $L$-Lipschitz 连续的。
+此时，函数是 $L-Lipschitz$ 连续的。
 
-2. 若函数 $f(x)$ 是 $L$-Lipschitz 连续的，即对于任意 $x,y$，有
+2. 若函数 $f(x)$ 是 $L-Lipschitz$ 连续的，即对于任意 $x,y$，有
 $$
 \begin{equation}
 \|f(x)-f(y)\|_2 \le L\|x-y\|_2
@@ -534,25 +538,118 @@ Lipschitz 连续性的性质在数学的各个领域中广泛应用，如分析�
 
 
 
-## 1.1.15 光滑性
+## 1.1.17 光滑性
 
 在数学分析中，函数的光滑性（smoothness）通过函数在某个域（称为可微性类）上的连续导数的数量来衡量。最基本的情况下，如果一个函数在每个点上都可导（因此连续），则可以认为它是光滑的。
+一方面，光滑性确保了梯度下降等优化算法能够更快收敛，并减少可能遇到的梯度震荡或发散的情况。
+另一方面，光滑性提供了函数曲率的信息，从而帮助设计更有效的优化算法，如加速梯度下降法或牛顿法。
 
-在优化理论中，$L$-光滑函数是指具有 $L$-Lipschitz 连续性的函数，这意味着函数的梯度的幅度在其定义域中的任何地方都被 $L$ 所限制。形式上，函数 $f(x)$ 被称为 $L$-光滑，则必须满足以下不等式：
+在优化理论中，$L$-光滑函数是指它的梯度具有 $L$-Lipschitz 连续性，这意味着函数的梯度在其定义域中的变化速率被 $L$ 所限制。
+形式上，对于任意 $x,y \in \mathbb{R}^n$，存在 $L > 0$，使得：
 $$
 \begin{equation}
-\forall x,y\in \text{dom}(f),\ \exists L > 0\ \text{使得}\ f(y) \leq f(x) + \nabla f(x)(y-x) + \frac{L}{2}\|y-x\|_2^2
+\|\nabla f(x) - \nabla f(y)\|_2 \leq L \|x - y\|_2
 \end{equation}
 $$
-这里，$L$ 被称为光滑系数。上式表明，对于光滑函数 $f(x)$，可以在任意一点处构造一个二次函数作为其上界。
+或者等价地，
+$$
+\begin{equation}
+\|\nabla^2 f(x)\|_2 \leq L
+\end{equation}
+$$
+或者等价地，
+$$
+\begin{equation}
+f(y) \leq f(x) + \langle \nabla f(x), y - x \rangle + \frac{L}{2}\|y - x\|_2^2
+\end{equation}
+$$
+以上三种定义方式是等价的，且 $L$ 被称为光滑系数。
+由定义3，我们可以看出，在光滑函数的任意一点处都可以构造一个二次函数作为其上界。
 
-如果一个函数的梯度是 $L$-Lipschitz 连续的，那么它就是 $L$-光滑的。因此，$L$-光滑性比连续性更强。换句话说，所有 $L$-光滑的函数都是连续的，但并非所有连续函数都是 $L$-光滑的。光滑性关注导数的存在和规则性，而 Lipschitz 连续性关注限制函数的变化速度。Lipschitz 连续性保证变化速度有界，而光滑性确保函数具有定义良好的导数。
+接下来我们证明这些定义的等价性。首先，我们证明定义1可以推导出定义2。
 
-$L$-光滑函数在优化中非常有用，因为它们可以加快梯度下降算法的收敛速度。此外，$L$-光滑性是许多优化算法的重要特性，包括随机梯度下降算法。
+考虑函数 $f$ 的梯度 $\nabla f(x)$ 的二阶泰勒展开：
+$$
+\begin{equation}
+\nabla f(y) = \nabla f(x) + \nabla^2 f(\xi)(y - x)
+\end{equation}
+$$
+其中 $\xi$ 是 $x$ 和 $y$ 之间的一点，$\nabla^2 f(\xi)$ 表示在点 $\xi$ 处的 Hessian 矩阵。
+
+根据 $L$-光滑性的定义1，我们有：
+$$
+\begin{equation}
+\|\nabla f(y) - \nabla f(x)\|_2 \leq L \|y - x\|_2
+\end{equation}
+$$
+
+将二阶泰勒展开的结果代入其中：
+$$
+\begin{equation}
+\|\nabla^2 f(\xi)(y - x)\|_2 \leq L \|y - x\|_2
+\end{equation}
+$$
+
+对于任意的非零向量 $v = y - x$，定义：
+$$
+\begin{equation}
+v' = \frac{v}{\|v\|_2}
+\end{equation}
+$$
+我们得到：
+$$
+\begin{equation}
+\|\nabla^2 f(\xi) v'\|_2 \leq L
+\end{equation}
+$$
+
+由于 $v'$ 是一个单位向量，这意味着 Hessian 矩阵 $\nabla^2 f(\xi)$ 作用在任意单位向量上时的范数不超过 $L$，因此 Hessian 矩阵的谱范数（即最大特征值的绝对值）满足：
+$$
+\begin{equation}
+\|\nabla^2 f(\xi)\|_2 \leq L
+\end{equation}
+$$
+其中，由于 $\xi$ 是 $x$ 和 $y$ 之间的一点，因此我们可以将上述结论推广到整个定义域。
+
+接下来我们证明定义2可以推导出定义3。由定义2，给定 $f$ 是 $L$-光滑的，对任意的 $x, y \in \mathbb{R}^n$，我们有：
+$$
+\begin{equation}
+f(y) \leq f(x) + \langle \nabla f(x), y - x \rangle + \frac{L}{2} \|y - x\|_2^2
+\end{equation}
+$$
+
+将定义中的 $x$ 和 $y$ 互换，得到：
+$$
+\begin{equation}
+f(x) \leq f(y) + \langle \nabla f(y), x - y \rangle + \frac{L}{2} \|x - y\|_2^2
+\end{equation}
+$$
+
+将两个不等式相加可得：
+$$
+\begin{equation}
+\langle \nabla f(x) - \nabla f(y), x - y \rangle \leq L \|x - y\|_2^2
+\end{equation}
+$$
+
+注意到不等式左侧的内积无论如何取值，该不等式均成立。
+当 $y - x$ 与 $\nabla f(x) - \nabla f(y)$ 平行时达到最大值。
+此时，不等式左侧的最大值为 $\|\nabla f(x) - \nabla f(y)\|_2 \|x - y\|_2$。
+因此，我们有：
+$$
+\begin{equation}
+\|\nabla f(x) - \nabla f(y)\|_2 \|x - y\|_2 \leq L \|x - y\|_2^2
+\end{equation}
+$$
+化简后即得证。
+
+这里对光滑性和 $Lipschitz$ 连续性进行一些比较：
+- $Lipschitz$ 连续性关注的是函数值变化的速度，即函数值的“陡峭程度”，而光滑性关注的是梯度变化的速度，即函数的“曲率”或二阶变化。
+- $Lipschitz$ 连续性表示函数变化不会太快，确保函数的整体平滑性，而光滑性表示梯度变化不会太快，确保函数曲面没有急剧的弯曲。
 
 
 
-## 1.1.16 次梯度
+## 1.1.18 次梯度
 
 次梯度（subgradient）是凸函数导数的推广形式。某些凸函数在特定区域内可能不存在导数，但我们依旧可以用次梯度来表示该区域内函数变化率的下界。形式上，对于凸函数 $f(x)$，在任意点 $x_0$ 处的次梯度 $c$ 必须满足以下不等式：
 $$
@@ -572,7 +669,7 @@ $$
 
 
 
-## 1.1.17 对偶空间
+## 1.1.19 对偶空间
 
 线性泛函（linear functional）是指从向量空间 $V$ 到对应标量域 $k$ 的线性映射，满足加法和数乘的性质，即对于任意向量 $x,y \in V$ 和标量 $\alpha \in k$，有：
 $$
@@ -585,7 +682,7 @@ $$
 
 
 
-## 1.1.18 Legendre变换
+## 1.1.20 Legendre变换
 
 将函数转换为另一种函数，常用于改变其定义域和属性，使问题更简单或更易分析。Legendre 变换（Legendre transform）常用于将一组独立变量转换为另一组独立变量，特别是在经典力学和热力学中。以下是 Legendre 变换的基本概念和步骤：
 
@@ -596,7 +693,7 @@ $$
 
 
 
-## 1.1.19 共轭函数
+## 1.1.21 共轭函数
 
 凸共轭（convex conjugate）是 Legendre 变换的一种推广，因此也被称为 Legendre-Fenchel 变换（Legendre-Fenchel transform）。通过凸共轭变换，原函数可以转换为凸函数，从而利用凸函数的性质来解决原问题。
 
@@ -647,7 +744,7 @@ $$
 
 
 
-## 1.1.20 σ-代数
+## 1.1.22 σ-代数
 
 σ-代数（或 σ-域）是测度论和概率论中的一个重要概念。σ-代数是一个满足特定封闭性质的集合族，使我们能够对这些集合定义一致的测度（如概率）。具体来说，σ-代数是一个集合族，满足以下三个性质：
 
@@ -666,7 +763,7 @@ $$
 
 
 
-## 1.1.21 鞅
+## 1.1.23 鞅
 
 鞅（Martingale）是概率论中的一个重要概念，用于描述某些类型的随机过程。鞅过程的特点是，其未来期望值在已知当前信息的条件下等于当前值。
 
@@ -706,7 +803,7 @@ $$
 
 
 
-## 1.1.22 KL 散度
+## 1.1.24 KL 散度
 
 KL 散度（Kullback-Leibler 散度），也称为相对熵，是一种用于衡量两个概率分布之间差异的非对称度量，在信息论和统计学中广泛应用。KL 散度衡量的是在使用近似分布时，相比于使用真实分布，所增加的“信息损失”或“不确定性”。
 
@@ -782,7 +879,7 @@ $$
 
 
 
-## 1.1.23 先验和后验
+## 1.1.25 先验和后验
 
 先验（Prior）和后验（Posterior）是贝叶斯统计中的两个核心概念，用于描述不确定性和信息更新的过程。
 
@@ -814,7 +911,7 @@ $$
 
 
 
-## 1.1.24 拓扑向量空间
+## 1.1.26 拓扑向量空间
 
 拓扑向量空间（Topological Vector Space，简称 TVS）是一个定义在拓扑域 $\mathbb{K}$（通常是带有标准拓扑的实数或复数）上的向量空间，该空间被赋予了一个拓扑结构，使得向量加法 $\cdot\, + \,\cdot\; : X \times X \to X$ 和标量乘法 $\cdot : \mathbb{K} \times X \to X$ 是连续函数（这些函数的定义域赋予了乘积拓扑）。这样的拓扑被称为 $X$ 上的**向量拓扑**或**TVS 拓扑**。
 
@@ -822,7 +919,7 @@ $$
 
 
 
-## 1.1.25 超平面
+## 1.1.27 超平面
 
 超平面（Hyperplane）是指一个比所在拓扑向量空间少一维的平滑仿射子空间。  
 半空间（Half Space）是指拓扑向量空间被超平面划分出的两个区域之一。
@@ -849,7 +946,9 @@ $$
 $$
 这些不等式中的每一个代表了超平面两侧的一个半空间，满足其中一个不等式的点位于相应的半空间中。
 
-## 1.1.26 紧空间
+
+
+## 1.1.28 紧空间
 
 紧空间（Compact Space）在数学中是一种具有特殊性质的空间，即它在某种意义上表现得像“有限的”，即使它可能看起来非常大，甚至是无限的。
 
