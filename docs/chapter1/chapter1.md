@@ -633,9 +633,7 @@ $$
 $$
 
 注意到不等式左侧的内积无论如何取值，该不等式均成立。
-当 $y - x$ 与 $\nabla f(x) - \nabla f(y)$ 平行时达到最大值。
-此时，不等式左侧的最大值为 $\|\nabla f(x) - \nabla f(y)\|_2 \|x - y\|_2$。
-因此，我们有：
+根据 Cauchy-Schwarz 不等式，当 $y - x$ 与 $\nabla f(x) - \nabla f(y)$ 平行时左侧内积取到最大值，即 $\|\nabla f(x) - \nabla f(y)\|_2 \|x - y\|_2$，代入可得：
 $$
 \begin{equation}
 \|\nabla f(x) - \nabla f(y)\|_2 \|x - y\|_2 \leq L \|x - y\|_2^2

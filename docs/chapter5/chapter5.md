@@ -25,17 +25,17 @@
 由于定理中提到的替换样本 $\beta$-均匀稳定性和移除样本 $\gamma$-均匀稳定性是非常强的条件，适用于任意的数据集 D 和任意的样本 **z**，因此我们可以得到关于*经验风险与泛化风险差距*（即 $\Phi(D)$） 的估计式。
 
 通过对损失函数的差值求和平均可以得到风险 (Risk) 的差距。由于替换样本的 $\beta$-均匀稳定性适用于任意 **z**，因此我们可以推导出 (5.22) 和 (5.23) 式，并使用 McDiarmid 不等式推导出*经验风险与泛化风险的差距*（即 $\Phi(D)$） 超过其平均值至少 $\epsilon$ 的概率。即：
-$$\begin{equation}
-
+$$
+\begin{equation}
 P(\phi(D)\geq\mathbb{E}[\Phi(D)]+\epsilon)\leq exp(\frac{-2m\epsilon^2}{(2m\beta+M)^2})
-
-\end{equation}$$
+\end{equation}
+$$
 之后进行简单的放缩估计即可得到最终的结果：
-$$\begin{equation}
-
+$$
+\begin{equation}
 P(R(\mathcal{L_D})-\hat R(\mathcal{L_D})\geq\beta+\epsilon)\leq exp(\frac{-2m\epsilon^2}{(2m\beta+M)^2})
-
-\end{equation}$$
+\end{equation}
+$$
 
 值得注意的是，（5.22）中的最后一步不等式推导其实省略了一步：
 $$
@@ -48,11 +48,11 @@ $$
 之所以这么做，是因为当样本量 $m$ 较大时，$\frac{\beta}{m}$ 的大小可以忽略不计，因此在结论中并未出现这一项。
 
 另外，（5.23）式也省略了一步：
-$$\begin{equation}
-
+$$
+\begin{equation}
 |E_{z\sim\mathcal{D}}[\ell(\mathfrak{L}_D,z)-\ell(\mathfrak{L}_{D^{i,z'_i}},z)]|\le E_{z\sim\mathcal{D}}[|\ell(\mathfrak{L}_D,z)-\ell(\mathfrak{L}_{D^{i,z'_i}},z)|]\le E_{z\sim\mathcal{D}}[\beta]=\beta
-
-\end{equation}$$
+\end{equation}
+$$
 
 关于移除样本 $\gamma$-均匀稳定性（5.18）的证明用到了（5.14）的结论，因此在不等式中构造出了类似于 $2m\beta$ 的 $4m\gamma$ 形式，其他推理步骤与（5.17）基本一致。
 
@@ -99,65 +99,65 @@ $$\begin{equation}
 首先，我们回顾不可知 PAC 可学的概念：
 
 对于所有分布 $\mathcal{D}$，若存在学习算法 $\mathcal{L}$ 与多项式函数 $poly(\cdot,\cdot,\cdot,\cdot)$，使得对于任意 $m\geq poly(1/\epsilon,1/\delta,size(\mathbf{x}),size(c))$，$\mathcal{L}$ 输出的假设能够满足：
-$$\begin{equation}
-
+$$
+\begin{equation}
    	P\big(E(h)-\min_{h'\in\mathcal{H}}E(h')\leq\epsilon\big)\geq1-\delta
-
-\end{equation}$$
+\end{equation}
+$$
 
 该证明利用了经验风险与泛化风险之间的联系，构造出（5.39），然后分而治之地讨论不同情况下的稳定性关系。
 
 其中，泛化风险与经验风险之差（5.40）可以根据定理5.1改写为：对于任意的 $\delta\in(0,1)$，以至少 $1-\delta$ 的概率有：
-$$\begin{equation}
-
+$$
+\begin{equation}
 R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2m\beta+M)\sqrt{\frac{ln(1/\delta)}{2m}}
-
-\end{equation}$$
+\end{equation}
+$$
 参考**P95**中对 $lim_{m\rightarrow +\infty}m\beta$ 的讨论，发现只要满足 $lim_{m\rightarrow +\infty}m\beta\lt\infty$ 的条件，算法的泛化性能便可得到保障，因此应确保 $\beta$ 的取值不要太大。在此定理中，我们选取 $\beta=1/m$，此时（5.40）简化为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 R(\mathfrak{L}_D)-\hat R(\mathfrak{L}_D)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(1/\delta)}{2m}}
-
-\end{equation}$$
+\end{equation}
+$$
 
 在处理 ERM 算法情况下泛化风险与经验风险之差（5.42）时，原书中有一处小错误，但对最终结论影响不大。以下是正确的推导过程：
 
 根据 $\ell(\mathfrak{L}_D,z)\in[0,M]$，可以得到 $\hat R \in [0,M]$，又因为 $R(h^*)=E_{\mathcal{D}}(\hat R(h^*))$，此时根据 Hoeffding 不等式（1.30），可知至少以 $1-\delta$ 的概率有：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \hat R(h^*)-R(h^*)\le M\sqrt{\frac{ln(1/\delta)}{2m}}
-
-\end{equation}$$
+\end{equation}
+$$
 结合（5.39）至（5.42）可知，至少以 $1-\delta$ 的概率有：
-$$\begin{equation}
-
+$$
+\begin{equation}
 R(\mathfrak{L}_D)-R(h^*)\le \frac{1}{m}+(2+M)\sqrt{\frac{ln(1/\delta)}{2m}}+M\sqrt{\frac{ln(1/\delta)}{2m}}
-
-\end{equation}$$
+\end{equation}
+$$
 此时（5.44）变为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \epsilon=\frac{1}{m}+(1+M)\sqrt{\frac{2ln(1/\delta)}{m}}
-
-\end{equation}$$
+\end{equation}
+$$
 令 $m'=\sqrt m$，则可以将上式转化为关于 $m'$ 的一元二次方程：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \epsilon m'^2-Am'-1=0
-
-\end{equation}$$
+\end{equation}
+$$
 其中 $A=(1+M)\sqrt{2ln(1/\delta)}$，根据求根公式可得：
-$$\begin{equation}
-
+$$
+\begin{equation}
 m'=\frac{A\pm\sqrt{A^2+4\epsilon}}{2\epsilon} = O(\frac{1}{\epsilon}\sqrt{ln(\frac{1}{\delta})})
-
-\end{equation}$$
+\end{equation}
+$$
 至此，我们得到了 $m$ 的渐近复杂度：
-$$\begin{equation}
-
+$$
+\begin{equation}
 m=m'^2=O(\frac{1}{\epsilon^2}ln(\frac{1/\delta)}))
-
-\end{equation}$$
+\end{equation}
+$$
 接下来的推导便水到渠成。
 
 ### （2）稳定性与可学性
@@ -173,33 +173,33 @@ m=m'^2=O(\frac{1}{\epsilon^2}ln(\frac{1/\delta)}))
 首先，我们根据 $k$ 的取值将情况分为两类讨论。
 
 当 $k$ 为偶数时，二项式展开的最大项为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \frac{1}{2^k} \binom{k}{k/2} \leq \frac{2}{\sqrt{2\pi k}} \exp(\frac{1}{12k} - \frac{2}{6k+1}) \lt \frac{2}{\sqrt{2\pi k}}
-
-\end{equation}$$
+\end{equation}
+$$
 第二步推导利用了 Stirling 公式，最后一步推导则利用了函数 $l(x) = \exp(\frac{1}{12x} - \frac{2}{6x+1})$ 在 $[1,\infty)$ 区间单调递增且取值在 $(0,1)$ 之间的特性。
 
 因此，我们有：
-$$\begin{equation}
-
+$$
+\begin{equation}
 P(|X-\frac{k}{2}| \leq \frac{a}{2}) = (a+1) \frac{2}{\sqrt{2\pi k}} \lt \frac{4a}{\sqrt{2\pi k}}
-
-\end{equation}$$
+\end{equation}
+$$
 当 $k$ 为奇数且 $k>1$ 时，二项式展开的最大项为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \frac{1}{2^k} \binom{k}{(k-1)/2} \lt \frac{1}{2^{k-1}} \binom{k-1}{(k-1)/2}
 \lt \frac{1}{\sqrt{2\pi (k-1)}} \lt \frac{2}{\sqrt{\pi k}}
-
-\end{equation}$$
+\end{equation}
+$$
 当 $k=1$ 时，二项式展开的最大项为 $\frac{1}{2} \lt \frac{2}{\sqrt{\pi}}$
 因此，我们有：
-$$\begin{equation}
-
+$$
+\begin{equation}
 P(|X-\frac{k}{2}| \leq \frac{a}{2}) = a \frac{2}{\sqrt{\pi k}} \lt \frac{4a}{\sqrt{2\pi k}}
-
-\end{equation}$$
+\end{equation}
+$$
 综上，引理5.2得证。
 
 ## 5.7 稳定性的适用性补充

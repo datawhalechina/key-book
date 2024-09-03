@@ -11,11 +11,11 @@
 VC维（Vapnik-Chervonenkis 维度）是衡量假设空间$\mathcal H$复杂性的重要工具。它表示假设空间能够打散的最大样本集的大小，是描述二元分类问题下假设空间复杂度的核心指标。
 
 VC维的定义如下：
-$$\begin{equation}
-
+$$
+\begin{equation}
 VC(\mathcal H)=\max\{m:\Pi_{\mathcal H}(m)=2^m\}
-
-\end{equation}$$
+\end{equation}
+$$
 其中，$\Pi_{\mathcal H}(m)$是假设空间$\mathcal H$对大小为$m$的样本集的增长函数。VC维可以理解为模型在二元分类问题中有效的自由度。
 
 **例子：**对于假设空间$sign(wx+b)$（即线性分类器），其在二维空间$R^2$中的VC维为3。这意味着，线性分类器能够打散最多三个点，但无法打散四个点。
@@ -25,17 +25,17 @@ VC(\mathcal H)=\max\{m:\Pi_{\mathcal H}(m)=2^m\}
 在多分类问题中，我们使用Natarajan维来描述假设空间的复杂性。Natarajan维是能被假设空间$\mathcal H$打散的最大样本集的大小。
 
 当类别数$K=2$时，Natarajan维与VC维相同：
-$$\begin{equation}
-
+$$
+\begin{equation}
 VC(\mathcal H)=Natarajan(\mathcal H)
-
-\end{equation}$$
+\end{equation}
+$$
 对于更一般的$K$分类问题，Natarajan维的增长函数上界为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \Pi_{\mathcal H}(m)\leqslant m^dK^{2d}
-
-\end{equation}$$
+\end{equation}
+$$
 随着样本数$m$和分类数$K$的增加，Natarajan维的复杂度呈指数级增长。
 
 ## 3.3【概念补充】Rademacher复杂度
@@ -43,17 +43,17 @@ $$\begin{equation}
 VC维和Natarajan维均未考虑数据分布的影响，而Rademacher复杂度则引入了数据分布因素。它通过考察数据的几何结构和信噪比等特性，提供了更紧的泛化误差界。
 
 函数空间$\mathcal F$关于$\mathcal Z$在分布$\mathcal D$上的Rademacher复杂度定义如下：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}\left[E_{\sigma}\left[\underset{f\in\mathcal F}{\sup}\frac{1}{m} \sum_{i=1}^m \sigma_i f(z_i)\right]\right]
-
-\end{equation}$$
+\end{equation}
+$$
 其中$\sigma_i$是服从均匀分布的随机变量。假设空间$\mathcal H$的Rademacher复杂度上界为：
-$$\begin{equation}
-
+$$
+\begin{equation}
 \Re_m(\mathcal H)\leqslant\sqrt{\frac{2\ln\Pi_{\mathcal H}(m)}{m}}
-
-\end{equation}$$
+\end{equation}
+$$
 
 ## 3.4【概念补充】shattering 概念的可视化
 
