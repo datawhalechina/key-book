@@ -56,9 +56,18 @@
 
 ## 参考文献
 
-1. Feller, William. "An introduction to probability theory and its applications." (1971).
-2. Kearns, Michael J., and Umesh Vazirani. An introduction to computational learning theory. MIT press, 1994.
-3. Boyd, Stephen, and Lieven Vandenberghe. Convex optimization. Cambridge university press, 2004.
-4. Devroye, Luc, László Györfi, and Gábor Lugosi. A probabilistic theory of pattern recognition. Vol. 31. Springer Science & Business Media, 2013.
-5. Mohri, Mehryar. "Foundations of machine learning." (2018).
-6. Wainwright, Martin J. High-dimensional statistics: A non-asymptotic viewpoint. Vol. 48. Cambridge university press, 2019.
+Boyd, Stephen, and Lieven Vandenberghe. Convex optimization. Cambridge university press, 2004.
+
+Devroye, Luc, László Györfi, and Gábor Lugosi. A probabilistic theory of pattern recognition. Vol. 31. Springer Science & Business Media, 2013.
+
+Feller, William. "An introduction to probability theory and its applications." (1971).
+
+Kearns, Michael J., and Umesh Vazirani. An introduction to computational learning theory. MIT press, 1994.
+
+McAllester, David A. "PAC-Bayesian stochastic model selection." Machine Learning 51.1 (2003): 5-21.
+
+Mohri, Mehryar. "Foundations of machine learning." (2018).
+
+Wainwright, Martin J. High-dimensional statistics: A non-asymptotic viewpoint. Vol. 48. Cambridge university press, 2019.
+
+Wang, Guanghui, Shiyin Lu, and Lijun Zhang. "Adaptivity and optimality: A universal algorithm for online convex optimization." Uncertainty in Artificial Intelligence. PMLR, 2020.

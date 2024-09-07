@@ -38,7 +38,7 @@ $$
 
 ## 8.2 【案例补充】Maler 算法
 
-在8.2.3节的**P170**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
+在8.2.3节的**P170**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e/wang20e.pdf)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
 - **一般凸函数**：$R(T) \leq O\sqrt{T})$
 - **指数凹函数**：$R(T) \leq O(d\log T)$
 - **强凸函数**：$R(T) \leq O(\log T)$
