@@ -63,6 +63,8 @@ $$
 
 **示例：**对于二维空间$R^2$中的三个点，线性分类器$sign(wx+b)$可以实现三点的所有对分，但无法实现四点的所有对分，如下图所示：
 
-![shattering](images/shattering.png)
+<div style="text-align: center;">
+  <img src="images/shattering.png" alt="shattering" width="500" height="230"/>
+</div>
 
 因此，线性分类器在$R^2$中的VC维为3。
