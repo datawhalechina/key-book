@@ -259,7 +259,171 @@ $$
 
 
 
-## 8.6 【证明补充】凸赌博机的在线梯度下降
+## 8.6 【证明补充】单样本的近似梯度
+
+**第181页**的引理8.2给出了单样本条件下的梯度近似公式，本节将提供该引理的完整证明过程。
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{\delta}{d}\nabla \mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)]
+\end{equation}
+$$
+
+其中：
+- $d$ 为空间的维数；
+- $\delta$ 为任意正数；
+- $\mathbb{B}$ 为单位球的空间，即 $\mathbb{B} = \{v \in \mathbb{R}^d \mid \|v\| \leq 1\}$；
+- $\mathbb{S}$ 为单位球的表面，即 $\mathbb{S} = \{u \in \mathbb{R}^d \mid \|u\| = 1\}$。
+
+### 证明
+
+为了证明上述等式，我们将分三个步骤进行推导。
+
+#### 1. 表达左边的期望
+
+首先，考虑左边的期望：
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{1}{\text{Vol}_{d-1}(\mathbb{S})} \int_{\mathbb{S}} f(x + \delta u) u \, dS(u)
+\end{equation}
+$$
+
+其中，$\text{Vol}_{d-1}(\mathbb{S})$ 表示 $(d-1)$ 维单位球面的体积，$dS(u)$ 为球面上的微分面积元素。
+
+进行变量替换，令 $w = \delta u$。此时：
+- 当 $u \in \mathbb{S}$ 时，$w \in \delta \mathbb{S}$；
+- 球面上的微分面积元素变化为 $dS(u) = \frac{dS(w)}{\delta^{d-1}}$，因为每个维度按 $\delta$ 缩放，$(d-1)$ 维体积按 $\delta^{d-1}$ 缩放。
+
+将变量替换代入期望的表达式：
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{1}{\text{Vol}_{d-1}(\mathbb{S})} \int_{\mathbb{S}} f(x + \delta u) u \, dS(u) = \frac{1}{\text{Vol}_{d-1}(\mathbb{S}) \cdot \delta^{d-1}} \int_{\delta \mathbb{S}} f(x + w) \frac{w}{\delta} \, dS(w)
+\end{equation}
+$$
+
+简化后得到：
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{1}{\text{Vol}_{d-1}(\delta \mathbb{S})} \int_{\delta \mathbb{S}} f(x + w) \frac{w}{\|w\|} \, dS(w)
+\end{equation}
+$$
+
+#### 2. 表达右边的期望及其梯度
+
+接下来，考虑右边的期望：
+
+$$
+\begin{equation}
+\mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)] = \frac{1}{\text{Vol}_d(\mathbb{B})} \int_{\mathbb{B}} f(x + \delta v) \, dv
+\end{equation}
+$$
+
+其中，$\text{Vol}_d(\mathbb{B})$ 表示 $d$ 维单位球的体积，$dv$ 为体积上的微分元素。
+
+同样进行变量替换，令 $w = \delta v$。则：
+- 当 $v \in \mathbb{B}$ 时，$w \in \delta \mathbb{B}$；
+- 微分体积元素变化为 $dv = \frac{dw}{\delta^d}$，因为每个维度按 $\delta$ 缩放，体积按 $\delta^d$ 缩放。
+
+代入后得到：
+
+$$
+\begin{equation}
+\mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)] = \frac{1}{\text{Vol}_d(\mathbb{B}) \cdot \delta^d} \int_{\delta \mathbb{B}} f(x + w) \, dw = \frac{1}{\text{Vol}_d(\delta \mathbb{B})} \int_{\delta \mathbb{B}} f(x + w) \, dw
+\end{equation}
+$$
+
+为了计算 $\nabla \mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)]$，令：
+
+$$
+\begin{equation}
+F(x) = \mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)] = \frac{1}{\text{Vol}_d(\delta \mathbb{B})} \int_{\delta \mathbb{B}} f(x + w) \, dw
+\end{equation}
+$$
+
+梯度作用在积分上，由于 $x$ 和 $w$ 是独立变量，可以将梯度算子移入积分内部：
+
+$$
+\begin{equation}
+\nabla F(x) = \frac{1}{\text{Vol}_d(\delta \mathbb{B})} \int_{\delta \mathbb{B}} \nabla_x f(x + w) \, dw
+\end{equation}
+$$
+
+注意到：
+
+$$
+\begin{equation}
+\nabla_x f(x + w) = \nabla_w f(x + w)
+\end{equation}
+$$
+
+这是因为 $x$ 和 $w$ 的关系是通过相加连接的，故梯度对 $x$ 的作用等同于对 $w$ 的作用。
+
+根据散度定理，有：
+
+$$
+\begin{equation}
+\int_{\delta \mathbb{B}} \nabla_w f(x + w) \, dw = \int_{\delta \mathbb{S}} f(x + w) n(w) \, dS(w)
+\end{equation}
+$$
+
+其中，$\delta \mathbb{S}$ 是半径为 $\delta$ 的球面，$n(w)$ 为点 $w$ 处的单位外法向量。因此：
+
+$$
+\begin{equation}
+\nabla F(x) = \frac{1}{\text{Vol}_d(\delta \mathbb{B})} \int_{\delta \mathbb{S}} f(x + w) \frac{w}{\|w\|} \, dS(w)
+\end{equation}
+$$
+
+#### 3. 关联两边的表达式
+
+将步骤 1 和步骤 2 的结果进行对比，可以得到：
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{\text{Vol}_d(\delta \mathbb{B})}{\text{Vol}_{d-1}(\delta \mathbb{S})} \nabla \mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)]
+\end{equation}
+$$
+
+为了确定系数，我们需要利用 $d$ 维球的体积与表面积之间的关系。
+
+$d$ 维球的体积与半径 $\delta$ 的关系为：
+
+$$
+\begin{equation}
+\text{Vol}_d(\delta \mathbb{B}) = \delta^d \cdot \text{Vol}_d(\mathbb{B})
+\end{equation}
+$$
+
+而球面的表面积与半径 $\delta$ 的关系为：
+
+$$
+\begin{equation}
+\text{Vol}_{d-1}(\delta \mathbb{S}) = \delta^{d-1} \cdot \text{Vol}_{d-1}(\mathbb{S})
+\end{equation}
+$$
+
+结合这两个关系，可以得到：
+
+$$
+\begin{equation}
+\text{Vol}_d(\delta \mathbb{B}) = \int_0^{\delta} \text{Vol}_{d-1}(\mathbb{rS}) \, dr = \int_0^{\delta} \text{Vol}_{d-1}(\mathbb{S}) \, r^{d-1} \, dr = \frac{\text{Vol}_{d-1}(\mathbb{S}) \cdot \delta^{d}}{d} = \frac{\delta}{d} \cdot \text{Vol}_{d-1}(\delta \mathbb{S})
+\end{equation}
+$$
+
+带入上述等式中，得证：
+
+$$
+\begin{equation}
+\mathbb{E}_{u \in \mathbb{S}}[f(x+\delta u)u] = \frac{\delta}{d}\nabla \mathbb{E}_{v \in \mathbb{B}}[f(x + \delta v)]
+\end{equation}
+$$
+
+
+
+## 8.7 【证明补充】凸赌博机的在线梯度下降
 
 
 **182页**中引理8.3给出了凸赌博机的随机版本在线梯度下降，我们在此给出完整的证明过程。
@@ -325,7 +489,7 @@ $$
 
 
 
-## 8.7 【证明补充】凸赌博机的缩减投影误差
+## 8.8 【证明补充】凸赌博机的缩减投影误差
 
 **182页**中引理8.4给出了凸赌博机的缩减投影误差，我们在此给出完整的证明过程。
 
@@ -335,7 +499,8 @@ $$
 \min_{\omega \in (1−\alpha)W} \sum_{t=1}^T f_t(\omega) - \min_{\omega \in W} \sum_{t=1}^T f_t(\omega) \leq 2\alpha cT
 $$
 
-**证明：**  
+### 证明
+  
 显然，$(1−\alpha)W \subseteq W$。因此，有：
 
 $$
@@ -364,7 +529,7 @@ $$
 
 
 
-## 8.8 【证明补充】凸赌博机的遗憾界
+## 8.9 【证明补充】凸赌博机的遗憾界
 
 **182页**中定理8.5给出了凸赌博机的遗憾界，在证明开始时，作者对$\eta,\alpha,\delta$的取值进行了限定。我们可以发现这些取值不是很直观，证明给出的解释也较为分散，部分取值与证明略有出入，因此我们在此进行补充。
 
