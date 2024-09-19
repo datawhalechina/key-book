@@ -159,7 +159,7 @@ $$
 首先，令 $L_j$ 表示区域 $\Omega(x,Z)$ 中第 $j$ 个属性的边长，我们可以得到 $Diam(\Omega(x,Z))$ 与 $L_j$ 的关系：
 $$
 \begin{align}
-Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}||x-x'||\\
+Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}\|x-x'\|\\
 &=\sqrt{\sum_{j=1}^dL_j^2}
 \end{align}
 $$

@@ -15,10 +15,10 @@
 设 $\{x_k\}$ 是算法生成的迭代序列，我们可以根据以下公式来衡量算法的收敛率：
 $$
 \begin{equation}
-\lim_{t\rightarrow+\infty}\frac{||x_{t+1} - x^*||}{||x_t - x^*||^p} = C 
+\lim_{t\rightarrow+\infty}\frac{\|x_{t+1} - x^*\|}{\|x_t - x^*\|^p} = C 
 \end{equation}
 $$
-其中，$C$为收敛因子，$p$为收敛阶数，$x^*$ 表示最优解，$||.||$ 表示适当的范数。
+其中，$C$为收敛因子，$p$为收敛阶数，$x^*$ 表示最优解，$\|.\|$ 表示适当的范数。
 
 根据收敛率的不同情况，我们可以将其分类如下：
 1. **超线性收敛**：$p\ge1$，$C=0$，表明每次迭代都会使得误差减小，且减小的速度越来越快。特别地，当$p>1$时，称为$p$阶收敛。例如，$p=2$时称为平方收敛，$p=3$时称为立方收敛。
@@ -50,13 +50,13 @@ $$
 首先，如果目标函数满足 $\lambda$-强凸且 $\gamma$-光滑，那么根据第一章补充内容中的结论，我们有 $\gamma\ge\lambda$。这是因为对于任意 $\omega,\omega'$，光滑系数 $\gamma$ 被定义为：
 $$
 \begin{equation}
-f(\omega)\le f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\gamma}{2}||\omega-\omega'||^2
+f(\omega)\le f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\gamma}{2}\|\omega-\omega'\|^2
 \end{equation}
 $$
 而强凸系数 $\lambda$ 被定义为：
 $$
 \begin{equation}
-f(\omega)\ge f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\lambda}{2}||\omega-\omega'||^2
+f(\omega)\ge f(\omega')+\nabla f(\omega')^T(\omega-\omega')+\frac{\lambda}{2}\|\omega-\omega'\|^2
 \end{equation}
 $$
 光滑系数 $\gamma$ 决定了 $f(\omega)$ 的上界，而强凸系数 $\lambda$ 决定了 $f(\omega)$ 的下界，因此光滑系数 $\gamma$ 不小于强凸系数 $\lambda$。
@@ -189,7 +189,7 @@ $$
 首先，（7.60）中第二个不等式的推导利用了Cauchy-Schwarz不等式（1.14），即 $\|x^Ty\|\le\|x\|\|y\|$。这里，我们令 $x=\underbrace{[1,\cdots,1]}_{T}$，$y=\underbrace{[\|\omega_1-w^*\|,\cdots,\|\omega_T-w^*\|]}_{T}$，则有：
 $$
 \begin{equation}
-|x^Ty|=\sum_{t=1}^T\|\omega_t-w^*\|\le \sqrt{T}\sqrt{\sum_{t=1}^T\|\omega_t-w^*\|^2}=|x||y|
+|x^Ty|=\sum_{t=1}^T\|\omega_t-w^*\|\le \sqrt{T}\sqrt{\sum_{t=1}^T\|\omega_t-w^*\|^2}=|x\|y|
 \end{equation}
 $$
 

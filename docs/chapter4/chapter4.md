@@ -143,7 +143,7 @@ $$
 在这个过程中，使用了式 4.16，通过给出任意置换下的情况，将期望问题转化为级数求和，进一步缩放成有关指数函数的公式：
 $$
 \begin{equation}
-\frac{1}{2m}\sum_{i=1}^{(2m)!}\mathbb{I}(|\hat E_{T_iD}(h)-\hat E_{T_iD'}(h)||)=\sum_{k\in[l]\\s.t.|2k/m-l/m|\geq\epsilon/2}\frac{\tbinom{l}{k}\tbinom{2m-l}{m-k}}{\tbinom{2m}{m}}
+\frac{1}{2m}\sum_{i=1}^{(2m)!}\mathbb{I}(|\hat E_{T_iD}(h)-\hat E_{T_iD'}(h)\|)=\sum_{k\in[l]\\s.t.|2k/m-l/m|\geq\epsilon/2}\frac{\tbinom{l}{k}\tbinom{2m-l}{m-k}}{\tbinom{2m}{m}}
 \end{equation}
 $$
 
@@ -282,7 +282,7 @@ $$
 
 **P79**提到，由经验损失（4.72）可知 $\Phi_\rho$ 最多是 $\frac{1}{\rho} - Lipschitz$。
 
-考虑由 Lipschitz 的定义证明。由拉格朗日中值定理我们得到 $|\Phi_\rho(x_1)-\Phi_\rho(x_2)|\leq|\Phi_\rho'(\xi)||x_1-x_2|$ ，由于 $\Phi_\rho$ 的表达式已经给出，我们可以直接计算其导数，得到 $|\Phi_\rho'(\xi)|\leq\frac{1}{\rho}$，因此根据定义我们可以得到 $\rho$-间隔损失函数是 $\frac{1}{\rho}-Lipschitz$ 函数。
+考虑由 Lipschitz 的定义证明。由拉格朗日中值定理我们得到 $|\Phi_\rho(x_1)-\Phi_\rho(x_2)|\leq|\Phi_\rho'(\xi)\|x_1-x_2|$ ，由于 $\Phi_\rho$ 的表达式已经给出，我们可以直接计算其导数，得到 $|\Phi_\rho'(\xi)|\leq\frac{1}{\rho}$，因此根据定义我们可以得到 $\rho$-间隔损失函数是 $\frac{1}{\rho}-Lipschitz$ 函数。
 
 ## 4.12【证明补充】引理4.7的补充
 
@@ -301,7 +301,7 @@ $$
 令 $\gamma'=\gamma u$，因为 $\Phi(·,\alpha)$为减函数，易知其最大值为$1/4$，因此有$\gamma'\in[0,1/4)\subseteq[0,1)$。此时带入引理4.3可得：
 $$
 \begin{equation}
-P(Z'\gt\gamma')\ge E[Z']-\gamma' \ge u-u\gamma = (1-\gamma)u
+P(Z'\gt\gamma')\ge \mathbb{E}[Z']-\gamma' \ge u-u\gamma = (1-\gamma)u
 \end{equation}
 $$
 
