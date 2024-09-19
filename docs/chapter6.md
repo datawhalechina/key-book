@@ -8,9 +8,9 @@
 
 本章内容主要探讨学习理论中的一致性（consistency），研究随着训练数据的增加，通过学习算法所获得的分类器是否逐渐逼近贝叶斯最优分类器。具体内容包括一致性的定义、参数方法下的一致性分析、非参数方法下的一致性分析，以及随机森林一致性分析的案例。
 
-### 6.1 【公式证明】泛化风险的无偏估计
+## 6.1 【证明补充】泛化风险的无偏估计
 
-**P117**中，公式（6.25）给出了分类器的经验风险 $\hat R$，并指出其为泛化风险 $R$ 的无偏估计。以下对这一概念进行详细说明。
+**117页**中，公式（6.25）给出了分类器的经验风险 $\hat R$，并指出其为泛化风险 $R$ 的无偏估计。以下对这一概念进行详细说明。
 
 首先，需要理解经验风险 $\hat R$ 和泛化风险 $R$ 的概念。经验风险是基于模型的预测结果与真实结果的比较计算出的量化风险指标。泛化风险则是基于数据-标签联合分布的样本（视为随机变量）的预测结果与真实值的比较的期望值。由于实际情况下数据-标签联合分布通常未知，泛化风险 $R$ 更多是一个理论化的概念。
 
@@ -44,15 +44,25 @@ $$
 \end{align} 
 $$
 
-### 6.2 【定理补充】替代函数一致性
+## 6.2 【证明补充】替代函数一致性
 
-**P120**的定理6.1给出了替代一致性的充分条件。首先，我们推导了函数的泛化风险与贝叶斯风险之间的差值不等式。根据一致性的定义，我们需要证明，当 ${R_{\phi}\left(\hat{f}_{m}\right) \rightarrow R_{\phi}^{*}}$ 时，$R\left(\hat{f}_{m}\right) \rightarrow R^{*}$。
+**120页**的定理6.1给出了替代一致性的充分条件。首先，我们推导了泛化风险与贝叶斯风险之间的差异不等式。根据一致性的定义，我们需要证明，当 ${R_{\phi}\left(\hat{f}_{m}\right) \rightarrow R_{\phi}^{*}}$ 时，$R\left(\hat{f}_{m}\right) \rightarrow R^{*}$。
 
-为了实现这一目标，我们进一步构造了关于 ${R_{\phi}\left(\hat{f}_{m}\right) - R_{\phi}^{*}}$ 的不等式。利用两个不等式之间的关联性，最终得到 $R\left(\hat{f}_{m}\right)-R^{*} \leqslant 2 c \sqrt[s]{R_{\phi}\left(\hat{f}_{m}\right)-R_{\phi}^{*}}$，从而证明当 ${R_{\phi}\left(\hat{f}_{m}\right) \rightarrow R_{\phi}^{*}}$ 时，$R\left(\hat{f}_{m}\right) \rightarrow R^{*}$。其中，不等式（6.40）的推导包含了一定的构造技巧，之后利用定理中的条件得出了不等式（6.43）。通过构造的凸函数性质，最终证明了这一结论。
+为此，我们进一步构造了关于 ${R_{\phi}\left(\hat{f}_{m}\right) - R_{\phi}^{*}}$ 的不等式。通过分析两个不等式之间的关联性，最终得出结论：
 
-### 6.3 【概念补充】划分机制方法
+$$
+\begin{equation}
+R\left(\hat{f}_{m}\right) - R^{*} \leqslant 2c \sqrt[s]{R_{\phi}\left(\hat{f}_{m}\right) - R_{\phi}^{*}}
+\end{equation}
+$$
 
-**P122**介绍了一种将样本空间划分成多个互不相容区域的方法，然后对各区域内的正例和反例分别计数，并以多数类别作为区域中样本的标记。这种方法本质上不同于参数方法，它并不是在参数空间中进行搜索构建划分超平面，而是在泛函空间上直接进行搜索。
+因此，当 ${R_{\phi}\left(\hat{f}_{m}\right) \rightarrow R_{\phi}^{*}}$ 时，$R\left(\hat{f}_{m}\right)$ 也会收敛于 $R^{*}$。
+
+其中，不等式（6.40）的推导涉及一定的构造技巧，接着通过定理中的条件推导出不等式（6.43）。利用所构造的凸函数的性质，最终完成了这一证明。
+
+## 6.3 【概念解释】划分机制方法
+
+**122页**介绍了一种将样本空间划分成多个互不相容区域的方法，然后对各区域内的正例和反例分别计数，并以多数类别作为区域中样本的标记。这种方法本质上不同于参数方法，它并不是在参数空间中进行搜索构建划分超平面，而是在泛函空间上直接进行搜索。
 
 一个典型的例子是我们熟悉的决策树模型：
 
@@ -60,25 +70,25 @@ $$
 
 每当构造一个决策树的节点时，相当于在样本空间上进行了一次划分（即划分机制）。这种洞察方式同样适用于解释剪枝操作，即通过减少不必要的节点来简化树结构，同时保持或提高模型的性能。
 
-### 6.4 【概念解释】依概率成立
+## 6.4 【概念解释】依概率成立
 
-**P124**的定理6.2提到一个定义——依概率成立。这是概率论与数理统计中的一个概念，表达如下：
+**124页**的定理6.2提到一个定义——依概率成立（almost sure）。这是概率论与数理统计中的一个概念，表达如下：
 $$
 \begin{equation}
 \lim _{n \rightarrow \infty} P((Diam(\Omega)-0) \geq \epsilon)=0
 \end{equation}
 $$
-和对于所有 $N>0$：
+和对于所有 $N\gt0$：
 $$
 \begin{equation}
-\lim _{n \rightarrow \infty} P((N(x)>N)=1
+\lim _{n \rightarrow \infty} P(N(x)\gt N)=1
 \end{equation}
 $$
-它意味着当 $n$ 趋于无穷时，几乎处处的 $Diam(\Omega)$ 都处于 $0$ 的 $\epsilon$ 邻域内。而 $N(x)$ 的极限几乎处处为无穷大。依概率成立是一种比极限更弱的情况，即可以忽略概率趋于 $0$ 的情形。
+它意味着当 $n$ 趋于无穷时，几乎处处（almost everywhere）的 $Diam(\Omega)$ 都处于 $0$ 的 $\epsilon$ 邻域内。而 $N(x)$ 的极限几乎处处为无穷大。依概率成立是一种比极限更弱的情况，即可以忽略概率趋于 $0$ 的情形。
 
-### 6.5 【定理补充】划分机制一致性
+## 6.5 【证明补充】划分机制一致性
 
-**P124**的定理6.2给出了划分一致性的充分条件。首先我们定义了 $\Omega(x)$ 作为划分区域的条件概率极大似然估计量：
+**124页**的定理6.2给出了划分一致性的充分条件。首先我们定义了 $\Omega(x)$ 作为划分区域的条件概率极大似然估计量：
 $$
 \begin{equation}
 \hat{\eta}(x)=\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)}{N(x)}
@@ -103,14 +113,14 @@ $$
 $$
 这是由于 ${x}^{\prime}$ 被依概率限制在一个 $\epsilon$ 邻域内，且期望可以忽略概率趋于 0 的点，因此 $\bar{\eta}(x)$ 由于 $\eta(x)$ 的连续性也被限制在一个 $\eta(x)$ 的 $\epsilon$ 邻域内，从而期望的极限得证。
 
-接下来，针对三角不等式右式的前半部分，将其拆分为 $N(x)=0$ 和 $N(x)>0$ 两部分：
+接下来，针对三角不等式右式的前半部分，将其拆分为 $N(x)=0$ 和 $N(x)\gt0$ 两部分：
 $$
 \begin{equation}
 \begin{array}{c}
 \mathbb{E}\left[|\hat{\eta}(x)-\bar{\eta}(x)| \mid x, x_{1}, \ldots, x_{m}\right] = 
 \mathbb{E}\left[|\hat{\eta}(x)-\bar{\eta}(x)|\mid N(x)=0 , x, x_{1}, \ldots, x_{m}\right] \\
-+\mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)>0, x, x_{1}, \ldots, x_{m}\right]\\
-\leqslant P\left(N(x)=0 \mid x, x_{1}, \ldots, x_{m}\right) + \mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)>0, x, x_{1}, \ldots, x_{m}\right]
++\mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)\gt0, x, x_{1}, \ldots, x_{m}\right]\\
+\leqslant P\left(N(x)=0 \mid x, x_{1}, \ldots, x_{m}\right) + \mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)\gt0, x, x_{1}, \ldots, x_{m}\right]
 \end{array}
 \end{equation}
 $$
@@ -118,16 +128,16 @@ $$
 $$
 \begin{equation}
 \begin{array}{l}
-\mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)>0, x, x_{1}, \ldots, x_{m}\right] \\
-\leqslant \mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)>0) \mid x, x_{1}, \ldots, x_{m}\right]
+\mathbb{E}\left[\left|\sum_{x_{i} \in \Omega(x)} \frac{\mathbb{I}\left(y_{i}=+1\right)-\bar{\eta}(x)}{N(x)}\right| N(x)\gt0, x, x_{1}, \ldots, x_{m}\right] \\
+\leqslant \mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)\gt0) \mid x, x_{1}, \ldots, x_{m}\right]
 \end{array}
 \end{equation}
 $$
 
-对于此不等式的右侧，再进行放缩。对于任意 $k \geq 3$，当 $N(x) \leqslant k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2}$，当 $N(x) > k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2\sqrt k}$，从而得到不等式右侧的进一步放缩：
+对于此不等式的右侧，再进行放缩。对于任意 $k \geq 3$，当 $N(x) \leqslant k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2}$，当 $N(x) \gt k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2\sqrt k}$，从而得到不等式右侧的进一步放缩：
 $$
 \begin{align}
-\mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)>0) \mid x, x_{1}, \ldots, x_{m}\right] &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}} P\left(N(x) > k \mid x, x_{1}, \ldots, x_{m}\right)\\
+\mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)\gt0) \mid x, x_{1}, \ldots, x_{m}\right] &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}} P\left(N(x) \gt k \mid x, x_{1}, \ldots, x_{m}\right)\\
 &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}}
 \end{align}
 $$
@@ -152,9 +162,9 @@ R\left(h_{m}\right)-R^{*} \leqslant 2 \mathbb{E}[|\hat{\eta}(x)-\eta(x)|]  \righ
 \end{equation}
 $$
 
-### 6.6 【定理补充】随机森林的划分一致性
+## 6.6 【证明补充】随机森林的划分一致性
 
-**P130**中的定理6.5提到了一种简化版本的随机森林，即每次划分都是均匀随机的，并不依赖于训练集的标签。以下对证明直径 $Diam(\Omega(x,Z))\rightarrow 0$ 的步骤进行补充说明。
+**130页**中的定理6.5提到了一种简化版本的随机森林，即每次划分都是均匀随机的，并不依赖于训练集的标签。以下对证明直径 $Diam(\Omega(x,Z))\rightarrow 0$ 的步骤进行补充说明。
 
 首先，令 $L_j$ 表示区域 $\Omega(x,Z)$ 中第 $j$ 个属性的边长，我们可以得到 $Diam(\Omega(x,Z))$ 与 $L_j$ 的关系：
 $$

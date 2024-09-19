@@ -8,7 +8,7 @@
 
 本章的内容围绕学习理论中的遗憾（regret）概念展开（有的教材里也翻译为“悔”）。通常，我们使用超额风险（excess risk）来评估批量学习的分类器性能，而用遗憾来评估在线学习的分类器性能。二者的不同在于，前者衡量的是整个学习过程结束后所得到的分类器性能，可以理解为学习算法**最终输出的模型**与假设空间内**最优模型**的风险之差；而后者衡量的是算法运行过程中，所产生的**模型**与假设空间内**最优模型**的损失之差的**和**。
 
-## 8.1 【概念补充】超额风险与遗憾的区别
+## 8.1 【概念解释】超额风险与遗憾的区别
 
 8.1介绍了遗憾这一评估指标的基本概念，我们在此基础上梳理一下其与超额风险这一评估指标的区别。
 
@@ -36,9 +36,9 @@ $$
 
 由此，我们可以总结出二者之间的两个主要区别：首先，超额风险引入了**期望**，而遗憾没有；其次，超额风险是在所有数据上进行的一次性计算，而遗憾是对多次损失的一个**求和**。同时，由于在线学习不依赖于任何分布假设，因此适用于非独立同分布样本或固定分布的情形。
 
-## 8.2 【案例补充】Maler 算法
+## 8.2 【案例分享】Maler 算法
 
-在8.2.3节的**P170**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e.html)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
+在8.2.3节的**170页**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e.html)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
 - **一般凸函数**：$R(T) \leq O\sqrt{T})$
 - **指数凹函数**：$R(T) \leq O(d\log T)$
 - **强凸函数**：$R(T) \leq O(\log T)$
@@ -50,7 +50,7 @@ $$
 
 1. **假设 1（梯度有界性）**：所有损失函数 $f_t(x)$ 的梯度被 $G$ 所有界：
    $$
-   \forall t > 0, \quad \max_{x \in D} \|\nabla f_t(x)\| \leq G
+   \forall t \gt 0, \quad \max_{x \in D} \|\nabla f_t(x)\| \leq G
    $$
 
 2. **假设 2（行动集的直径有界性）**：行动集 $D$ 的直径被 $D$ 所有界：
@@ -136,9 +136,9 @@ $$
 
 
 
-## 8.3 【定理补充】随机多臂赌博机的遗憾界
+## 8.3 【证明补充】随机多臂赌博机的遗憾界
 
-**P172**中定理8.3给出了随机多臂赌博机的遗憾界，我们在此基础上对部分证明过程进行补充。
+**172页**中定理8.3给出了随机多臂赌博机的遗憾界，我们在此基础上对公式（8.42）至（8.47）证明过程进行补充。
 
 首先，（8.42）给出当$\overline{\mu}_*(p)+\sqrt{\frac{2\ln t}{p}}\le\overline{\mu}_i(q)+\sqrt{\frac{2\ln t}{q}}$成立时，必然有三种可能情况中的一种成立。但这三种情况并不是互斥的，因此显得不直观，这里将第二种情况做了细微调整，即：
 $$
@@ -199,9 +199,35 @@ f(x)=Ax+\frac{B}{x},x\gt0,A\gt0,B\gt0
 $$
 这里$x=\Delta_i,A=1+\frac{\pi^2}{3},B=2\ln T$，因此无论$\Delta_i$过大或过小时，都会导致遗憾界的上界变大。另外，遗憾界跟摇臂的个数$K$呈线性关系，当$K$越大时，遗憾界也越大。
 
-## 8.4 【证明补充】Sherman-Morrison-Woodbury (或 Woodbury) 公式
 
-**P177**页的 Sherman-Morrison-Woodbury 公式变种是矩阵求逆中的一个重要工具，它可以通过已知矩阵的逆来快速计算被低秩修正的矩阵的逆。该公式如下所示：
+
+## 8.4 【概念解释】线性赌博机
+
+**176页**的8.3.2节介绍了线性赌博机的概念，我们在此基础上对参数估计部分进行补充。
+
+为了估计线性赌博机的参数，我们将原问题转化为岭回归问题，即（8.52）：
+$$
+\begin{equation}
+f(w)=(Y-w^T X)^T(Y-w^T X)+\lambda w^T w
+\end{equation}
+$$
+为了求得最优解$w^*$，我们令$f'(w)=0$，可推导出（8.53）：
+$$
+\begin{align}
+&\frac{\partial f(w)}{\partial w}=-2X^T(Y-w^T X)+2\lambda w = 0 \\
+\rightarrow&X^TY = (X^TX + \lambda I)w \\
+\rightarrow&w^* = (X^TX + \lambda I)^{-1}X^TY
+\end{align}
+$$
+相比于每次传入新数据$(x_t,y_t)$时从头计算$w_t$，这里巧妙地利用了 Sherman-Morrison-Woodbury 公式将任何形如$(A+uv^T)^{-1}$的矩阵逆转化为可逆矩阵$A$和列向量$u,v$之间的运算，在$O(d^2)$的时间复杂度内完成参数的更新。
+
+
+
+## 8.5 【证明补充】Sherman-Morrison-Woodbury (或 Woodbury) 公式
+
+**177页**的 Sherman-Morrison-Woodbury 公式变种是矩阵求逆中的一个重要工具，它可以通过已知矩阵的逆来快速计算被低秩修正的矩阵的逆。
+
+该公式如下所示：
 $$
 \begin{equation}
 (A + UCV)^{-1} = A^{-1} - A^{-1}U (C^{-1} + VA^{-1}U)^{-1} VA^{-1}
@@ -230,34 +256,15 @@ $$
 =& I
 \end{align}
 $$
-$\square$
-
-## 8.5 【概念补充】线性赌博机
-
-**P176**的8.3.2节介绍了线性赌博机的概念，我们在此基础上对参数估计部分进行补充。为了估计线性赌博机的参数，我们将原问题转化为岭回归问题，即（8.52）：
-$$
-\begin{equation}
-f(w)=(Y-w^T X)^T(Y-w^T X)+\lambda w^T w
-\end{equation}
-$$
-为了求得最优解$w^*$，我们令$f'(w)=0$，可推导出（8.53）：
-$$
-\begin{align}
-&\frac{\partial f(w)}{\partial w}=-2X^T(Y-w^T X)+2\lambda w = 0 \\
-\rightarrow&X^TY = (X^TX + \lambda I)w \\
-\rightarrow&w^* = (X^TX + \lambda I)^{-1}X^TY
-\end{align}
-$$
-相比于每次传入新数据$(x_t,y_t)$时从头计算$w_t$，这里巧妙地利用了 Sherman-Morrison-Woodbury 公式将任何形如$(A+uv^T)^{-1}$的矩阵逆转化为可逆矩阵$A$和列向量$u,v$之间的运算，在$O(d^2)$的时间复杂度内完成参数的更新。
 
 
 
-## 8.6 【定理补充】凸赌博机的在线梯度下降
+## 8.6 【证明补充】凸赌博机的在线梯度下降
 
 
-**P182**中引理8.3给出了凸赌博机的随机版本在线梯度下降，我们在此给出完整的证明过程。
+**182页**中引理8.3给出了凸赌博机的随机版本在线梯度下降，我们在此给出完整的证明过程。
 
-设 $f_1, f_2, \dots, f_T: W \to \mathbb{R}$ 为一列凸且可微的函数，$\omega_1, \omega_2, \dots, \omega_T \in W$ 的定义满足 $\omega_1$ 为任意选取的点，且 $\omega_{t+1} = \Pi_W(\omega_t − \eta g_t)$，其中 $\eta > 0$，且 $g_1, \dots, g_T$ 是满足 $\mathbb{E}[g_t|\omega_t] = \nabla f_t(\omega_t)$ 的随机向量变量，且 $\|g_t\| \leq l$，其中 $l > 0$。则当 $\eta = \frac{\Lambda}{l\sqrt{T}}$ 时，有：
+设 $f_1, f_2, \dots, f_T: W \to \mathbb{R}$ 为一列凸且可微的函数，$\omega_1, \omega_2, \dots, \omega_T \in W$ 的定义满足 $\omega_1$ 为任意选取的点，且 $\omega_{t+1} = \Pi_W(\omega_t − \eta g_t)$，其中 $\eta \gt 0$，且 $g_1, \dots, g_T$ 是满足 $\mathbb{E}[g_t|\omega_t] = \nabla f_t(\omega_t)$ 的随机向量变量，且 $\|g_t\| \leq l$，其中 $l \gt 0$。则当 $\eta = \frac{\Lambda}{l\sqrt{T}}$ 时，有：
 
 $$
 \begin{equation}
@@ -318,9 +325,9 @@ $$
 
 
 
-## 8.7 【定理补充】凸赌博机的缩减投影误差
+## 8.7 【证明补充】凸赌博机的缩减投影误差
 
-**P182**中引理8.4给出了凸赌博机的缩减投影误差，我们在此给出完整的证明过程。
+**182页**中引理8.4给出了凸赌博机的缩减投影误差，我们在此给出完整的证明过程。
 
 设 $f_1, f_2, \dots, f_T: W \to \mathbb{R}$ 为一列凸且可微的函数且 $\forall \omega \in W,i \in [T]$ 满足 $|f_i(\omega)| \le c$，有：
 
@@ -357,9 +364,9 @@ $$
 
 
 
-## 8.8 【定理补充】凸赌博机的遗憾界
+## 8.8 【证明补充】凸赌博机的遗憾界
 
-**P182**中定理8.5给出了凸赌博机的遗憾界，在证明开始时，作者对$\eta,\alpha,\delta$的取值进行了限定。我们可以发现这些取值不是很直观，证明给出的解释也较为分散，部分取值与证明略有出入，因此我们在此进行补充。
+**182页**中定理8.5给出了凸赌博机的遗憾界，在证明开始时，作者对$\eta,\alpha,\delta$的取值进行了限定。我们可以发现这些取值不是很直观，证明给出的解释也较为分散，部分取值与证明略有出入，因此我们在此进行补充。
 
 对于步长$\eta$，在缩放（8.87）中 $\mathbb{E}[\sum_{t=1}^T\hat f_t(z_t)]-\min_{w\in(1-\alpha)\mathcal{W}}\sum_{t=1}^T\hat f_t(w)$ 时，为使用引理8.3创造条件，因此采用步长$\eta=\frac{\Lambda}{l'\sqrt{T}}$。根据（8.89）的推导，我们可令$\Lambda=\Lambda_2$且$l'=\frac{dc}{\delta}$，此时，将$\eta=\frac{\Lambda_2}{(dc/\delta)\sqrt T}$带入到更新公式（8.76）中即可得到（8.88）。
 
