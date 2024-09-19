@@ -10,8 +10,6 @@ Bubeck, Sébastien, Ronen Eldan, and Yin Tat Lee. "Kernel-based methods for band
 
 Boyd, Stephen, and Lieven Vandenberghe. Convex optimization. Cambridge university press, 2004.
 
-Cesa-Bianchi, N., Conconi, A., and Gentile, C. "On the Generalization Ability of On-Line Learning Algorithms." IEEE Transactions on Information Theory, vol. 50, no. 9, 2004, pp. 2050-2057, doi:10.1109/TIT.2004.833339.
-
 Devroye, Luc, László Györfi, and Gábor Lugosi. A probabilistic theory of pattern recognition. Vol. 31. Springer Science & Business Media, 2013.
 
 Feller, William. "An introduction to probability theory and its applications." (1971).
@@ -19,8 +17,6 @@ Feller, William. "An introduction to probability theory and its applications." (
 Flaxman, Abraham D., Adam Tauman Kalai, and H. Brendan McMahan. "Online convex optimization in the bandit setting: gradient descent without a gradient." arXiv preprint cs/0408007 (2004).
 
 Hazan, Elad, Amit Agarwal, and Satyen Kale. "Logarithmic regret algorithms for online convex optimization." Machine Learning 69.2 (2007): 169-192.
-
-Kakade, Sham M., and Ambuj Tewari. "On the generalization ability of online strongly convex programming algorithms." Advances in neural information processing systems 21 (2008).
 
 Kearns, Michael J., and Umesh Vazirani. An introduction to computational learning theory. MIT press, 1994.
 
