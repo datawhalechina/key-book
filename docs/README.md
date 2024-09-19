@@ -32,19 +32,19 @@ https://github.com/datawhalechina/key-book/releases
 
 ### 目录
 
-- 第0章 [绪论](https://datawhalechina.github.io/key-book/#/chapter0/chapter0)
-- 第1章 [预备知识](https://datawhalechina.github.io/key-book/#/chapter1/chapter1)
-- 第2章 [可学性](https://datawhalechina.github.io/key-book/#/chapter2/chapter2)
-- 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3/chapter3)
-- 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4/chapter4)
-- 第5章 [稳定性](https://datawhalechina.github.io/key-book/#/chapter5/chapter5)
-- 第6章 [一致性](https://datawhalechina.github.io/key-book/#/chapter6/chapter6)
-- 第7章 [收敛率](https://datawhalechina.github.io/key-book/#/chapter7/chapter7)
-- 第8章 [遗憾界](https://datawhalechina.github.io/key-book/#/chapter8/chapter8)
+- 第0章 [绪论](https://datawhalechina.github.io/key-book/#/chapter0)
+- 第1章 [预备知识](https://datawhalechina.github.io/key-book/#/chapter1)
+- 第2章 [可学性](https://datawhalechina.github.io/key-book/#/chapter2)
+- 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3)
+- 第4章 [泛化界](https://datawhalechina.github.io/key-book/#/chapter4)
+- 第5章 [稳定性](https://datawhalechina.github.io/key-book/#/chapter5)
+- 第6章 [一致性](https://datawhalechina.github.io/key-book/#/chapter6)
+- 第7章 [收敛率](https://datawhalechina.github.io/key-book/#/chapter7)
+- 第8章 [遗憾界](https://datawhalechina.github.io/key-book/#/chapter8)
 
 ### 选用的《机器学习理论导引》版本
 
-<center><img src="res/mlt.jpg" width="300" height= "300"></center>
+<center><img src="res/original_book.jpg" width="300" height= "300"></center>
 
 > 版次：2020年6月第1版<br>
 
@@ -61,7 +61,7 @@ https://github.com/datawhalechina/key-book/releases
 ## 关注我们
 <div align=center>
 <p>扫描下方二维码，或关注公众号「Datawhale」，然后回复关键词“钥匙书”，即可加入“钥匙书读者交流群”</p>
-<img src="res/qr.jpeg" width="300" height= "300">
+<img src="res/qr_code.jpg" width="300" height= "300">
 <p>或者加入QQ群：704768061</p>
 </div>
 

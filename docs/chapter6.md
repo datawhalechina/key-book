@@ -56,7 +56,7 @@ $$
 
 一个典型的例子是我们熟悉的决策树模型：
 
-![decision_tree](../images/decision_tree.png)
+![decision_tree](images/decision_tree.png)
 
 每当构造一个决策树的节点时，相当于在样本空间上进行了一次划分（即划分机制）。这种洞察方式同样适用于解释剪枝操作，即通过减少不必要的节点来简化树结构，同时保持或提高模型的性能。
 
