@@ -30,7 +30,7 @@ https://github.com/datawhalechina/key-book/releases
 
 ### 目录
 
-- 第0章 [绪论](https://datawhalechina.github.io/key-book/#/chapter0)
+- [序言](https://datawhalechina.github.io/key-book/#/catalog)
 - 第1章 [预备知识](https://datawhalechina.github.io/key-book/#/chapter1)
 - 第2章 [可学性](https://datawhalechina.github.io/key-book/#/chapter2)
 - 第3章 [复杂度](https://datawhalechina.github.io/key-book/#/chapter3)
