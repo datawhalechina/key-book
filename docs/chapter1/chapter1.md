@@ -136,7 +136,7 @@ $$
 3. **Jensen 不等式**：若 $f(x)$ 是凸函数，则对于定义域内的任意一组点 ${x_1, x_2, \cdots, x_n}$ 和归一化的非负权重 ${w_1, w_2, \cdots, w_n}$，即 $\sum_{i=1}^n w_i=1$，有：
 $$
 \begin{equation}
-f\left(\sum_{i=1}^n w_i x_i\right) \leq \sum_{i=1}^n w_i f(x_i)
+f(\sum_{i=1}^n w_i x_i) \leq \sum_{i=1}^n w_i f(x_i)
 \end{equation}
 $$
 
@@ -268,7 +268,7 @@ $$
 $$
 \begin{align}
 &f(x^*) \leq (1-\alpha)f(x^*) + \alpha f(y) \\
-\Leftrightarrow &f(x^*) \leq f(y)
+rightarrow &f(x^*) \leq f(y)
 \end{align}
 $$
 由于 $y$ 是凸集合 $\mathcal{D}$ 中的任意点，故 $x^*$ 为全局最优解。对于 $f(x)$ 的全局最大解，可以通过考虑函数 $-f(x)$ 的局部最优解得到类似的结论。
@@ -298,7 +298,7 @@ $$
 仿射包（affine hull/span）是包含集合 $S$ 的所有仿射集的交集，也是集合 $S$ 中元素通过不断连接直线所形成的所有元素的集合。仿射包是包含集合 $S$ 的最小仿射集，记为 $aff(S)$，即：
 $$
 \begin{equation}
-aff(S) = \left\{\sum_{i=1}^k \alpha_i x_i \mid k>0, x_i\in S, \alpha_i\in R, \sum_{i=1}^k \alpha_i = 1\right\}
+aff(S) = \{\sum_{i=1}^k \alpha_i x_i \mid k>0, x_i\in S, \alpha_i\in R, \sum_{i=1}^k \alpha_i = 1\}
 \end{equation}
 $$
 仿射包具有以下性质：
@@ -398,13 +398,13 @@ $$
 \begin{align}
 d^* = g(\tilde\lambda) &= \inf_{x} \{f_0(x) + \sum_{i=1}^m \tilde\lambda_i f_i(x)\} \\
 &\leq f_0(\bar{x}) + \sum_{i=1}^m \tilde\lambda_i f_i(\bar{x}) \\
-&\leq f_0(\bar{x}) + \max_{i\in[m]}\{f_i(\bar{x})\}\left[\sum_{i=1}^m \tilde\lambda_i\right]
+&\leq f_0(\bar{x}) + \max_{i\in[m]}\{f_i(\bar{x})\}[\sum_{i=1}^m \tilde\lambda_i]
 \end{align}
 $$
 因此，有：
 $$
 \begin{equation}
-\min_{i\in[m]}\{-f_i(\bar{x})\}\left[\sum_{i=1}^m \tilde\lambda_i\right] \leq f_0(\bar{x}) - d^*
+\min_{i\in[m]}\{-f_i(\bar{x})\}[\sum_{i=1}^m \tilde\lambda_i] \leq f_0(\bar{x}) - d^*
 \end{equation}
 $$
 进而得出：
@@ -425,13 +425,13 @@ KKT条件（Karush-Kuhn-Tucker条件）在凸优化领域具有至关重要的�
 
 首先，对于 $x^*,(\mu^*,\lambda^*)$ 满足 KKT 条件等价于它们构成一个纳什均衡。
 
-固定 $(\mu^*,\lambda^*)$，并变化 $x$，均衡等价于拉格朗日函数在 $x^*$ 处的梯度为零，即主问题的稳定性（Stationarity）。
+固定 $(\mu^*,\lambda^*)$，并变化 $x$，均衡等价于拉格朗日函数在 $x^*$ 处的梯度为零，即主问题的稳定性（stationarity）。
 
 固定 $x$，并变化 $(\mu^*,\lambda^*)$，均衡等价于主问题的约束（feasibility）和互补松弛条件。
 
 **充分性**：若解对 $x^*,(\mu^*,\lambda^*)$ 满足 KKT 条件，则它们构成一个纳什均衡，从而消除对偶间隙。
 
-**必要性**：任意解对 $x^*,(\mu^*,\lambda^*)$ 必然消除对偶间隙，因此它们必须构成一个纳什均衡，从而满足 KKT 条件。
+**必要性**：任意解对 $x^*,(\mu^*,\lambda^*)$ 必然消除对偶间隙，因此它们必须构成一个纳什均衡，从而满足 KKT 条件。$\square$
 
 在此对 KKT 和 Slater 条件进行区分：
 
@@ -450,7 +450,7 @@ KKT条件（Karush-Kuhn-Tucker条件）在凸优化领域具有至关重要的�
 5. 对于凸且可微的问题，满足 KKT 条件意味着最优性和强对偶性。相反，最优性和强对偶性意味着所有问题的 KKT 条件得到满足。  
    当 Slater 条件成立时，KKT 条件是最优解的充要条件，此时强对偶性成立。
 
-KKT条件和 Slater 条件通常被归类为“正则条件”（regularity condition）或“约束资格”（constraint qualification）。这些条件为优化问题提供了一个结构化的框架，以便在约束情况下分析和确定解的最优性。更多的正则条件详见[论文](https://link.springer.com/chapter/10.1007/BFb0120988)。$\square$
+KKT条件和 Slater 条件通常被归类为“正则条件”（regularity condition）或“约束资格”（constraint qualification）。这些条件为优化问题提供了一个结构化的框架，以便在约束情况下分析和确定解的最优性。更多的正则条件详见参考文献：[On regularity conditions in mathematical programming](https://link.springer.com/chapter/10.1007/BFb0120988)。
 
 
 
@@ -843,27 +843,27 @@ $$
 将 $f(x) = \ln(x)$，并令 $X = \frac{Q(x)}{P(x)}$。则有：
 $$
 \begin{equation}
-\ln\left(\mathbb{E}\left[\frac{Q(x)}{P(x)}\right]\right) \geq \mathbb{E}\left[\ln\left(\frac{Q(x)}{P(x)}\right)\right]
+\ln(\mathbb{E}[\frac{Q(x)}{P(x)}]) \geq \mathbb{E}[\ln(\frac{Q(x)}{P(x)})]
 \end{equation}
 $$
 
 因为 $\sum_{x} P(x) = 1$ 且 $Q(x) \geq 0$，所以：
 $$
 \begin{equation}
-\mathbb{E}\left[\frac{Q(x)}{P(x)}\right] = \sum_{x} P(x) \frac{Q(x)}{P(x)} = \sum_{x} Q(x) = 1
+\mathbb{E}[\frac{Q(x)}{P(x)}] = \sum_{x} P(x) \frac{Q(x)}{P(x)} = \sum_{x} Q(x) = 1
 \end{equation}
 $$
 
 于是，有：
 $$
 \begin{equation}
-0 = \ln(1) \geq \sum_{x} P(x) \ln\left(\frac{Q(x)}{P(x)}\right)
+0 = \ln(1) \geq \sum_{x} P(x) \ln(\frac{Q(x)}{P(x)})
 \end{equation}
 $$
 即：
 $$
 \begin{equation}
-D_{KL}(P \| Q) = \sum_{x} P(x) \ln\left(\frac{P(x)}{Q(x)}\right) \geq 0
+D_{KL}(P \| Q) = \sum_{x} P(x) \ln(\frac{P(x)}{Q(x)}) \geq 0
 \end{equation}
 $$
 
@@ -1010,7 +1010,7 @@ $$
 对于任意 $p, q \in \mathbb{R}^{+}$，且满足 $\frac{1}{p} + \frac{1}{q} = 1$，则有：
 $$
 \begin{equation}
-\mathbb{E}[|XY|] \leq \left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|Y|^q]\right)^{\frac{1}{q}}
+\mathbb{E}[|XY|] \leq (\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|Y|^q])^{\frac{1}{q}}
 \end{equation}
 $$
 成立。
@@ -1020,7 +1020,7 @@ $$
 设 $f(x)$ 和 $g(y)$ 分别为 $X$ 和 $Y$ 的概率密度函数，定义：
 $$
 \begin{equation}
-M = \frac{|x|}{\left(\int_X |x|^p f(x) \,dx\right)^{\frac{1}{p}}}, \quad N = \frac{|y|}{\left(\int_Y |y|^q g(y) \,dy\right)^{\frac{1}{q}}}
+M = \frac{|x|}{(\int_X |x|^p f(x) \,dx)^{\frac{1}{p}}}, \quad N = \frac{|y|}{(\int_Y |y|^q g(y) \,dy)^{\frac{1}{q}}}
 \end{equation}
 $$
 代入 Young 不等式：
@@ -1032,7 +1032,7 @@ $$
 对该不等式两边同时取期望：
 $$
 \begin{align}
-\frac{\mathbb{E}[|XY|]}{\left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|Y|^q]\right)^{\frac{1}{q}}} &= \frac{\int_{XY} |xy| f(x)g(y) \,dx\,dy}{\left(\int_X |x|^p f(x) \,dx\right)^{\frac{1}{p}} \left(\int_Y |y|^q g(y) \,dy\right)^{\frac{1}{q}}} \\
+\frac{\mathbb{E}[|XY|]}{(\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|Y|^q])^{\frac{1}{q}}} &= \frac{\int_{XY} |xy| f(x)g(y) \,dx\,dy}{(\int_X |x|^p f(x) \,dx)^{\frac{1}{p}} (\int_Y |y|^q g(y) \,dy)^{\frac{1}{q}}} \\
 &\leq \frac{\int_X |x|^p f(x) \,dx}{p \int_X |x|^p f(x) \,dx} + \frac{\int_Y |y|^q g(y) \,dy}{q \int_Y |y|^q g(y) \,dy} \\
 &= \frac{1}{p} + \frac{1}{q} \\
 &= 1
@@ -1069,14 +1069,14 @@ $$
 $$
 \begin{align}
 \mathbb{E}[|X|^{r}] &= \mathbb{E}[|X \cdot 1|^{r}] \\
-&\leq \left(\mathbb{E}[|X|^{rp}]\right)^{\frac{1}{p}} \cdot \left(\mathbb{E}[1^q]\right)^{\frac{1}{q}} \\
-&= \left(\mathbb{E}[|X|^{rp}]\right)^{\frac{1}{p}}
+&\leq (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}} \cdot (\mathbb{E}[1^q])^{\frac{1}{q}} \\
+&= (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}}
 \end{align}
 $$
 记 $s = rp \geq r$，则：
 $$
 \begin{equation}
-\mathbb{E}[|X|^{r}] \leq \left(\mathbb{E}[|X|^{s}]\right)^{\frac{r}{s}}
+\mathbb{E}[|X|^{r}] \leq (\mathbb{E}[|X|^{s}])^{\frac{r}{s}}
 \end{equation}
 $$
 因此，原不等式得证。$\square$
@@ -1097,11 +1097,11 @@ $$
 由三角不等式和 Hölder 不等式，可得：
 $$
 \begin{align}
-\mathbb{E}[|X+Y|^p] &\leq \mathbb{E}\left[(|X|+|Y|)|X+Y|^{p-1}\right] \\
+\mathbb{E}[|X+Y|^p] &\leq \mathbb{E}[(|X|+|Y|)|X+Y|^{p-1}] \\
 &= \mathbb{E}[|X||X+Y|^{p-1}] + \mathbb{E}[|Y||X+Y|^{p-1}] \\
-&\leq \left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|X+Y|^{(p-1)q}]\right)^{\frac{1}{q}} \\
-&\quad + \left(\mathbb{E}[|Y|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|X+Y|^{(p-1)q}]\right)^{\frac{1}{q}} \\
-&= \left[\left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} + \left(\mathbb{E}[|Y|^p]\right)^{\frac{1}{p}}\right] \cdot \frac{\mathbb{E}[|X+Y|^p]}{\left(\mathbb{E}[|X+Y|^p]\right)^{\frac{1}{p}}}
+&\leq (\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} \\
+&\quad + (\mathbb{E}[|Y|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} \\
+&= [(\mathbb{E}[|X|^p])^{\frac{1}{p}} + (\mathbb{E}[|Y|^p])^{\frac{1}{p}}] \cdot \frac{\mathbb{E}[|X+Y|^p]}{(\mathbb{E}[|X+Y|^p])^{\frac{1}{p}}}
 \end{align}
 $$
 化简后即得证。$\square$
@@ -1138,7 +1138,7 @@ $$
 考虑 AM-GM 不等式：
 $$
 \begin{equation}
-xy \leq \left(\frac{x+y}{2}\right)^2
+xy \leq (\frac{x+y}{2})^2
 \end{equation}
 $$
 将 $x = b - \mathbb{E}[X]$ 和 $y = \mathbb{E}[X] - a$ 带入并化简即得证。$\square$
@@ -1224,8 +1224,8 @@ $$
 \begin{align}
 P(X-\mathbb{E}[X] \geq \varepsilon) &= P(Y \geq \varepsilon) \\
 &= P(Y+\lambda \geq \varepsilon+\lambda) \\
-&= P\left((Y+\lambda)^{2} \geq (\varepsilon+\lambda)^{2}\right) \\
-&\leq \frac{\mathbb{E}\left[(Y+\lambda)^{2}\right]}{(\varepsilon+\lambda)^{2}} = \frac{\mathbb{V}[X]+\lambda^{2}}{(\varepsilon+\lambda)^{2}}
+&= P((Y+\lambda)^{2} \geq (\varepsilon+\lambda)^{2}) \\
+&\leq \frac{\mathbb{E}[(Y+\lambda)^{2}]}{(\varepsilon+\lambda)^{2}} = \frac{\mathbb{V}[X]+\lambda^{2}}{(\varepsilon+\lambda)^{2}}
 \end{align}
 $$
 通过对 $\lambda$ 求导，得右端在 $\lambda = \frac{\mathbb{V}[X]}{\varepsilon}$ 时取得最小值 $\frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}$，因此：
@@ -1245,13 +1245,13 @@ $$
 对于任意 $\lambda > 0, \varepsilon > 0$，有：
 $$
 \begin{equation}
-P(X \geq \varepsilon) \leq \min_{\lambda > 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}
+P(X \geq \varepsilon) \leq \min_{\lambda > 0} \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \varepsilon}}
 \end{equation}
 $$
 对于任意 $\lambda < 0, \varepsilon > 0$，有：
 $$
 \begin{equation}
-P(X \leq \varepsilon) \leq \min_{\lambda < 0} \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}
+P(X \leq \varepsilon) \leq \min_{\lambda < 0} \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \varepsilon}}
 \end{equation}
 $$
 
@@ -1260,13 +1260,13 @@ $$
 应用 Markov 不等式，有：
 $$
 \begin{equation}
-P(X \geq \varepsilon) = P\left(e^{\lambda X} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \quad \lambda > 0, \varepsilon > 0
+P(X \geq \varepsilon) = P(e^{\lambda X} \geq e^{\lambda \varepsilon}) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \varepsilon}}, \quad \lambda > 0, \varepsilon > 0
 \end{equation}
 $$
 同理，
 $$
 \begin{equation}
-P(X \leq \varepsilon) = P\left(e^{\lambda X} \leq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda X}\right]}{e^{\lambda \varepsilon}}, \quad \lambda < 0, \varepsilon > 0
+P(X \leq \varepsilon) = P(e^{\lambda X} \leq e^{\lambda \varepsilon}) \leq \frac{\mathbb{E}[e^{\lambda X}]}{e^{\lambda \varepsilon}}, \quad \lambda < 0, \varepsilon > 0
 \end{equation}
 $$
 因此，Chernoff 界得证。$\square$
@@ -1276,7 +1276,7 @@ $$
 **定义 1** (随机变量的次高斯性)：若一个期望为零的随机变量 $X$ 的矩母函数满足 $\forall \lambda \in \mathbb{R}^+$：
 $$
 \begin{equation}
-\mathbb{E}[e^{\lambda X}] \leq \exp\left(\frac{\sigma^2\lambda^2}{2}\right)
+\mathbb{E}[e^{\lambda X}] \leq \exp(\frac{\sigma^2\lambda^2}{2})
 \end{equation}
 $$
 则称 $X$ 服从参数为 $\sigma$ 的次高斯分布。
@@ -1298,7 +1298,7 @@ $$
 同样地，次指数性也有一系列等价定义。一种不直观但更常用的定义如下：存在 $(\sigma^2, b)$，使得 $\forall |s| < 1/b$：
 $$
 \begin{equation}
-\mathbb{E}[e^{s(X−\mathbb{E}[X])}] \leq \exp \left( \frac{s^2\sigma^2}{2} \right)
+\mathbb{E}[e^{s(X−\mathbb{E}[X])}] \leq \exp ( \frac{s^2\sigma^2}{2} )
 \end{equation}
 $$
 
@@ -1337,7 +1337,7 @@ $$
 又由于 $\forall r \in [0,1]$，有 $\frac{e^r}{(1+r)^{1+r}} \leq e^{-\frac{r^2}{3}}$，综上所述：
 $$
 \begin{equation}
-P(X \geq (1+r)\mu m) \leq \left(\frac{e^r}{(1+r)^{(1+r)}}\right)^{\mu m} \leq e^{-\frac{r^2 \mu m}{3}}
+P(X \geq (1+r)\mu m) \leq (\frac{e^r}{(1+r)^{(1+r)}})^{\mu m} \leq e^{-\frac{r^2 \mu m}{3}}
 \end{equation}
 $$
 
@@ -1378,9 +1378,12 @@ $$
   
 ## 1.2.14 Hoeffding 不等式
 
-设有 $m$ 个独立随机变量 $X_{i} \in \left[a_{i}, b_{i}\right]$，令 $\bar{X}$ 为 $X_{i}$ 的均值。Hoeffding 不等式表示：
+设有 $m$ 个独立随机变量 $X_{i} \in [a_{i}, b_{i}]$，令 $\bar{X}$ 为 $X_{i}$ 的均值。Hoeffding 不等式表示：
+
 $$
-P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
+\begin{equation}
+P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp (-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}(b_{i} - a_{i})^{2}})
+\end{equation}
 $$
 
 ### 证明
@@ -1388,55 +1391,85 @@ $$
 首先，我们引入一个引理 (Hoeffding 定理)：
 
 对于 $\mathbb{E}[X] = 0$ 且 $X \in [a, b]$ 的随机变量，对于任意 $\lambda \in \mathbb{R}$，有：
+
 $$
-\mathbb{E}[e^{\lambda X}] \leq \exp\left( \frac{\lambda^2(b-a)^2}{8} \right)
+\begin{equation}
+\mathbb{E}[e^{\lambda X}] \leq \exp( \frac{\lambda^2(b-a)^2}{8} )
+\end{equation}
 $$
 
 由于 $e^x$ 是凸函数，对于任意 $x \in [a, b]$，可以写为：
+
 $$
+\begin{equation}
 e^{\lambda x} \leq \frac{b-x}{b-a}e^{\lambda a} + \frac{x-a}{b-a}e^{\lambda b}
+\end{equation}
 $$
 
 对上式取期望，得到：
+
 $$
+\begin{equation}
 \mathbb{E}[e^{\lambda X}] \leq \frac{b-\mathbb{E}[X]}{b-a}e^{\lambda a} + \frac{\mathbb{E}[X]-a}{b-a}e^{\lambda b} = \frac{be^{\lambda a} - ae^{\lambda b}}{b - a}
+\end{equation}
 $$
 
 记 $\theta = -\frac{a}{b-a}$，$h = \lambda(b-a)$，则：
+
 $$
-\frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = \left[1-\theta + \theta e^{h}\right]e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}
+\begin{equation}
+\frac{be^{\lambda a} - ae^{\lambda b}}{b - a} = [1-\theta + \theta e^{h}]e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h})}e^{-\theta h} = e^{\ln(1-\theta + \theta e^{h}) -\theta h}
+\end{equation}
 $$
 
 定义函数 $\varphi(\theta, h) = \ln(1-\theta + \theta e^{h}) -\theta h$。注意到 $\theta$ 实际上与 $h$ 无关。对 $h$ 求偏导数：
+
 $$
+\begin{equation}
 \frac{\partial \varphi}{\partial h} = \frac{\theta e^h}{1 - \theta + \theta e^h} - \theta
+\end{equation}
 $$
 
 显然有 $\frac{\partial \varphi}{\partial h}\big|_{h=0^+} = 0$。同理，利用链式法则可得：
+
 $$
-\frac{\partial^2 \varphi}{\partial h^2} = \frac{\theta e^h(1 - \theta + \theta e^h) - \theta^2e^{2h}}{(1 - \theta + \theta e^h)^2} = \frac{\theta e^h}{1 - \theta + \theta e^h}\left(1- \frac{\theta e^h}{1 - \theta + \theta e^h}\right) \leq \frac{1}{4}
+\begin{equation}
+\frac{\partial^2 \varphi}{\partial h^2} = \frac{\theta e^h(1 - \theta + \theta e^h) - \theta^2e^{2h}}{(1 - \theta + \theta e^h)^2} = \frac{\theta e^h}{1 - \theta + \theta e^h}(1- \frac{\theta e^h}{1 - \theta + \theta e^h}) \leq \frac{1}{4}
+\end{equation}
 $$
 
 根据泰勒展开式，可以得到：
+
 $$
+\begin{equation}
 \varphi(\theta, h) \leq \frac{h^2}{8} = \frac{\lambda^2(b-a)^2}{8}
+\end{equation}
 $$
 
 由 Markov 不等式可知，对于任意 $\lambda > 0$：
+
 $$
-P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) = P\left(e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}\right) \leq \frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}\right]}{e^{\lambda \varepsilon}}
+\begin{equation}
+P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) = P(e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])} \geq e^{\lambda \varepsilon}) \leq \frac{\mathbb{E}[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}])}]}{e^{\lambda \varepsilon}}
+\end{equation}
 $$
 
 利用随机变量的独立性及 Hoeffding 引理，有：
+
 $$
-\frac{\mathbb{E}\left[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}]})\right]}{e^{\lambda \varepsilon}} = e^{-\lambda \varepsilon} \prod_{i=1}^{m} \mathbb{E}\left[e^{\lambda\left(X_{i} - \mathbb{E}\left[X_{i}\right]\right) / m}\right] \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2}\left(b_{i} - a_{i}\right)^{2}}{8 m^{2}}\right)
+\begin{equation}
+\frac{\mathbb{E}[e^{\lambda(\bar{X} - \mathbb{E}[\bar{X}]})]}{e^{\lambda \varepsilon}} = e^{-\lambda \varepsilon} \prod_{i=1}^{m} \mathbb{E}[e^{\lambda(X_{i} - \mathbb{E}[X_{i}]) / m}] \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp (\frac{\lambda^{2}(b_{i} - a_{i})^{2}}{8 m^{2}})
+\end{equation}
 $$
 
-考虑二次函数 $g(\lambda) = -\lambda \varepsilon + \frac{\lambda^{2}}{8 m^{2}} \sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}$，其最小值为 $-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}$。
+考虑二次函数 $g(\lambda) = -\lambda \varepsilon + \frac{\lambda^{2}}{8 m^{2}} \sum_{i=1}^{m}(b_{i} - a_{i})^{2}$，其最小值为 $-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}(b_{i} - a_{i})^{2}}$。
 
 因此可以得到：
+
 $$
-P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}\left(b_{i} - a_{i}\right)^{2}}\right)
+\begin{equation}
+P(\bar{X} - \mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp (-\frac{2 m^{2} \varepsilon^{2}}{\sum_{i=1}^{m}(b_{i} - a_{i})^{2}})
+\end{equation}
 $$
 $\square$
 
@@ -1449,7 +1482,7 @@ $\square$
 对于 $m$ 个独立随机变量 $X_{i} \in \mathcal{X}$，若函数 $f$ 是差有界的，则对于任意 $\varepsilon > 0$，有：
 $$
 \begin{equation}
-P\left(f\left(X_{1}, \cdots, X_{m}\right)-\mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
+P(f(X_{1}, \cdots, X_{m})-\mathbb{E}[f(X_{1}, \cdots, X_{m})] \geq \varepsilon) \leq \exp (-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}})
 \end{equation}
 $$
 
@@ -1470,7 +1503,7 @@ $$
 由于 $f$ 是差有界的，因此满足 Azuma-Hoeffding 引理。代入后可得：
 $$
 \begin{equation}
-P\left(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon\right) \leq \exp\left( -\frac{\varepsilon^2}{2\sum_{i=1}^m c_i^2} \right)
+P(f(X_1, \cdots, X_m) - \mathbb{E}[f(X_1, \cdots, X_m)] \geq \varepsilon) \leq \exp( -\frac{\varepsilon^2}{2\sum_{i=1}^m c_i^2} )
 \end{equation}
 $$
 原不等式得证。$\square$
@@ -1482,7 +1515,7 @@ $$
 对于 $m$ 个独立随机变量 $X_{i}$，令 $\bar{X}$ 为 $X_{i}$ 的均值，若存在 $b > 0$，使得 $|X_i-\mathbb{E}[X_i]| < b$，则有：
 $$
 \begin{equation}
-P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp \left(-\frac{m \varepsilon^{2}}{2\left(\sum_{i=1}^{m} \mathbb{V}\left[X_{i}\right] / m + b \varepsilon / 3\right)}\right)
+P(\bar{X}-\mathbb{E}[\bar{X}] \geq \varepsilon) \leq \exp (-\frac{m \varepsilon^{2}}{2(\sum_{i=1}^{m} \mathbb{V}[X_{i}] / m + b \varepsilon / 3)})
 \end{equation}
 $$
 
@@ -1492,10 +1525,10 @@ $$
 
 这些 Bernstein 类的集中不等式更多地反映了在非渐近观点下的大数定律表现，即它们刻画了样本均值如何集中在总体均值附近。
 
-如果将样本均值看作是样本（数据点的函数），即令 $f\left(X_{1}, \cdots, X_{m}\right) = \sum_{i=1}^{m} X_{i} / m$，那么 Bernstein 类不等式刻画了如下的概率：
+如果将样本均值看作是样本（数据点的函数），即令 $f(X_{1}, \cdots, X_{m}) = \sum_{i=1}^{m} X_{i} / m$，那么 Bernstein 类不等式刻画了如下的概率：
 $$
 \begin{equation}
-P\left(f\left(X_{1}, \cdots, X_{m}\right) - \mathbb{E}\left[f\left(X_{1}, \cdots, X_{m}\right)\right] \geq \varepsilon\right)
+P(f(X_{1}, \cdots, X_{m}) - \mathbb{E}[f(X_{1}, \cdots, X_{m})] \geq \varepsilon)
 \end{equation}
 $$
 为了在某些泛函上也具有类似 Bernstein 类的集中不等式形式，显然 $f$ 需要满足某些特定性质。差有界性是一种常见的约束条件。
@@ -1505,7 +1538,7 @@ $$
 函数 $f: \mathcal{X}^{m} \rightarrow \mathbb{R}$ 满足对于每个 $i$，存在常数 $c_{i} < \infty$，使得：
 $$
 \begin{equation}
-\left|f\left(x_{1}, \cdots, x_{i}, \cdots, x_{m}\right)-f\left(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m}\right)\right| \leq c_{i}
+|f(x_{1}, \cdots, x_{i}, \cdots, x_{m})-f(x_{1}, \cdots, x_{i}^{\prime}, \cdots, x_{m})| \leq c_{i}
 \end{equation}
 $$
 则称 $f$ 是差有界的。
@@ -1516,17 +1549,17 @@ $$
 
 若离散随机变量序列（随机过程）$Z_m$ 满足：
 
-1. $\mathbb{E}\left[\left|Z_{i}\right|\right] < \infty$
-2. $\mathbb{E}\left[Z_{m+1} \mid Z_{1}, \cdots, Z_{m}\right] = \mathbb{E}\left[Z_{m+1} \mid \mathcal{F}_{m}\right] = Z_{m}$
+1. $\mathbb{E}[|Z_{i}|] < \infty$
+2. $\mathbb{E}[Z_{m+1} \mid Z_{1}, \cdots, Z_{m}] = \mathbb{E}[Z_{m+1} \mid \mathcal{F}_{m}] = Z_{m}$
 
 则称序列 $Z_i$ 为离散鞅。
 
 ### 引理 2: Azuma-Hoeffding 定理
 
-对于鞅 $Z_{i}$，若 $\mathbb{E}\left[Z_{i}\right] = \mu, Z_{1} = \mu_{\circ}$，则构造鞅差序列 $X_{i} = Z_{i} - Z_{i-1}$，且 $\left|X_{i}\right| \leq c_{i}$，则对于任意 $\varepsilon > 0$，有：
+对于鞅 $Z_{i}$，若 $\mathbb{E}[Z_{i}] = \mu, Z_{1} = \mu_{\circ}$，则构造鞅差序列 $X_{i} = Z_{i} - Z_{i-1}$，且 $|X_{i}| \leq c_{i}$，则对于任意 $\varepsilon > 0$，有：
 $$
 \begin{equation}
-P\left(Z_{m}-\mu \geq \varepsilon\right) = P\left(\sum_{i=1}^{m} X_{i} \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
+P(Z_{m}-\mu \geq \varepsilon) = P(\sum_{i=1}^{m} X_{i} \geq \varepsilon) \leq \exp (-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}})
 \end{equation}
 $$
 
@@ -1535,35 +1568,35 @@ $$
 首先，若 $\mathbb{E}[X \mid Y] = 0$，则有 $\forall \lambda > 0$：
 $$
 \begin{equation}
-\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]
+\mathbb{E}[e^{\lambda X} \mid Y] \leq \mathbb{E}[e^{\lambda X}]
 \end{equation}
 $$
 因此，由恒等式 $\mathbb{E}[\mathbb{E}[X \mid Y]] = \mathbb{E}[X]$ 及 Chernoff 一般性技巧，对于任意 $\lambda > 0$：
 $$
 \begin{align}
-P\left(Z_{m}-\mu \geq \varepsilon\right) &\geq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)}\right] \\
-& = e^{-\lambda \varepsilon} \mathbb{E}\left[\mathbb{E}\left[e^{\lambda\left(Z_{m}-\mu\right)} \mid \mathcal{F}_{m-1}\right]\right] \\
-& = e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\mathbb{E}\left[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}\right]\right]
+P(Z_{m}-\mu \geq \varepsilon) &\geq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m}-\mu)}] \\
+& = e^{-\lambda \varepsilon} \mathbb{E}[\mathbb{E}[e^{\lambda(Z_{m}-\mu)} \mid \mathcal{F}_{m-1}]] \\
+& = e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}\mathbb{E}[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}]]
 \end{align}
 $$
 
-由于 $\{X_{i}\}$ 是鞅差序列，因此 $\mathbb{E}\left[X_{m} \mid \mathcal{F}_{m-1}\right] = 0, \mathbb{E}\left[X_{i}\right] = 0$。再结合不等式 $\mathbb{E}\left[e^{\lambda X} \mid Y\right] \leq \mathbb{E}\left[e^{\lambda X}\right]$ 及 Hoeffding 引理，有：
+由于 $\{X_{i}\}$ 是鞅差序列，因此 $\mathbb{E}[X_{m} \mid \mathcal{F}_{m-1}] = 0, \mathbb{E}[X_{i}] = 0$。再结合不等式 $\mathbb{E}[e^{\lambda X} \mid Y] \leq \mathbb{E}[e^{\lambda X}]$ 及 Hoeffding 引理，有：
 $$
 \begin{align}
-P\left(Z_{m}-\mu \geq \varepsilon\right) & \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \mathbb{E}\left[e^{\lambda X_{n}}\right] \\
-& \leq e^{-\lambda \varepsilon} \mathbb{E}\left[e^{\lambda\left(Z_{m-1}-\mu\right)}\right] \exp \left(\frac{\lambda^{2} c_{m}^{2}}{2}\right)
+P(Z_{m}-\mu \geq \varepsilon) & \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \mathbb{E}[e^{\lambda X_{n}}] \\
+& \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \exp (\frac{\lambda^{2} c_{m}^{2}}{2})
 \end{align}
 $$
 迭代上不等式可得：
 $$
 \begin{equation}
-P\left(Z_{m}-\mu \geq \varepsilon\right) \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp \left(\frac{\lambda^{2} c_{i}^{2}}{2}\right)
+P(Z_{m}-\mu \geq \varepsilon) \leq e^{-\lambda \varepsilon} \prod_{i=1}^{m} \exp (\frac{\lambda^{2} c_{i}^{2}}{2})
 \end{equation}
 $$
 当 $\lambda = \frac{\varepsilon}{\sum_{i=1}^{m} c_{i}^{2}}$ 时，上式右端取得极小值：
 $$
 \begin{equation}
-P\left(Z_{m}-\mu \geq \varepsilon\right) \leq \exp \left(-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}}\right)
+P(Z_{m}-\mu \geq \varepsilon) \leq \exp (-\frac{\varepsilon^{2}}{2 \sum_{i=1}^{m} c_{i}^{2}})
 \end{equation}
 $$
 原不等式得证。$\square$
@@ -1575,13 +1608,13 @@ $$
 首先，我们定义参数为 $b > 0$ 的单边 Bernstein 条件（One-sided Bernstein's condition），即随机变量 $X$ 满足：
 $$
 \begin{equation}
-\mathbb{E} [e^{\lambda(X−\mathbb{E}[X])}] \leq \exp\left(\frac{\mathbb{V}[X]\lambda^2/2}{1 − b\lambda}\right), \quad \forall \lambda \in [0,1/b)
+\mathbb{E} [e^{\lambda(X−\mathbb{E}[X])}] \leq \exp(\frac{\mathbb{V}[X]\lambda^2/2}{1 − b\lambda}), \quad \forall \lambda \in [0,1/b)
 \end{equation}
 $$
 若独立同分布的随机变量 $X_1, \ldots, X_n \sim X$ 均满足单边 Bernstein 条件，则对于任意 $\varepsilon > 0,\delta \in [0,1]$，有如下不等式成立：
 $$
 \begin{equation}
-P\left(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon\right) \leq \exp \left(-\frac{n \varepsilon^{2}}{2\left(\mathbb{V}[X] + b \varepsilon\right)}\right)
+P(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon) \leq \exp (-\frac{n \varepsilon^{2}}{2(\mathbb{V}[X] + b \varepsilon)})
 \end{equation}
 $$
 
@@ -1590,13 +1623,13 @@ $$
 1. 我们首先确定 Bernstein 条件下的上尾界（或上尾界限），即：
 $$
 \begin{equation}
-P(X - \mathbb{E}[X] \geq \varepsilon) \leq \exp\left(-\frac{\mathbb{V}[X]}{b^2} h\left(\frac{b\varepsilon}{\mathbb{V}[X]}\right)\right) \leq \exp\left(-\frac{\varepsilon^2}{2\left(\mathbb{V}[X] + b\varepsilon\right)}\right)
+P(X - \mathbb{E}[X] \geq \varepsilon) \leq \exp(-\frac{\mathbb{V}[X]}{b^2} h(\frac{b\varepsilon}{\mathbb{V}[X]})) \leq \exp(-\frac{\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)})
 \end{equation}
 $$
 其中 $h(x) = 1 + x - \sqrt{1 + 2x}$。此时，有：
 $$
 \begin{equation}
-P\left(X - \mathbb{E}[X] < b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}\right) \geq 1 - \delta, \quad \delta \in [0,1]
+P(X - \mathbb{E}[X] < b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}) \geq 1 - \delta, \quad \delta \in [0,1]
 \end{equation}
 $$
 
@@ -1605,7 +1638,7 @@ $$
 令 $\phi(\lambda) = \frac{a\lambda^2}{2(1 - b\lambda)}, \lambda \in [0,1/b), a = \mathbb{V}[X]$。则对于任意 $\varepsilon > 0$，有 $\phi(\lambda)$ 的凸共轭：
 $$
 \begin{equation}
-\phi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda)) = \frac{a}{b^2} h\left(\frac{b\varepsilon}{a}\right) \geq \frac{\varepsilon^2}{2(a + b\varepsilon)}
+\phi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda)) = \frac{a}{b^2} h(\frac{b\varepsilon}{a}) \geq \frac{\varepsilon^2}{2(a + b\varepsilon)}
 \end{equation}
 $$
 最后一步推导利用了不等式 $h(x) \geq \frac{x^2}{2(1 + x)}, x > 0$，该式可通过对两侧连续求导得证。
@@ -1613,7 +1646,7 @@ $$
 根据最优 Chernoff 界，可以得出上尾界：
 $$
 \begin{equation}
-e^{-\phi^*(\varepsilon)} = \exp\left(-\frac{a}{b^2} h\left(\frac{b\varepsilon}{a}\right)\right) \leq \exp\left(-\frac{\varepsilon^2}{2(a + b\varepsilon)}\right)
+e^{-\phi^*(\varepsilon)} = \exp(-\frac{a}{b^2} h(\frac{b\varepsilon}{a})) \leq \exp(-\frac{\varepsilon^2}{2(a + b\varepsilon)})
 \end{equation}
 $$
 此时，令 $e^{-\phi^*(\varepsilon)} = \delta$，可得 $\varepsilon = b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}$。
@@ -1623,13 +1656,13 @@ $$
 若 $\mathbb{E}[e^{\lambda (X - \mathbb{E} X)}] \leq e^{\phi(\lambda)}, \lambda \geq 0$，则对于任意正整数 $n$，有：
 $$
 \begin{equation}
-P\left(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X \geq \varepsilon\right) \leq e^{-n \phi^*(\varepsilon)}, \quad \varepsilon \geq 0
+P(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X \geq \varepsilon) \leq e^{-n \phi^*(\varepsilon)}, \quad \varepsilon \geq 0
 \end{equation}
 $$
 亦或者：
 $$
 \begin{equation}
-P\left(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X < (\phi^*)^{-1} \left(\frac{\ln(1/\delta)}{n}\right)\right) \geq 1 - \delta, \quad \delta \in [0,1]
+P(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X < (\phi^*)^{-1} (\frac{\ln(1/\delta)}{n})) \geq 1 - \delta, \quad \delta \in [0,1]
 \end{equation}
 $$
 
@@ -1637,7 +1670,7 @@ $$
 
 $$
 \begin{equation}
-\mathbb{E}\left[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}\right] = \prod_{i=1}^n \mathbb{E}\left[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}\right] 
+\mathbb{E}[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}] = \prod_{i=1}^n \mathbb{E}[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}] 
 \leq e^{n \phi(\lambda/n)}
 \equiv e^{\psi(\lambda)}
 \end{equation}
@@ -1645,7 +1678,7 @@ $$
 定义 $\psi(\lambda) := n\phi(\lambda/n)$，可得：
 $$
 \begin{equation}
-\psi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \psi(\lambda)) = n \sup_{\lambda \geq 0}\left(\frac{\varepsilon \lambda}{n} - \phi\left(\frac{\lambda}{n}\right)\right)
+\psi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \psi(\lambda)) = n \sup_{\lambda \geq 0}(\frac{\varepsilon \lambda}{n} - \phi(\frac{\lambda}{n}))
 = n \sup_{\lambda \geq 0} (\lambda \varepsilon - \phi(\lambda)) = n\phi^*(\varepsilon)
 \end{equation}
 $$
@@ -1654,111 +1687,146 @@ $$
 3. 最后，我们考虑 Bernstein 不等式的左边界，可以得到：
 $$
 \begin{equation}
-\mathbb{E}\left[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}\right] \leq \prod_{i=1}^n \mathbb{E}\left[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}\right]
-\leq \prod_{i=1}^n \exp\left(\frac{\mathbb{V}[X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))}\right) 
-= \exp\left(\frac{\mathbb{V}\left[\frac{1}{n} \sum_{i=1}^n X_i\right] (\lambda/n)^2}{2(1 - b(\lambda/n))}\right)
+\mathbb{E}[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}] \leq \prod_{i=1}^n \mathbb{E}[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}]
+\leq \prod_{i=1}^n \exp(\frac{\mathbb{V}[X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))}) 
+= \exp(\frac{\mathbb{V}[\frac{1}{n} \sum_{i=1}^n X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))})
 \end{equation}
 $$
 应用以上引理即可得到：
 $$
 \begin{equation}
-P\left(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon\right) \leq \exp\left(-\frac{n\mathbb{V}[X]}{b^2} h\left(\frac{b\varepsilon}{\mathbb{V}[X]}\right)\right) \leq \exp\left(-\frac{n\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)}\right)
+P(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon) \leq \exp(-\frac{n\mathbb{V}[X]}{b^2} h(\frac{b\varepsilon}{\mathbb{V}[X]})) \leq \exp(-\frac{n\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)})
 \end{equation}
 $$
 $\square$
 
 
 
-## 1.2.18 Azuma（Azuma–Hoeffding）不等式
+## 1.2.18 Azuma–Hoeffding（Azuma）不等式
 
-对于均值为 $Z_0 = \mu$ 的鞅差序列 $\{Z_m, m \geq 1\}$，若 $|Z_i - Z_{i-1}| \leq c_i$，则对于任意 $\varepsilon > 0$，有：
+对于均值为 $Z_0 = \mu$ 的鞅差序列 $\{Z_m, m \geq 1\}$，若 $|Z_i - Z_{i-1}| \leq c_i$，其中$c_i \gt 0$为已知常数，则对于任意 $\varepsilon > 0$，有：
 $$
 \begin{align}
-P\left(Z_{m} - \mu \geq \varepsilon\right) &\leq \exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right) \\
-P\left(Z_{m} - \mu \leq -\varepsilon\right) &\leq \exp\left(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}\right)
+P(Z_{m} - \mu \geq \varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}) \\
+P(Z_{m} - \mu \leq -\varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}})
 \end{align}
 $$
 
 ### 证明
 
-Azuma 不等式要求鞅差序列的对称界限，即 $-c_i \leq Z_i - Z_{i-1} \leq c_i$。如果已知的界限是非对称的，即 $a_i \leq Z_i - Z_{i-1} \leq b_i$，为了使用 Azuma 不等式，我们可以选择 $c_i = \max(|a_i|, |b_i|)$。尽管这可能会浪费关于 $Z_i - Z_{i-1}$ 的有界性信息，但我们可以通过 Azuma 不等式的一般形式来解决这个问题。
+1. **构造指数鞅**
 
-**引理 1** (Doob 分解定理)【详细证明参考：[The Doob-Meyer Decomposition](https://almostsuremath.com/2011/12/30/the-doob-meyer-decomposition)】：
+   考虑参数 $s > 0$，构造如下的指数鞅：
 
-设 $(\Omega, \mathcal{F}, \mathbb{P})$ 是一个概率空间，$I = \{0, 1, 2, \ldots, N\}, N \in \mathbb{N}$ 是一个索引集合，$(\mathcal{F}_n)_{n \in I}$ 是 $\mathcal{F}$ 的一个过滤器，$X = (X_n)_{n \in I}$ 是一个适应的随机过程，且对于任意 $n \in I$，$\mathbb{E}[|X_n|] < \infty$。则存在一个适应的随机过程 $M = (M_n)_{n \in I}$ 和一个 $A_0 = 0$ 的可积可预测的随机过程 $A = (A_n)_{n \in I}$，使得 $X_n = M_n + A_n, n \in I$。
+   $$
+   \begin{equation}
+   M_m = \exp(s(Z_m - \mu) - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2)
+   \end{equation}
+   $$
 
-根据 Doob 分解引理，我们可以将超鞅 $X_t$ 分解为 $X_t = Y_t + Z_t$，此时 $\{Y_t, \mathcal{F}_t\}$ 是鞅差序列，$\{Z_t, \mathcal{F}_t\}$ 是一个非递增的可预测序列。在 Azuma 不等式的一般形式中，若有 $A_t \leq X_t - X_{t-1} \leq B_t$ 且 $B_t - A_t \leq c_t$，则：
-$$
-\begin{equation}
--(Z_t - Z_{t-1}) + A_t \leq Y_t - Y_{t-1} \leq -(Z_t - Z_{t-1}) + B_t
-\end{equation}
-$$
+   我们需要证明 $\{M_m\}_{m \geq 0}$ 是一个超鞅。
 
-应用 Chernoff 不等式，对于任意 $\varepsilon > 0$，有：
-$$
-\begin{align}
-P(Y_n - Y_0 \geq \varepsilon) & \leq \underset{s > 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[e^{s (Y_n - Y_0)}\right] \\
-& = \underset{s > 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n} (Y_t - Y_{t-1}) \right)\right] \\
-& = \underset{s > 0}{\min} \ e^{-s\varepsilon} \mathbb{E} \left[\exp \left( s \sum_{t=1}^{n-1} (Y_t - Y_{t-1}) \right)\right] \mathbb{E} \left[\exp \left( s (Y_n - Y_{n-1}) \mid \mathcal{F}_{n-1} \right)\right]
-\end{align}
-$$
+2. **验证鞅性质**
 
-1. $\{Y_t\}$ 是鞅差序列，因此 $\mathbb{E}[Y_t - Y_{t-1} \mid \mathcal{F}_{t-1}] = 0$。
-2. $\{Z_t\}$ 是一个可预测序列，因此 $-(Z_t - Z_{t-1}) + A_t$ 和 $-(Z_t - Z_{t-1}) + B_t$ 都是 $\mathcal{F}_{t-1}$ 可测的。
+   对于任意 $m \geq 1$，有
 
-应用 Hoeffding 引理，有：
-$$
-\begin{equation}
-\mathbb{E} \left[\exp \left(s(Y_t - Y_{t-1}) \mid \mathcal{F}_{t-1}\right)\right] \leq \exp \left(\frac{s^2 (B_t - A_t)^2}{8}\right) \leq \exp \left(\frac{s^2 c_t^2}{8}\right)
-\end{equation}
-$$
+   $$
+   \begin{equation}
+   \mathbb{E}[M_m \mid \mathcal{F}_{m-1}] = \mathbb{E}[\exp(s(Z_m - Z_{m-1})) \mid \mathcal{F}_{m-1}] \cdot \exp(s(Z_{m-1} - \mu) - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2)
+   \end{equation}
+   $$
 
-重复这个步骤，我们可以得到：
-$$
-\begin{equation}
-P(Y_n - Y_0 \geq \varepsilon) \leq \underset{s > 0}{\min} \ e^{-s\varepsilon} \exp \left(\frac{s^2 \sum_{t=1}^{n} c_t^2}{8}\right)
-\end{equation}
-$$
+   由于 $|Z_m - Z_{m-1}| \leq c_m$，并且 $\mathbb{E}[Z_m - Z_{m-1} \mid \mathcal{F}_{m-1}] = 0$（鞅性质），可以应用 Hoeffding 引理得到：
 
-当 $s = \frac{4 \varepsilon}{\sum_{t=1}^{n} c_t^2}$ 时，上式右端取得极小值：
-$$
-\begin{equation}
-P(Y_n - Y_0 \geq \varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-\end{equation}
-$$
+   $$
+   \begin{equation}
+   \mathbb{E}[\exp(s(Z_m - Z_{m-1})) \mid \mathcal{F}_{m-1}] \leq \exp(s\mathbb{E}[Z_m - Z_{m-1} \mid \mathcal{F}_{m-1}] + \frac{s^2(c_m-(-c_m))^2}{8}) = \exp(\frac{s^2 c_m^2}{2})
+   \end{equation}
+   $$
 
-由于 $X_n - X_0 = (Y_n - Y_0) + (Z_n - Z_0)$，且 $\{Z_n\}$ 的非增性得到 $Z_n - Z_0 \leq 0$，因此从 $\left\{X_n - X_0 \geq \varepsilon\right\}$ 可以推导出 $\left\{Y_n - Y_0 \geq \varepsilon\right\}$。
+   因此，
 
-因此，
-$$
-\begin{equation}
-P(X_n - X_0 \geq \varepsilon) \leq P(Y_n - Y_0 \geq \varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-\end{equation}
-$$
+   $$
+   \begin{equation}
+   \mathbb{E}[M_m \mid \mathcal{F}_{m-1}] \leq \exp(\frac{s^2 c_m^2}{2}) \cdot \exp(s(Z_{m-1} - \mu) - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2) = M_{m-1}
+   \end{equation}
+   $$
 
-同理可证得：
-$$
-\begin{equation}
-P(X_n - X_0 \leq -\varepsilon) \leq \exp \left(-\frac{2 \varepsilon^2}{\sum_{t=1}^{n} c_t^2}\right)
-\end{equation}
-$$
-$\square$
+   这表明 $\{M_m\}$ 是一个超鞅。
 
-当取 $A_t = -c_t$，$B_t = c_t$ 时，退化为 Azuma 不等式的特殊情况。
+3. **应用鞅不等式**
 
-在定理中涉及到超鞅（上鞅）序列的概念，该可积随机过程满足：
-$$
-\begin{equation}
-\mathbb{E}[X_{n+1} \mid X_1, \ldots, X_n] \leq X_n, \quad n \in \mathbb{N}
-\end{equation}
-$$
-相应地，亚鞅（下鞅）序列满足：
-$$
-\begin{equation}
-\mathbb{E}[X_{n+1} \mid X_1, \ldots, X_n] \geq X_n, \quad n \in \mathbb{N}
-\end{equation}
-$$
-这里有一个区分下鞅和上鞅的记忆方法：“生活是一个上鞅：随着时间的推进，期望逐渐降低。”
+   由于 $\{M_m\}$ 是一个超鞅，且 $M_0 = \exp(0) = 1$，根据超鞅的性质，有
+
+   $$
+   \begin{equation}
+   \mathbb{E}[M_m] \le M_0 = 1
+   \end{equation}
+   $$
+
+   对于事件 $\{Z_m - \mu \geq \varepsilon\}$，有
+
+   $$
+   \begin{equation}
+   M_m = \exp(s(Z_m - \mu) - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2) \geq \exp(s \varepsilon - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2)
+   \end{equation}
+   $$
+
+   我们令 $a = \exp\left(s \varepsilon - \frac{s^2}{2}\sum_{i=1}^{m} c_i^2\right)$，由于 $\{Z_m - \mu \geq \varepsilon\}$ 蕴含了 $\{M_m \geq a\}$，所以：
+   
+   $$
+   \begin{equation}
+   P\left(Z_m - \mu \geq \varepsilon\right) \leq P\left(M_m \geq a\right)
+   \end{equation}
+   $$
+
+   结合已知的 $\mathbb{E}[M_m] \leq 1$，应用 Markov 不等式可得：
+
+   $$
+   \begin{equation}
+   P\left(M_m \geq a\right) \leq \frac{1}{a} = \exp\left(-s \varepsilon + \frac{s^2}{2}\sum_{i=1}^{m} c_i^2\right)
+   \end{equation}
+   $$
+   
+   因此，我们得到：
+
+   $$
+   \begin{equation}
+   P\left(Z_m - \mu \geq \varepsilon\right) \leq \exp\left(-s \varepsilon + \frac{s^2}{2}\sum_{i=1}^{m} c_i^2\right)
+   \end{equation}
+   $$
+
+4. **优化参数 $s$**
+
+   为了得到最优的上界，选择 $s$ 使得表达式 $-s \varepsilon + \frac{s^2}{2}\sum c_i^2$ 最小化。对 $s$ 求导并取零：
+
+   $$
+   \begin{equation}
+   -\varepsilon + s \sum_{i=1}^{m} c_i^2 = 0 \quad \Rightarrow \quad s = \frac{\varepsilon}{\sum_{i=1}^{m} c_i^2}
+   \end{equation}
+   $$
+
+   代入得：
+
+   $$
+   \begin{equation}
+   P(Z_m - \mu \geq \varepsilon) \leq \exp(-\frac{\varepsilon^2}{2\sum_{i=1}^{m} c_i^2})
+   \end{equation}
+   $$
+
+   这即是 Azuma 不等式的上侧不等式。
+
+5. **下侧不等式的证明**
+
+   对于下侧不等式，可以类似地考虑 $-Z_m$ 作为鞅，应用相同的方法得到：
+
+   $$
+   \begin{equation}
+   P(Z_m - \mu \leq -\varepsilon) \leq \exp(-\frac{\varepsilon^2}{2\sum_{i=1}^{m} c_i^2})
+   \end{equation}
+   $$
+
+   因此，Azuma 不等式得证。$\square$
 
 
 
@@ -1767,7 +1835,7 @@ $$
 若 $X \sim B(m,p)$，则有：
 $$
 \begin{equation}
-P\left(\frac{X}{m} \geq \frac{1}{2}\right) \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^{2}}{1-\varepsilon^{2}}\right)}\right]
+P(\frac{X}{m} \geq \frac{1}{2}) \geq \frac{1}{2}[1 - \sqrt{1-\exp(-\frac{m\varepsilon^{2}}{1-\varepsilon^{2}})}]
 \end{equation}
 $$
 其中 $p = \frac{1-\varepsilon}{2}$。
@@ -1784,19 +1852,19 @@ $$
 令 $Z=\frac{X-\mu}{\sigma}$，代入 $\mu$ 和 $\sigma$，有：
 $$
 \begin{equation}
-P\left[\frac{X}{m} \geq \frac{1}{2}\right] = P\left[Z \geq \frac{\frac{m}{2}-\mu}{\sigma}\right] = P\left[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}\right]
+P[\frac{X}{m} \geq \frac{1}{2}] = P[Z \geq \frac{\frac{m}{2}-\mu}{\sigma}] = P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}]
 \end{equation}
 $$
 根据正态分布不等式（定理 21），有：
 $$
 \begin{equation}
-P\left[Z \geq x\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{2x^2}{\pi}\right)}\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-x^2\right)}\right]
+P[Z \geq x] \geq \frac{1}{2}[1 - \sqrt{1-\exp(-\frac{2x^2}{\pi})}] \geq \frac{1}{2}[1 - \sqrt{1-\exp(-x^2)}]
 \end{equation}
 $$
 代入可得：
 $$
 \begin{equation}
-P\left[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}\right] \geq \frac{1}{2}\left[1 - \sqrt{1-\exp\left(-\frac{m\varepsilon^2}{1-\varepsilon^2}\right)}\right]
+P[Z \geq \frac{\varepsilon\sqrt{m}}{\sqrt{1-\varepsilon^2}}] \geq \frac{1}{2}[1 - \sqrt{1-\exp(-\frac{m\varepsilon^2}{1-\varepsilon^2})}]
 \end{equation}
 $$
 $\square$
@@ -1898,7 +1966,7 @@ $$
 进一步，我们可以得到：
 $$
 \begin{equation}
-\mathbb{P}[X \geq u] \geq \frac{1}{2}\left(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}}\right)
+\mathbb{P}[X \geq u] \geq \frac{1}{2}(1-\sqrt{1-e^{-\frac{2}{\pi}u^2}})
 \end{equation}
 $$
 $\square$
@@ -1931,13 +1999,13 @@ $$
 我们可以通过 Jensen 不等式来证明 AM-GM 不等式。首先，我们考虑函数 $f(x)=-\ln x$，该函数是凸函数，因此有：
 $$
 \begin{equation}
-\frac{1}{n}\sum_{i=1}^n -\ln x_i \geq -\ln\left(\frac{1}{n}\sum_{i=1}^n x_i\right)
+\frac{1}{n}\sum_{i=1}^n -\ln x_i \geq -\ln(\frac{1}{n}\sum_{i=1}^n x_i)
 \end{equation}
 $$
 即：
 $$
 \begin{align}
-\ln\left(\frac{1}{n}\sum_{i=1}^n x_i\right) &\geq \frac{1}{n}\sum_{i=1}^n \ln x_i = \ln\left(\sqrt[n]{\prod_{i=1}^n x_i}\right) \\
+\ln(\frac{1}{n}\sum_{i=1}^n x_i) &\geq \frac{1}{n}\sum_{i=1}^n \ln x_i = \ln(\sqrt[n]{\prod_{i=1}^n x_i}) \\
 \Rightarrow \frac{1}{n}\sum_{i=1}^n x_i &\geq \sqrt[n]{\prod_{i=1}^n x_i}
 \end{align}
 $$
@@ -1966,7 +2034,7 @@ $$
 我们可以通过 Jensen 不等式来证明 Young 不等式。首先，当 $ab = 0$ 时，该不等式显然成立。当 $a, b > 0$ 时，我们令 $t = 1/p, 1-t = 1/q$，根据 $\ln(x)$ 的凹性，我们有：
 $$
 \begin{align}
-\ln\left(t a^p + (1-t) b^q\right) &\geq t\ln(a^p) + (1-t)\ln(b^q) \\
+\ln(t a^p + (1-t) b^q) &\geq t\ln(a^p) + (1-t)\ln(b^q) \\
 &= \ln(a) + \ln(b) \\
 &= \ln(ab)
 \end{align}
@@ -2062,7 +2130,7 @@ $$
 通过使用幂级数收敛半径的商式来证明这一点，由于绝对值的连续性使我们可以先在绝对值内部计算极限，可得：
 $$
 \begin{equation}
-\lim_{k \to \infty} \frac{|a_k|}{|a_{k+1}|} = \lim_{k \to \infty} \left| \frac{k+1}{r-k} \right| = |-1| = 1
+\lim_{k \to \infty} \frac{|a_k|}{|a_{k+1}|} = \lim_{k \to \infty} | \frac{k+1}{r-k} | = |-1| = 1
 \end{equation}
 $$
 因此我们有一个为 1 的收敛半径。这种收敛使我们能够在 $|x| < 1$ 的收敛区域内应用逐项求导，得到：
@@ -2075,7 +2143,7 @@ $$
 $$
 \begin{align}
 (1 + x) \frac{d}{dx} g(x) &= \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1} + \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^k \\
-&= r + \sum_{k=1}^\infty \left( (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} \right) x^k \\
+&= r + \sum_{k=1}^\infty ( (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} ) x^k \\
 &= r + r \sum_{k=1}^\infty \binom{r}{k} x^k \\
 &= r g(x),
 \end{align}
@@ -2085,7 +2153,7 @@ $$
 现在定义 $f(x) = (1 + x)^r$，我们通过通常的求导规则得到：
 $$
 \begin{equation}
-\frac{d}{dx} \left( \frac{g(x)}{f(x)} \right) = \frac{g'(x) f(x) - f'(x) g(x)}{f(x)^2} = \frac{r\frac{g(x)}{x+1}(1+x)^r - rg(x)(1 + x)^{r-1}}{f(x)^2} = 0
+\frac{d}{dx} ( \frac{g(x)}{f(x)} ) = \frac{g'(x) f(x) - f'(x) g(x)}{f(x)^2} = \frac{r\frac{g(x)}{x+1}(1+x)^r - rg(x)(1 + x)^{r-1}}{f(x)^2} = 0
 \end{equation}
 $$
 $|x| < 1$ 意味着 $f(x) \neq 0$，因此 $g/f$ 为常数。又 $f(0) = g(0) = 1$ 可得 $f(x) = g(x)$。
@@ -2093,7 +2161,7 @@ $|x| < 1$ 意味着 $f(x) \neq 0$，因此 $g/f$ 为常数。又 $f(0) = g(0) = 
 对于一般的 $x, y \in \mathbb{R}$ 且 $|x| < |y|$，我们有：
 $$
 \begin{equation}
-\frac{(x + y)^r}{y^r} = \left(\frac{x}{y} + 1\right)^r = \sum_{k=0}^\infty \binom{r}{k} \left(\frac{x}{y}\right)^k;
+\frac{(x + y)^r}{y^r} = (\frac{x}{y} + 1)^r = \sum_{k=0}^\infty \binom{r}{k} (\frac{x}{y})^k;
 \end{equation}
 $$
 收敛性由假设 $|x/y| < 1$ 保证。为了得到原定理的形式，我们只需乘以 $y^r$ 即可。$\square$
@@ -2128,8 +2196,8 @@ $$
 $$
 \begin{align}
 A_p &= \int_{p}^{p+1} \ln x \, dx \\
-b_p &= \frac{1}{2} \left[\ln(p+1) - \ln(p)\right] \\
-\varepsilon_p &= \int_{p}^{p+1} \ln x \, dx - \frac{1}{2} \left[\ln(p+1) + \ln(p)\right]
+b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
+\varepsilon_p &= \int_{p}^{p+1} \ln x \, dx - \frac{1}{2} [\ln(p+1) + \ln(p)]
 \end{align}
 $$
 此时：
@@ -2148,11 +2216,11 @@ $$
 此时：
 $$
 \begin{equation}
-\varepsilon_p = \frac{2p+1}{2} \ln\left(\frac{p+1}{p}\right) - 1
+\varepsilon_p = \frac{2p+1}{2} \ln(\frac{p+1}{p}) - 1
 \end{equation}
 $$
 
-接下来我们对 $\ln\left(\frac{p+1}{p}\right)$ 进行级数展开，根据广义二项式定理，即：
+接下来我们对 $\ln(\frac{p+1}{p})$ 进行级数展开，根据广义二项式定理，即：
 
 令 $a = -1, \, t = \frac{1}{p}, \, t \in (-1, 1)$，则有：
 $$
@@ -2191,7 +2259,7 @@ $$
 \varepsilon_p < \frac{1}{3(2p+1)^2} \sum_{i=0}^{\infty} \frac{1}{(2p+1)^{2i}} 
 = \frac{1}{3(2p+1)^2} \frac{1}{1 - \frac{1}{(2p+1)^2}} 
 = \frac{1}{3[(2p+1)^2 - 1]} 
-= \frac{1}{12} \left(\frac{1}{p} - \frac{1}{p+1}\right)
+= \frac{1}{12} (\frac{1}{p} - \frac{1}{p+1})
 \end{equation}
 $$
 且
@@ -2214,7 +2282,7 @@ $$
 因此：
 $$
 \begin{equation}
-\varepsilon_p > \frac{1}{12} \left(\frac{1}{p+\frac{1}{12}} - \frac{1}{p+1+\frac{1}{12}}\right)
+\varepsilon_p > \frac{1}{12} (\frac{1}{p+\frac{1}{12}} - \frac{1}{p+1+\frac{1}{12}})
 \end{equation}
 $$
 我们令：
@@ -2291,13 +2359,8 @@ $$
 
 ## 1.2.28 支撑超平面定理
 
-对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。形式上，若 $S$ 是非空凸集，且 $x_0$ 是 $S$ 的边界上的一点，那么存在一个包含 $x_0$ 的支撑超平面。如果 $x^* \in X^* \backslash \{0\}$（$X^*$ 是 $X$ 的对偶空间，$x^*$ 是一个非零的线性泛函），并且对于所有 $x \in S$ 都有 $x^*\left(x_0\right) \geq x^*(x)$，那么
-$$
-\begin{equation}
-H = \{x \in X: x^*(x) = x^*\left(x_0\right)\}
-\end{equation}
-$$
-定义了一个支撑超平面。
+对于一个凸集，支撑超平面（Supporting Hyperplane）是与凸集边界切线的超平面，即它“支撑”了凸集，使得所有的凸集内的点都位于支撑超平面的一侧。形式上，若 $S$ 是非空凸集，且 $x_0$ 是 $S$ 的边界上的一点，那么存在一个包含 $x_0$ 的支撑超平面。
+如果 $x^* \in X^* \backslash \{0\}$（$X^*$ 是 $X$ 的对偶空间，$x^*$ 是一个非零的线性泛函），并且对于所有 $x \in S$ 都有 $x^*(x_0) \geq x^*(x)$，那么 $H = \{x \in X: x^*(x) = x^*(x_0)\}$ 定义了一个支撑超平面。
 
 ### 证明
 
