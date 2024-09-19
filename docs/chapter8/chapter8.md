@@ -38,7 +38,7 @@ $$
 
 ## 8.2 【案例补充】Maler 算法
 
-在8.2.3节的**P170**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e/wang20e.pdf)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
+在8.2.3节的**P170**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e.html)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
 - **一般凸函数**：$R(T) \leq O\sqrt{T})$
 - **指数凹函数**：$R(T) \leq O(d\log T)$
 - **强凸函数**：$R(T) \leq O(\log T)$
@@ -162,7 +162,7 @@ $$
 $$
 根据$p$-级数判别法，当$p=2\gt1$时，级数收敛，因此$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$是有界的。至于该级数的具体值，对定理的结论没有影响，因此我们可以将其视为一个常数，然后带入后续推导中。为了证明的完整性，我们对此进行简要说明。
 
-$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$的取值在数学界被称为Basel问题，推导过程涉及诸多前置定理，感兴趣的读者可以查看这个[讲义](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。此处提供另一种在微积分变换中常见的缩放方法：
+$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$的取值在数学界被称为Basel问题，推导过程涉及诸多前置定理，感兴趣的读者可以查看这个讲义：[The Basel Problem - Numerous Proofs](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。此处提供另一种在微积分变换中常见的缩放方法：
 $$
 \begin{align}
 \sum_{t=1}^{T-1}t^{-2}&\le1+\int_{1}^{T-1}\frac{1}{x^2}dx \\
