@@ -962,6 +962,53 @@ $$
 
 
 
+## 1.1.29 Taylor展开
+
+**Taylor展开**（Taylor Expansion）是用多项式来近似一个函数的工具。它表示一个函数在某一点附近的值为该函数在该点的导数信息的线性组合，从而通过简单的多项式来逼近复杂的函数。
+
+### 定义：
+给定一个在某点 $a$ 处可导多次的函数 $f(x)$，它的 **Taylor 展开** 在点 $a$ 处的表达式为：
+
+$$
+\begin{equation}
+f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x - a)^2 + \frac{f^{(3)}(a)}{3!}(x - a)^3 + \dots + \frac{f^{(n)}(a)}{n!}(x - a)^n + R_n(x)
+\end{equation}
+$$
+
+其中：
+- $f^{(n)}(a)$ 表示函数 $f(x)$ 在点 $a$ 处的第 $n$ 阶导数，
+- $R_n(x)$ 是剩余项（余项），它表示截断后，未被包含的误差部分。
+
+当 $x$ 足够接近 $a$ 时，截取足够多项的 Taylor 展开可以非常准确地逼近函数值。
+
+### 特殊情况：麦克劳林（Maclaurin）展开
+当 $a = 0$ 时，Taylor 展开被称为 **麦克劳林展开**，形式为：
+
+$$
+\begin{equation}
+f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f^{(3)}(0)}{3!}x^3 + \dots
+\end{equation}
+$$
+
+### 例子：
+1. **指数函数的 Taylor 展开**（以 $a = 0$ 为例，即 麦克劳林展开）：
+   $$
+   \begin{equation}
+   e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots
+   \end{equation}
+   $$
+
+2. **正弦函数的 Taylor 展开**（在 $a = 0$ 处）：
+   $$
+   \begin{equation}
+   \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots
+   \end{equation}
+   $$
+
+通过 Taylor 展开，我们可以在某个点附近用有限项多项式来近似复杂的函数。这在数值计算和分析中非常有用。
+
+
+
 # 1.2 重要定理
 
 设 $X$ 和 $Y$ 是随机变量，$\mathbb{E}[X]$ 表示 $X$ 的数学期望，$\mathbb{V}[X]$ 表示 $X$ 的方差。
@@ -1609,97 +1656,306 @@ $$
   
 ## 1.2.17 Bernstein 不等式
 
-首先，我们定义参数为 $b \gt 0$ 的单边 Bernstein 条件（One-sided Bernstein's condition），即随机变量 $X$ 满足：
+考虑 $m$ 个独立同分布的随机变量 $X_i, i \in [m]$。令 $\bar{X} = \frac{\sum_{i=1}^{m} X_i}{m}$。若存在常数 $b > 0$，使得对所有 $k \geq 2$，第 $k$ 阶矩满足 $\mathbb{E}[|X_i|^k] \leq \frac{k! b^{k-2}}{2} \mathbb{V}[X_1]$，则该不等式成立：
+
 $$
 \begin{equation}
-\mathbb{E} [e^{\lambda(X−\mathbb{E}[X])}] \leq \exp(\frac{\mathbb{V}[X]\lambda^2/2}{1 − b\lambda}), \quad \forall \lambda \in [0,1/b)
-\end{equation}
-$$
-若独立同分布的随机变量 $X_1, \ldots, X_n \sim X$ 均满足单边 Bernstein 条件，则对于任意 $\varepsilon \gt 0,\delta \in [0,1]$，有如下不等式成立：
-$$
-\begin{equation}
-P(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon) \leq \exp (-\frac{n \varepsilon^{2}}{2(\mathbb{V}[X] + b \varepsilon)})
+\mathbb{P}(\bar{X} \geq \mathbb{E}[\bar{X}] + \epsilon) \leq \exp\left(\frac{-m\epsilon^2}{2 \mathbb{V}[X_1] + 2b\epsilon}\right)
 \end{equation}
 $$
 
 ### 证明
 
-1. 我们首先确定 Bernstein 条件下的上尾界（或上尾界限），即：
+首先，我们需要将**矩条件**（moment condition）转换为**亚指数条件**（sub-exponential condition），以便进一步推导，即：
+
+- **矩条件：**
+    对于随机变量 $X$，其 $k$-阶中心矩 满足如下条件：
+    $$
+    \begin{equation}
+    \mathbb{E}\left[|X - \mathbb{E}[X]|^k\right] \leq \frac{k! \, b^{k-2}}{2} \, \mathbb{V}[X], \quad \forall k \geq 2
+    \end{equation}
+    $$
+    其中：
+    1. **中心矩**：随机变量 $X$ 的 $k$ 阶中心矩为 $\mathbb{E}\left[|X - \mathbb{E}[X]|^k\right]$，表示 $X$ 偏离其期望值的 $k$ 次幂的期望值。中心矩用于衡量随机变量的分布形状，尤其是描述其尾部行为。当 $k = 2$ 时，中心矩即为随机变量的方差。
+    2. $\frac{k!}{2}$ 是阶乘项，随着 $k$ 增大迅速增长。
+    3. $b^{k-2}$ 是一个修正因子，其中 $b$ 为常数，用以控制高阶矩的增长速率。
+    4. $\mathbb{V}[X]$ 表示随机变量 $X$ 的方差，它作为标准的离散度量来标定中心矩的大小。
+
+- **亚指数条件**：
+    给定随机变量 $X$，其均值为 $\mathbb{E}[X]$，方差为 $\mathbb{V}[X]$，则其偏离均值的随机变量 $X - \mathbb{E}[X]$ 的矩母函数（MGF）满足如下不等式：
+    $$
+    \begin{equation}
+    \mathbb{E}\left[e^{\lambda (X - \mathbb{E}[X])}\right] \leq \exp\left(\frac{\mathbb{V}[X] \lambda^2}{2(1 - b\lambda)}\right), \quad \forall \lambda \in \left[0, \frac{1}{b}\right)
+    \end{equation}
+    $$
+    其中：
+    1. **矩母函数**：这是一个重要的工具，用于控制随机变量的尾部概率。矩母函数的形式是 $\mathbb{E}[e^{\lambda X}]$，它通过调整 $\lambda$ 来捕捉不同程度的偏差行为。
+    2. **方差主导项**：不等式右边的表达式包含一个方差主导的项 $\frac{\mathbb{V}[X] \lambda^2}{2}$，类似于高斯分布的尾部特性，表明当 $\lambda$ 较小时，$X$ 的偏差行为主要由其方差控制，尾部概率呈现指数衰减。
+    3. **修正项 $(1 - b\lambda)$**：该项显示，当 $\lambda$ 接近 $\frac{1}{b}$ 时，尾部偏差的控制变得更加复杂。这种形式通常出现在亚指数条件中，意味着随机变量的尾部行为介于高斯分布和重尾分布之间，尾部衰减较慢但仍比重尾分布快。
+
+---
+
+- **步骤 1：中心化随机变量**
+
+设：
 $$
 \begin{equation}
-P(X - \mathbb{E}[X] \geq \varepsilon) \leq \exp(-\frac{\mathbb{V}[X]}{b^2} h(\frac{b\varepsilon}{\mathbb{V}[X]})) \leq \exp(-\frac{\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)})
-\end{equation}
-$$
-其中 $h(x) = 1 + x - \sqrt{1 + 2x}$。此时，有：
-$$
-\begin{equation}
-P(X - \mathbb{E}[X] \lt b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}) \geq 1 - \delta, \quad \delta \in [0,1]
+Y = X - \mathbb{E}[X]
 \end{equation}
 $$
 
-#### 证明
-
-令 $\phi(\lambda) = \frac{a\lambda^2}{2(1 - b\lambda)}, \lambda \in [0,1/b), a = \mathbb{V}[X]$。则对于任意 $\varepsilon \gt 0$，有 $\phi(\lambda)$ 的凸共轭：
+我们的目标是对 $Y$ 的矩母函数（MGF）进行上界：
 $$
 \begin{equation}
-\phi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda)) = \frac{a}{b^2} h(\frac{b\varepsilon}{a}) \geq \frac{\varepsilon^2}{2(a + b\varepsilon)}
-\end{equation}
-$$
-最后一步推导利用了不等式 $h(x) \geq \frac{x^2}{2(1 + x)}, x \gt 0$，该式可通过对两侧连续求导得证。
-
-根据最优 Chernoff 界，可以得出上尾界：
-$$
-\begin{equation}
-e^{-\phi^*(\varepsilon)} = \exp(-\frac{a}{b^2} h(\frac{b\varepsilon}{a})) \leq \exp(-\frac{\varepsilon^2}{2(a + b\varepsilon)})
-\end{equation}
-$$
-此时，令 $e^{-\phi^*(\varepsilon)} = \delta$，可得 $\varepsilon = b\ln(1/\delta) + \sqrt{2\mathbb{V}[X] \ln(1/\delta)}$。
-
-2. 接下来，我们证明一个引理：
-
-若 $\mathbb{E}[e^{\lambda (X - \mathbb{E} X)}] \leq e^{\phi(\lambda)}, \lambda \geq 0$，则对于任意正整数 $n$，有：
-$$
-\begin{equation}
-P(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X \geq \varepsilon) \leq e^{-n \phi^*(\varepsilon)}, \quad \varepsilon \geq 0
-\end{equation}
-$$
-亦或者：
-$$
-\begin{equation}
-P(\frac{1}{n}\sum_{i=1}^{n} X_i - \mathbb{E} X \lt (\phi^*)^{-1} (\frac{\ln(1/\delta)}{n})) \geq 1 - \delta, \quad \delta \in [0,1]
+\mathbb{E}\left[e^{\lambda Y}\right]
 \end{equation}
 $$
 
-#### 证明
+---
 
-$$
-\begin{equation}
-\mathbb{E}[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}] = \prod_{i=1}^n \mathbb{E}[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}] 
-\leq e^{n \phi(\lambda/n)}
-\equiv e^{\psi(\lambda)}
-\end{equation}
-$$
-定义 $\psi(\lambda) := n\phi(\lambda/n)$，可得：
-$$
-\begin{equation}
-\psi^*(\varepsilon) = \sup_{\lambda \geq 0}(\lambda \varepsilon - \psi(\lambda)) = n \sup_{\lambda \geq 0}(\frac{\varepsilon \lambda}{n} - \phi(\frac{\lambda}{n}))
-= n \sup_{\lambda \geq 0} (\lambda \varepsilon - \phi(\lambda)) = n\phi^*(\varepsilon)
-\end{equation}
-$$
-根据最优 Chernoff 界即可得证。
+- **步骤 2：展开指数矩**
 
-3. 最后，我们考虑 Bernstein 不等式的左边界，可以得到：
+将 MGF 展开为幂级数（Taylor展开）：
 $$
 \begin{equation}
-\mathbb{E}[e^{\frac{\lambda}{n} \sum_{i=1}^{n} (X_i - \mathbb{E}[X_i])}] \leq \prod_{i=1}^n \mathbb{E}[e^{\frac{\lambda}{n} (X_i - \mathbb{E}[X_i])}]
-\leq \prod_{i=1}^n \exp(\frac{\mathbb{V}[X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))}) 
-= \exp(\frac{\mathbb{V}[\frac{1}{n} \sum_{i=1}^n X_i] (\lambda/n)^2}{2(1 - b(\lambda/n))})
+\mathbb{E}\left[e^{\lambda Y}\right] = \mathbb{E}\left[\sum_{k=0}^\infty \frac{(\lambda Y)^k}{k!}\right] = \sum_{k=0}^\infty \frac{\lambda^k}{k!} \mathbb{E}[Y^k]
 \end{equation}
 $$
-应用以上引理即可得到：
+
+由于 $\mathbb{E}[Y] = 0$，故 $k = 1$ 项消失：
 $$
 \begin{equation}
-P(\frac{1}{n} \sum_{i=1}^{n}{X_i} - \mathbb{E}[X] \geq \varepsilon) \leq \exp(-\frac{n\mathbb{V}[X]}{b^2} h(\frac{b\varepsilon}{\mathbb{V}[X]})) \leq \exp(-\frac{n\varepsilon^2}{2(\mathbb{V}[X] + b\varepsilon)})
+\mathbb{E}\left[e^{\lambda Y}\right] = 1 + \sum_{k=2}^\infty \frac{\lambda^k}{k!} \mathbb{E}[Y^k]
+\end{equation}
+$$
+
+---
+
+- **步骤 3：使用矩条件对中心矩进行上界**
+
+根据矩条件：
+$$
+\begin{equation}
+\mathbb{E}\left[|Y|^k\right] \leq \frac{k! \, b^{k-2}}{2} \, \mathbb{V}[X]
+\end{equation}
+$$
+
+因此：
+$$
+\begin{equation}
+|\mathbb{E}[Y^k]| \leq \mathbb{E}\left[|Y|^k\right] \leq \frac{k! \, b^{k-2}}{2} \, \mathbb{V}[X]
+\end{equation}
+$$
+
+---
+
+- **步骤 4：代入 MGF 展开式**
+
+将上界代入 MGF 展开式：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq 1 + \sum_{k=2}^\infty \frac{\lambda^k}{k!} \cdot \frac{k! \, b^{k-2}}{2} \, \mathbb{V}[X] = 1 + \frac{\mathbb{V}[X]}{2} \sum_{k=2}^\infty (b\lambda)^{k-2} \lambda^2
+\end{equation}
+$$
+
+通过令 $j = k - 2$ 进行简化：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq 1 + \frac{\mathbb{V}[X] \lambda^2}{2} \sum_{j=0}^\infty (b\lambda)^j
+\end{equation}
+$$
+
+---
+
+- **步骤 5：求解几何级数的和**
+
+当 $b\lambda < 1$ 时，几何级数收敛：
+$$
+\begin{equation}
+\sum_{j=0}^\infty (b\lambda)^j = \frac{1}{1 - b\lambda}
+\end{equation}
+$$
+
+因此：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq 1 + \frac{\mathbb{V}[X] \lambda^2}{2(1 - b\lambda)}
+\end{equation}
+$$
+
+---
+
+- **步骤 6：应用指数不等式**
+
+使用不等式 $1 + x \leq e^{x}$ 对所有实数 $x$ 成立：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq \exp\left(\frac{\mathbb{V}[X] \lambda^2}{2(1 - b\lambda)}\right)
+\end{equation}
+$$
+
+这与**亚指数条件**相符：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq \exp\left(\frac{\mathbb{V}[X] \lambda^2}{2(1 - b\lambda)}\right), \quad \forall \lambda \in \left[0, \frac{1}{b}\right)
+\end{equation}
+$$
+
+---
+
+接下来我们完成在给定矩条件下的**Bernstein 不等式**的证明，即：
+
+**陈述：**
+
+给定 $m$ 个独立同分布的随机变量 $X_i, i \in [m]$，令 $\bar{X} = \frac{1}{m}\sum_{i=1}^{m} X_i$。若存在常数 $b > 0$，使得对所有 $k \geq 2$，
+$$
+\begin{equation}
+\mathbb{E}\left[|X_i - \mathbb{E}[X_i]|^k\right] \leq \frac{k! \, b^{k-2}}{2} \, \mathbb{V}[X_1],
+\end{equation}
+$$
+
+则对于任意 $\epsilon > 0$，
+$$
+\begin{equation}
+\mathbb{P}\left(\bar{X} \geq \mathbb{E}[\bar{X}] + \epsilon\right) \leq \exp\left(\frac{-m\epsilon^2}{2 \mathbb{V}[X_1] + 2b\epsilon}\right)
+\end{equation}
+$$
+
+---
+
+- **步骤 1：定义单侧 Bernstein 条件**
+
+首先，回顾对于参数 $b > 0$ 的**单侧 Bernstein 条件**：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda(Y)}\right] \leq \exp\left(\frac{\mathbb{V}[Y] \lambda^2 / 2}{1 - b\lambda}\right), \quad \forall \lambda \in \left[0, \frac{1}{b}\right)
+\end{equation}
+$$
+其中 $Y = X - \mathbb{E}[X]$。
+
+根据**矩条件**，我们已经证明 $Y$ 满足**亚指数条件**：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda Y}\right] \leq \exp\left(\frac{\mathbb{V}[Y] \lambda^2}{2(1 - b\lambda)}\right), \quad \forall \lambda \in \left[0, \frac{1}{b}\right)
+\end{equation}
+$$
+
+因此，$Y$ 满足**单侧 Bernstein 条件**，且 $\mathbb{V}[Y] = \mathbb{V}[X]$。
+
+- **步骤 2：应用 Chernoff 界**
+
+考虑 $m$ 个独立同分布随机变量 $Y_i = X_i - \mathbb{E}[X_i]$ 的和：
+$$
+\begin{equation}
+S_m = \sum_{i=1}^{m} Y_i = m(\bar{X} - \mathbb{E}[\bar{X}])
+\end{equation}
+$$
+
+我们的目标是对概率 $\mathbb{P}(S_m \geq m\epsilon)$ 进行上界，这等价于 $\mathbb{P}(\bar{X} \geq \mathbb{E}[\bar{X}] + \epsilon)$。
+
+使用**Chernoff 界**：
+$$
+\begin{equation}
+\mathbb{P}(S_m \geq m\epsilon) \leq \inf_{\lambda > 0} \exp(-\lambda m \epsilon) \mathbb{E}\left[e^{\lambda S_m}\right]
+\end{equation}
+$$
+
+- **步骤 3：对和的矩母函数进行上界**
+
+由于 $Y_i$ 是独立的：
+$$
+\begin{equation}
+\mathbb{E}\left[e^{\lambda S_m}\right] = \prod_{i=1}^{m} \mathbb{E}\left[e^{\lambda Y_i}\right] \leq \left[\exp\left(\frac{\mathbb{V}[Y_i] \lambda^2}{2(1 - b\lambda)}\right)\right]^m = \exp\left(\frac{m \mathbb{V}[Y] \lambda^2}{2(1 - b\lambda)}\right)
+\end{equation}
+$$
+
+因此：
+$$
+\begin{equation}
+\mathbb{P}(S_m \geq m\epsilon) \leq \inf_{\lambda > 0} \exp\left(-\lambda m \epsilon + \frac{m \mathbb{V}[Y] \lambda^2}{2(1 - b\lambda)}\right)
+\end{equation}
+$$
+
+- **步骤 4：对 $\lambda$ 进行优化**
+
+为了找到最紧的界，我们需要对 $\lambda$ 进行优化。最优的 $\lambda$ 是使指数最小的值：
+$$
+\begin{equation}
+-\lambda m \epsilon + \frac{m \mathbb{V}[Y] \lambda^2}{2(1 - b\lambda)}
+\end{equation}
+$$
+
+对 $\lambda$ 求导并令其为零：
+$$
+\begin{equation}
+-\epsilon + \frac{\mathbb{V}[Y] \lambda}{1 - b\lambda} + \frac{\mathbb{V}[Y] \lambda^2 b}{2(1 - b\lambda)^2} = 0
+\end{equation}
+$$
+
+然而，直接求解该方程较为复杂。我们可以选择：
+$$
+\begin{equation}
+\lambda = \frac{\epsilon}{\mathbb{V}[Y] + b\epsilon}
+\end{equation}
+$$
+
+此时 $\lambda$ 满足 $\left[0, \frac{1}{b}\right)$ 的范围，因为：
+$$
+\begin{equation}
+\lambda b = \frac{b\epsilon}{\mathbb{V}[Y] + b\epsilon} < 1
+\end{equation}
+$$
+
+- **步骤 5：将最优的 $\lambda$ 代入界中**
+
+将 $\lambda = \frac{\epsilon}{\mathbb{V}[Y] + b\epsilon}$ 代入指数中：
+$$
+\begin{equation}
+-\lambda m \epsilon + \frac{m \mathbb{V}[Y] \lambda^2}{2(1 - b\lambda)} = -\frac{m \epsilon^2}{\mathbb{V}[Y] + b\epsilon} + \frac{m \mathbb{V}[Y] \left(\frac{\epsilon}{\mathbb{V}[Y] + b\epsilon}\right)^2}{2\left(1 - \frac{b\epsilon}{\mathbb{V}[Y] + b\epsilon}\right)}
+\end{equation}
+$$
+
+在第二项中简化分母：
+$$
+\begin{equation}
+1 - b\lambda = 1 - \frac{b\epsilon}{\mathbb{V}[Y] + b\epsilon} = \frac{\mathbb{V}[Y]}{\mathbb{V}[Y] + b\epsilon}
+\end{equation}
+$$
+
+现在，代入回去：
+$$
+\begin{equation}
+-\frac{m \epsilon^2}{\mathbb{V}[Y] + b\epsilon} + \frac{m \epsilon^2}{2(\mathbb{V}[Y] + b\epsilon)} = -\frac{m \epsilon^2}{2(\mathbb{V}[Y] + b\epsilon)}
+\end{equation}
+$$
+
+因此：
+$$
+\begin{equation}
+\mathbb{P}(S_m \geq m\epsilon) \leq \exp\left(-\frac{m \epsilon^2}{2(\mathbb{V}[Y] + b\epsilon)}\right)
+\end{equation}
+$$
+
+- **步骤 6：回到样本均值**
+
+回忆：
+$$
+\begin{equation}
+S_m = m(\bar{X} - \mathbb{E}[\bar{X}])
+\end{equation}
+$$
+
+因此：
+$$
+\begin{equation}
+\mathbb{P}\left(\bar{X} - \mathbb{E}[\bar{X}] \geq \epsilon\right) = \mathbb{P}(S_m \geq m\epsilon) \leq \exp\left(-\frac{m \epsilon^2}{2(\mathbb{V}[Y] + b\epsilon)}\right)
+\end{equation}
+$$
+
+由于 $\mathbb{V}[Y] = \mathbb{V}[X]$，我们得到：
+$$
+\begin{equation}
+\mathbb{P}\left(\bar{X} \geq \mathbb{E}[\bar{X}] + \epsilon\right) \leq \exp\left(-\frac{m \epsilon^2}{2(\mathbb{V}[X] + b\epsilon)}\right)
 \end{equation}
 $$
 $\square$
