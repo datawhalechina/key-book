@@ -84,11 +84,13 @@ $$
 $$
 根据 Cauchy-Schwarz 不等式，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\|y-y'\|_2^2 \leq \langle x-x',y-y'\rangle \leq \|x-x'\|_2\,\|y-y'\|_2\\
 \Rightarrow &\|y-y'\|_2 \leq \|x-x'\|_2 \\
 \Rightarrow &\|\Pi(x) - \Pi(x')\|_2 \leq \|x-x'\|_2
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 这种投影映射经常用于凸优化中，因为它能将问题简化为凸优化问题，从而提高算法效率，并在许多情况下保证全局最优解。
@@ -193,17 +195,21 @@ $$
 
 根据强凸函数的定义，取 $x = w$，$y = w^*$，然后两边除以 $\alpha$，可得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\frac{f(\alpha w + (1-\alpha)w^*)}{\alpha} \leq f(w) + \frac{1-\alpha}{\alpha}f(w^*) - \frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \\
 \Rightarrow &\frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \leq f(w) - f(w^*) - \frac{f(w^* + (w-w^*)\alpha) - f(w^*)}{\alpha}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 令 $\alpha \rightarrow 0^+$，则有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \leq f(w) - f(w^*) + \lim_{\alpha\rightarrow 0^+}\frac{f(w^* + (w-w^*)\alpha) - f(w^*)}{\alpha} \\
 \Rightarrow &\frac{\lambda}{2}\|w-w^*\|_2^2 \leq f(w) - f(w^*) + \nabla f(w^*)^T(w-w^*)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 其中 $\Delta = (w-w^*)\alpha$。
 
@@ -236,11 +242,13 @@ $$
 
 一般形式的凸优化问题可以表示为：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\min\ &f_0(x) \\
 &s.t.\ &f_i(x) \leq 0, &i\in[m] \\
 &\ &g_j(x) = 0, &j\in[n]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 其中，$f_0(x)$ 是凸目标函数，$f_i(x)$ 是凸不等式约束条件，$g_j(x)$ 是仿射等式约束条件。
 
@@ -268,10 +276,12 @@ f(x^* + \alpha(y-x^*)) = f((1-\alpha)x^* + \alpha y) \leq (1-\alpha)f(x^*) + \al
 $$
 结合以上两式，可得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &f(x^*) \leq (1-\alpha)f(x^*) + \alpha f(y) \\
 rightarrow &f(x^*) \leq f(y)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 由于 $y$ 是凸集合 $\mathcal{D}$ 中的任意点，故 $x^*$ 为全局最优解。对于 $f(x)$ 的全局最大解，可以通过考虑函数 $-f(x)$ 的局部最优解得到类似的结论。
 
@@ -317,9 +327,11 @@ $$
 
 存在一点 $x\in \text{relint}(D)$，该点称为 Slater 向量，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 f_i(x) \lt 0, &\quad i\in[m]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 其中，$D = \bigcap_0^m \text{dom}(f_i)$，$relint(D)$ 为 $D$ 的相对内部，即其仿射包的内部所有点，即 $relint(D) = \text{int}(aff(D))$。
 
@@ -397,11 +409,13 @@ $$
 
 接着证明对偶问题最优解集合非空且有界。对于任意对偶最优解 $\tilde\lambda\succeq 0$，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 d^* = g(\tilde\lambda) &= \inf_{x} \{f_0(x) + \sum_{i=1}^m \tilde\lambda_i f_i(x)\} \\
 &\leq f_0(\bar{x}) + \sum_{i=1}^m \tilde\lambda_i f_i(\bar{x}) \\
 &\leq f_0(\bar{x}) + \max_{i\in[m]}\{f_i(\bar{x})\}[\sum_{i=1}^m \tilde\lambda_i]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，有：
 $$
@@ -509,10 +523,12 @@ $$
 
 1. 若函数 $f(x)$ 的导数有界，即存在常数 $L \ge 0$，使得对于任意 $x$，有 $|f'(x)| \leq L$。根据微分中值定理，对于任意 $x \le y$，存在 $c \in [x,y]$，使得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\|f(x)-f(y)\|_2 = \|f'(c)\|_2\|x-y\|_2 \\
 \Rightarrow &\|f(x)-f(y)\|_2 \le L \|x-y\|_2
-\end{align}
+\end{align*}
+\end{equation}
 $$
 此时，函数是 $L-Lipschitz$ 连续的。
 
@@ -675,10 +691,12 @@ $$
 
 线性泛函（linear functional）是指从向量空间 $V$ 到对应标量域 $k$ 的线性映射，满足加法和数乘的性质，即对于任意向量 $x,y \in V$ 和标量 $\alpha \in k$，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &f(x+y) = f(x) + f(y) \\
 &f(\alpha x) = \alpha f(x)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 所有从 $V$ 到 $k$ 的线性泛函构成的集合称为 $V$ 的对偶空间（dual space），记为 $V^* = \text{Hom}_k(V,k)$，对偶空间中的元素称为对偶向量。
 
@@ -711,11 +729,13 @@ $$
 
 1. **凸性**：函数 $f(x)$ 的共轭函数 $f^*(y)$ 一定是凸函数。证明如下：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 f^*(\lambda y_1+(1-\lambda)y_2) &= \sup_{x\in \text{dom}(f)}\{x^T(\lambda y_1+(1-\lambda)y_2)-f(x)\}\\
 &\leq \lambda \sup_{x\in \text{dom}(f)}\{x^T y_1 - f(x)\} + (1-\lambda)\sup_{x\in \text{dom}(f)}\{x^T y_2 - f(x)\}\\
 &= \lambda f^*(y_1) + (1-\lambda)f^*(y_2)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 其中的不等式利用了凸性的性质。
 
@@ -1031,18 +1051,22 @@ $$
 
 设 $p(x)$ 为 $X$ 的概率密度函数。由 Taylor 展开式及 $f$ 的凸性，可知 $\exists \xi$ 使得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 f(x) &= f(\mathbb{E}[X]) + f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X]) + \frac{f^{\prime \prime}(\xi)}{2}(x-\mathbb{E}[X])^{2} \\
 & \geq f(\mathbb{E}[X]) + f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X])
-\end{align}
+\end{align*}
+\end{equation}
 $$
 对上式取期望，得到：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}[f(X)] &= \int p(x) f(x) \,dx \\
 &\geq f(\mathbb{E}[X]) \int p(x) \,dx + f^{\prime}(\mathbb{E}[X]) \int p(x)(x-\mathbb{E}[X]) \,dx \\
 &= f(\mathbb{E}[X])
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，原不等式得证。
 
@@ -1082,12 +1106,14 @@ MN \leq \frac{1}{p}M^p + \frac{1}{q}N^q
 $$
 对该不等式两边同时取期望：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \frac{\mathbb{E}[|XY|]}{(\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|Y|^q])^{\frac{1}{q}}} &= \frac{\int_{XY} |xy| f(x)g(y) \,dx\,dy}{(\int_X |x|^p f(x) \,dx)^{\frac{1}{p}} (\int_Y |y|^q g(y) \,dy)^{\frac{1}{q}}} \\
 &\leq \frac{\int_X |x|^p f(x) \,dx}{p \int_X |x|^p f(x) \,dx} + \frac{\int_Y |y|^q g(y) \,dy}{q \int_Y |y|^q g(y) \,dy} \\
 &= \frac{1}{p} + \frac{1}{q} \\
 &= 1
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，Hölder 不等式得证。$\square$
   
@@ -1118,11 +1144,13 @@ $$
 由 Hölder 不等式：
 对任意 $p \geq 1$，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}[|X|^{r}] &= \mathbb{E}[|X \cdot 1|^{r}] \\
 &\leq (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}} \cdot (\mathbb{E}[1^q])^{\frac{1}{q}} \\
 &= (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 记 $s = rp \geq r$，则：
 $$
@@ -1147,13 +1175,15 @@ $$
 
 由三角不等式和 Hölder 不等式，可得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}[|X+Y|^p] &\leq \mathbb{E}[(|X|+|Y|)|X+Y|^{p-1}] \\
 &= \mathbb{E}[|X\|X+Y|^{p-1}] + \mathbb{E}[|Y\|X+Y|^{p-1}] \\
 &\leq (\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} \\
 &\quad + (\mathbb{E}[|Y|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} \\
 &= [(\mathbb{E}[|X|^p])^{\frac{1}{p}} + (\mathbb{E}[|Y|^p])^{\frac{1}{p}}] \cdot \frac{\mathbb{E}[|X+Y|^p]}{(\mathbb{E}[|X+Y|^p])^{\frac{1}{p}}}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 化简后即得证。$\square$
 
@@ -1172,18 +1202,22 @@ $$
 
 因为 $a \leq X \leq b$，所以有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 0 &\leq \mathbb{E}[(b-X)(X-a)] \\
 &= -\mathbb{E}[X^2] - ab + (a+b)\mathbb{E}[X]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{V}[X] &= \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\
 &\leq -ab + (a+b)\mathbb{E}[X] - \mathbb{E}[X^2] \\
 &= (b - \mathbb{E}[X])(\mathbb{E}[X] - a)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 考虑 AM-GM 不等式：
@@ -1272,12 +1306,14 @@ $$
 
 设 $Y = X - \mathbb{E}[X]$，则对于任意 $\lambda \geq 0$，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(X-\mathbb{E}[X] \geq \varepsilon) &= P(Y \geq \varepsilon) \\
 &= P(Y+\lambda \geq \varepsilon+\lambda) \\
 &= P((Y+\lambda)^{2} \geq (\varepsilon+\lambda)^{2}) \\
 &\leq \frac{\mathbb{E}[(Y+\lambda)^{2}]}{(\varepsilon+\lambda)^{2}} = \frac{\mathbb{V}[X]+\lambda^{2}}{(\varepsilon+\lambda)^{2}}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 通过对 $\lambda$ 求导，得右端在 $\lambda = \frac{\mathbb{V}[X]}{\varepsilon}$ 时取得最小值 $\frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}$，因此：
 $$
@@ -1363,10 +1399,12 @@ $$
 
 对于 $m$ 个独立同分布的随机变量 $x_i \in [0, 1], i \in [m]$，设 $X = \sum_{i=1}^m X_i$，$\mu \gt 0$ 且 $r \leq 1$。若对所有 $i \leq m$ 都有 $\mathbb{E}[x_i] \leq \mu$，则：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(X \geq (1+r)\mu m) \leq e^{-\frac{r^2 \mu m}{3}}, \quad r \geq 0 \\
 P(X \leq (1-r)\mu m) \leq e^{-\frac{r^2 \mu m}{2}}, \quad r \geq 0
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 ### 证明
@@ -1416,12 +1454,14 @@ $$
 
 根据 Chernoff 不等式，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(X - \mathbb{E}X \geq \varepsilon) &\leq \inf_{\lambda \geq 0} e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(X-\mathbb{E}X)}] \\
 &\leq \inf_{\lambda \geq 0} e^{\phi(\lambda) - \lambda \varepsilon} \\
 &= e^{-\sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda))} \\
 &= e^{-\phi^*(\varepsilon)}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，最优 Chernoff 界得证。$\square$
 
@@ -1624,19 +1664,23 @@ $$
 $$
 因此，由恒等式 $\mathbb{E}[\mathbb{E}[X \mid Y]] = \mathbb{E}[X]$ 及 Chernoff 一般性技巧，对于任意 $\lambda \gt 0$：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(Z_{m}-\mu \geq \varepsilon) &\geq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m}-\mu)}] \\
 & = e^{-\lambda \varepsilon} \mathbb{E}[\mathbb{E}[e^{\lambda(Z_{m}-\mu)} \mid \mathcal{F}_{m-1}]] \\
 & = e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}\mathbb{E}[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}]]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 由于 $\{X_{i}\}$ 是鞅差序列，因此 $\mathbb{E}[X_{m} \mid \mathcal{F}_{m-1}] = 0, \mathbb{E}[X_{i}] = 0$。再结合不等式 $\mathbb{E}[e^{\lambda X} \mid Y] \leq \mathbb{E}[e^{\lambda X}]$ 及 Hoeffding 引理，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(Z_{m}-\mu \geq \varepsilon) & \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \mathbb{E}[e^{\lambda X_{n}}] \\
 & \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \exp (\frac{\lambda^{2} c_{m}^{2}}{2})
-\end{align}
+\end{align*}
+\end{equation}
 $$
 迭代上不等式可得：
 $$
@@ -1966,10 +2010,12 @@ $\square$
 
 对于均值为 $Z_0 = \mu$ 的鞅差序列 $\{Z_m, m \geq 1\}$，若 $|Z_i - Z_{i-1}| \leq c_i$，其中$c_i \gt 0$为已知常数，则对于任意 $\varepsilon \gt 0$，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(Z_{m} - \mu \geq \varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}) \\
 P(Z_{m} - \mu \leq -\varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}})
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 ### 证明
@@ -2104,10 +2150,12 @@ $$
 
 二项随机变量 $X$ 表示在 $m$ 次独立伯努利试验中成功的次数，成功概率为 $p$。对于大的 $m$，二项分布 $B(m,p)$ 可以近似为均值 $\mu=mp$ 和方差 $\sigma^2=mp(1-p)$ 的正态分布：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mu &= \frac{m(1-\varepsilon)}{2} \\
 \sigma^2 &= \frac{m(1-\varepsilon^2)}{4}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 令 $Z=\frac{X-\mu}{\sigma}$，代入 $\mu$ 和 $\sigma$，有：
 $$
@@ -2211,11 +2259,13 @@ R_0 = \{(x,y):\pi(x^2+y^2)\leq 4u^2\}
 $$
 此时，有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 2\pi[2G(u)]^2 &\leq \iint_{R_0} e^{-(x^2+y^2)/2}\,dx\,dy \\
 &=\int_0^{2\pi}\int_0^{2u\pi^{-1/2}} e^{-r^2/2}r\,dr\,d\varphi \\
 &= 2\pi(1-e^{-2u^2/\pi})
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因此，有：
 $$
@@ -2264,10 +2314,12 @@ $$
 $$
 即：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \ln(\frac{1}{n}\sum_{i=1}^n x_i) &\geq \frac{1}{n}\sum_{i=1}^n \ln x_i = \ln(\sqrt[n]{\prod_{i=1}^n x_i}) \\
 \Rightarrow \frac{1}{n}\sum_{i=1}^n x_i &\geq \sqrt[n]{\prod_{i=1}^n x_i}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 当取 $x_1 = x_2 = \cdots = x_n$ 时，等号成立。特别地，当 $n=2$ 时，我们有：
 $$
@@ -2293,11 +2345,13 @@ $$
 
 我们可以通过 Jensen 不等式来证明 Young 不等式。首先，当 $ab = 0$ 时，该不等式显然成立。当 $a, b \gt 0$ 时，我们令 $t = 1/p, 1-t = 1/q$，根据 $\ln(x)$ 的凹性，我们有：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \ln(t a^p + (1-t) b^q) &\geq t\ln(a^p) + (1-t)\ln(b^q) \\
 &= \ln(a) + \ln(b) \\
 &= \ln(ab)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 当且仅当 $a^p = b^q$ 时，等号成立。$\square$
 
@@ -2401,12 +2455,14 @@ $$
 $$
 如果我们将我们正在考虑的级数定义的函数记为 $g(x)$，我们得到：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 (1 + x) \frac{d}{dx} g(x) &= \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1} + \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^k \\
 &= r + \sum_{k=1}^\infty ( (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} ) x^k \\
 &= r + r \sum_{k=1}^\infty \binom{r}{k} x^k \\
 &= r g(x),
-\end{align}
+\end{align*}
+\end{equation}
 $$
 上式的推导使用了前述引理。
 
@@ -2454,11 +2510,13 @@ $$
 $$
 其中：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 A_p &= \int_{p}^{p+1} \ln x \, dx \\
 b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
 \varepsilon_p &= \int_{p}^{p+1} \ln x \, dx - \frac{1}{2} [\ln(p+1) + \ln(p)]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 此时：
 $$

@@ -54,19 +54,23 @@ $$
 
 根据式4.6，有
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 & P(\exists h \in \mathcal{H}:|\widehat{E}(h)-\mathbb{E}(h)|\gt\epsilon) \\
 =& P\left(\left(\left|\widehat{E}\left(h_{1}\right)-E\left(h_{1}\right)\right|\gt\epsilon\right) \vee \cdots \vee\left(\left|\widehat{E}\left(h_{|\mathcal{H}|}\right)-E\left(h_{|\mathcal{H}|}\right)\right|\gt\epsilon\right)\right) \\
 \leqslant & \sum_{h \in \mathcal{H}} P(|\widehat{E}(h)-\mathbb{E}(h)|\gt\epsilon)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 引理2.1提出，若训练集 D 包含 $m$ 个从分布 D 上独立同分布采样而得的样本, $0\lt\epsilon\lt1$ 则对任意 $h \in \mathcal{H},$ 有
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 P(\widehat{E}(h)-\mathbb{E}(h) \geqslant \epsilon) & \leqslant \exp \left(-2 m \epsilon^{2}\right) \\
 P(\mathbb{E}(h)-\widehat{E}(h) \geqslant \epsilon) & \leqslant \exp \left(-2 m \epsilon^{2}\right) \\
 P(|\mathbb{E}(h)-\widehat{E}(h)| \geqslant \epsilon) & \leqslant 2 \exp \left(-2 m \epsilon^{2}\right)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 使用第三个式子，即，
 $$
@@ -201,7 +205,9 @@ $$
 **71页**的定理4.6给出了泛化误差下界的形式化表述：
 
 $$
+\begin{equation}
 P\left(\mathbb{E}(h_D, c) > \frac{d-1}{32m}\right) \ge \frac{1}{100}
+\end{equation}
 $$
 
 虽然不等式右边的常数 $\frac{1}{100}$ 看似有些随意，但作者意在表明：对于任意学习算法，总是存在某种分布和目标概念，使得学习算法输出的假设在较高概率下产生显著错误。
@@ -237,23 +243,27 @@ $$
 用 $f$ 代表任意决策函数，用 $F_A$ 代表满足 $f(S)=x_A$ 的样本集合，用 $F_B$ 代表满足 $f(S)=x_B$ 的样本集合，用 $N(S)$ 表示样本 $S$ 中出现 0 的个数，根据泛化误差的定义，有：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 error(f)&=\sum_{S\in F_A}\mathbb{P}[S\wedge x_B]+\sum_{S\in F_B}\mathbb{P}[S\wedge x_A]\\
 &=\frac{1}{2}\sum_{S\in F_A}\mathbb{P}[S|x_B]+\frac{1}{2}\sum_{S\in F_B}\mathbb{P}[S|x_A]\\
 &=\frac{1}{2}\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_B]
 +\frac{1}{2}\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_A]+\frac{1}{2}\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 如果 $N(S)\ge \lceil m/2\rceil$，易证 $\mathbb{P}[S|x_B]\ge\mathbb{P}[S|x_A]$。类似地，如果 $N(S)\lt \lceil m/2\rceil$，易证 $\mathbb{P}[S|x_A]\ge\mathbb{P}[S|x_B]$。因此，我们可以得到：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 error(f) &\ge\frac{1}{2}\sum_{S\in F_A\atop N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\sum_{S\in F_A\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]
 +\frac{1}{2}\sum_{S\in F_B\atop N(S)\lt \lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\sum_{S\in F_B\atop N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
 &=\frac{1}{2}\sum_{S:N(S)\lt\lceil m/2\rceil}\mathbb{P}[S|x_B]+\frac{1}{2}\sum_{S:N(S)\ge \lceil m/2\rceil}\mathbb{P}[S|x_A]\\
 &=error(f_o)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 因此，当我们选取 $f_o$ 为决策函数时，泛化误差取得最小值，即当且仅当 $N(S)\lt \lceil m/2\rceil$ 时，我们认为被抛的硬币是 $f_o(S)=x_A$。

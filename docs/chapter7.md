@@ -65,10 +65,12 @@ $$
 
 1. 当 $\frac{\gamma-\lambda}{\lambda}=0$ 时，（7.19）转化为：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 f(\omega_{t+1})&\le \min_{\alpha\in[0,1]}\{f(\omega_t)-\alpha (f(\omega_t)-f(\omega^*))\} \\
 \Rightarrow f(\omega_{t+1})-f(\omega^*)&\le \min_{\alpha\in[0,1]}\{1-\alpha\}(f(\omega_t)-f(\omega^*)) 
-\end{align}
+\end{align*}
+\end{equation}
 $$
 因为 $f(\omega_t)-f(\omega^*)\ge0$，所以当且仅当 $\alpha=1$ 时，不等式右侧取得最小值 $0$，此时易知 $f(\omega_{t+1})=f(\omega^*)$。根据凸函数局部最优解等于全局最优解的结论，我们可以得到 $\omega_{t+1}=\omega^*$，即算法在第 $t+1$ 轮迭代中收敛到最优解。
 
@@ -220,15 +222,18 @@ $$
 
 其次，（7.62）中最后两个不等式的推导利用了一些常见的缩放技巧，我们在这里给出完整形式：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\sum_{i=1}^m P\left(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau+\frac{4l^2}{\lambda},V_T^2\le4l^2A_T,A_T\in\left(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i\right)\right) \\
 \le &\sum_{i=1}^m P\left(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau,V_T^2\le4l^2A_T,A_T\in\left(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i\right)\right) \\
 \le &\sum_{i=1}^m P\left(\sum_{t=1}^T \delta_t \ge \sqrt{2\frac{16l^42^i}{\lambda^2T}\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau,V_T^2\le\frac{16l^42^i}{\lambda^2T}\right) \\
 \le &\sum_{i=1}^m P\left(\max_{j=1,\cdots,T}\underbrace{\sum_{t=1}^j \delta_t}_{S_j} \ge \sqrt{2\underbrace{\frac{16l^42^i}{\lambda^2T}}_{\nu}\tau}+\frac{2}{3}\underbrace{\frac{4l^2}{\lambda}}_{K}\tau,V_T^2\le\underbrace{\frac{16l^42^i}{\lambda^2T}}_{\nu}\right) \\
 \le &\sum_{i=1}^m e^{-\tau} \\
 = &me^{-\tau}
-\end{align}
+\end{align*}
+\end{equation}
 $$
+
 这里，第一个不等式利用了 $\frac{4l^2}{\lambda} \gt 0$ 的事实对 $\sum_{t=1}^T \delta_t$ 的范围进行概率缩放；
 第二个不等式利用了 $A_T$ 的下界和上界分别对 $\sum_{t=1}^T \delta_t$ 和 $V_T^2$ 的范围进行概率缩放；
 第三个不等式利用了 $\max_{j=1,\cdots,T}\sum_{t=1}^j \delta_t$ 比 $\sum_{t=1}^T \delta_t$ 更为宽松的事实对 $V_T^2$ 进行概率缩放；

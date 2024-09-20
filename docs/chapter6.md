@@ -18,10 +18,12 @@
 
 泛化风险定义为：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 R(f) &=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(y f(x) \leqslant 0)] \\
 &=\mathbb{E}_{x \sim \mathcal{D}_{\mathcal{X}}}[\eta(x) \mathbb{I}(f(x) \leqslant 0)+(1-\eta(x)) \mathbb{I}(f(x) \geqslant 0)]
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 经验风险定义为：
@@ -35,13 +37,15 @@ $$
 
 假设所有样本都是从一个未知的样本-标签空间 $D$ 中独立同分布采样的，对经验风险求期望：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}({\hat R(f)}) &=\mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(y_{i} f\left(x_{i}\right) \leqslant 0\right)}] \\
 &= \frac{1}{m} \sum_{i=1}^{m} \mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \mathbb{I}\left(y_{i} f\left(x_{i}\right) \leqslant 0\right)}]\\
 &= \frac{1}{m} \sum_{i=1}^{m} \mathbb{E}_{(x, y) \sim \mathcal{D}}[{ \mathbb{I}\left(y f\left(x\right) \leqslant 0\right)}]\\
 &= \frac{1}{m} \sum_{i=1}^{m} R(f)\\
 &= R(f)
-\end{align} 
+\end{align*}
+\end{equation} 
 $$
 
 ## 6.2 【证明补充】替代函数一致性
@@ -136,10 +140,12 @@ $$
 
 对于此不等式的右侧，再进行放缩。对于任意 $k \geq 3$，当 $N(x) \leqslant k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2}$，当 $N(x) \gt k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2\sqrt k}$，从而得到不等式右侧的进一步放缩：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)\gt0) \mid x, x_{1}, \ldots, x_{m}\right] &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}} P\left(N(x) \gt k \mid x, x_{1}, \ldots, x_{m}\right)\\
 &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 结合前面的结果，我们可以得出：
@@ -168,10 +174,11 @@ $$
 
 首先，令 $L_j$ 表示区域 $\Omega(x,Z)$ 中第 $j$ 个属性的边长，我们可以得到 $Diam(\Omega(x,Z))$ 与 $L_j$ 的关系：
 $$
-\begin{align}
-Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}\|x-x'\|\\
-&=\sqrt{\sum_{j=1}^dL_j^2}
-\end{align}
+\begin{equation}
+\begin{align*}
+Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}\|x-x'\| = \sqrt{\sum_{j=1}^dL_j^2}
+\end{align*}
+\end{equation}
 $$
 
 对于 $Diam(\Omega(x,Z))$ 求期望时，我们得到：
@@ -201,7 +208,8 @@ $$
 
 令 $T_m$ 表示区域 $\Omega(x,Z)$ 被划分的次数，结合（6.98）及划分点的独立性，我们可以得到：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}(L_j)&\le\mathbb{E}[\mathbb{E}_{K_j}[\prod_{i=1}^{K_j}max(U_i,1-U_i)]]\\
 &=\mathbb{E}[(\mathbb{E}[max(U_1,1-U_1)])^{K_j}]\\
 &=\mathbb{E}[(\frac{3}{4})^{K_j}]\\
@@ -210,7 +218,8 @@ $$
 &=\sum_{K_j=0}^{T_m}\binom{T_m}{K_j}\cdot(\frac{3}{4d})^{K_j}\cdot(1-\frac{1}{d})^{T_m}\\
 &=(1-\frac{1}{d}+\frac{3}{4d})^{T_m}\\
 &=(1-\frac{1}{4d})^{T_m}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 此时，只需证明当 $k\rightarrow\infty$ 时 $T_m\rightarrow\infty$，便可证明 $\mathbb{E}(L_j)\rightarrow 0$。

@@ -50,27 +50,37 @@ $$
 
 1. **假设 1（梯度有界性）**：所有损失函数 $f_t(x)$ 的梯度被 $G$ 所有界：
    $$
+   \begin{equation}
    \forall t \gt 0, \quad \max_{x \in D} \|\nabla f_t(x)\| \leq G
+   \end{equation}
    $$
 
 2. **假设 2（行动集的直径有界性）**：行动集 $D$ 的直径被 $D$ 所有界：
    $$
+   \begin{equation}
    \max_{x_1, x_2 \in D} \|x_1 - x_2\| \leq D
+   \end{equation}
    $$
 
 3. **定义 1（凸函数）**：函数 $f : D \rightarrow \mathbb{R}$ 是凸的，如果：
    $$
+   \begin{equation}
    f(x_1) \geq f(x_2) + \nabla f(x_2)^\top (x_1 - x_2), \quad \forall x_1, x_2 \in D
+   \end{equation}
    $$
 
 4. **定义 2（强凸函数）**：函数 $f : D \rightarrow \mathbb{R}$ 是 $\lambda$-强凸的，如果：
    $$
+   \begin{equation}
    f(x_1) \geq f(x_2) + \nabla f(x_2)^\top (x_1 - x_2) + \frac{\lambda}{2} \|x_1 - x_2\|^2, \quad \forall x_1, x_2 \in D
+   \end{equation}
    $$
 
 5. **定义 3（指数凹函数）**：函数 $f : D \rightarrow \mathbb{R}$ 是 $\alpha$-指数凹的（简称 $\alpha$-exp-concave），如果：
    $$
-   \exp(-\alpha f(x)) \text{ 是凹的}
+   \begin{equation}
+   \exp(-\alpha f(x)) \text{是凹的}
+   \end{equation}
    $$
 
 ### 元算法（Maler）
@@ -81,16 +91,23 @@ $$
    - 从凸专家算法（专家 1）获取预测 $x^c_t$，从指数凹专家算法（专家 2）和强凸专家算法（专家 3）分别获取 $x^{\eta, l}_t$ 和 $x^{\eta, s}_t$。
    - 执行：
      $$
+     \begin{equation}
      x_t = \frac{\pi^c_t \eta^c x^c_t + \sum_{\eta} (\pi^{\eta,s}_t \eta x^{\eta,s}_t + \pi^{\eta,l}_t \eta x^{\eta,l}_t)}{\pi^c_t \eta^c + \sum_{\eta} (\pi^{\eta,s}_t \eta + \pi^{\eta,l}_t \eta)}
+     \end{equation}
      $$
    - 观察梯度 $g_t$ 并发送给所有专家算法。
    - 对所有的 $\eta$ 更新权重：
      $$
+     \begin{equation}
      \pi^c_{t+1} = \frac{\pi^c_t e^{-c_t(x^c_t)}}{\Phi_t}, \quad \pi^{\eta,s}_{t+1} = \frac{\pi^{\eta,s}_t e^{-s^{\eta}_t(x^{\eta,s}_t)}}{\Phi_t}, \quad \pi^{\eta,l}_{t+1} = \frac{\pi^{\eta,l}_t e^{-l^{\eta}_t(x^{\eta,l}_t)}}{\Phi_t}
+     \end{equation}
      $$
-     其中
+
+     其中：
      $$
+     \begin{equation}
      \Phi_t = \sum_{\eta} (\pi^{\eta,s}_t e^{-s^{\eta}_t(x^{\eta,s}_t)} + \pi^{\eta,l}_t e^{-l^{\eta}_t(x^{\eta,l}_t)} ) + \pi^c_t e^{-c_t(x^c_t)}
+     \end{equation}
      $$
 
 ### 凸专家算法（专家 1）
@@ -101,7 +118,9 @@ $$
    - 从元算法接收梯度 $g_t$
    - 更新：
      $$
+     \begin{equation}
      x^c_{t+1} = \Pi^{I_d}_D (x^c_t - \frac{D}{\eta^c G \sqrt{t}} \nabla c_t(x^c_t))
+     \end{equation}
      $$
      其中 $\nabla c_t(x^c_t) = \eta^c g_t$
 
@@ -114,10 +133,12 @@ $$
    - 从元算法接收梯度 $g_t$
    - 更新：
      $$
-     \Sigma_{t+1} = \Sigma_t + \nabla l^{\eta}_t(x^{\eta,l}_t) \nabla l^{\eta}_t(x^{\eta,l}_t)^\top
-     $$
-     $$
-     x^{\eta,l}_{t+1} = \Pi^{\Sigma_{t+1}}_D (x^{\eta,l}_t - \frac{1}{\beta} \Sigma_{t+1}^{-1} \nabla l^{\eta}_t(x^{\eta,l}_t))
+     \begin{equation}
+\begin{align*}
+     \Sigma_{t+1} &= \Sigma_t + \nabla l^{\eta}_t(x^{\eta,l}_t) \nabla l^{\eta}_t(x^{\eta,l}_t)^\top \\
+     x^{\eta,l}_{t+1} &= \Pi^{\Sigma_{t+1}}_D (x^{\eta,l}_t - \frac{1}{\beta} \Sigma_{t+1}^{-1} \nabla l^{\eta}_t(x^{\eta,l}_t))
+     \end{align*}
+\end{equation}
      $$
      其中 $\nabla l^{\eta}_t(x^{\eta,l}_t) = \eta g_t + 2 \eta^2 g_t g_t^\top (x^{\eta,l}_t - x_t)$
 
@@ -130,7 +151,9 @@ $$
    - 从元算法接收梯度 $g_t$
    - 更新：
      $$
+     \begin{equation}
      x^{\eta,s}_{t+1} = \Pi^{I_d}_D (x^{\eta,s}_t - \frac{1}{2\eta^2 G^2 t} \nabla s^{\eta}_t(x^{\eta,s}_t))
+     \end{equation}
      $$
      其中 $\nabla s^{\eta}_t(x^{\eta,s}_t) = \eta g_t + 2 \eta^2 G^2 (x^{\eta,s}_t - x_t)$
 
@@ -154,21 +177,25 @@ P(\mu_*\le\mu_i+\sqrt{\frac{2\ln t}{q}})=0,q\ge l
 $$
 代入（8.44），可得：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \mathbb{E}[n_i^T]&\le\lceil\frac{2\ln T}{\Delta_i^2}\rceil+2\sum_{t=1}^{T-1}\sum_{p=1}^{t-1}\sum_{q=l}^{t-1}t^{-4} \\
 &\le\frac{2\ln T}{\Delta_i^2}+1+2\sum_{t=1}^{T-1}\sum_{p=1}^{t}\sum_{q=1}^{t}t^{-4} \\
 &\le\frac{2\ln T}{\Delta_i^2}+1+2\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2} 
-\end{align}
+\end{align*}
+\end{equation}
 $$
 根据$p$-级数判别法，当$p=2\gt1$时，级数收敛，因此$\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$是有界的。至于该级数的具体值，对定理的结论没有影响，因此我们可以将其视为一个常数，然后带入后续推导中。为了证明的完整性，我们对此进行简要说明。
 
 $\lim_{T\rightarrow+\infty}\sum_{t=1}^{T-1}t^{-2}$的取值在数学界被称为Basel问题，推导过程涉及诸多前置定理，感兴趣的读者可以查看这个讲义：[The Basel Problem - Numerous Proofs](https://www.math.cmu.edu/~bwsulliv/basel-problem.pdf)。此处提供另一种在微积分变换中常见的缩放方法：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \sum_{t=1}^{T-1}t^{-2}&\le1+\int_{1}^{T-1}\frac{1}{x^2}dx \\
 &=1+(-\frac{1}{x})|_1^{T-1} \\
 &=2-\frac{1}{T}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 对不等式两边同时取极限，可得：
 $$
@@ -213,11 +240,13 @@ f(w)=(Y-w^T X)^T(Y-w^T X)+\lambda w^T w
 $$
 为了求得最优解$w^*$，我们令$f'(w)=0$，可推导出（8.53）：
 $$
-\begin{align}
-&\frac{\partial f(w)}{\partial w}=-2X^T(Y-w^T X)+2\lambda w = 0 \\
-\rightarrow&X^TY = (X^TX + \lambda I)w \\
-\rightarrow&w^* = (X^TX + \lambda I)^{-1}X^TY
-\end{align}
+\begin{equation}
+\begin{align*}
+\frac{\partial f(w)}{\partial w} = -2X^T(Y-w^T X)+2\lambda w &= 0 \\
+\rightarrow X^TY &= (X^TX + \lambda I)w \\
+\rightarrow w^* &= (X^TX + \lambda I)^{-1}X^TY
+\end{align*}
+\end{equation}
 $$
 相比于每次传入新数据$(x_t,y_t)$时从头计算$w_t$，这里巧妙地利用了 Sherman-Morrison-Woodbury 公式将任何形如$(A+uv^T)^{-1}$的矩阵逆转化为可逆矩阵$A$和列向量$u,v$之间的运算，在$O(d^2)$的时间复杂度内完成参数的更新。
 
@@ -248,13 +277,15 @@ $$
 
 逐步推导如下：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 =& \{ I + UCVA^{-1} \} - \{ U (C^{-1} + VA^{-1}U )^{-1}VA^{-1} + UCVA^{-1}U (C^{-1} + VA^{-1}U )^{-1} VA^{-1} \} \\
 =& I + UCVA^{-1} - (U + UCVA^{-1}U ) (C^{-1} + VA^{-1}U )^{-1}VA^{-1} \\
 =& I + UCVA^{-1} - UC (C^{-1} + VA^{-1}U) (C^{-1} + VA^{-1}U)^{-1}VA^{-1} \\
 =& I + UCVA^{-1} - UCVA^{-1} \\
 =& I
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 
@@ -456,12 +487,14 @@ $$
 我们使用 $\|\omega_t − \omega^\star\|^2$ 作为潜在函数。注意到 $\|\Pi_W(\omega) − \omega^\star\| \leq \|\omega − \omega^\star\|$，因此：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \|\omega_{t+1} − \omega^\star\|^2 &= \|\Pi_W(\omega_t − \eta g_t) − \omega^\star\|^2 \\
 &\leq \|\omega_t − \eta g_t − \omega^\star\|^2 \\
 &= \|\omega_t − \omega^\star\|^2 + \eta^2 \|g_t\|^2 − 2\eta (\omega_t − \omega^\star)^\top g_t \\
 &\leq \|\omega_t − \omega^\star\|^2 + \eta^2 l^2 − 2\eta (\omega_t − \omega^\star)^\top g_t
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 整理后得到：
@@ -475,14 +508,16 @@ $$
 因此，我们有：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \sum_{t=1}^{T} \mathbb{E}[f_t(\omega_t)] − \sum_{t=1}^{T} f_t(\omega^\star) &= \sum_{t=1}^{T} \mathbb{E}[f_t(\omega_t) − f_t(\omega^\star)] \\
 &\leq \sum_{t=1}^{T} \mathbb{E}[g_t^\top (\omega_t − \omega^\star)] \\
 &\leq \sum_{t=1}^{T} \mathbb{E} \left[\frac{\|\omega_t − \omega^\star\|^2 − \|\omega_{t+1} − \omega^\star\|^2 + \eta^2 l^2}{2\eta}\right] \\
 &= \frac{\mathbb{E}[\|\omega_1 − \omega^\star\|^2] - \mathbb{E}[\|\omega_{T+1} − \omega^\star\|^2]}{2\eta} + \frac{T \eta l^2}{2} \\
 &\le \frac{\mathbb{E}[\|\omega_1 − \omega^\star\|^2]}{2\eta} + \frac{T \eta l^2}{2} \\
 &\le \frac{\Lambda^2}{2\eta} + \frac{T \eta l^2}{2}
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 代入 $\eta = \frac{\Lambda}{l\sqrt{T}}$ 可得最终结果。
@@ -496,7 +531,9 @@ $$
 设 $f_1, f_2, \dots, f_T: W \to \mathbb{R}$ 为一列凸且可微的函数且 $\forall \omega \in W,i \in [T]$ 满足 $|f_i(\omega)| \le c$，有：
 
 $$
+\begin{equation}
 \min_{\omega \in (1−\alpha)W} \sum_{t=1}^T f_t(\omega) - \min_{\omega \in W} \sum_{t=1}^T f_t(\omega) \leq 2\alpha cT
+\end{equation}
 $$
 
 ### 证明
@@ -504,25 +541,31 @@ $$
 显然，$(1−\alpha)W \subseteq W$。因此，有：
 
 $$
+\begin{equation}
 \min_{\omega \in (1−\alpha)W} \sum_{t=1}^T f_t(\omega) = \min_{\omega \in W} \sum_{t=1}^T f_t((1−\alpha)\omega)
+\end{equation}
 $$
 
 由于每个$f_t$是凸函数，且$0 \in W$，则我们有：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \min_{\omega \in W} \sum_{t=1}^T f_t((1−\alpha)\omega) &\leq \min_{\omega \in W} \sum_{t=1}^T \alpha f_t(0) + (1−\alpha) f_t(\omega) \\
 &= \min_{\omega \in W} \sum_{t=1}^T \alpha (f_t(0) − f_t(\omega)) + f_t(\omega)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 最后，由于对于任意$\omega \in W$和$t \in \{1, \dots, T\}$，我们有$|f_t(\omega)| \leq c$，因此可以得出：
 
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 \sum_{t=1}^{T} \min_{\omega \in W} \alpha (f_t(0) − f_t(\omega)) + f_t(\omega) &\leq \min_{\omega \in W}\sum_{t=1}^{T} 2\alpha c + f_t(\omega) \\
 &= 2\alpha cT + \min_{\omega \in W} \sum_{t=1}^{T} f_t(\omega)
-\end{align}
+\end{align*}
+\end{equation}
 $$
 
 进行适当移项即可得原不等式。
@@ -561,9 +604,11 @@ f(\delta^*)=O(T^{3/4})
 $$
 如果我们想加速收敛，则可将$\alpha$的取值与$\delta$相关联。根据上面的结论，当迭代次数$T$足够大时，必然有$\delta\rightarrow0$。因此，不妨取$\alpha=\frac{\delta}{\Lambda_1}$，代入（8.91）中并利用对钩函数$f(\delta)$的性质，得到：
 $$
-\begin{align}
+\begin{equation}
+\begin{align*}
 &\delta^*=T^{-1/4}\sqrt{\frac{dc\Lambda_1\Lambda_2}{3(l\Lambda_1+c)}} \\
 &f(\delta^*)=O(T^{3/4})
-\end{align}
+\end{align*}
+\end{equation}
 $$
 进一步地，可以发现，$\delta^*$的取值并不唯一，这是因为（8.91）的第二个不等式缩放并非必需。如果取$\delta^*=T^{-1/4}\sqrt{\frac{dc\Lambda_1\Lambda_2}{3l\Lambda_1+2c}}$，同样可以得到更紧致的遗憾界，并保证定理的结论不变。
