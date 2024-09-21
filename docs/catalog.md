@@ -42,13 +42,8 @@
 
 -- *ML67*
 
-## 项目成员
+## 项目成员贡献与特别鸣谢
 
-- [王茂霖](https://github.com/mlw67)：第2-7章内容编辑，项目二期更新与修订
-- [李一飞](https://github.com/leafy-lee)：第2-7章内容编辑
-- [杨昱文](https://github.com/youngfish42)：部分内容编辑
-- [谢文睿](https://github.com/Sm1les)：项目激励与支持
-- [张雨](https://github.com/Drizzle-Zhang)：第2章部分内容修改
-- [J.Hu](https://github.com/inlmouse)：第1章内容编辑
-- [赵志民](https://github.com/zhimin-z)：项目二期更新与维护，全书内容编辑
-- [詹好](https://github.com/zhanhao93)：项目规划与统筹，全书内容编辑
+这段文字介绍了在本书编写过程中，各个团队成员的贡献和职责。[詹好](https://github.com/zhanhao93)负责了项目的初期规划与统筹，参与了第一版编辑；[赵志民](https://github.com/zhimin-z)主导了项目二期的更新与维护，并负责全书最终编辑校验；[李一飞](https://github.com/leafy-lee)编辑了第1-5章内容；[王茂霖](https://github.com/mlw67)在第2-6章的编辑中起到了重要作用。
+
+另外，特别鸣谢了[谢文睿](https://github.com/Sm1les)和[杨昱文](https://github.com/youngfish42），他们共同提供了本书的在线阅读功能；[张雨](https://github.com/Drizzle-Zhang)对第2章的早期内容进行了修订；[J.Hu](https://github.com/inlmouse)对第1章的部分内容提出了修订。各成员的协作确保了本书高质量的编写和顺利完成。
