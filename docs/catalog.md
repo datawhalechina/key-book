@@ -6,13 +6,13 @@
 
 ## 关于《机器学习理论导引》
 
-近年来，机器学习领域发展迅猛，相关的课程与教材层出不穷。国内的经典教材如周志华的**《机器学习》**和李航的**《统计学习方法》**，为许多学子提供了机器学习的入门指引。而在国外，Mitchell 的 *Machine Learning*、Duda 等人的 *Pattern Classification*、Alpaydin 的 *Introduction to Machine Learning* 等书籍则提供了更为系统的学习路径。对于希望深入学习的读者，Bishop 的 *Pattern Recognition and Machine Learning*、Murphy 的 *Machine Learning - A Probabilistic Perspective*、Hastie 等人的 *The Elements of Statistical Learning* 等著作也能提供详尽的理论指导。这些书籍无论在国内外，都成为了学习机器学习的重要资源。
+近年来，机器学习领域发展迅猛，相关的课程与教材层出不穷。国内的经典教材如周志华的 **《机器学习》** 和李航的 **《统计学习方法》**，为许多学子提供了机器学习的入门指引。而在国外，Mitchell 的 *Machine Learning*、Duda 等人的 *Pattern Classification*、Alpaydin 的 *Introduction to Machine Learning* 等书籍则提供了更为系统的学习路径。对于希望深入学习的读者，Bishop 的 *Pattern Recognition and Machine Learning*、Murphy 的 *Machine Learning - A Probabilistic Perspective*、Hastie 等人的 *The Elements of Statistical Learning* 等著作也能提供详尽的理论指导。这些书籍无论在国内外，都成为了学习机器学习的重要资源。
 
 然而，从**机器学习理论**的角度来看，现有的学习材料仍存在不足之处。相比于聚焦机器学习算法的著作，专注于机器学习理论的书籍未得到足够的重视。尽管上述一些经典著作中涉及到理论探讨，但篇幅有限，往往仅以独立章节或片段呈现，难以满足深入研究的需求。
 
 以往的机器学习理论经典教材大多为英文撰写。上世纪末围绕统计学习理论展开的讨论，催生了诸如 Vapnik 的 *The Nature of Statistical Learning Theory* 和 *Statistical Learning Theory*，以及 Devroye 等人的 *A Probabilistic Theory of Pattern Recognition* 等经典文献。近年来，Shalev-Shwartz 和 Ben-David 的 *Understanding Machine Learning*，以及 Mohri 等人的 *Foundations of Machine Learning* 进一步推进了这一领域的发展。虽然部分经典著作已有高质量的中文译本，但由中文作者撰写的机器学习理论入门书籍仍显不足。
 
-如今，周志华、王魏、高尉、张利军等老师合著的**《机器学习理论导引》**（以下简称《导引》）填补了这一空白。该书以通俗易懂的语言，为有志于学习和研究机器学习理论的读者提供了良好的入门指引。全书涵盖了**可学性、假设空间复杂度、泛化界、稳定性、一致性、收敛率、遗憾界**七个重要的概念和理论工具。
+如今，周志华、王魏、高尉、张利军等老师合著的 **《机器学习理论导引》**（以下简称《导引》）填补了这一空白。该书以通俗易懂的语言，为有志于学习和研究机器学习理论的读者提供了良好的入门指引。全书涵盖了 **可学性、假设空间复杂度、泛化界、稳定性、一致性、收敛率、遗憾界** 七个重要的概念和理论工具。
 
 尽管学习机器学习理论可能不像学习算法那样能够立即应用，但只要持之以恒，深入探究，必将能够领悟到机器学习中的重要思想，并体会其中的深邃奥妙。
 
