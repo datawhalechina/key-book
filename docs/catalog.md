@@ -46,4 +46,4 @@
 
 [詹好](https://github.com/zhanhao93)负责了项目的初期规划与统筹，并参与了第一版的编辑和审核；[赵志民](https://github.com/zhimin-z)主导了项目二期的更新与维护，并负责全书最终编辑和校验；[李一飞](https://github.com/leafy-lee)参与了第1-5章内容的编辑；[王茂霖](https://github.com/mlw67)参与了第2-6章内容的编辑。
 
-另外，特别鸣谢了[谢文睿](https://github.com/Sm1les)和[杨昱文](https://github.com/youngfish42)，他们共同提供了本书的在线阅读功能；[张雨](https://github.com/Drizzle-Zhang)对第2章的早期内容进行了修订；[J.Hu](https://github.com/inlmouse)对第1章的部分内容提出了修订。各成员的协作确保了本书高质量的编写和顺利完成。
+另外，特别鸣谢了[谢文睿](https://github.com/Sm1les)和[杨昱文](https://github.com/youngfish42)，他们共同提供了本书的在线阅读功能；[张雨](https://github.com/Drizzle-Zhang)对第2章的早期内容进行了修订。各成员的协作确保了本书高质量的编写和顺利完成。
