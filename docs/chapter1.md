@@ -174,10 +174,9 @@ $$
 
 ## 1.1.6 强凸函数
 
-对于定义在凸集上的函数 $f(x)$，若其满足以下性质，则称其为强凸函数：
+若$f(x)$为定义在凸集上的强凸函数，则对于任意$x,y \in dom(f)$，$\alpha \in [0,1]$，存在$\lambda \gt 0$，使得：
 $$
 \begin{equation}
-\forall x,y\in dom(f),\ \alpha\in[0,1],\ \exists \lambda \gt 0,\ \text{使得} \\
 f(\alpha x + (1-\alpha)y) \leq \alpha f(x) + (1-\alpha)f(y) - \frac{\lambda}{2}\alpha(1-\alpha)\|x-y\|_2^2
 \end{equation}
 $$
