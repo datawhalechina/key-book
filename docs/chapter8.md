@@ -134,11 +134,11 @@ $$
    - 更新：
      $$
      \begin{equation}
-\begin{align*}
+     \begin{align*}
      \Sigma_{t+1} &= \Sigma_t + \nabla l^{\eta}_t(x^{\eta,l}_t) \nabla l^{\eta}_t(x^{\eta,l}_t)^\top \\
-     x^{\eta,l}_{t+1} &= \Pi^{\Sigma_{t+1}}_D (x^{\eta,l}_t - \frac{1}{\beta} \Sigma_{t+1}^{-1} \nabla l^{\eta}_t(x^{\eta,l}_t))
+     x^{\eta,l}_{t+1} &= \Pi^{\Sigma_{t+1}}_D (x^{\eta,l}_t - \frac{1}{\beta} \Sigma_{t+1}^{-1} \nabla l^{\eta}_t(x^{\eta,l}_t)) \\
      \end{align*}
-\end{equation}
+     \end{equation}
      $$
      其中 $\nabla l^{\eta}_t(x^{\eta,l}_t) = \eta g_t + 2 \eta^2 g_t g_t^\top (x^{\eta,l}_t - x_t)$
 
