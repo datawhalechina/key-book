@@ -352,7 +352,7 @@ $$
 
 $$
 \begin{equation}
-|\Phi_\rho(x_1)-\Phi_\rho(x_2)|\leq|\Phi_\rho'(\xi)||x_1-x_2|
+|\Phi_\rho(x_1)-\Phi_\rho(x_2)| \leq |\Phi_\rho'(\xi)| |x_1-x_2|
 \end{equation}
 $$
 

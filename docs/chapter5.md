@@ -98,7 +98,7 @@ $$
 
 ### 证明简述
 
-首先，我们回顾不可知 PAC 可学的概念：对于所有分布 $\mathcal{D}$，若存在学习算法 $\mathcal{L}$ 与多项式函数 $poly(\cdot,\cdot,\cdot,\cdot)$，使得对于任意 $m\geq poly(1/\epsilon,1/\delta,size(\mathbf{x}),size(c))$，$\mathcal{L}$ 输出的假设能够满足：
+首先，我们回顾不可知 PAC 可学的概念：对于所有分布 $\mathcal{D}$，若存在学习算法 $\mathfrak{L}$ 与多项式函数 $poly(\cdot,\cdot,\cdot,\cdot)$，使得对于任意 $m\geq poly(1/\epsilon,1/\delta,size(\mathbf{x}),size(c))$，$\mathfrak{L}$ 输出的假设能够满足：
 $$
 \begin{equation}
    	P\big(\mathbb{E}(h)-\min_{h'\in\mathcal{H}}\mathbb{E}(h')\leq\epsilon\big)\geq1-\delta
