@@ -50,7 +50,9 @@ $$
 \Re_{\mathcal Z}(\mathcal F)=E_{Z\subset\mathcal Z:|Z|=m}\left[E_{\sigma}\left[\underset{f\in\mathcal F}{\sup}\frac{1}{m} \sum_{i=1}^m \sigma_i f(z_i)\right]\right]
 \end{equation}
 $$
-其中$\sigma_i$是服从均匀分布的随机变量。假设空间$\mathcal H$的Rademacher复杂度上界为：
+其中$\sigma_i$是服从均匀分布的随机变量。
+
+假设空间$\mathcal H$的Rademacher复杂度上界为：
 $$
 \begin{equation}
 \Re_m(\mathcal H)\leqslant\sqrt{\frac{2\ln\Pi_{\mathcal H}(m)}{m}}
