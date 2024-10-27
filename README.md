@@ -64,7 +64,7 @@ https://github.com/datawhalechina/key-book/releases
 扫描下方二维码，或关注公众号「Datawhale」，然后回复关键词“钥匙书”，即可加入“钥匙书读者交流群”
 
 <p align="center">
-  <img src="docs/images/qr_code.jpg" width="300" height= "360">
+  <img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/images/qr_code.jpg" width="300" height= "360">
 </p>
 
 或者加入QQ群：704768061
