@@ -1,3 +1,4 @@
 
 *.bkp
+*.venv
 .DS_Store

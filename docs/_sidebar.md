@@ -7,4 +7,4 @@
 - 第6章 [一致性](chapter6.md)
 - 第7章 [收敛率](chapter7.md)
 - 第8章 [遗憾界](chapter8.md) 
-- [参考文献](references.md) 
+- [参考文献](reference.md) 
