@@ -44,7 +44,7 @@ https://github.com/datawhalechina/key-book/releases
 ### 选用的《机器学习理论导引》版本
 
 <p align="center">
-  <img src="docs/images/original_book.png" width="300" height="360">
+  <img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/images/original_book.png" width="300" height="360">
 </p>
 
 > 版次：2020年6月第1版<br>
