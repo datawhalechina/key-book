@@ -2,3 +2,4 @@
 *.bkp
 *.venv
 .DS_Store
+preview.*
