@@ -18,6 +18,8 @@
 
 > Hazan, Elad, Amit Agarwal, and Satyen Kale. "Logarithmic regret algorithms for online convex optimization." Machine Learning 69.2 (2007): 169-192.
 
+> Ismailov, Vugar E. "A three layer neural network can represent any multivariate function." Journal of Mathematical Analysis and Applications 523.1 (2023): 127096.
+
 > Kearns, Michael J., and Umesh Vazirani. An introduction to computational learning theory. MIT press, 1994.
 
 > Lai, Tze Leung, and Herbert Robbins. "Asymptotically efficient adaptive allocation rules." Advances in applied mathematics 6.1 (1985): 4-22.
@@ -37,6 +39,8 @@
 > Wainwright, Martin J. High-dimensional statistics: A non-asymptotic viewpoint. Vol. 48. Cambridge university press, 2019.
 
 > Wang, Guanghui, Shiyin Lu, and Lijun Zhang. "Adaptivity and optimality: A universal algorithm for online convex optimization." Uncertainty in Artificial Intelligence. PMLR, 2020.
+
+> Yun, Chulhee, et al. "Are Transformers universal approximators of sequence-to-sequence functions?." International Conference on Learning Representations.
 
 > Zhang, Lijun, Shiyin Lu, and Zhi-Hua Zhou. "Adaptive online learning in dynamic environments." Advances in neural information processing systems 31 (2018)
 
