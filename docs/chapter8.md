@@ -6,7 +6,7 @@
 
 ## 本章前言
 
-本章的内容围绕学习理论中的遗憾（regret）概念展开（有的教材里也翻译为“悔”）。通常，我们使用超额风险（excess risk）来评估批量学习的分类器性能，而用遗憾来评估在线学习的分类器性能。二者的不同在于，前者衡量的是整个学习过程结束后所得到的分类器性能，可以理解为学习算法**最终输出的模型**与假设空间内**最优模型**的风险之差；而后者衡量的是算法运行过程中，所产生的**模型**与假设空间内**最优模型**的损失之差的**和**。
+本章的内容围绕学习理论中的遗憾（Regret）概念展开（有的教材里也翻译为“悔”）。通常，我们使用超额风险（Excess Risk）来评估批量学习的分类器性能，而用遗憾来评估在线学习的分类器性能。二者的不同在于，前者衡量的是整个学习过程结束后所得到的分类器性能，可以理解为学习算法**最终输出的模型**与假设空间内**最优模型**的风险之差；而后者衡量的是算法运行过程中，所产生的**模型**与假设空间内**最优模型**的损失之差的**和**。
 
 ## 8.1 【概念解释】超额风险与遗憾的区别
 
@@ -38,7 +38,7 @@ $$
 
 ## 8.2 【案例分享】Maler 算法
 
-在8.2.3节的**170页**末尾，作者提到了Maler算法（multiple sub-algorithms and learning rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e.html)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
+在8.2.3节的**170页**末尾，作者提到了Maler算法（Multiple Sub-algorithms & Learning Rates）（详细证明参考：[Adaptivity and Optimality: A Universal Algorithm for Online Convex Optimization](http://proceedings.mlr.press/v115/wang20e.html)），这是一个能够自适应选择最优专家的在线学习算法，并在不同类型的损失函数上实现最优的遗憾界限：
 - **一般凸函数**：$R(T) \leq O\sqrt{T})$
 - **指数凹函数**：$R(T) \leq O(d\log T)$
 - **强凸函数**：$R(T) \leq O(\log T)$
