@@ -6,7 +6,7 @@
 
 ## 关于《机器学习理论导引》
 
-近年来，机器学习领域发展迅猛，相关的课程与教材层出不穷。国内的经典教材如周志华的 **[《机器学习》](https://book.douban.com/subject/26708119)** 和李航的 **[《统计学习方法》](https://book.douban.com/subject/33437381)**，为许多学子提供了机器学习的入门指引。而在国外，Tom Mitchell 的 *Machine Learning*、Richard O. Duda 等人的 *Pattern Classification*、Ethem Alpaydın 的 *Introduction to Machine Learning* 等书籍则提供了更为系统的学习路径。对于希望深入学习的读者，Christopher M. Bishop 的 *Pattern Recognition and Machine Learning*、Kevin P. Murphy 的 *Machine Learning - A Probabilistic Perspective*、Trevor Hastie 等人的 *The Elements of Statistical Learning* 等著作也能提供详尽的理论指导。这些书籍无论在国内外，都成为了学习机器学习的重要资源。
+近年来，机器学习领域发展迅猛，相关的课程与教材层出不穷。国内的经典教材如周志华的 [《机器学习》](https://book.douban.com/subject/26708119) 和李航的 [《统计学习方法》](https://book.douban.com/subject/33437381)，为许多学子提供了机器学习的入门指引。而在国外，Tom Mitchell 的 *Machine Learning*、Richard O. Duda 等人的 *Pattern Classification*、Ethem Alpaydın 的 *Introduction to Machine Learning* 等书籍则提供了更为系统的学习路径。对于希望深入学习的读者，Christopher M. Bishop 的 *Pattern Recognition and Machine Learning*、Kevin P. Murphy 的 *Machine Learning - A Probabilistic Perspective*、Trevor Hastie 等人的 *The Elements of Statistical Learning* 等著作也能提供详尽的理论指导。这些书籍无论在国内外，都成为了学习机器学习的重要资源。
 
 然而，从**机器学习理论**的角度来看，现有的学习材料仍存在不足之处。相比于聚焦机器学习算法的著作，专注于机器学习理论的书籍未得到足够的重视。尽管上述一些经典著作中涉及到理论探讨，但篇幅有限，往往仅以独立章节或片段呈现，难以满足深入研究的需求。
 
