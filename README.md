@@ -1,7 +1,7 @@
 # 钥匙书 Key-book
 
 <p align="center">
-  <img width="360" height="540" alt="ChatGPT Image Nov 4, 2025, 06_37_14 PM" src="https://github.com/user-attachments/assets/631dbd24-94c1-496d-975b-8cb5cf3308c2" />
+  <img width="360" height="540" alt="ChatGPT Image Nov 4, 2025, 06_37_14 PM" src="https://github.com/user-attachments/assets/0b43c807-7eae-4219-ae95-9dd18fb1f3ad" />
 </p>
 
 周志华、王魏、高尉、张利军等老师所著的《机器学习理论导引》一书（下称《导引》），填补了国内缺少机器学习理论入门著作的遗憾。该书试图以通俗易懂的语言，为有志于学习机器学习理论和研究机器学习理论的读者提供一个入门的导引。《导引》主要涵盖七个部分，分别对应机器学习理论中的七个重要概念或理论工具，即：**可学性、（假设空间）复杂度、泛化界、稳定性、一致性、收敛率、遗憾界**。
