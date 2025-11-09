@@ -1,5 +1,9 @@
 # 钥匙书 Key-book
 
+<p align="center">
+  <img width="240" height="360" alt="ChatGPT Image Nov 4, 2025, 06_37_14 PM" src="https://github.com/user-attachments/assets/e0845680-4db4-49b5-9786-eddba5fa5112" />
+</p>
+
 周志华、王魏、高尉、张利军等老师所著的《机器学习理论导引》一书（下称《导引》），填补了国内缺少机器学习理论入门著作的遗憾。该书试图以通俗易懂的语言，为有志于学习机器学习理论和研究机器学习理论的读者提供一个入门的导引。《导引》主要涵盖七个部分，分别对应机器学习理论中的七个重要概念或理论工具，即：**可学性、（假设空间）复杂度、泛化界、稳定性、一致性、收敛率、遗憾界**。
 
 《导引》是一本理论性较强的书籍，涉及大量的数学定理和各种证明。尽管撰写团队已尽可能降低了难度，但由于机器学习理论学习本身的特性，该书仍然对读者的数学背景提出了较高的要求。这难免会导致不求甚解的情形，影响学习效果；另一方面，由于篇幅所限，该书写作较为精炼，并非在各个章节都给出示例。读者每每遇到晦涩抽象之处，难免冥思苦索。
@@ -41,13 +45,10 @@ https://github.com/datawhalechina/key-book/releases
 - 第8章 [遗憾界](https://datawhalechina.github.io/key-book/#/chapter8)
 - [参考文献](https://datawhalechina.github.io/key-book/#/references)
 
-### 选用的《机器学习理论导引》版本
+### 选用的《机器学习理论研究导引》版本
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/datawhalechina/key-book/master/docs/images/original_book.png" width="300" height="360">
-</p>
-
-> 版次：2020年6月第1版<br>
+> 周志华, 王魏, 高尉, 张利军. *机器学习理论研究导引* [*An Introduction to Theoretical Machine Learning*].  
+> 北京: 机械工业出版社, 2020年5月. ISBN 978-7-111-65424-7. 204页.
 
 ## 编委会
 
