@@ -4,7 +4,7 @@
 
 ---
 
-## 关于《机器学习理论导引》
+## 机器学习理论的书籍
 
 近年来，机器学习领域发展迅猛，相关的课程与教材层出不穷。国内的经典教材如周志华的 [《机器学习》](https://book.douban.com/subject/26708119) 和李航的 [《统计学习方法》](https://book.douban.com/subject/33437381)，为许多学子提供了机器学习的入门指引。而在国外，Tom Mitchell 的 *Machine Learning*、Richard O. Duda 等人的 *Pattern Classification*、Ethem Alpaydın 的 *Introduction to Machine Learning* 等书籍则提供了更为系统的学习路径。对于希望深入学习的读者，Christopher M. Bishop 的 *Pattern Recognition and Machine Learning*、Kevin P. Murphy 的 *Machine Learning - A Probabilistic Perspective*、Trevor Hastie 等人的 *The Elements of Statistical Learning* 等著作也能提供详尽的理论指导。这些书籍无论在国内外，都成为了学习机器学习的重要资源。
 
@@ -18,7 +18,7 @@
 
 -- *詹好*
 
-## 机器学习理论成果的反思
+## 机器学习理论的应用与反思
 
 近年来，机器学习的研究与应用取得了显著进展，经验性能，尤其是 SOTA（state of the art，最先进技术）指标，逐渐成为评价算法优劣的主要标准。在这一评价体系下，模型是否在基准数据集上取得领先结果，往往比其适用范围、失败模式或理论依据更受关注。然而，随着模型规模的不断扩大和应用场景的日益复杂，一些根本性问题开始浮现：为何模型能力的提升往往依赖规模堆叠而难以预测？为何在分布轻微偏移时，行为会出现显著失稳？又为何诸如幻觉、模式坍塌等现象在不同模型与任务中反复出现，却难以通过简单的工程修补彻底消除？
 
