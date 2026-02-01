@@ -1,7 +1,5 @@
 # 钥匙书 Key-book
 
-【🧪 Beta公测版本提示：教程主体已完成，正在优化细节，欢迎大家提Issue反馈问题或建议。】
-
 <p align="center">
   <img width="360" height="540" alt="ChatGPT Image Nov 4, 2025, 06_37_14 PM" src="https://github.com/user-attachments/assets/0b43c807-7eae-4219-ae95-9dd18fb1f3ad" />
 </p>
