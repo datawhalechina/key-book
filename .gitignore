@@ -1,5 +1,5 @@
 
-*.bkp
-*.venv
+.omc
+.venv
 .DS_Store
 preview.*
