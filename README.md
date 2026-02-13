@@ -1,4 +1,4 @@
-# 钥匙书 Key-book
+# 钥匙书 Key-book：机器学习理论导引讲解
 
 <p align="center">
   <img width="360" height="540" alt="ChatGPT Image Nov 4, 2025, 06_37_14 PM" src="https://github.com/user-attachments/assets/0b43c807-7eae-4219-ae95-9dd18fb1f3ad" />
