@@ -41,7 +41,7 @@
       <b>🔍 证明补充</b><br>
       解释证明思路，补充省略的推导
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="35%">
       <b>💡 案例分享</b><br>
       增加实例，辅助理解抽象理论
     </td>
