@@ -31,22 +31,9 @@
 
 **《钥匙书》提供三方面补充：**
 
-<table align="center">
-  <tr>
-    <td align="center" width="30%">
-      <b>📝 概念解释</b><br>
-      介绍文中涉及但未阐释的概念
-    </td>
-    <td align="center" width="35%">
-      <b>🔍 证明补充</b><br>
-      解释证明思路，补充省略的推导
-    </td>
-    <td align="center" width="35%">
-      <b>💡 案例分享</b><br>
-      增加实例，辅助理解抽象理论
-    </td>
-  </tr>
-</table>
+| 📝 概念解释 | 🔍 证明补充 | 💡 案例分享 |
+| :---: | :---: | :---: |
+| 介绍文中涉及但未阐释的概念 | 解释证明思路，补充省略的推导 | 增加实例，辅助理解抽象理论 |
 
 **谁适合阅读：**
 
@@ -100,7 +87,7 @@
 
 ## 🔗 相关项目
 
-周志华老师所著《机器学习》（西瓜书）是机器学习领域的经典入门教材。[Datawhale](https://github.com/datawhalechina) 在其基础上编写了 [「南瓜书」](https://github.com/datawhalechina/pumpkin-book)，在线阅读：https://datawhalechina.github.io/pumpkin-book
+周志华老师所著《机器学习》（西瓜书）是机器学习领域的经典入门教材。[Datawhale](https://github.com/datawhalechina) 在其基础上编写了[「南瓜书」](https://github.com/datawhalechina/pumpkin-book)，在线阅读：https://datawhalechina.github.io/pumpkin-book
 
 ## 📄 LICENSE
 
@@ -112,8 +99,6 @@
 本作品采用
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
 </div>
-
----
 
 <div align="center">
   <h3>⭐ 如果这本钥匙书帮到了你，请给我们一个 Star ❤️</h3>
