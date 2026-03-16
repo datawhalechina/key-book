@@ -37,7 +37,7 @@
       <b>📝 概念解释</b><br>
       介绍文中涉及但未阐释的概念
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="35%">
       <b>🔍 证明补充</b><br>
       解释证明思路，补充省略的推导
     </td>
