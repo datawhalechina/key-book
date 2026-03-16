@@ -78,7 +78,7 @@
 
 | 职责 | 名单 |
 | :---: | :---: |
-| **主编** | [@詹好](https://github.com/zhanhao93) [@赵志民](https://github.com/zhimin-z) |
+| **主编** | [@赵志民](https://github.com/zhimin-z) [@詹好](https://github.com/zhanhao93) |
 | **编委** | [@李一飞](https://github.com/leafy-lee) [@王茂霖](https://github.com/mlw67) [@杨昱文](https://github.com/youngfish42) [@谢文睿](https://github.com/Sm1les) |
 | **致谢** | [@张雨](https://github.com/Drizzle-Zhang) |
 
