@@ -33,7 +33,7 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="33%">
+    <td align="center" width="30%">
       <b>📝 概念解释</b><br>
       介绍文中涉及但未阐释的概念
     </td>
