@@ -9,7 +9,7 @@
 <p align="center"><em>《机器学习理论导引》伴读笔记：概念解释 · 证明补充 · 案例分享</em></p>
 
 <p align="center">
-  📖 <a href="https://datawhalechina.github.io/key-book/">在线阅读</a> | 📥 <a href="https://github.com/datawhalechina/key-book/releases">PDF 下载</a> | 💬 <a href="#交流群">加入交流群</a> | 🍉 <a href="https://github.com/datawhalechina/pumpkin-book">姊妹篇：南瓜书</a>
+  📖 <a href="https://datawhalechina.github.io/key-book/">在线阅读</a> | 📥 <a href="https://github.com/datawhalechina/key-book/releases/download/preview/key_book.pdf">PDF 下载</a> | 💬 <a href="#交流群">加入交流群</a> | 🍉 <a href="https://github.com/datawhalechina/pumpkin-book">姊妹篇：南瓜书</a>
 </p>
 
 <p align="center">
