@@ -45,16 +45,17 @@
 
 | 章节 | 主题 | 核心内容 |
 | :---: | :--- | :--- |
-| 序言 | [序言](https://datawhalechina.github.io/key-book/#/catalog) | 从可计算性到可学习性的思考 |
-| 第 1 章 | [预备知识](https://datawhalechina.github.io/key-book/#/chapter1) | 概率不等式、基础数学工具 |
-| 第 2 章 | [可学性](https://datawhalechina.github.io/key-book/#/chapter2) | PAC 学习框架、可学习性理论 |
-| 第 3 章 | [复杂度](https://datawhalechina.github.io/key-book/#/chapter3) | VC 维、Natarajan 维、Rademacher 复杂度 |
-| 第 4 章 | [泛化界](https://datawhalechina.github.io/key-book/#/chapter4) | 基于 PAC 框架与 Rademacher 复杂度的泛化保证 |
-| 第 5 章 | [稳定性](https://datawhalechina.github.io/key-book/#/chapter5) | 算法稳定性与泛化性的联系 |
-| 第 6 章 | [一致性](https://datawhalechina.github.io/key-book/#/chapter6) | 收敛到 Bayes 最优分类器的条件 |
-| 第 7 章 | [收敛率](https://datawhalechina.github.io/key-book/#/chapter7) | 优化算法的收敛速度分析 |
-| 第 8 章 | [遗憾界](https://datawhalechina.github.io/key-book/#/chapter8) | 在线学习中的遗憾界分析 |
-| 附录 | [参考文献](https://datawhalechina.github.io/key-book/#/references) | 范数、凸集、优化等数学基础 |
+| 序言 | [序言](https://datawhalechina.github.io/key-book/catalog) | 从可计算性到可学习性的思考 |
+| 第 1 章 | [预备知识](https://datawhalechina.github.io/key-book/chapter1) | 概率不等式、基础数学工具 |
+| 第 2 章 | [可学性](https://datawhalechina.github.io/key-book/chapter2) | PAC 学习框架、可学习性理论 |
+| 第 3 章 | [复杂度](https://datawhalechina.github.io/key-book/chapter3) | VC 维、Natarajan 维、Rademacher 复杂度 |
+| 第 4 章 | [泛化界](https://datawhalechina.github.io/key-book/chapter4) | 基于 PAC 框架与 Rademacher 复杂度的泛化保证 |
+| 第 5 章 | [稳定性](https://datawhalechina.github.io/key-book/chapter5) | 算法稳定性与泛化性的联系 |
+| 第 6 章 | [一致性](https://datawhalechina.github.io/key-book/chapter6) | 收敛到 Bayes 最优分类器的条件 |
+| 第 7 章 | [收敛率](https://datawhalechina.github.io/key-book/chapter7) | 优化算法的收敛速度分析 |
+| 第 8 章 | [遗憾界](https://datawhalechina.github.io/key-book/chapter8) | 在线学习中的遗憾界分析 |
+| 附录 | [附录](https://datawhalechina.github.io/key-book/appendix) | 范数、凸集、优化等数学基础 |
+| 参考文献 | [参考文献](https://datawhalechina.github.io/key-book/reference) | 参考文献列表 |
 
 ## 📚 选用版本
 
