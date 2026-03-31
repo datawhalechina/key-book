@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="360" height="540" alt="钥匙书封面" src="./docs/images/preface.jpg" />
+<img width="900" height="1600" alt="钥匙书封面" src="./docs/images/preface.jpg" />
 
 <p align="center"><em>理论是那扇紧锁的门，证明是唯一的钥匙。<br>翻开这本书，为每一个定理找到属于它的那把钥匙。</em></p>
 
