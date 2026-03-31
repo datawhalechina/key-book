@@ -1,0 +1,82 @@
+:root {
+  --vp-c-brand-1: #0071e3;
+  --vp-c-brand-2: #0077ed;
+  --vp-c-brand-3: #0066cc;
+  --vp-c-brand-soft: rgba(0, 113, 227, 0.14);
+}
+
+/* KaTeX 公式样式 */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+/* 文档内容微调 */
+.vp-doc {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.vp-doc p,
+.vp-doc ul,
+.vp-doc ol {
+  line-height: 1.7;
+}
+
+.vp-doc :where(p, ul, ol, table, blockquote, pre, details, figure) {
+  margin: 12px 0;
+}
+
+.vp-doc blockquote {
+  font-size: inherit;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  margin: 16px 0;
+  padding: 0 0 0 16px;
+}
+
+.vp-doc :where(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.3;
+}
+
+.vp-doc h2 {
+  margin: 32px 0 16px;
+  padding-top: 16px;
+}
+
+.vp-doc h3 {
+  margin: 24px 0 12px;
+}
+
+/* 图片居中 & 响应式 */
+.vp-doc img {
+  display: block;
+  margin: 16px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* 表格优化 */
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 8px 12px;
+}
+
+/* 首页样式 */
+.VPHomeHero .name {
+  background: linear-gradient(135deg, #0071e3 0%, #34c759 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

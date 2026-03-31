@@ -65,12 +65,10 @@ $$
 
 1. 当 $\frac{\gamma-\lambda}{\lambda}=0$ 时，（7.19）转化为：
 $$
-\begin{equation}
 \begin{align*}
 f(\omega_{t+1})&\le \min_{\alpha\in[0,1]}\{f(\omega_t)-\alpha (f(\omega_t)-f(\omega^*))\} \\
 \Rightarrow f(\omega_{t+1})-f(\omega^*)&\le \min_{\alpha\in[0,1]}\{1-\alpha\}(f(\omega_t)-f(\omega^*)) 
 \end{align*}
-\end{equation}
 $$
 因为 $f(\omega_t)-f(\omega^*)\ge0$，所以当且仅当 $\alpha=1$ 时，不等式右侧取得最小值 $0$，此时易知 $f(\omega_{t+1})=f(\omega^*)$。根据凸函数局部最优解等于全局最优解的结论，我们可以得到 $\omega_{t+1}=\omega^*$，即算法在第 $t+1$ 轮迭代中收敛到最优解。
 
@@ -139,13 +137,11 @@ $$
 
 证明如下：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E} [Q_k|\mathcal{F}_{k-1}] &= \mathbb{E} \left[\exp \left(\theta \frac{S_k}{K} - g(\theta) \frac{V_k^2}{K^2}\right)\bigg|\mathcal{F}_{k-1}\right] \\
 &= \mathbb{E} \left[\exp \left(\theta \frac{S_{k-1}}{K} - g(\theta) \frac{V_{k-1}^2}{K^2} - g(\theta)\frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2} + \theta \frac{X_k}{K}\right)\bigg|\mathcal{F}_{k-1}\right] \\
 &= \exp \left(\theta \frac{S_{k-1}}{K} - g(\theta) \frac{V_{k-1}^2}{K^2} - g(\theta)\frac{\mathbb{E} [X_k^2|\mathcal{F}_{k-1}]}{K^2}\right) \mathbb{E} \left[ \exp \left(\theta \frac{X_k}{K}\right)\bigg|\mathcal{F}_{k-1}\right]
 \end{align*}
-\end{equation}
 $$
 
 应用之前证明的不等式，我们得到：
@@ -170,11 +166,9 @@ $$
 
 因此：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{P}(A) \leq \exp \left(g(\theta) \frac{v}{K^2} -\theta \frac{t}{K} \right)
 \end{align*}
-\end{equation}
 $$
 
 由于上述不等式对任何 $\theta \gt 0$ 都成立，我们可以写为：
@@ -185,13 +179,11 @@ $$
 
 对于指数内部的表达式，我们进行如下变换：
 $$
-\begin{equation}
 \begin{align*}
 \theta \frac{t}{K} - g(\theta)\frac{v}{K^2} &= \log \left(1 + \frac{Kt}{v}\right) \frac{t}{K} - \frac{v}{K^2} \left(\frac{Kt}{v} - \log \left(1 + \frac{Kt}{v}\right) \right) \\
 &=\frac{v}{K^2} \left( \left(1+\frac{Kt}{v} \right) \log \left(1 + \frac{Kt}{v}\right) - \frac{Kt}{v} \right) \\
 &= \frac{v}{K^2} h\left( \frac{Kt}{v} \right)
 \end{align*}
-\end{equation}
 $$
 其中 $h(u) = (1+u)\log(1+u) - u$。
 
@@ -222,7 +214,6 @@ $$
 
 其次，（7.62）中最后两个不等式的推导利用了一些常见的缩放技巧，我们在这里给出完整形式：
 $$
-\begin{equation}
 \begin{align*}
 &\sum_{i=1}^m P\left(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau+\frac{4l^2}{\lambda},V_T^2\le4l^2A_T,A_T\in\left(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i\right)\right) \\
 \le &\sum_{i=1}^m P\left(\sum_{t=1}^T \delta_t \ge 2\sqrt{4l^2A_T\tau}+\frac{2}{3}\frac{4l^2}{\lambda}\tau,V_T^2\le4l^2A_T,A_T\in\left(\frac{4l^2}{\lambda^2T}2^{i-1},\frac{4l^2}{\lambda^2T}2^i\right)\right) \\
@@ -231,7 +222,6 @@ $$
 \le &\sum_{i=1}^m e^{-\tau} \\
 = &me^{-\tau}
 \end{align*}
-\end{equation}
 $$
 
 这里，第一个不等式利用了 $\frac{4l^2}{\lambda} \gt 0$ 的事实对 $\sum_{t=1}^T \delta_t$ 的范围进行概率缩放；

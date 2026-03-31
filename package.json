@@ -1,0 +1,20 @@
+{
+  "name": "key-book",
+  "version": "1.0.0",
+  "description": "钥匙书 KeyBook - 《机器学习理论导引》伴读笔记",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "dependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^2.0.0-alpha.16",
+    "vue": "^3.5.0"
+  }
+}

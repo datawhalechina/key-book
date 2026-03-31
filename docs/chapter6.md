@@ -18,12 +18,10 @@
 
 泛化风险定义为：
 $$
-\begin{equation}
 \begin{align*}
 R(f) &=\mathbb{E}_{(x, y) \sim \mathcal{D}}[\mathbb{I}(y f(x) \leqslant 0)] \\
 &=\mathbb{E}_{x \sim \mathcal{D}_{\mathcal{X}}}[\eta(x) \mathbb{I}(f(x) \leqslant 0)+(1-\eta(x)) \mathbb{I}(f(x) \geqslant 0)]
 \end{align*}
-\end{equation}
 $$
 
 经验风险定义为：
@@ -37,7 +35,6 @@ $$
 
 假设所有样本都是从一个未知的样本-标签空间 $D$ 中独立同分布采样的，对经验风险求期望：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}({\hat R(f)}) &=\mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \frac{1}{m} \sum_{i=1}^{m} \mathbb{I}\left(y_{i} f\left(x_{i}\right) \leqslant 0\right)}] \\
 &= \frac{1}{m} \sum_{i=1}^{m} \mathbb{E}_{(\boldsymbol{x_i}, y_i) \sim \mathcal{D}}[{ \mathbb{I}\left(y_{i} f\left(x_{i}\right) \leqslant 0\right)}]\\
@@ -45,7 +42,6 @@ $$
 &= \frac{1}{m} \sum_{i=1}^{m} R(f)\\
 &= R(f)
 \end{align*}
-\end{equation} 
 $$
 
 ## 6.2 【证明补充】替代函数一致性
@@ -69,7 +65,7 @@ $$
 **122页**介绍了一种将样本空间划分成多个互不相容区域的方法，然后对各区域内的正例和反例分别计数，并以多数类别作为区域中样本的标记。这种方法本质上不同于参数方法，它并不是在参数空间中进行搜索构建划分超平面，而是在泛函空间上直接进行搜索。一个典型的例子是我们熟悉的决策树模型：
 
 <div style="text-align: center;">
-  <img src="images/decision_tree.png" alt="decision_tree" width="300" height="480"/>
+  <img src="./images/decision_tree.png" alt="decision_tree" width="300" height="480"/>
 </div>
 
 每当构造一个决策树的节点时，相当于在样本空间上进行了一次划分（即划分机制）。这种洞察方式同样适用于解释剪枝操作，即通过减少不必要的节点来简化树结构，同时保持或提高模型的性能。
@@ -140,12 +136,10 @@ $$
 
 对于此不等式的右侧，再进行放缩。对于任意 $k \geq 3$，当 $N(x) \leqslant k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2}$，当 $N(x) \gt k$ 时，$\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \leqslant \frac{1}{2\sqrt k}$，从而得到不等式右侧的进一步放缩：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}\left[\sqrt{\frac{\bar{\eta}(x)(1-\bar{\eta}(x))}{N(x)}} \mathbb{I}(N(x)\gt0) \mid x, x_{1}, \ldots, x_{m}\right] &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}} P\left(N(x) \gt k \mid x, x_{1}, \ldots, x_{m}\right)\\
 &\leqslant \frac{1}{2} P\left(N(x) \leqslant k \mid x, x_{1}, \ldots, x_{m}\right)+\frac{1}{2 \sqrt{k}}
 \end{align*}
-\end{equation}
 $$
 
 结合前面的结果，我们可以得出：
@@ -174,11 +168,9 @@ $$
 
 首先，令 $L_j$ 表示区域 $\Omega(x,Z)$ 中第 $j$ 个属性的边长，我们可以得到 $Diam(\Omega(x,Z))$ 与 $L_j$ 的关系：
 $$
-\begin{equation}
 \begin{align*}
 Diam(\Omega(x,Z))&=sup_{x,x'\in\Omega}\|x-x'\| = \sqrt{\sum_{j=1}^dL_j^2}
 \end{align*}
-\end{equation}
 $$
 
 对于 $Diam(\Omega(x,Z))$ 求期望时，我们得到：
@@ -208,7 +200,6 @@ $$
 
 令 $T_m$ 表示区域 $\Omega(x,Z)$ 被划分的次数，结合（6.98）及划分点的独立性，我们可以得到：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}(L_j)&\le\mathbb{E}[\mathbb{E}_{K_j}[\prod_{i=1}^{K_j}max(U_i,1-U_i)]]\\
 &=\mathbb{E}[(\mathbb{E}[max(U_1,1-U_1)])^{K_j}]\\
@@ -219,7 +210,6 @@ $$
 &=(1-\frac{1}{d}+\frac{3}{4d})^{T_m}\\
 &=(1-\frac{1}{4d})^{T_m}
 \end{align*}
-\end{equation}
 $$
 
 此时，只需证明当 $k\rightarrow\infty$ 时 $T_m\rightarrow\infty$，便可证明 $\mathbb{E}(L_j)\rightarrow 0$。

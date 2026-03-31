@@ -20,22 +20,18 @@ $$
 
 设 $p(x)$ 为 $X$ 的概率密度函数。由 Taylor 展开式及 $f$ 的凸性，可知 $\exists \xi$ 使得：
 $$
-\begin{equation}
 \begin{align*}
 f(x) &= f(\mathbb{E}[X]) + f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X]) + \frac{f^{\prime \prime}(\xi)}{2}(x-\mathbb{E}[X])^{2} \\
 & \geq f(\mathbb{E}[X]) + f^{\prime}(\mathbb{E}[X])(x-\mathbb{E}[X])
 \end{align*}
-\end{equation}
 $$
 对上式取期望，得到：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}[f(X)] &= \int p(x) f(x) \,dx \\
 &\geq f(\mathbb{E}[X]) \int p(x) \,dx + f^{\prime}(\mathbb{E}[X]) \int p(x)(x-\mathbb{E}[X]) \,dx \\
 &= f(\mathbb{E}[X])
 \end{align*}
-\end{equation}
 $$
 因此，原不等式得证。
 
@@ -75,14 +71,12 @@ MN \leq \frac{1}{p}M^p + \frac{1}{q}N^q
 $$
 对该不等式两边同时取期望：
 $$
-\begin{equation}
 \begin{align*}
 \frac{\mathbb{E}[|XY|]}{(\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|Y|^q])^{\frac{1}{q}}} &= \frac{\int_{XY} |xy| f(x)g(y) \,dx\,dy}{(\int_X |x|^p f(x) \,dx)^{\frac{1}{p}} (\int_Y |y|^q g(y) \,dy)^{\frac{1}{q}}} \\
 &\leq \frac{\int_X |x|^p f(x) \,dx}{p \int_X |x|^p f(x) \,dx} + \frac{\int_Y |y|^q g(y) \,dy}{q \int_Y |y|^q g(y) \,dy} \\
 &= \frac{1}{p} + \frac{1}{q} \\
 &= 1
 \end{align*}
-\end{equation}
 $$
 因此，Hölder 不等式得证。$\square$
   
@@ -113,13 +107,11 @@ $$
 由 Hölder 不等式：
 对任意 $p \geq 1$，有：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}[|X|^{r}] &= \mathbb{E}[|X \cdot 1|^{r}] \\
 &\leq (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}} \cdot (\mathbb{E}[1^q])^{\frac{1}{q}} \\
 &= (\mathbb{E}[|X|^{rp}])^{\frac{1}{p}}
 \end{align*}
-\end{equation}
 $$
 记 $s = rp \geq r$，则：
 $$
@@ -144,14 +136,12 @@ $$
 
 由三角不等式和 Hölder 不等式，可得：
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{E}[|X+Y|^p] &\leq \mathbb{E}[(|X|+|Y|)|X+Y|^{p-1}] \\
 &= \mathbb{E}[|X\|X+Y|^{p-1}] + \mathbb{E}[|Y\|X+Y|^{p-1}] \\
 &\leq (\mathbb{E}[|X|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} + (\mathbb{E}[|Y|^p])^{\frac{1}{p}} (\mathbb{E}[|X+Y|^{(p-1)q}])^{\frac{1}{q}} \\
 &= [(\mathbb{E}[|X|^p])^{\frac{1}{p}} + (\mathbb{E}[|Y|^p])^{\frac{1}{p}}] \cdot \frac{\mathbb{E}[|X+Y|^p]}{(\mathbb{E}[|X+Y|^p])^{\frac{1}{p}}}
 \end{align*}
-\end{equation}
 $$
 化简后即得证。$\square$
 
@@ -170,22 +160,18 @@ $$
 
 因为 $a \leq X \leq b$，所以有：
 $$
-\begin{equation}
 \begin{align*}
 0 &\leq \mathbb{E}[(b-X)(X-a)] \\
 &= -\mathbb{E}[X^2] - ab + (a+b)\mathbb{E}[X]
 \end{align*}
-\end{equation}
 $$
 因此，
 $$
-\begin{equation}
 \begin{align*}
 \mathbb{V}[X] &= \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\
 &\leq -ab + (a+b)\mathbb{E}[X] - \mathbb{E}[X^2] \\
 &= (b - \mathbb{E}[X])(\mathbb{E}[X] - a)
 \end{align*}
-\end{equation}
 $$
 
 考虑 AM-GM 不等式：
@@ -274,14 +260,12 @@ $$
 
 设 $Y = X - \mathbb{E}[X]$，则对于任意 $\lambda \geq 0$，有：
 $$
-\begin{equation}
 \begin{align*}
 P(X-\mathbb{E}[X] \geq \varepsilon) &= P(Y \geq \varepsilon) \\
 &= P(Y+\lambda \geq \varepsilon+\lambda) \\
 &= P((Y+\lambda)^{2} \geq (\varepsilon+\lambda)^{2}) \\
 &\leq \frac{\mathbb{E}[(Y+\lambda)^{2}]}{(\varepsilon+\lambda)^{2}} = \frac{\mathbb{V}[X]+\lambda^{2}}{(\varepsilon+\lambda)^{2}}
 \end{align*}
-\end{equation}
 $$
 通过对 $\lambda$ 求导，得右端在 $\lambda = \frac{\mathbb{V}[X]}{\varepsilon}$ 时取得最小值 $\frac{\mathbb{V}[X]}{\mathbb{V}[X]+\varepsilon^{2}}$，因此：
 $$
@@ -367,12 +351,10 @@ $$
 
 对于 $m$ 个独立同分布的随机变量 $x_i \in [0, 1], i \in [m]$，设 $X = \sum_{i=1}^m X_i$，$\mu \gt 0$ 且 $r \leq 1$。若对所有 $i \leq m$ 都有 $\mathbb{E}[x_i] \leq \mu$，则：
 $$
-\begin{equation}
 \begin{align*}
 P(X \geq (1+r)\mu m) \leq e^{-\frac{r^2 \mu m}{3}}, \quad r \geq 0 \\
 P(X \leq (1-r)\mu m) \leq e^{-\frac{r^2 \mu m}{2}}, \quad r \geq 0
 \end{align*}
-\end{equation}
 $$
 
 ### 证明
@@ -422,14 +404,12 @@ $$
 
 根据 Chernoff 不等式，有：
 $$
-\begin{equation}
 \begin{align*}
 P(X - \mathbb{E}X \geq \varepsilon) &\leq \inf_{\lambda \geq 0} e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(X-\mathbb{E}X)}] \\
 &\leq \inf_{\lambda \geq 0} e^{\phi(\lambda) - \lambda \varepsilon} \\
 &= e^{-\sup_{\lambda \geq 0}(\lambda \varepsilon - \phi(\lambda))} \\
 &= e^{-\phi^*(\varepsilon)}
 \end{align*}
-\end{equation}
 $$
 因此，最优 Chernoff 界得证。$\square$
 
@@ -632,23 +612,19 @@ $$
 $$
 因此，由恒等式 $\mathbb{E}[\mathbb{E}[X \mid Y]] = \mathbb{E}[X]$ 及 Chernoff 一般性技巧，对于任意 $\lambda \gt 0$：
 $$
-\begin{equation}
 \begin{align*}
 P(Z_{m}-\mu \geq \varepsilon) &\geq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m}-\mu)}] \\
 & = e^{-\lambda \varepsilon} \mathbb{E}[\mathbb{E}[e^{\lambda(Z_{m}-\mu)} \mid \mathcal{F}_{m-1}]] \\
 & = e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}\mathbb{E}[e^{\lambda (Z_{m}-Z_{m-1})} \mid \mathcal{F}_{m-1}]]
 \end{align*}
-\end{equation}
 $$
 
 由于 $\{X_{i}\}$ 是鞅差序列，因此 $\mathbb{E}[X_{m} \mid \mathcal{F}_{m-1}] = 0, \mathbb{E}[X_{i}] = 0$。再结合不等式 $\mathbb{E}[e^{\lambda X} \mid Y] \leq \mathbb{E}[e^{\lambda X}]$ 及 Hoeffding 引理，有：
 $$
-\begin{equation}
 \begin{align*}
 P(Z_{m}-\mu \geq \varepsilon) & \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \mathbb{E}[e^{\lambda X_{n}}] \\
 & \leq e^{-\lambda \varepsilon} \mathbb{E}[e^{\lambda(Z_{m-1}-\mu)}] \exp (\frac{\lambda^{2} c_{m}^{2}}{2})
 \end{align*}
-\end{equation}
 $$
 迭代上不等式可得：
 $$
@@ -978,12 +954,10 @@ $\square$
 
 对于均值为 $Z_0 = \mu$ 的鞅差序列 $\{Z_m, m \geq 1\}$，若 $|Z_i - Z_{i-1}| \leq c_i$，其中$c_i \gt 0$为已知常数，则对于任意 $\varepsilon \gt 0$，有：
 $$
-\begin{equation}
 \begin{align*}
 P(Z_{m} - \mu \geq \varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}}) \\
 P(Z_{m} - \mu \leq -\varepsilon) &\leq \exp(-\frac{\varepsilon^{2}}{2\sum_{i=1}^{m} c_{i}^{2}})
 \end{align*}
-\end{equation}
 $$
 
 ### 证明
@@ -1118,12 +1092,10 @@ $$
 
 二项随机变量 $X$ 表示在 $m$ 次独立伯努利试验中成功的次数，成功概率为 $p$。对于大的 $m$，二项分布 $B(m,p)$ 可以近似为均值 $\mu=mp$ 和方差 $\sigma^2=mp(1-p)$ 的正态分布：
 $$
-\begin{equation}
 \begin{align*}
 \mu &= \frac{m(1-\varepsilon)}{2} \\
 \sigma^2 &= \frac{m(1-\varepsilon^2)}{4}
 \end{align*}
-\end{equation}
 $$
 令 $Z=\frac{X-\mu}{\sigma}$，代入 $\mu$ 和 $\sigma$，有：
 $$
@@ -1227,13 +1199,11 @@ R_0 = \{(x,y):\pi(x^2+y^2)\leq 4u^2\}
 $$
 此时，有：
 $$
-\begin{equation}
 \begin{align*}
 2\pi[2G(u)]^2 &\leq \iint_{R_0} e^{-(x^2+y^2)/2}\,dx\,dy \\
 &=\int_0^{2\pi}\int_0^{2u\pi^{-1/2}} e^{-r^2/2}r\,dr\,d\varphi \\
 &= 2\pi(1-e^{-2u^2/\pi})
 \end{align*}
-\end{equation}
 $$
 因此，有：
 $$
@@ -1282,12 +1252,10 @@ $$
 $$
 即：
 $$
-\begin{equation}
 \begin{align*}
 \ln(\frac{1}{n}\sum_{i=1}^n x_i) &\geq \frac{1}{n}\sum_{i=1}^n \ln x_i = \ln(\sqrt[n]{\prod_{i=1}^n x_i}) \\
 \Rightarrow \frac{1}{n}\sum_{i=1}^n x_i &\geq \sqrt[n]{\prod_{i=1}^n x_i}
 \end{align*}
-\end{equation}
 $$
 当取 $x_1 = x_2 = \cdots = x_n$ 时，等号成立。特别地，当 $n=2$ 时，我们有：
 $$
@@ -1313,13 +1281,11 @@ $$
 
 我们可以通过 Jensen 不等式来证明 Young 不等式。首先，当 $ab = 0$ 时，该不等式显然成立。当 $a, b \gt 0$ 时，我们令 $t = 1/p, 1-t = 1/q$，根据 $\ln(x)$ 的凹性，我们有：
 $$
-\begin{equation}
 \begin{align*}
 \ln(t a^p + (1-t) b^q) &\geq t\ln(a^p) + (1-t)\ln(b^q) \\
 &= \ln(a) + \ln(b) \\
 &= \ln(ab)
 \end{align*}
-\end{equation}
 $$
 当且仅当 $a^p = b^q$ 时，等号成立。$\square$
 
@@ -1423,14 +1389,12 @@ $$
 $$
 如果我们将我们正在考虑的级数定义的函数记为 $g(x)$，我们得到：
 $$
-\begin{equation}
 \begin{align*}
 (1 + x) \frac{d}{dx} g(x) &= \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^{k-1} + \sum_{k=1}^\infty (r-(k-1)) \binom{r}{k-1} x^k \\
 &= r + \sum_{k=1}^\infty ( (r-k) \binom{r}{k} + (r-(k-1)) \binom{r}{k-1} ) x^k \\
 &= r + r \sum_{k=1}^\infty \binom{r}{k} x^k \\
 &= r g(x),
 \end{align*}
-\end{equation}
 $$
 上式的推导使用了前述引理。
 
@@ -1478,13 +1442,11 @@ $$
 $$
 其中：
 $$
-\begin{equation}
 \begin{align*}
 A_p &= \int_{p}^{p+1} \ln x \, dx \\
 b_p &= \frac{1}{2} [\ln(p+1) - \ln(p)] \\
 \varepsilon_p &= \int_{p}^{p+1} \ln x \, dx - \frac{1}{2} [\ln(p+1) + \ln(p)]
 \end{align*}
-\end{equation}
 $$
 此时：
 $$
@@ -1655,7 +1617,7 @@ $$
 令 $a \in A$ 和 $b \in B$ 是任意一对点，并令 $r_1 = \|b - a\|$。由于 $A$ 是紧致的，它被包含在以 $a$ 为中心的一些球中，设该球的半径为 $r_2$。令 $S = B \cap \overline{B_{r_1 + r_2}(a)}$ 为 $B$ 与以 $a$ 为中心、半径为 $r_1 + r_2$ 的闭球的交集。那么 $S$ 是紧致且非空的，因为它包含 $b$。由于距离函数是连续的，存在点 $a_0$ 和 $b_0$ 使得 $\|a_0 - b_0\|$ 在所有 $A \times S$ 的点对中取最小值。现在要证明 $a_0$ 和 $b_0$ 实际上在所有 $A \times B$ 的点对中具有最小距离。假设存在点 $a'$ 和 $b'$ 使得 $\|a' - b'\| \lt \|a_0 - b_0\|$。则特别地，$\|a' - b'\| \lt r_1$，并且根据三角不等式，$\|a - b'\| \leq \|a - a'\| + \|a' - b'\| \lt r_1 + r_2$。因此 $b'$ 包含在 $S$ 中，这与 $a_0$ 和 $b_0$ 在 $A \times S$ 中的最小距离相矛盾。
 
 <div style="text-align: center;">
-  <img src="images/separating_hyperplane_theorem.png" alt="separating_hyperplane_theorem" width="400" height="300"/>
+  <img src="./images/separating_hyperplane_theorem.png" alt="separating_hyperplane_theorem" width="400" height="300"/>
 </div>
 
 不失一般性地，假设 $A$ 是紧致的。根据引理，存在点 $a_0 \in A$ 和 $b_0 \in B$ 使得它们之间的距离最小。由于 $A$ 和 $B$ 是不相交的，我们有 $a_0 \neq b_0$。现在，构造两条与线段 $[a_0, b_0]$ 垂直的超平面 $L_A, L_B$，其中 $L_A$ 穿过 $a_0$，$L_B$ 穿过 $b_0$。我们声称 $A$ 和 $B$ 都没有进入 $L_A, L_B$ 之间的空间，因此与 $(a_0, b_0)$ 垂直的超平面满足定理的要求。

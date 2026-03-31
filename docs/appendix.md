@@ -76,13 +76,11 @@ $$
 $$
 根据 Cauchy-Schwarz 不等式，有：
 $$
-\begin{equation}
 \begin{align*}
 &\|y-y'\|_2^2 \leq \langle x-x',y-y'\rangle \leq \|x-x'\|_2\,\|y-y'\|_2\\
 \Rightarrow &\|y-y'\|_2 \leq \|x-x'\|_2 \\
 \Rightarrow &\|\Pi(x) - \Pi(x')\|_2 \leq \|x-x'\|_2
 \end{align*}
-\end{equation}
 $$
 
 这种投影映射经常用于凸优化中，因为它能将问题简化为凸优化问题，从而提高算法效率，并在许多情况下保证全局最优解。
@@ -186,21 +184,17 @@ $$
 
 根据强凸函数的定义，取 $x = w$，$y = w^*$，然后两边除以 $\alpha$，可得：
 $$
-\begin{equation}
 \begin{align*}
 &\frac{f(\alpha w + (1-\alpha)w^*)}{\alpha} \leq f(w) + \frac{1-\alpha}{\alpha}f(w^*) - \frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \\
 \Rightarrow &\frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \leq f(w) - f(w^*) - \frac{f(w^* + (w-w^*)\alpha) - f(w^*)}{\alpha}
 \end{align*}
-\end{equation}
 $$
 令 $\alpha \rightarrow 0^+$，则有：
 $$
-\begin{equation}
 \begin{align*}
 &\lim_{\alpha\rightarrow 0^+}\frac{\lambda}{2}(1-\alpha)\|w-w^*\|_2^2 \leq f(w) - f(w^*) + \lim_{\alpha\rightarrow 0^+}\frac{f(w^* + (w-w^*)\alpha) - f(w^*)}{\alpha} \\
 \Rightarrow &\frac{\lambda}{2}\|w-w^*\|_2^2 \leq f(w) - f(w^*) + \nabla f(w^*)^T(w-w^*)
 \end{align*}
-\end{equation}
 $$
 其中 $\Delta = (w-w^*)\alpha$。
 
@@ -233,13 +227,11 @@ $$
 
 一般形式的凸优化问题可以表示为：
 $$
-\begin{equation}
 \begin{align*}
 &\min\ &f_0(x) \\
 &s.t.\ &f_i(x) \leq 0, &i\in[m] \\
 &\ &g_j(x) = 0, &j\in[n]
 \end{align*}
-\end{equation}
 $$
 其中，$f_0(x)$ 是凸目标函数，$f_i(x)$ 是凸不等式约束条件，$g_j(x)$ 是仿射等式约束条件。
 
@@ -267,12 +259,10 @@ f(x^* + \alpha(y-x^*)) = f((1-\alpha)x^* + \alpha y) \leq (1-\alpha)f(x^*) + \al
 $$
 结合以上两式，可得：
 $$
-\begin{equation}
 \begin{align*}
 &f(x^*) \leq (1-\alpha)f(x^*) + \alpha f(y) \\
 rightarrow &f(x^*) \leq f(y)
 \end{align*}
-\end{equation}
 $$
 由于 $y$ 是凸集合 $\mathcal{D}$ 中的任意点，故 $x^*$ 为全局最优解。对于 $f(x)$ 的全局最大解，可以通过考虑函数 $-f(x)$ 的局部最优解得到类似的结论。
 
@@ -318,11 +308,9 @@ $$
 
 存在一点 $x\in \text{relint}(D)$，该点称为 Slater 向量，有：
 $$
-\begin{equation}
 \begin{align*}
 f_i(x) \lt 0, &\quad i\in[m]
 \end{align*}
-\end{equation}
 $$
 其中，$D = \bigcap_0^m \text{dom}(f_i)$，$relint(D)$ 为 $D$ 的相对内部，即其仿射包的内部所有点，即 $relint(D) = \text{int}(aff(D))$。
 
@@ -400,13 +388,11 @@ $$
 
 接着证明对偶问题最优解集合非空且有界。对于任意对偶最优解 $\tilde\lambda\succeq 0$，有：
 $$
-\begin{equation}
 \begin{align*}
 d^* = g(\tilde\lambda) &= \inf_{x} \{f_0(x) + \sum_{i=1}^m \tilde\lambda_i f_i(x)\} \\
 &\leq f_0(\bar{x}) + \sum_{i=1}^m \tilde\lambda_i f_i(\bar{x}) \\
 &\leq f_0(\bar{x}) + \max_{i\in[m]}\{f_i(\bar{x})\}[\sum_{i=1}^m \tilde\lambda_i]
 \end{align*}
-\end{equation}
 $$
 因此，有：
 $$
@@ -514,12 +500,10 @@ $$
 
 1. 若函数 $f(x)$ 的导数有界，即存在常数 $L \ge 0$，使得对于任意 $x$，有 $|f'(x)| \leq L$。根据微分中值定理，对于任意 $x \le y$，存在 $c \in [x,y]$，使得：
 $$
-\begin{equation}
 \begin{align*}
 &\|f(x)-f(y)\|_2 = \|f'(c)\|_2\|x-y\|_2 \\
 \Rightarrow &\|f(x)-f(y)\|_2 \le L \|x-y\|_2
 \end{align*}
-\end{equation}
 $$
 此时，函数是 $L-Lipschitz$ 连续的。
 
@@ -682,12 +666,10 @@ $$
 
 线性泛函（linear functional）是指从向量空间 $V$ 到对应标量域 $k$ 的线性映射，满足加法和数乘的性质，即对于任意向量 $x,y \in V$ 和标量 $\alpha \in k$，有：
 $$
-\begin{equation}
 \begin{align*}
 &f(x+y) = f(x) + f(y) \\
 &f(\alpha x) = \alpha f(x)
 \end{align*}
-\end{equation}
 $$
 所有从 $V$ 到 $k$ 的线性泛函构成的集合称为 $V$ 的对偶空间（dual space），记为 $V^* = \text{Hom}_k(V,k)$，对偶空间中的元素称为对偶向量。
 
@@ -720,13 +702,11 @@ $$
 
 1. **凸性**：函数 $f(x)$ 的共轭函数 $f^*(y)$ 一定是凸函数。证明如下：
 $$
-\begin{equation}
 \begin{align*}
 f^*(\lambda y_1+(1-\lambda)y_2) &= \sup_{x\in \text{dom}(f)}\{x^T(\lambda y_1+(1-\lambda)y_2)-f(x)\}\\
 &\leq \lambda \sup_{x\in \text{dom}(f)}\{x^T y_1 - f(x)\} + (1-\lambda)\sup_{x\in \text{dom}(f)}\{x^T y_2 - f(x)\}\\
 &= \lambda f^*(y_1) + (1-\lambda)f^*(y_2)
 \end{align*}
-\end{equation}
 $$
 其中的不等式利用了凸性的性质。
 

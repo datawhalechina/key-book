@@ -1,5 +1,8 @@
-
+node_modules
+.DS_Store
 .omc
 .venv
-.DS_Store
 preview.*
+docs/.vitepress/dist
+docs/.vitepress/cache
+easy-vibe
