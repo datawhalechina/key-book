@@ -2,8 +2,6 @@
 
 <img width="900" height="1600" alt="钥匙书封面" src="./docs/images/preface.jpg" />
 
-<p align="center"><em>理论是那扇紧锁的门，证明是唯一的钥匙。<br>翻开这本书，为每一个定理找到属于它的那把钥匙。</em></p>
-
 # 钥匙书 Key-book 🔑
 
 <p align="center"><em>《机器学习理论导引》伴读笔记：概念解释 · 证明补充 · 案例分享</em></p>
