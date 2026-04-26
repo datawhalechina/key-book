@@ -4,9 +4,6 @@ hero:
   name: 钥匙书 KeyBook
   text: 《机器学习理论导引》伴读笔记
   tagline: 概念解释 · 证明补充 · 案例分享
-  image:
-    src: /images/preface.jpg
-    alt: 钥匙书封面
   actions:
     - theme: brand
       text: 开始阅读
