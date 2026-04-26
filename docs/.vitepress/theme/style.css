@@ -82,5 +82,5 @@
 }
 
 .VPHomeHero .text {
-  white-space: nowrap;
+  max-width: none;
 }
