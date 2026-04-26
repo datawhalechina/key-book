@@ -80,3 +80,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.VPHomeHero .text {
+  max-width: none;
+}
