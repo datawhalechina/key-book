@@ -20,6 +20,7 @@
   "overrides": {
     "nanoid": "^3.3.18",
     "vite": "^7.3.6",
-    "postcss": "^8.5.18"
+    "postcss": "^8.5.18",
+    "@xmldom/xmldom": "^0.9.12"
   }
 }
